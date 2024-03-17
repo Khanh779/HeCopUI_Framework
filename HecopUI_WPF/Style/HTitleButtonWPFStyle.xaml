@@ -1,0 +1,91 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HecopUI_WPF.Controls">
+
+    <Style TargetType="{x:Type controls:HTitleButtonWPF}">
+        <Setter Property="Foreground" Value="#FFE8E8E8"/>
+        <Setter Property="Background" Value="DodgerBlue"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="200"/>
+        <Setter Property="OverForeground" Value="White"/>
+        <Setter Property="SubForeground" Value="#FFC3C3C3"/>
+        <Setter Property="PressedSubForeground" Value="#FFB1B1B1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:HTitleButtonWPF}">
+                    <Border Padding="3" x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid>
+                            <StackPanel Margin="{TemplateBinding ContentMargin}" x:Name="Area" Orientation="{TemplateBinding Orientation}" 
+                                        FlowDirection="{TemplateBinding FlowDirection}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" >
+                                <Border Padding="3" 
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" x:Name="IconImage" >
+                                    <Image Stretch="Fill" Source="{TemplateBinding ImagePath}" Width="{TemplateBinding ImageWidth}" Height="{TemplateBinding ImageHeight}" />
+                                </Border >
+                                <Grid Margin="{TemplateBinding TextMargin}" x:Name="TextArea">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Margin="0,0,0,0" VerticalAlignment="Top" x:Name="CaptionTextBlock" Foreground="{TemplateBinding Foreground}" 
+                                        Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Content}" Grid.Column="0" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" />
+                                    <TextBlock VerticalAlignment="Top" Grid.Row="1" Margin="0,0,0,0" x:Name="SubTextBlock" Foreground="{TemplateBinding SubForeground}" Text="{TemplateBinding SubContent}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Grid.Column="0"/>
+                                    <ContentPresenter></ContentPresenter>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HorizontalContentAlignment" Value="Center">
+                            <Setter TargetName="CaptionTextBlock" Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter TargetName="SubTextBlock" Property="TextBlock.TextAlignment" Value="Center" />
+                        </Trigger>
+                        <Trigger Property="HorizontalContentAlignment" Value="Left">
+                            <!--<Setter TargetName="BtnText" Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ActualWidth}" />-->
+                            <Setter TargetName="CaptionTextBlock" Property="TextBlock.TextAlignment" Value="Left" />
+                            <Setter TargetName="SubTextBlock" Property="TextBlock.TextAlignment" Value="Left" />
+                        </Trigger>
+                        <Trigger Property="HorizontalContentAlignment" Value="Right">
+                            <!--<Setter TargetName="BtnText" Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ActualWidth}" />-->
+                            <Setter TargetName="CaptionTextBlock" Property="TextBlock.TextAlignment" Value="Right" />
+                            <Setter TargetName="SubTextBlock" Property="TextBlock.TextAlignment" Value="Right" />
+                        </Trigger>
+                        <Trigger Property="HorizontalContentAlignment" Value="Stretch">
+                            <Setter TargetName="CaptionTextBlock" Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter TargetName="SubTextBlock" Property="TextBlock.TextAlignment" Value="Center" />
+                        </Trigger>
+                        <Trigger Property="ShowSubContent" Value="False">
+                            <Setter TargetName="SubTextBlock" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IminWidth" Value="True">
+                            <Setter TargetName="IconImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="IminHeight" Value="True">
+                            <Setter TargetName="IconImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CaptionTextBlock" Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=OverForeground}" />
+                            <Setter TargetName="SubTextBlock" Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=OverSubForeground}" />
+                            <Setter TargetName="ButtonBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=MouseOverBackground}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="CaptionTextBlock" Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=PressedForeground}" />
+                            <Setter TargetName="SubTextBlock" Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=PressedSubForeground}" />
+                            <Setter TargetName="ButtonBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=PressedBackground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

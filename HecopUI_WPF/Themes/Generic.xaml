@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HButtonWPFStyle.xaml"/>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HWindowWPFStyle.xaml"/>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HCheckBoxWPFStyle.xaml"/>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HScrollBarWPFStyle.xaml"/>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HTitleButtonWPFStyle.xaml"/>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HTextBoxWPFStyle.xaml"/>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HTabControlWPFStyle.xaml"/>
+        <ResourceDictionary Source="/HecopUI_WPF;component/Style/HTreeViewWPFStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

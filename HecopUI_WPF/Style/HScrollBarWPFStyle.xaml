@@ -1,0 +1,139 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:thum="clr-namespace:HecopUI_WPF.Model"
+                    xmlns:controls="clr-namespace:HecopUI_WPF.Controls"
+                    >
+
+
+    <Style x:Key="Thumbx" 
+       TargetType="{x:Type thum:HThumbMod}">
+        <Setter Property="SnapsToDevicePixels"
+            Value="True" />
+        <Setter Property="OverridesDefaultStyle"
+            Value="true" />
+        <Setter Property="IsTabStop"
+            Value="false" />
+        <Setter Property="Focusable"
+            Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type thum:HThumbMod}">
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="0"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Margin="1" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type controls:HScrollBarWPF}">
+        <Setter Property="Background" Value="#FFE0E0E0"/>
+        <Setter Property="BorderBrush" Value="#FFBDBDBD"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:HScrollBarWPF}">
+                    <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid>
+                            <Track x:Name="PART_Track" 
+                                       IsDirectionReversed="True"
+                                       Focusable="false">
+                                <Track.Thumb>
+                                    <!--<Thumb Background="DodgerBlue" Style="{StaticResource Thumbx}"
+                                               Margin="1"
+                                               BorderBrush="DarkGray"
+                                               BorderThickness="1"
+                                             />-->
+                                    <thum:HThumbMod x:Name="asf" Background="{TemplateBinding ThumbBackgroundBrush}" Style="{StaticResource Thumbx}"
+                                               Margin="0.4" Opacity="0.5" CornerRadius="{TemplateBinding ThumbCornerRadius}"
+                                               BorderBrush="{TemplateBinding ThumbBorderBrush}"
+                                               BorderThickness="1"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="asf" Storyboard.TargetProperty="Opacity" />
+                                 
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="0.8" Duration="0:0:0.3" Storyboard.TargetName="asf" Storyboard.TargetProperty="Opacity" />
+                                  
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type controls:HScrollViewerWPF}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:HScrollViewerWPF}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ScrollContentPresenter Grid.Column="0" />
+                        <controls:HScrollBarWPF x:Name="PART_VerticalScrollBar"
+                               Grid.Row="0"
+                               Grid.Column="1" Opacity="0.8" Width="12"
+                               Value="{TemplateBinding VerticalOffset}"
+                               Maximum="{TemplateBinding ScrollableHeight}"
+                               ViewportSize="{TemplateBinding ViewportHeight}"
+                               Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+                        <controls:HScrollBarWPF x:Name="PART_HorizontalScrollBar"
+                               Orientation="Horizontal" Opacity="0.8" Height="12"
+                               Grid.Row="1"
+                               Grid.Column="0" 
+                               Value="{TemplateBinding HorizontalOffset}"
+                               Maximum="{TemplateBinding ScrollableWidth}"
+                               ViewportSize="{TemplateBinding ViewportWidth}"
+                               Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                       
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                    <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="0.5" Duration="0:0:0.3" Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                    <DoubleAnimation To="0.5" Duration="0:0:0.3" Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

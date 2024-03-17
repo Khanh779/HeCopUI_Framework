@@ -1,0 +1,74 @@
+﻿<windows:HWindow  xmlns:windows="clr-namespace:HecopUI_WPF.Windows;assembly=HecopUI_WPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HecopWPF_Test"
+        xmlns:Controls="clr-namespace:HecopUI_WPF.Controls;assembly=HecopUI_WPF" xmlns:Model="clr-namespace:HecopUI_WPF.Model;assembly=HecopUI_WPF" x:Class="HecopWPF_Test.MainWindow"
+        mc:Ignorable="d" Icon="/HecopUI_WPF;component/hinh-nen-windows-10-dep_100823819.jpg"
+        Title="MainWindow" Height="610" Width="1040" Background="#FFF1F1F1" WindowStartupLocation="CenterScreen" CaptionBrush="White" BorderBrush="#FF0C0C0C" CaptionForeBrush="#FF636363">
+
+    <Grid >
+        <Controls:HTabControlWPF BorderBrush="Gray" BorderThickness="0" IsTabStop="True" Margin="10" TabStripPlacement="Top" >
+            <TabItem Grid.IsSharedSizeScope="True" Height="50">
+                <TabItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Margin="2,0,2,0" Grid.Column="0" Source="./wpfui_full.png" ClipToBounds="True" ></Image>
+                        <TextBlock Margin="2,0 0 0" Grid.Column="1" TextWrapping="Wrap">Trang chủ Bkav</TextBlock>
+                    </Grid>
+                </TabItem.Header>
+                <ContentControl>
+                    <Grid Height="Auto" Background="#FFE5E5E5">
+                        <TextBlock Margin="200,200,492,282">Máy tính của bạn đang được bảo vệ!</TextBlock>
+                        <Button Margin="178,299,591,170" Click="Button_Click">Ấn vô đây</Button>
+                        <Button Margin="319,395,450,75" Click="Button_Click" Content="Ấn vô đây"/>
+                    </Grid>
+                </ContentControl>
+            </TabItem>
+            <TabItem Grid.IsSharedSizeScope="True" Header="Quét virus" >
+                <Grid Background="#FFE5E5E5">
+                    <TreeView Width="400" Height="300">
+                        <!-- Root Node -->
+                        <TreeViewItem Header="Root" >
+                            <!-- Child Nodes -->
+                            <TreeViewItem Header="Child 1">
+                                <!-- Grandchild Nodes -->
+                                <TreeViewItem Header="Grandchild 1">
+                                    <TreeViewItem Header="Tuyết Nhi Dễ Thương">
+
+                                    </TreeViewItem>
+                                </TreeViewItem>
+                                <TreeViewItem Header="Grandchild 2"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Child 2"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Root 2">
+                            <TreeViewItem Header="Child 3"/>
+                            <TreeViewItem Header="Child 4"/>
+                        </TreeViewItem>
+                    </TreeView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Cập nhật">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Nhật kí">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Cách ly">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Thiết lập">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Giới thiệu chương trình">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </Controls:HTabControlWPF>
+
+    </Grid>
+</windows:HWindow>
