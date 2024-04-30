@@ -229,8 +229,8 @@ namespace HeCopUI_Framework.Controls
 
             using (var checkmarkPath = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(6f, 6, 15, 15), 0))
             using (SolidBrush BG = new SolidBrush(Enabled ? Checked ? EnabledCheckedColor : EnabledUnCheckedColor : DisabledColor))
-            using (Pen Pen = new Pen(BG.Color, 2) { Alignment = PenAlignment.Inset })
-            using (var checkb = new LinearGradientBrush(new Rectangle(0, 0, 14, 14), checkboxc1, checkboxc2, linear))
+            using (Pen Pen = new Pen(BG.Color, 1) { Alignment = PenAlignment.Inset })
+            using (var checkb = new LinearGradientBrush(new Rectangle(0, 0, checkBoxSize, checkBoxSize), checkboxc1, checkboxc2, linear))
             using (var ripplebac = new SolidBrush(Color.FromArgb(RippleAlpha, RippleColor)))
             using (var penfoc = new Pen(new SolidBrush(fbc), 1f) { Alignment = PenAlignment.Inset, DashStyle = dashStyle })
             {
@@ -370,9 +370,11 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
+        int checkBoxSize = 16;
+
         private Bitmap CheckMarkBitmap()
         {
-            var checkMark = new Bitmap(14, 14);
+            var checkMark = new Bitmap(checkBoxSize, checkBoxSize);
             checkMark.MakeTransparent();
             var g = Graphics.FromImage(checkMark);
             g.SmoothingMode = SmoothingMode.HighQuality;
