@@ -30,13 +30,15 @@ namespace HeCopUI_Framework.Struct
             _all = true;
             _topLeft = _topRight = _bottomLeft = _bottomRight = all;
             Debug_SanityCheck();
+
         }
 
-        public CornerRadius(float all, float offset)
+      
+        public CornerRadius(float all, float offset) :this(all-offset)
         {
-            _all = true;
-            _topLeft = _topRight = _bottomLeft = _bottomRight = all-offset;
-            Debug_SanityCheck();
+            //_all = true;
+            //_topLeft = _topRight = _bottomLeft = _bottomRight = all-offset;
+            //Debug_SanityCheck();
         }
 
         public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight)
@@ -49,14 +51,15 @@ namespace HeCopUI_Framework.Struct
             Debug_SanityCheck();
         }
 
-        public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight, float offset)
+        public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight, float offset): this(topLeft-offset, topRight-offset, bottomLeft-offset, bottomRight-offset)
         {
-            _topLeft = topLeft - offset;
-            _topRight = topRight - offset;
-            _bottomLeft = bottomLeft - offset;
-            _bottomRight = bottomRight - offset;
-            _all = _topLeft == _topRight && _topLeft == _bottomLeft && _topLeft == _bottomRight;
-            Debug_SanityCheck();
+            //_topLeft = topLeft - offset;
+            //_topRight = topRight - offset;
+            //_bottomLeft = bottomLeft - offset;
+            //_bottomRight = bottomRight - offset;
+            //_all = _topLeft == _topRight && _topLeft == _bottomLeft && _topLeft == _bottomRight;
+            //Debug_SanityCheck();
+        
         }
 
         public CornerRadius(CornerRadius radius, float offset=0)
