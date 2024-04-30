@@ -1,4 +1,4 @@
-﻿using HeCopUI_Framework.Shapes.Circular;
+﻿using HeCopUI_Framework.Struct;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;

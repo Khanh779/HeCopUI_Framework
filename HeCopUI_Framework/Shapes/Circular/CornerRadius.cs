@@ -8,11 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeCopUI_Framework.Shapes.Circular
+namespace HeCopUI_Framework.Struct
 {
     [Serializable]
     [TypeConverter(typeof(CornerRadiusConverter))]
-    //[ComVisible(true)]
     public struct CornerRadius
     {
         private bool _all;      // Do NOT rename (binary serialization).
@@ -158,8 +157,8 @@ namespace HeCopUI_Framework.Shapes.Circular
 
         public override string ToString()
         {
-            return "{Left=" + TopLeft.ToString(CultureInfo.CurrentCulture) + ",Top=" + TopRight.ToString(CultureInfo.CurrentCulture) +
-                ",Right=" + BottomLeft.ToString(CultureInfo.CurrentCulture) + ",Bottom=" + BottomRight.ToString(CultureInfo.CurrentCulture) + "}";
+            return "{TopLeft=" + TopLeft.ToString(CultureInfo.CurrentCulture) + ",TopRight=" + TopRight.ToString(CultureInfo.CurrentCulture) +
+                ",BottomLeft=" + BottomLeft.ToString(CultureInfo.CurrentCulture) + ",BottomRight=" + BottomRight.ToString(CultureInfo.CurrentCulture) + "}";
         }
 
 

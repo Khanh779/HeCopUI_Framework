@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HeCopUI_Framework.Shapes.Circular;
+using HeCopUI_Framework.Struct;
 
 namespace HeCopUI_Framework.Converter
 {
@@ -152,10 +152,10 @@ namespace HeCopUI_Framework.Converter
             return true;
         }
 
-        //public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
-        //{
-        //    return true;
-        //}
+        public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
+        {
+            return true;
+        }
 
     }
 }

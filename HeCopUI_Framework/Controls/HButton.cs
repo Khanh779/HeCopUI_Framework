@@ -1,7 +1,7 @@
 ﻿using HeCopUI_Framework.Animations;
 using HeCopUI_Framework.Enums;
 using HeCopUI_Framework.Helper;
-using HeCopUI_Framework.Shapes.Circular;
+using HeCopUI_Framework.Struct;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -240,7 +240,7 @@ namespace HeCopUI_Framework.Controls
             return graphicsPath;
         }
 
-        CornerRadius radius = Shapes.Circular.CornerRadius.Empty;
+        CornerRadius radius = Struct.CornerRadius.Empty;
 
         /// <summary>
         /// Gets or sets radius of HButton.
@@ -261,7 +261,7 @@ namespace HeCopUI_Framework.Controls
             base.OnPaint(e);
             RectangleF RF = new RectangleF(shadowPadding.Left + 2 + textPadding.Left, shadowPadding.Top + 2 + textPadding.Top, Width - 2 - textPadding.Right - textPadding.Left - shadowPadding.Left - shadowPadding.Right, Height - 2 - textPadding.Bottom - textPadding.Top - shadowPadding.Top - shadowPadding.Bottom);
             GetAppResources.MakeTransparent(this, e.Graphics);
-            using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(Radius, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
+            using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
             using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
             using (LinearGradientBrush AHB = 
                 (AnimationMode == AnimationMode.ColorTransition) ? new LinearGradientBrush(ClientRectangle, ButDo ? BackPressColor1 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()), 
@@ -298,7 +298,7 @@ namespace HeCopUI_Framework.Controls
                 SF.Trimming = STA;    
                 if (ClipRegion == true && DesignMode == false)
                 {
-                    //if (ST == ShapeType.Rectangle) Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(Radius, 2.5f)));
+                    if (ST == ShapeType.Rectangle) Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(radius, 2.5f)));
                     if (ST == ShapeType.Circular)
                     {
                         GraphicsPath a = new GraphicsPath(); a.AddEllipse(0, 0, Width, Height);
@@ -380,11 +380,14 @@ namespace HeCopUI_Framework.Controls
                         }
                     }
 
+                //Draw focus border
                 if (DesignMode == false && Focused)
                 {
-                    using (GraphicsPath gpf = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness * 2 + 5))
+                    g.SmoothingMode= SmoothingMode.None;
+                    using (GraphicsPath gpf = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), radius, BorderThickness * 2+1))
                     using (var p = new Pen(new SolidBrush(fbc), 1) { Alignment = PenAlignment.Inset, DashStyle = dashStyle })
                         g.DrawPath(p, gpf);
+                   
                 }
 
 
@@ -582,6 +585,7 @@ namespace HeCopUI_Framework.Controls
         public HButton()
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
+            radius = new CornerRadius(0);
             _animationManager = new AnimationManager(true)
             {
                 Increment = 0.03,

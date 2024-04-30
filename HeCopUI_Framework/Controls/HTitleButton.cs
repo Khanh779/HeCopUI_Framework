@@ -167,8 +167,8 @@ namespace HeCopUI_Framework.Controls
         bool butHo;
         bool butDo;
 
-        private Shapes.Circular.CornerRadius Ra = new Shapes.Circular.CornerRadius(5);
-        public Shapes.Circular.CornerRadius Radius
+        private Struct.CornerRadius Ra = new Struct.CornerRadius(5);
+        public Struct.CornerRadius Radius
         {
             get { return Ra; }
             set
@@ -393,7 +393,7 @@ namespace HeCopUI_Framework.Controls
                 if (ClipRegion == true && DesignMode == false && Ra.All!=0)
                 {
                     GetAppResources.MakeTransparent(this, g);
-                    Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new Shapes.Circular.CornerRadius(Radius, 2.5f)));
+                    Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new Struct.CornerRadius(Radius, 2.5f)));
                 }
                 g.TextRenderingHint = TextRenderHint;
                 if (Radius.All != 0)

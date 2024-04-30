@@ -327,6 +327,8 @@ namespace HeCopUI_Framework.Forms
             bottom = new Rectangle(resizeBorder, Height - resizeBorder, Width - (resizeBorder * 2), resizeBorder);
             bottomRight = new Rectangle(Width - resizeBorder, Height - resizeBorder, resizeBorder, resizeBorder);
 
+            #region Draw Resize Border
+
             if (FormBorderStyle != FormBorderStyle.None)
             {
                 offyCenter = (float)((HeaderHeight - iconControlBoxHeight) / 2);
@@ -424,6 +426,7 @@ namespace HeCopUI_Framework.Forms
 
                 }
             }
+            #endregion
             LinearGradientBrush linearBorder = new LinearGradientBrush(ClientRectangle, borderColor1, borderColor2, borderLinear);
             e.Graphics.DrawRectangle(new Pen(linearBorder, 1.0f), 0, 0, Width - 1, Height - 1);
 
@@ -457,7 +460,7 @@ namespace HeCopUI_Framework.Forms
 
         public HFormFlat()
         {
-            SetStyle(ControlStyles.AllPaintingInWmPaint |
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint|
                     ControlStyles.ResizeRedraw |
                     ControlStyles.OptimizedDoubleBuffer, true);
 
@@ -556,7 +559,7 @@ namespace HeCopUI_Framework.Forms
                 }
                 if(!DesignMode && FormBorderStyle== FormBorderStyle.Sizable)
                 {
-                    cp.Style &= WS_SIZEBOX;
+                    //cp.Style &= WS_SIZEBOX;
                 }    
 
                 return cp;

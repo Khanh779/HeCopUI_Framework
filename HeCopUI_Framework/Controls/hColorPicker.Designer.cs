@@ -126,7 +126,7 @@
             this.HPanel4.Name = "HPanel4";
             this.HPanel4.PanelColor1 = System.Drawing.Color.LightGray;
             this.HPanel4.PanelColor2 = System.Drawing.Color.Gray;
-            this.HPanel4.Radius = new Shapes.Circular.CornerRadius(10);
+            this.HPanel4.Radius = new Struct.CornerRadius(10);
             this.HPanel4.RoundBottomLeft = true;
             this.HPanel4.RoundBottomRight = true;
             this.HPanel4.RoundTopLeft = true;
@@ -263,7 +263,7 @@
             this.HPanel3.Name = "HPanel3";
             this.HPanel3.PanelColor1 = System.Drawing.Color.Blue;
             this.HPanel3.PanelColor2 = System.Drawing.Color.Blue;
-            this.HPanel3.Radius = new Shapes.Circular.CornerRadius(5);
+            this.HPanel3.Radius = new Struct.CornerRadius(5);
             this.HPanel3.RoundBottomLeft = true;
             this.HPanel3.RoundBottomRight = true;
             this.HPanel3.RoundTopLeft = true;
@@ -285,7 +285,7 @@
             this.HPanel2.Name = "HPanel2";
             this.HPanel2.PanelColor1 = System.Drawing.Color.Green;
             this.HPanel2.PanelColor2 = System.Drawing.Color.Green;
-            this.HPanel2.Radius = new Shapes.Circular.CornerRadius(5);
+            this.HPanel2.Radius = new Struct.CornerRadius(5);
             this.HPanel2.RoundBottomLeft = true;
             this.HPanel2.RoundBottomRight = true;
             this.HPanel2.RoundTopLeft = true;
@@ -307,7 +307,7 @@
             this.HPanel1.Name = "HPanel1";
             this.HPanel1.PanelColor1 = System.Drawing.Color.Red;
             this.HPanel1.PanelColor2 = System.Drawing.Color.Red;
-            this.HPanel1.Radius = new Shapes.Circular.CornerRadius(5);
+            this.HPanel1.Radius = new Struct.CornerRadius(5);
             this.HPanel1.RoundBottomLeft = true;
             this.HPanel1.RoundBottomRight = true;
             this.HPanel1.RoundTopLeft = true;

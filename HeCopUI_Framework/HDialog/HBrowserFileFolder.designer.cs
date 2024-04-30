@@ -72,7 +72,7 @@ namespace HeCopUI_Framework.HDialog
             this.Btn_Scan.IsAutoSize = false;
             this.Btn_Scan.Location = new System.Drawing.Point(332, 5);
             this.Btn_Scan.Name = "Btn_Scan";
-            this.Btn_Scan.Radius = new Shapes.Circular.CornerRadius(5);
+            this.Btn_Scan.Radius = new Struct.CornerRadius(5);
             this.Btn_Scan.RippleColor = System.Drawing.Color.Black;
             this.Btn_Scan.ShadowColor = System.Drawing.Color.LightGray;
             this.Btn_Scan.ShadowPadding = new System.Windows.Forms.Padding(0, 0, 0, 2);
@@ -185,7 +185,7 @@ namespace HeCopUI_Framework.HDialog
             this.Btn_Cancel.IsAutoSize = false;
             this.Btn_Cancel.Location = new System.Drawing.Point(382, 5);
             this.Btn_Cancel.Name = "Btn_Cancel";
-            this.Btn_Cancel.Radius =  new Shapes.Circular.CornerRadius(5);
+            this.Btn_Cancel.Radius =  new Struct.CornerRadius(5);
             this.Btn_Cancel.RippleColor = System.Drawing.Color.Black;
             this.Btn_Cancel.ShadowColor = System.Drawing.Color.LightGray;
             this.Btn_Cancel.ShadowPadding = new System.Windows.Forms.Padding(0, 0, 0, 2);

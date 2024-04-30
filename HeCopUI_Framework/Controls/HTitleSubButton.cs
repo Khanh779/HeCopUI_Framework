@@ -1,5 +1,5 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Shapes.Circular;
+using HeCopUI_Framework.Struct;
 using System;
 using System.ComponentModel;
 using System.Drawing;
