@@ -1942,7 +1942,6 @@ namespace HecopUI_Test
             // 
             // hCheckBox3
             // 
-            this.hCheckBox3.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.hCheckBox3.CheckColor = System.Drawing.Color.White;
             this.hCheckBox3.Checked = false;
             this.hCheckBox3.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
@@ -1965,7 +1964,6 @@ namespace HecopUI_Test
             // 
             // hCheckBox2
             // 
-            this.hCheckBox2.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.hCheckBox2.CheckColor = System.Drawing.Color.White;
             this.hCheckBox2.Checked = false;
             this.hCheckBox2.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
@@ -2068,7 +2066,6 @@ namespace HecopUI_Test
             // 
             // hCheckBox1
             // 
-            this.hCheckBox1.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.hCheckBox1.CheckColor = System.Drawing.Color.White;
             this.hCheckBox1.Checked = true;
             this.hCheckBox1.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;

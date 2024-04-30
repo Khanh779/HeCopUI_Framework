@@ -189,15 +189,40 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        Color checkboxc = Color.White;
-        public Color CheckBoxColor
+        Color checkboxc1 = Global.PrimaryColors.BackNormalColor1;
+        public Color CheckBoxColor1
         {
-            get { return checkboxc; }
+            get { return checkboxc1; }
             set
             {
-                checkboxc = value; Invalidate();
+                checkboxc1 = value; Invalidate();
             }
         }
+
+        Color checkboxc2 = Global.PrimaryColors.BackNormalColor2;
+        public Color CheckBoxColor2
+        {
+            get { return checkboxc2; }
+            set
+            {
+                checkboxc2 = value; Invalidate();
+            }
+        }
+
+        LinearGradientMode linear = LinearGradientMode.Vertical;
+
+        ///<summary>
+        /// Gets or sets the direction of the gradient.
+        //</summary>
+        public LinearGradientMode CheckBoxGradientMode
+        {
+            get { return linear; }
+            set
+            {
+                linear = value; Invalidate();
+            }
+        }
+
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
@@ -205,7 +230,7 @@ namespace HeCopUI_Framework.Controls
             using (var checkmarkPath = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(6f, 6, 15, 15), 0))
             using (SolidBrush BG = new SolidBrush(Enabled ? Checked ? EnabledCheckedColor : EnabledUnCheckedColor : DisabledColor))
             using (Pen Pen = new Pen(BG.Color, 2) { Alignment = PenAlignment.Inset })
-            using (var checkb = new SolidBrush(checkboxc))
+            using (var checkb = new LinearGradientBrush(new Rectangle(0, 0, 14, 14), checkboxc1, checkboxc2, linear))
             using (var ripplebac = new SolidBrush(Color.FromArgb(RippleAlpha, RippleColor)))
             using (var penfoc = new Pen(new SolidBrush(fbc), 1f) { Alignment = PenAlignment.Inset, DashStyle = dashStyle })
             {
