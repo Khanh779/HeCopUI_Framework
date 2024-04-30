@@ -38,8 +38,6 @@ namespace HeCopUI_Framework.Controls
 
         }
 
-
-
         protected override void OnSizeChanged(EventArgs e)
         {
             SetAutoSize();
@@ -57,7 +55,6 @@ namespace HeCopUI_Framework.Controls
             Invalidate();
             base.OnForeColorChanged(e);
         }
-
       
         private bool autosize = false;
         public bool IsAutoSize
@@ -198,14 +195,6 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        //public int Radius
-        //{
-        //    get { return Rad; }
-        //    set
-        //    {
-        //        Rad = value; Invalidate();
-        //    }
-        //}
 
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -403,15 +392,11 @@ namespace HeCopUI_Framework.Controls
                         g.DrawPath(p, gpf);
                    
                 }
-
-
                 Brush brr = new TextureBrush(bitmap);
                     e.Graphics.FillPath(brr, SGP);
             }
 
-          
         }
-
 
         protected override void OnGotFocus(EventArgs e)
         {
@@ -580,8 +565,6 @@ namespace HeCopUI_Framework.Controls
                 Invalidate();
             }
         }
-
- 
 
         public HButton()
         {
