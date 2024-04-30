@@ -152,10 +152,10 @@ namespace HeCopUI_Framework.Converter
             return true;
         }
 
-        public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
-        {
-            return true;
-        }
+        //public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
+        //{
+        //    return true;
+        //}
 
     }
 }
