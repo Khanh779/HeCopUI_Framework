@@ -150,11 +150,7 @@ namespace HeCopUI_Framework.Struct
                 && TopRight == other.TopRight
                 && BottomRight == other.BottomRight;
 
-        //public override string ToString()
-        //{
-        //    return $"{{TopLeft={TopLeft},TopRight={TopRight},BottomLeft={BottomLeft},BottomRight={BottomRight}}}";
-        //}
-
+       
         public override string ToString()
         {
             return "{TopLeft=" + TopLeft.ToString(CultureInfo.CurrentCulture) + ",TopRight=" + TopRight.ToString(CultureInfo.CurrentCulture) +

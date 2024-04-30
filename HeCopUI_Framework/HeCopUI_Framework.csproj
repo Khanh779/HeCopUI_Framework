@@ -423,7 +423,7 @@
     <Compile Include="Controls\Progress\HProgressBarWaterWave.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Shapes\Circular\CornerRadius.cs" />
+    <Compile Include="Struct\CornerRadius.cs" />
     <Compile Include="SuperNotifyIcon\Animation.cs" />
     <Compile Include="SuperNotifyIcon\Dropzone.cs">
       <SubType>Component</SubType>
@@ -798,7 +798,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Shapes\Circular\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>mkdir C:\Lib\$(ProjectName)

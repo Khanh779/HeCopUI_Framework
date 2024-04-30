@@ -245,7 +245,6 @@ namespace HeCopUI_Framework.Controls
         /// <summary>
         /// Gets or sets radius of HButton.
         /// </summary>
-        /// <param name="e"></param>
         public CornerRadius Radius
         {
             get { return radius; }
@@ -585,7 +584,6 @@ namespace HeCopUI_Framework.Controls
         public HButton()
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
-            radius = new CornerRadius(0);
             _animationManager = new AnimationManager(true)
             {
                 Increment = 0.03,
