@@ -1,0 +1,811 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC9C7E73-322F-4D73-B9F1-3CC19881432F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HeCopUI_Framework</RootNamespace>
+    <AssemblyName>HeCopUI_Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\AnimationDirection.cs" />
+    <Compile Include="Animations\AnimationManager.cs" />
+    <Compile Include="Animations\Animations.cs" />
+    <Compile Include="Animations\Animator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Animations\Controller.cs" />
+    <Compile Include="Animations\DecorationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Animations\DoubleBitmapControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Animations\DoubleBitmapControl.designer.cs">
+      <DependentUpon>DoubleBitmapControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animations\DoubleBitmapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Animations\DoubleBitmapForm.designer.cs">
+      <DependentUpon>DoubleBitmapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animations\Flags.cs" />
+    <Compile Include="Animations\PointFConverter.cs" />
+    <Compile Include="Animations\TransfromHelper.cs" />
+    <Compile Include="Forms\HFormFlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\ColorHelper.cs" />
+    <Compile Include="Components\GaussianBlur.cs" />
+    <Compile Include="Components\HPopupMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\PopupAnimations.cs" />
+    <Compile Include="Components\RandomColor.cs" />
+    <Compile Include="Controls\Charts\ChartTip.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Charts\ChartTip.Designer.cs">
+      <DependentUpon>ChartTip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Charts\HBarChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Charts\HLineAreaChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Charts\HRadarChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Charts\Model\DataItems.cs" />
+    <Compile Include="Controls\Effect\HEffectImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HCircleAnglePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\HDotProgressRing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\hColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\hColorPicker.Designer.cs">
+      <DependentUpon>hColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HHTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HRadialRangeSlider .cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\HDotRing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\HProgressRing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\LinearParticleAnimation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\WaveProgressLoading.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Converter\CornerRadiusConverter.cs" />
+    <Compile Include="Effects\ColorLightEffect.cs" />
+    <Compile Include="Effects\ShadowBitmap.cs" />
+    <Compile Include="Effects\SlideEffect.cs" />
+    <Compile Include="Enums\AnimationMode.cs" />
+    <Compile Include="Enums\CircleAnglePickerType.cs" />
+    <Compile Include="Enums\KernelMode.cs" />
+    <Compile Include="Enums\LegendType.cs" />
+    <Compile Include="Enums\ProgressAnimationMode.cs" />
+    <Compile Include="Enums\ShapeType.cs" />
+    <Compile Include="Enums\SortMode.cs" />
+    <Compile Include="Enums\TitleChartAlign.cs" />
+    <Compile Include="Forms\HForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HForm.Designer.cs">
+      <DependentUpon>HForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Shadow_Test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Charts\FunnelChart\FunelChartAlignment.cs" />
+    <Compile Include="Controls\Charts\FunnelChart\FunelChartDirection.cs" />
+    <Compile Include="Controls\Charts\FunnelChart\FunelChartItem.cs" />
+    <Compile Include="Controls\Charts\FunnelChart\UCFunnelChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HMontCalendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Charts\FoldLineDiagram.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HTitleSubButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HTitleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MetroListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global\PrimaryColors.cs" />
+    <Compile Include="HDialog\FileExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDialog\FileExplorer.Designer.cs">
+      <DependentUpon>FileExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDialog\HBrowserFileFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HDialog\HBrowserFileFolder.designer.cs">
+      <DependentUpon>HBrowserFileFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HDialog\HFolderBrowserDialogEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HDialog\HMessageDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HDialog\ShellIcon.cs" />
+    <Compile Include="Helper\DPIHelper.cs" />
+    <Compile Include="Helper\DrawHelper.cs" />
+    <Compile Include="Controls\Progress\HPenProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\HProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HPanel .cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HAnimateControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GetAppResources.cs" />
+    <Compile Include="GraphicsExtensionMethods.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\BrushAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\ContextMenuAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\ControlAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\FontAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\FontFamilyAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\GraphicsAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\GraphicsPathAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\ImageAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\PenAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\WinFormsAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\HtmlContainer.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\HtmlLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\HtmlPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\HtmlRender.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\HtmlToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\MetafileExtensions.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Utilities\ClipboardHelper.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Utilities\Utils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Utilities\Win32Utils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\BrushAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\ContextMenuAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\ControlAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\FontAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\FontFamilyAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\GraphicsAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\GraphicsPathAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\ImageAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\PenAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Adapters\WpfAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\HtmlContainer.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\HtmlControl.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\HtmlLabel.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\HtmlPanel.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\HtmlRender.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\RoutedEventArgs.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Utilities\ClipboardHelper.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer.WPF\Utilities\Utils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RColor.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RDashStyle.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RFontStyle.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RKeyEvent.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RMouseEvent.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RPoint.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RRect.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\Entities\RSize.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RAdapter.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RBrush.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RContextMenu.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RControl.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RFont.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RFontFamily.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RGraphics.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RGraphicsPath.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RImage.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Adapters\RPen.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\CssData.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\CssDefaults.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\Border.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssBox.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssBoxFrame.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssBoxHr.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssBoxImage.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssBoxProperties.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssLayoutEngine.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssLayoutEngineTable.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssLength.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssLineBox.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssRect.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssRectImage.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssRectWord.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssSpacingBox.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\CssUnit.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\HoverBoxBlock.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Dom\HtmlTag.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\CssBlock.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\CssBlockSelectorItem.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlGenerationStyle.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlImageLoadEventArgs.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlLinkClickedEventArgs.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlLinkClickedException.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlRefreshEventArgs.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlRenderErrorEventArgs.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlRenderErrorType.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlScrollEventArgs.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\HtmlStylesheetLoadEventArgs.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Entities\LinkElementData.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\BackgroundImageDrawHandler.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\BordersDrawHandler.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\ContextMenuHandler.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\FontsHandler.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\ImageDownloader.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\ImageLoadHandler.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\SelectionHandler.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Handlers\StylesheetLoadHandler.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\HtmlContainerInt.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\HtmlRendererUtils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Parse\CssParser.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Parse\CssValueParser.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Parse\DomParser.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Parse\HtmlParser.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Parse\RegexParserHelper.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Parse\RegexParserUtils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\ArgChecker.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\CommonUtils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\CssConstants.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\CssUtils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\DomUtils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\HtmlConstants.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\HtmlUtils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\RenderUtils.cs" />
+    <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\SubString.cs" />
+    <Compile Include="Controls\Progress\HProgressBarWaterWave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shapes\Circular\CornerRadius.cs" />
+    <Compile Include="SuperNotifyIcon\Animation.cs" />
+    <Compile Include="SuperNotifyIcon\Dropzone.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SuperNotifyIcon\FormDebugger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperNotifyIcon\FormDebugger.Designer.cs">
+      <DependentUpon>FormDebugger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuperNotifyIcon\FormDrop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperNotifyIcon\FormDrop.Designer.cs">
+      <DependentUpon>FormDrop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuperNotifyIcon\Helpers\GlobalHook.cs" />
+    <Compile Include="SuperNotifyIcon\Helpers\MouseHoldTimed.cs" />
+    <Compile Include="SuperNotifyIcon\Helpers\MouseHook.cs" />
+    <Compile Include="SuperNotifyIcon\Helpers\NativeMethods.cs" />
+    <Compile Include="SuperNotifyIcon\Helpers\NotifyArea.cs" />
+    <Compile Include="SuperNotifyIcon\Helpers\NotifyIcon.cs" />
+    <Compile Include="SuperNotifyIcon\Helpers\SysInfo.cs" />
+    <Compile Include="SuperNotifyIcon\Helpers\Taskbar.cs" />
+    <Compile Include="SuperNotifyIcon\Location.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SuperNotifyIcon\NotifyIconLocationWPF\Compatibility.cs" />
+    <Compile Include="SuperNotifyIcon\NotifyIconLocationWPF\NativeMethods.cs" />
+    <Compile Include="SuperNotifyIcon\NotifyIconLocationWPF\WindowPositioning.cs" />
+    <Compile Include="SuperNotifyIcon\NotifyIconLocation\Deprecated\WindowPositioning.cs" />
+    <Compile Include="SuperNotifyIcon\NotifyIconLocation\Fallback\NotifyIconColorFinder.cs" />
+    <Compile Include="SuperNotifyIcon\SuperNotifyIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TaskSchedulerManager.cs" />
+    <Compile Include="TaskShedulerService.cs" />
+    <Compile Include="Ultils\DpiUltils.cs" />
+    <Compile Include="Ultils\DropShadow.cs" />
+    <Compile Include="Win32\Dwmapi.cs" />
+    <Compile Include="Win32\Gdi32.cs" />
+    <Compile Include="Win32\Gdip.cs" />
+    <Compile Include="Win32\Kernel32.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IAdviseSink.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IContextMenu.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IContextMenu2.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IContextMenu3.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IDataObject.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IDragSourceHelper.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IDropSource.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IDropTarget.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IDropTargetHelper.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IEnumFORMATETC.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IEnumIDList.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IEnumSTATSTG.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IQueryInfo.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IShellExtInit.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IShellFolder.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IStorage.cs" />
+    <Compile Include="Win32\Shell\Interfaces\IStream.cs" />
+    <Compile Include="Win32\Shell\PIDL.cs" />
+    <Compile Include="Win32\Shell\ShellAPI.cs" />
+    <Compile Include="Win32\Shell\ShellBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Shell\ShellBrowserUpdater.cs" />
+    <Compile Include="Win32\Shell\ShellHelper.cs" />
+    <Compile Include="Win32\Shell\ShellIconStateConstants.cs" />
+    <Compile Include="Win32\Shell\ShellImageList.cs" />
+    <Compile Include="Win32\Shell\ShellItem.cs" />
+    <Compile Include="Win32\Shell\ShellItemCollection.cs" />
+    <Compile Include="Win32\Shell\ShellItemEnumerator.cs" />
+    <Compile Include="Win32\Shell\ShellItemUpdateCondition.cs" />
+    <Compile Include="Win32\Shell\ShellItemUpdateEventArgs.cs" />
+    <Compile Include="Win32\Shell\ShellItemUpdateEventHandler.cs" />
+    <Compile Include="Win32\Shell\ShellItemUpdateType.cs" />
+    <Compile Include="Win32\Enums\Win32Enums.cs" />
+    <Compile Include="Win32\SystemImageList.cs" />
+    <Compile Include="Win32\SystemImageListHelper.cs" />
+    <Compile Include="Win32\SystemImageListSize.cs" />
+    <Compile Include="Win32\User32.cs" />
+    <Compile Include="WindowComposition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Child\HItemCollection.cs" />
+    <Compile Include="Components\HSetToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\HCircularProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\HCircularProgressBar1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Progress\HCircularProgressBar2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HClockCircular.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HClockDigital.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HDigitalGauge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HDragControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HDropShadowForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HEllipseControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HFormControlBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Charts\HPieChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HShowFormLocation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HSolidGauge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HStepIndicatorOne.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HCheckedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HToggleButton1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HToggleButton2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums\TabStyle.cs" />
+    <Compile Include="Extensions\Global_Font.cs" />
+    <Compile Include="Extensions\GraphicsQuality.cs" />
+    <Compile Include="Extensions\Methods.cs" />
+    <Compile Include="Extensions\HFonts.cs" />
+    <Compile Include="Extensions\Utilites.cs" />
+    <Compile Include="Forms\HMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HProgressDialog.cs" />
+    <Compile Include="Native\ImageHelper.cs" />
+    <Compile Include="Native\IPHlpAPI32.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Animations\DoubleBitmapForm.resx">
+      <DependentUpon>DoubleBitmapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Charts\ChartTip.resx">
+      <DependentUpon>ChartTip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HCircleAnglePicker.resx">
+      <DependentUpon>HCircleAnglePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\hColorPicker.resx">
+      <DependentUpon>hColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HForm.resx">
+      <DependentUpon>HForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDialog\FileExplorer.resx">
+      <DependentUpon>FileExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDialog\HBrowserFileFolder.resx">
+      <DependentUpon>HBrowserFileFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HDialog\HMessageDialog.resx">
+      <DependentUpon>HMessageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HMessageBox.resx">
+      <DependentUpon>HMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperNotifyIcon\FormDebugger.resx">
+      <DependentUpon>FormDebugger.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Roboto-Medium.ttf" />
+    <None Include="Resources\Roboto-Regular.ttf" />
+    <None Include="Resources\Roboto-Thin.ttf" />
+    <None Include="Resources\SegoeWP-Bold.ttf" />
+    <None Include="Resources\SegoeWP-Light.ttf" />
+    <None Include="Resources\SegoeWP-Semibold.ttf" />
+    <None Include="Resources\SegoeWP-Semilight.ttf" />
+    <None Include="Resources\SegoeWP.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bitmaps\Button.bmp" />
+    <Resource Include="Bitmaps\CheckBox.bmp" />
+    <Resource Include="Bitmaps\ComoBox.bmp" />
+    <Resource Include="Bitmaps\ContextMenu.bmp" />
+    <Resource Include="Bitmaps\ControlButton.bmp" />
+    <Resource Include="Bitmaps\Divider.png" />
+    <Resource Include="Bitmaps\Ellipse.bmp" />
+    <Resource Include="Bitmaps\Form.bmp" />
+    <Resource Include="Bitmaps\Label.bmp" />
+    <Resource Include="Bitmaps\LinkLabel.bmp" />
+    <Resource Include="Bitmaps\ListBox.bmp" />
+    <Resource Include="Bitmaps\Numeric.bmp" />
+    <Resource Include="Bitmaps\Panel.bmp" />
+    <Resource Include="Bitmaps\Progress.bmp" />
+    <Resource Include="Bitmaps\RadioButton.bmp" />
+    <Resource Include="Bitmaps\RitchTextBox.bmp" />
+    <Resource Include="Bitmaps\ScrollBar.bmp" />
+    <Resource Include="Bitmaps\Slider.bmp" />
+    <Resource Include="Bitmaps\Style.bmp" />
+    <Resource Include="Bitmaps\Switch.bmp" />
+    <Resource Include="Bitmaps\TabControl.bmp" />
+    <Resource Include="Bitmaps\TextBox.bmp" />
+    <Resource Include="Bitmaps\ToolTip.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toggle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CircleProgress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ComoBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ControlButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\downarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GripNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LinkLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MetroSet Theme.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK-Control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Progress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RadioButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RitchTextBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScrollBarArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TextBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="HtmlRenderer\HtmlRenderer\Core\Utils\ImageError.png" />
+    <Resource Include="HtmlRenderer\HtmlRenderer\Core\Utils\ImageLoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caret-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caret-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_subtract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\more1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="TaskScheduler">
+      <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>mkdir C:\Lib\$(ProjectName)
+copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>mkdir C:\Lib\$(ProjectName)
+copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PostBuildEvent>
+  </PropertyGroup>
+</Project>
