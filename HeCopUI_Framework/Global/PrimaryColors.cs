@@ -12,11 +12,11 @@ namespace HeCopUI_Framework.Global
         public static Color ForeNormalColor1 { get; set; } = Color.White;
         public static Color ForeNormalColor2 { get; set; } = Color.White;
 
-        public static Color BackNormalColor1 { get; set; } = Color.SlateBlue;
+        public static Color BackNormalColor1 { get; set; } = Color.FromArgb(0,168,148);
         public static Color BackNormalColor2 { get; set; } = Color.DodgerBlue;
 
-        public static Color BackHoverColor1 { get; set; } = Color.DeepSkyBlue;
-        public static Color BackHoverColor2 { get; set; } = Color.SkyBlue;
+        public static Color BackHoverColor1 { get; set; } = Color.DodgerBlue;
+        public static Color BackHoverColor2 { get; set; } = Color.FromArgb(0,168,148);
 
         public static Color BackPressColor1 { get; set; } = Color.SteelBlue;
         public static Color BackPressColor2 { get; set; } = Color.RoyalBlue;

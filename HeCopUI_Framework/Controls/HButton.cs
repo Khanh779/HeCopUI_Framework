@@ -85,13 +85,27 @@ namespace HeCopUI_Framework.Controls
 
         public Color TextHoverColor { get; set; } = Color.White;
         public Color TextDownColor { get; set; } = Color.White;
-        private Color textNormalColor = Color.White;
+        private Color textNormalColor = Color.WhiteSmoke;
         public Color TextNormalColor
         {
             get { return textNormalColor; }
             set
             {
                 textNormalColor = value; Invalidate();
+            }
+        }
+
+        private Color buttonColor2 = Global.PrimaryColors.BackNormalColor2;
+        public Color ButtonColor2
+        {
+            get
+            {
+                return buttonColor2;
+            }
+            set
+            {
+                buttonColor2 = value;
+                Invalidate();
             }
         }
 
@@ -262,6 +276,7 @@ namespace HeCopUI_Framework.Controls
             GetAppResources.MakeTransparent(this, e.Graphics);
             using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
             using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
+            
             using (LinearGradientBrush AHB = 
                 (AnimationMode == AnimationMode.ColorTransition) ? new LinearGradientBrush(ClientRectangle, ButDo ? BackPressColor1 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()), 
                  ButDo ? BackPressColor2 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()), LB) :
@@ -539,20 +554,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        private Color buttonColor2 = Global.PrimaryColors.BackNormalColor1;
-        public Color ButtonColor2
-        {
-            get
-            {
-                return buttonColor2;
-            }
-            set
-            {
-                buttonColor2 = value;
-                Invalidate();
-            }
-        }
-
+       
         AnimationMode animationMode = AnimationMode.None;
         public AnimationMode AnimationMode
         {
