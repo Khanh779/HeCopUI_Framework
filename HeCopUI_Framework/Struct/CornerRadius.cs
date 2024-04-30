@@ -5,13 +5,16 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Struct
 {
     [Serializable]
-    [TypeConverter(typeof(CornerRadiusConverter))]
+    [TypeConverterAttribute(typeof(CornerRadiusConverter))]
     public struct CornerRadius
     {
         private bool _all;      // Do NOT rename (binary serialization).
@@ -20,9 +23,7 @@ namespace HeCopUI_Framework.Struct
         private float _bottomLeft; // New field for BottomLeft.
         private float _bottomRight; // New field for BottomRight.
 
-#pragma warning disable IDE1006 // Naming Styles: Shipped API
         public static CornerRadius Empty = new CornerRadius(0);
-#pragma warning restore IDE1006
 
 
         public CornerRadius(float all)
@@ -163,10 +164,10 @@ namespace HeCopUI_Framework.Struct
                 && TopRight == other.TopRight
                 && BottomRight == other.BottomRight;
 
-       
+
         public override string ToString()
         {
-            return "{TopLeft=" + TopLeft.ToString(CultureInfo.CurrentCulture) + ",TopRight=" + TopRight.ToString(CultureInfo.CurrentCulture) +
+            return "{TopLeft=" + TopLeft.ToString(CultureInfo.CurrentCulture) + ",TopRight=" + TopRight.ToString(CultureInfo.CurrentCulture) + 
                 ",BottomLeft=" + BottomLeft.ToString(CultureInfo.CurrentCulture) + ",BottomRight=" + BottomRight.ToString(CultureInfo.CurrentCulture) + "}";
         }
 
