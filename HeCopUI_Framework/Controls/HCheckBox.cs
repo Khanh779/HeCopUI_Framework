@@ -13,14 +13,53 @@ namespace HeCopUI_Framework.Controls
 
         static Point[] CHECKMARK_LINE = { new Point(3, 8), new Point(7, 12), new Point(14, 5) };
 
-
-        Color enabledCheckedColor = HeCopUI_Framework.Global.PrimaryColors.BackNormalColor1;
-        Color enabledUnCheckedColor = ColorTranslator.FromHtml("#9c9ea1");
         Color disabledColor = Color.Gray;
         Color enabledTextColor = ColorTranslator.FromHtml("#999999");
         Color disabledTextColor = ColorTranslator.FromHtml("#babbbd");
 
-        public Color DisabledColor
+        Color checkedBoxColor1= Color.FromArgb(0, 168, 148);
+        Color checkedBoxColor2 = Color.DodgerBlue;
+        Color unCheckedBoxColor = Color.DimGray;
+
+        Color borderBox = Color.Transparent;
+        public Color BorderBox
+        {
+            get { return borderBox; }
+            set
+            {
+                borderBox = value; Invalidate();
+            }
+        }
+
+        public Color UnCheckedBoxColor
+        {
+            get { return unCheckedBoxColor; }
+            set
+            {
+                unCheckedBoxColor = value;Invalidate();
+            }
+        }
+
+        public Color CheckedBoxColor1
+        {
+            get { return checkedBoxColor1; }
+            set
+            {
+                checkedBoxColor1 = value; Invalidate();
+            }
+        }
+
+        public Color CheckedBoxColor2
+        {
+            get { return checkedBoxColor2; }
+            set
+            {
+                checkedBoxColor2 = value; Invalidate();
+            }
+        }
+
+
+        public Color DisabledCheckBoxColor
         {
             get { return disabledColor; }
             set
@@ -44,24 +83,6 @@ namespace HeCopUI_Framework.Controls
             set
             {
                 disabledTextColor = value; Invalidate();
-            }
-        }
-
-        public Color EnabledCheckedColor
-        {
-            get { return enabledCheckedColor; }
-            set
-            {
-                enabledCheckedColor = value; Invalidate();
-            }
-        }
-
-        public Color EnabledUnCheckedColor
-        {
-            get { return enabledUnCheckedColor; }
-            set
-            {
-                enabledUnCheckedColor = value; Invalidate();
             }
         }
 
@@ -228,9 +249,10 @@ namespace HeCopUI_Framework.Controls
         {
 
             using (var checkmarkPath = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(6f, 6, 15, 15), 0))
-            using (SolidBrush BG = new SolidBrush(Enabled ? Checked ? EnabledCheckedColor : EnabledUnCheckedColor : DisabledColor))
-            using (Pen Pen = new Pen(BG.Color, 1) { Alignment = PenAlignment.Inset })
-            using (var checkb = new LinearGradientBrush(new Rectangle(0, 0, checkBoxSize, checkBoxSize), checkboxc1, checkboxc2, linear))
+            using (var BG = new LinearGradientBrush(new Rectangle(0, 0, checkBoxSize, checkBoxSize), Enabled ? (Checked ? checkedBoxColor1 : unCheckedBoxColor) : disabledColor,
+                Enabled ? (Checked ? checkedBoxColor2 : unCheckedBoxColor) : disabledColor, linear))
+            using (Pen Pen = new Pen(new SolidBrush(BorderBox), 1) { Alignment = PenAlignment.Inset })
+
             using (var ripplebac = new SolidBrush(Color.FromArgb(RippleAlpha, RippleColor)))
             using (var penfoc = new Pen(new SolidBrush(fbc), 1f) { Alignment = PenAlignment.Inset, DashStyle = dashStyle })
             {
@@ -240,7 +262,6 @@ namespace HeCopUI_Framework.Controls
                 g.TextRenderingHint = TextRenderHint;
                 g.FillPath(BG, checkmarkPath);
                 g.DrawPath(Pen, checkmarkPath);
-                g.FillRectangle(checkb, 3.5f + PointAnimationNum, 3.5f + PointAnimationNum, SizeAnimationNum, SizeAnimationNum);
                 //CheckBox Text
                 SF.Alignment = SF.LineAlignment = StringAlignment.Near;
                 SF.Trimming = ST;

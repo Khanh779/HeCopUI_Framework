@@ -1945,11 +1945,8 @@ namespace HecopUI_Test
             this.hCheckBox3.CheckColor = System.Drawing.Color.White;
             this.hCheckBox3.Checked = false;
             this.hCheckBox3.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.hCheckBox3.DisabledColor = System.Drawing.Color.Gray;
             this.hCheckBox3.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
-            this.hCheckBox3.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(138)))), ((int)(((byte)(118)))));
             this.hCheckBox3.EnabledTextColor = System.Drawing.Color.LightGray;
-            this.hCheckBox3.EnabledUnCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             this.hCheckBox3.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(138)))), ((int)(((byte)(118)))));
             this.hCheckBox3.Location = new System.Drawing.Point(34, 101);
             this.hCheckBox3.Name = "hCheckBox3";
@@ -1967,11 +1964,8 @@ namespace HecopUI_Test
             this.hCheckBox2.CheckColor = System.Drawing.Color.White;
             this.hCheckBox2.Checked = false;
             this.hCheckBox2.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.hCheckBox2.DisabledColor = System.Drawing.Color.Gray;
             this.hCheckBox2.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
-            this.hCheckBox2.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(138)))), ((int)(((byte)(118)))));
             this.hCheckBox2.EnabledTextColor = System.Drawing.Color.LightGray;
-            this.hCheckBox2.EnabledUnCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             this.hCheckBox2.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(138)))), ((int)(((byte)(118)))));
             this.hCheckBox2.Location = new System.Drawing.Point(34, 67);
             this.hCheckBox2.Name = "hCheckBox2";
@@ -2069,11 +2063,8 @@ namespace HecopUI_Test
             this.hCheckBox1.CheckColor = System.Drawing.Color.White;
             this.hCheckBox1.Checked = true;
             this.hCheckBox1.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.hCheckBox1.DisabledColor = System.Drawing.Color.Gray;
             this.hCheckBox1.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
-            this.hCheckBox1.EnabledCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(138)))), ((int)(((byte)(118)))));
             this.hCheckBox1.EnabledTextColor = System.Drawing.Color.LightGray;
-            this.hCheckBox1.EnabledUnCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
             this.hCheckBox1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(138)))), ((int)(((byte)(118)))));
             this.hCheckBox1.Location = new System.Drawing.Point(34, 33);
             this.hCheckBox1.Name = "hCheckBox1";
