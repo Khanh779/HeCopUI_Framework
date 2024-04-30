@@ -32,14 +32,24 @@ namespace HeCopUI_Framework.Struct
             Debug_SanityCheck();
         }
 
-        public CornerRadius(float all, float offset=0)
+        public CornerRadius(float all, float offset)
         {
             _all = true;
             _topLeft = _topRight = _bottomLeft = _bottomRight = all-offset;
             Debug_SanityCheck();
         }
 
-        public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight, float offset=0)
+        public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight)
+        {
+            _topLeft = topLeft;
+            _topRight = topRight;
+            _bottomLeft = bottomLeft ;
+            _bottomRight = bottomRight ;
+            _all = _topLeft == _topRight && _topLeft == _bottomLeft && _topLeft == _bottomRight;
+            Debug_SanityCheck();
+        }
+
+        public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight, float offset)
         {
             _topLeft = topLeft - offset;
             _topRight = topRight - offset;
