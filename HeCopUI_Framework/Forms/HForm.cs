@@ -367,6 +367,7 @@ namespace HeCopUI_Framework.Forms
             base.WndProc(ref m);
         }
 
+       
         private void AdjustForm()
         {
             switch (this.WindowState)

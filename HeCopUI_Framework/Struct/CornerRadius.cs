@@ -14,7 +14,7 @@ using System.Windows.Media.Media3D;
 namespace HeCopUI_Framework.Struct
 {
     [Serializable]
-    [TypeConverterAttribute(typeof(CornerRadiusConverter))]
+    [TypeConverter(typeof(CornerRadiusConverter))]
     public struct CornerRadius
     {
         private bool _all;      // Do NOT rename (binary serialization).

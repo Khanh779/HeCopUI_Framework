@@ -16,6 +16,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.InteropServices;
 using static HeCopUI_Framework.Forms.HMessageBox;
 using HeCopUI_Framework.HDialog;
+using HeCopUI_Framework.Forms;
 
 namespace HecopUI_Test
 {
@@ -152,6 +153,16 @@ namespace HecopUI_Test
         private void hCircleAnglePicker1_ValueChanged(object sender, EventArgs e)
         {
             hTextBox3.Text = hCircleAnglePicker1.Value.ToString();
+        }
+
+        private void hButton12_Click(object sender, EventArgs e)
+        {
+            var frmflat= new HFormFlat();
+            frmflat.Text = "This is title";
+            frmflat.FormBorderStyle = FormBorderStyle.Sizable;
+            frmflat.StartPosition = FormStartPosition.CenterScreen;
+            frmflat.SizeGripStyle = SizeGripStyle.Hide;
+            frmflat.Show();
         }
     }
 }

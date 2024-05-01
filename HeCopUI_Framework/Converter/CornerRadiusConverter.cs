@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HeCopUI_Framework.Struct;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace HeCopUI_Framework.Converter
 {
@@ -27,7 +28,11 @@ namespace HeCopUI_Framework.Converter
 
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
-            return destinationType == typeof(InstanceDescriptor) || base.CanConvertTo(context, destinationType);
+            if (destinationType == typeof(InstanceDescriptor))
+            {
+                return true;
+            }
+            return base.CanConvertTo(context, destinationType);
         }
 
         // Overrides the ConvertFrom method of TypeConverter.
@@ -37,7 +42,7 @@ namespace HeCopUI_Framework.Converter
             {
                 string text2 = ((string)value).Trim();
 
-                if(!text2.Contains(','))
+                if (!text2.Contains(','))
                 {
                     return new CornerRadius(float.Parse(text2));
                 }
@@ -46,7 +51,7 @@ namespace HeCopUI_Framework.Converter
                     string[] v = text2.Split(',');
                     return new CornerRadius(float.Parse(v[0]), float.Parse(v[1]), float.Parse(v[2]), float.Parse(v[3]));
                 }
-              
+
 
                 throw new ArgumentException("TextParseFailedFormat:\n" + value);
             }
@@ -61,21 +66,21 @@ namespace HeCopUI_Framework.Converter
                 if (destinationType == typeof(string))
                 {
                     CornerRadius cornerRadius = (CornerRadius)value;
-                    return cornerRadius.TopLeft+", "+ cornerRadius.TopRight+", "+ cornerRadius.BottomLeft+", "+ cornerRadius.BottomRight;
+                    return cornerRadius.TopLeft + ", " + cornerRadius.TopRight + ", " + cornerRadius.BottomLeft + ", " + cornerRadius.BottomRight;
                 }
             }
 
-            if (destinationType == typeof(CornerRadius))
+            if (destinationType == typeof(InstanceDescriptor) && value is CornerRadius)
             {
-                CornerRadius cornerRadius = (CornerRadius)value;
-                if(cornerRadius.ShouldSerializeAll())
+                CornerRadius cr = (CornerRadius)value;
+
+                ConstructorInfo ctor = typeof(CornerRadius).GetConstructor(
+                    new Type[] { typeof(float), typeof(int), typeof(float), typeof(int) });
+                if (ctor != null)
                 {
-                    return new object[] { cornerRadius.All };
-                }    
-
-                return new object[] { cornerRadius.TopLeft, cornerRadius.TopRight, cornerRadius.BottomLeft, cornerRadius.BottomRight };
+                    return new InstanceDescriptor(ctor, new object[] { cr.TopLeft, cr.TopRight, cr.BottomLeft, cr.BottomRight });
+                }
             }
-
             return base.ConvertTo(context, culture, value, destinationType);
         }
 
@@ -92,10 +97,9 @@ namespace HeCopUI_Framework.Converter
             }
 
             CornerRadius radius = (CornerRadius)context.PropertyDescriptor.GetValue(context.Instance);
-            float num = (float)propertyValues["All"];
-            if (radius.All != num)
+            if (radius.All != (float)propertyValues["All"])
             {
-                return new CornerRadius(num);
+                return new CornerRadius((float)propertyValues["All"]);
             }
 
             return new CornerRadius((float)propertyValues["TopLeft"], (float)propertyValues["TopRight"], (float)propertyValues["BottomLeft"], (float)propertyValues["BottomRight"]);
