@@ -161,7 +161,19 @@ namespace HecopUI_Test
             frmflat.Text = "This is title";
             frmflat.FormBorderStyle = FormBorderStyle.Sizable;
             frmflat.StartPosition = FormStartPosition.CenterScreen;
-            frmflat.SizeGripStyle = SizeGripStyle.Hide;
+
+            Button btn = new Button();
+            btn.Text = "Click me";
+            btn.Location = new Point(50, 50);
+            btn.Size = new Size(100, 50);
+            btn.Click += (s, ev) =>
+            {
+                MessageBox.Show("Hello");
+            };
+            frmflat.Controls.Add(btn);
+
+
+            //frmflat.FormBorderStyle = FormBorderStyle.None;
             frmflat.Show();
         }
     }

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 using static HeCopUI_Framework.GetAppResources;
 using static HeCopUI_Framework.GetAppResources.Win32;
+using static HeCopUI_Framework.Win32.ShellAPI;
 using static System.Net.WebRequestMethods;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
@@ -128,30 +129,6 @@ namespace HeCopUI_Framework.Forms
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        protected override void OnMouseMove(MouseEventArgs e)
-        {
-            base.OnMouseMove(e);
-
-            if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
-            {
-                if ((left.Contains(e.Location) || right.Contains(e.Location)))
-                    Cursor = Cursors.SizeWE;
-                else if ((top.Contains(e.Location) || bottom.Contains(e.Location)))
-                    Cursor = Cursors.SizeNS;
-                else if ((topLeft.Contains(e.Location) || bottomRight.Contains(e.Location)))
-                    Cursor = Cursors.SizeNWSE;
-                else if ((topRight.Contains(e.Location) || bottomLeft.Contains(e.Location)))
-                    Cursor = Cursors.SizeNESW;
-                else if (close.Contains(e.Location) ||
-                    (minimize.Contains(e.Location) && MinimizeBox) ||
-                    (MinimizeBox && MaximizeBox && maximize.Contains(e.Location)))
-                    Cursor = Cursors.Hand;
-                else Cursor = Cursors.Default;
-            }
-
-
-            Invalidate();
-        }
 
         bool hoveredClose = false, hoveredMinimize = false, hoveredMaximize = false;
 
@@ -167,8 +144,7 @@ namespace HeCopUI_Framework.Forms
         {
             if (e.Button == MouseButtons.Left)
             {
-                Point mo = e.Location;
-              
+                IsResize();
             }
             base.OnMouseDown(e);
 
@@ -372,7 +348,7 @@ namespace HeCopUI_Framework.Forms
             base.OnResizeEnd(e);
 
 
-            if (FormBorderStyle == FormBorderStyle.Sizable && WindowState== FormWindowState.Normal)
+            if (FormBorderStyle == FormBorderStyle.Sizable && MaximizeBox && WindowState== FormWindowState.Normal)
             {
                 int screenY = Screen.FromPoint(Location).Bounds.Location.Y;
                 int screenX = Screen.FromPoint(Location).Bounds.Location.X;
@@ -391,7 +367,8 @@ namespace HeCopUI_Framework.Forms
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint| ControlStyles.ResizeRedraw |ControlStyles.OptimizedDoubleBuffer, true);
             BackColor = Color.FromArgb(25, 25, 25);
             ForeColor = Color.FromArgb(200, 200, 200);
-
+            
+            //SetAeroEffect();
         
         }
 
@@ -434,7 +411,7 @@ namespace HeCopUI_Framework.Forms
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool TrackPopupMenu(
             IntPtr hMenu,
-            uint uFlags,
+            int uFlags,
             int x,
             int y,
             int nReserved,
@@ -444,9 +421,10 @@ namespace HeCopUI_Framework.Forms
         #region
         const int WM_NCPAINT = 0x85, WM_NCCALCSIZE = 0x83, WM_NCHITTEST = 0x84, HTCAPTION = 0x2, WS_SIZEBOX = 0x40000, WS_THICKFRAME = 0x00040000,
         WS_CAPTION = 0x00C00000, WS_BORDE = 0x800000, WS_SYSMENU = 0x80000, WS_MAXIMIZEBOX = 0x10000, WS_MINIMIZE = 0x20000000, WS_MAXIMIZE = 0x1000000,
-        HTCLIENT = 0x1, WS_EX_COMPOSITED = 0x02000000, WM_NCLBUTTONDOWN = 0xA1, WM_LBUTTONDOWN = 0x0201, WM_LBUTTONDBLCLK = 0x0203,
+        HTCLIENT = 0x1, WS_EX_COMPOSITED = 0x02000000, WM_NCLBUTTONDOWN = 0x00A1, WM_LBUTTONDOWN = 0x0201, WM_LBUTTONDBLCLK = 0x0203, WM_NCLBUTTONUP = 0x00A2,
+
         WM_LBUTTONUP = 0x0202,
-        WM_NCACTIVATE = 0x86, GWL_EXSTYLE = -20,
+        WM_NCACTIVATE = 0x86, GWL_EXSTYLE = -20, WM_NCBUTTONDBLCLK = 0x00A6, WM_NCLBUTTONDBLCLK = 0x00A3, WM_NCRBUTTONDBLCLK = 0x00A7,
         WM_ERASEBKGND = 0x14,
         CS_HREDRAW = 0x0002,
         CS_VREDRAW = 0x0001,
@@ -454,11 +432,11 @@ namespace HeCopUI_Framework.Forms
         GWL_STYLE = -16,
         WM_GETMINMAXINFO = 0x0024,
         WM_SIZING = 0x0214,
-        WM_NCMOUSEMOVE = 0x00A0, WM_NCRBUTTONUP = 0x00A5, 
+        WM_NCMOUSEMOVE = 0x00A0, WM_NCRBUTTONUP = 0x00A5, WM_RBUTTONDOWN = 0x0204,
         WM_MOUSEMOVE = 0x0200, WM_RBUTTONUP = 0x0205, WM_NCRBUTTONDOWN = 0x00A4,
-        WM_COMMAND = 0x0111, SC_MINIMIZE = 0xF020, SC_MAXIMIZE = 0xF030, SC_CLOSE = 0xF060, SC_RESTORE = 0xF120, SC_SIZE = 0xF000,
+        WM_COMMAND = 0x0111, WM_SYSCOMMAND = 0x112, SC_MINIMIZE = 0xF020, SC_MAXIMIZE = 0xF030, SC_CLOSE = 0xF060, SC_RESTORE = 0xF120, SC_SIZE = 0xF000, SC_MOVE = 0xF010, SC_MOVE1 = 0xF012,
         TPM_LEFTBUTTON = 0x0000, TPM_RIGHTBUTTON = 0x0002, TPM_RETURNCMD = 0x0100,
-        SIZE_RESTORED = 0, SIZE_MINIMIZED = 1, SIZE_MAXIMIZED = 2, SIZE_MAXSHOW = 3, SIZE_MAXHIDE = 4, WM_SIZE = 0x0005;
+        SIZE_RESTORED = 0, SIZE_MINIMIZED = 1, SIZE_MAXIMIZED = 2, SIZE_MAXSHOW = 3, SIZE_MAXHIDE = 4, WM_SIZE = 0x0005, WS_MINIMIZEBOX = 0x20000;
 
         const int HTLEFT = 10;  //Left border of a window, allows resize horizontally to the left
         const int HTRIGHT = 11; //Right border of a window, allows resize horizontally to the right
@@ -504,15 +482,17 @@ namespace HeCopUI_Framework.Forms
                 {
                     cp.Style &= ~WS_CAPTION;
                     cp.Style &= ~WS_THICKFRAME;
-
+                    //cp.ClassStyle |= CS_DBLCLKS;
+                    cp.Style |= WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX;
+                   
                 }
-                //if(!DesignMode && FormBorderStyle== FormBorderStyle.Sizable)
-                //{
-                //    cp.Style &= WS_SIZEBOX;
-                //}   
+                if (!DesignMode && FormBorderStyle == FormBorderStyle.Sizable|| FormBorderStyle== FormBorderStyle.SizableToolWindow)
+                {
+                    //cp.Style &= WS_SIZEBOX;
+                }
 
                 //cp.ExStyle |= WS_EX_COMPOSITED;
-
+               
                 return cp;
             }
         }
@@ -520,7 +500,7 @@ namespace HeCopUI_Framework.Forms
 
         void SetAeroEffect()
         {
-            int a = 1;
+            int a = resizeBorder;
             MARGINS margins = new MARGINS
             {
                 leftWidth = a,
@@ -529,25 +509,20 @@ namespace HeCopUI_Framework.Forms
                 bottomHeight = a,
             };
 
-           // DwmExtendFrameIntoClientArea(this.Handle, ref margins); // Mở rộng vùng trong suốt
+           DwmExtendFrameIntoClientArea(this.Handle, ref margins); // Mở rộng vùng trong suốt
         }
 
         bool PositionContainHeader()
         {
-            System.Drawing.Point mpo = PointToClient(MousePosition);  
-            if (mpo.X >= resizeBorder && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= resizeBorder && mpo.Y <= headerHeight + (resizeBorder * 2))
-            {
+            System.Drawing.Point mpo = PointToClient(MousePosition);
+            if (resizeBorder <= mpo.X && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= resizeBorder && mpo.Y <= headerHeight + (resizeBorder * 2))
                 return true;
-            }
-            else if (mpo.X >= 0 && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= 0 && mpo.Y <= headerHeight)
-            {
+            else if (0 <= mpo.X && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= 0 && mpo.Y <= headerHeight)
                 return true;
-            }
-
             return false;
         }
 
-        void IsResize()
+        void IsResize(int msg=161)
         {
             if(FormBorderStyle== FormBorderStyle.Sizable || FormBorderStyle== FormBorderStyle.SizableToolWindow)
             {
@@ -555,170 +530,245 @@ namespace HeCopUI_Framework.Forms
                 if (left.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 10, 0);
+                    SendMessage(Handle, msg, 10, 0);
                 }
                 else if (right.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 11, 0);
+                    SendMessage(Handle, msg, 11, 0);
                 }
                 else if (top.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 12, 0);
+                    SendMessage(Handle, msg, 12, 0);
                 }
                 else if (bottom.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 15, 0);
+                    SendMessage(Handle, msg, 15, 0);
                 }
                 else if (topLeft.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 13, 0);
+                    SendMessage(Handle, msg, 13, 0);
                 }
                 else if (topRight.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 14, 0);
+                    SendMessage(Handle, msg, 14, 0);
                 }
                 else if (bottomLeft.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 16, 0);
+                    SendMessage(Handle, msg, 16, 0);
                 }
                 else if (bottomRight.Contains(mo))
                 {
                     ReleaseCapture();
-                    SendMessage(Handle, 161, 17, 0);
+                    SendMessage(Handle, msg, 17, 0);
                 }
             }    
         }
 
+        Size GetSizeHeaderExcludeControlBox => 
+             new Size((int)(MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2, HeaderHeight); 
+
+        void hoveredResize()
+        {
+            Point point = PointToClient(MousePosition);
+            if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
+            {
+                if ((left.Contains(point) || right.Contains(point)))
+                    Cursor = Cursors.SizeWE;
+                else if ((top.Contains(point) || bottom.Contains(point)))
+                    Cursor = Cursors.SizeNS;
+                else if ((topLeft.Contains(point) || bottomRight.Contains(point)))
+                    Cursor = Cursors.SizeNWSE;
+                else if ((topRight.Contains(point) || bottomLeft.Contains(point)))
+                    Cursor = Cursors.SizeNESW;
+                else if (close.Contains(point) ||
+                    (minimize.Contains(point) && MinimizeBox) ||
+                    (MinimizeBox && MaximizeBox && maximize.Contains(point)))
+                    Cursor = Cursors.Hand;
+                else Cursor = Cursors.Default;
+            }
+        }
+
         #endregion
+
+        // Đây là một hàm mới để xử lý các thao tác liên quan đến vùng header
+        private bool IsMouseOverHeader(int x, int y)
+        {
+            return x <= GetSizeHeaderExcludeControlBox.Width && y <= GetSizeHeaderExcludeControlBox.Height;
+        }
 
         protected override void WndProc(ref Message m)
         {
-            base.WndProc(ref m);
+           base.WndProc(ref m);
 
-            if (m.Msg == (int)WinApi.Messages.WM_NCPAINT)
+            switch (m.Msg)
             {
-                IntPtr hDC = GetWindowDC(this.Handle);
-                if (hDC != IntPtr.Zero)
-                {
-                    using (Graphics g = Graphics.FromHdc(hDC))
+                case WM_NCHITTEST:
+                    if (FormBorderStyle != FormBorderStyle.None)
                     {
-                        g.FillRectangle(Brushes.DarkBlue, new Rectangle(0, 0, this.Width, 30));
-                        g.DrawString("Tiêu đề tùy chỉnh", new Font("Arial", 12), Brushes.White, new PointF(10, 5));
+                        Point clientPoint = PointToClient(MousePosition);
+                        if (clientPoint.X>=resizeBorder && clientPoint.X <= GetSizeHeaderExcludeControlBox.Width && clientPoint.Y>=resizeBorder && clientPoint.Y <= headerHeight)
+                        {
+                            m.Result = (IntPtr)HTCAPTION; // Cho phép di chuyển form bằng header
+                        }
                     }
-                    ReleaseDC(this.Handle, hDC);
-                }
+                    //OnResizeFormR(ref m);
 
+                    break;
+                
+                case WM_MOUSEMOVE:
+                    HandleMouseMove();
+                    Invalidate(); // Để vẽ lại giao diện nếu cần
+                    break;
+
+                case WM_LBUTTONUP:
+                    HandleMouseButtonUp(ref m);
+                    break;
+
+                case WM_NCLBUTTONDOWN:
+                    if (PositionContainHeader())
+                    {
+                        ReleaseCapture();
+                        SendMessage(this.Handle, 0x112, 0xf012, 0); // Di chuyển form
+                    }
+                    break;
+
+                case WM_NCLBUTTONDBLCLK:
+                    HandleDoubleClick();
+                    break;
+
+                case WM_NCCALCSIZE when m.WParam.ToInt32() == 1:
+                    // Thay đổi vùng non-client nếu cần
+                    AdjustNonClientSize(ref m);
+                    break;
+
+                case WM_GETMINMAXINFO:
+                    SetMinMaxInfo(ref m);
+                    break;
+
+                case WM_NCRBUTTONDOWN:
+                    if(PositionContainHeader())
+                        ShowSystemMenu();
+                    base.WndProc(ref m);
+
+                    break;
+             
+
+                case WM_COMMAND:
+                    HandleSystemCommand(ref m);
+                    break;
             }
-            else if (m.Msg == WM_MOUSEMOVE)
+
+          
+
+        }
+
+        private int LOWORD(int value) => value & 0xFFFF;
+        private int HIWORD(int value) => (value >> 16) & 0xFFFF;
+
+        private void DrawCustomHeader()
+        {
+            IntPtr hDC = GetWindowDC(this.Handle);
+            using (Graphics g = Graphics.FromHdc(hDC))
             {
-                System.Drawing.Point mpo = PointToClient(MousePosition);
+                g.FillRectangle(Brushes.DarkBlue, new Rectangle(0, 0, this.Width, 30));
+                g.DrawString("Tiêu đề tùy chỉnh", new Font("Arial", 12), Brushes.White, new PointF(10, 5));
+            }
+            ReleaseDC(this.Handle, hDC);
+        }
+
+        private void HandleMouseMove()
+        {
+            Point mpo = PointToClient(MousePosition);
+            if (IsMouseOverHeader(mpo.X, mpo.Y))
+            {
                 hoveredClose = close.Contains(mpo);
                 hoveredMaximize = maximize.Contains(mpo);
                 hoveredMinimize = minimize.Contains(mpo);
+            }
 
+            hoveredResize();
+        }
 
-            }
-            else if (m.Msg == WM_LBUTTONDOWN)
+        private void HandleMouseButtonUp(ref Message m)
+        {
+            Point clientPoint = PointToClient(MousePosition);
+            if (close.Contains(clientPoint))
             {
-                if (PositionContainHeader())
-                {
-                    ReleaseCapture();
-                    //SendMessage(Handle, 161, 2, 0);
-                    SendMessage(this.Handle, 0x112, 0xf012, 0);
-                }
-                IsResize();
+                Close();
             }
-            else if (m.Msg == WM_LBUTTONUP)
+            else if (minimize.Contains(clientPoint) && MinimizeBox)
             {
-                if (hoveredClose) Close();
-                else if (hoveredMinimize && MinimizeBox) WindowState = FormWindowState.Minimized;
-                else if (hoveredMaximize && MinimizeBox && MaximizeBox)
-                    WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+                WindowState = FormWindowState.Minimized;
+            }
+            else if (maximize.Contains(clientPoint) && MinimizeBox && MaximizeBox)
+            {
+                WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+            }
+        }
 
-            }
-            else if (m.Msg == WM_LBUTTONDBLCLK)
+        private void HandleDoubleClick()
+        {
+            if (PositionContainHeader())
             {
-                if (PositionContainHeader())
-                {
-                    WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
-                }
+                WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
             }
-            else if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
-            {
-                //&& m.WParam.ToInt32() == 1
-                // Điều chỉnh kích thước của vùng non-client
-                //var nccs = (WinApi.NCCALCSIZE_PARAMS)Marshal.PtrToStructure(
-                //    m.LParam, typeof(WinApi.NCCALCSIZE_PARAMS));
-                //nccs.rect0.Top -= SystemInformation.CaptionHeight; // Tăng chiều cao thanh tiêu đề
-                //Marshal.StructureToPtr(nccs, m.LParam, false);
+        }
 
-                //ResizeForm(ref m);
+        private void AdjustNonClientSize(ref Message m)
+        {
+            // Điều chỉnh kích thước vùng non-client nếu cần thiết
+        }
 
-               
+        private void SetMinMaxInfo(ref Message m)
+        {
+            MINMAXINFO mmi = (MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(MINMAXINFO));
+            int desiredWidth = (int)(Screen.PrimaryScreen.WorkingArea.Width);
+            int desiredHeight = (int)(Screen.PrimaryScreen.WorkingArea.Height);
+            mmi.ptMaxSize.x = desiredWidth;
+            mmi.ptMaxSize.y = desiredHeight;
+            mmi.ptMaxTrackSize.x = desiredWidth;
+            mmi.ptMaxTrackSize.y = desiredHeight;
 
-            }
-            else if (m.Msg == WM_SIZE)
-            {
-               // MinSizeResize();
+            Marshal.StructureToPtr(mmi, m.LParam, true); // Cập nhật MINMAXINFO
+        }
 
-            }
-            else if (m.Msg == WM_GETMINMAXINFO)
-            {
-                MINMAXINFO mmi = (MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(MINMAXINFO));
-                // Thiết lập kích thước tối đa mong muốn
-                int desiredWidth = (int)(Screen.PrimaryScreen.WorkingArea.Width);
-                int desiredHeight = (int)(Screen.PrimaryScreen.WorkingArea.Height);
-                mmi.ptMaxSize.x = desiredWidth;
-                mmi.ptMaxSize.y = desiredHeight;
-                mmi.ptMaxTrackSize.x = desiredWidth;
-                mmi.ptMaxTrackSize.y = desiredHeight;
+        private void ShowSystemMenu(int receivedP= TPM_RIGHTBUTTON)
+        {
+            IntPtr hMenu = GetSystemMenu(this.Handle, false);
 
-                Marshal.StructureToPtr(mmi, m.LParam, true);  // Cập nhật cấu trúc MINMAXINFO
-            }
-            else if (m.Msg == WM_NCHITTEST)
-            {
-                //if (FormBorderStyle != FormBorderStyle.None)
-                //{
-                //    Point mos = PointToClient(MousePosition);
-                //    if (mos.X > resizeBorder && mos.X < (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 &&
-                //        (mos.Y > resizeBorder && mos.Y < headerHeight))
-                //        m.Result = (IntPtr)HTCAPTION;
-                //}
+            TrackPopupMenu(hMenu, receivedP, MousePosition.X+5, MousePosition.Y+5, 0, this.Handle, IntPtr.Zero);
+        }
 
-            }
-            else if (m.Msg == WM_RBUTTONUP)
+        private void HandleSystemCommand(ref Message m)
+        {
+            int cmd = m.WParam.ToInt32();
+            switch (cmd)
             {
-                if(PositionContainHeader())
-                {
-                    IntPtr hMenu = GetSystemMenu(this.Handle, false);
-                    // Hiển thị system menu tại vị trí con trỏ chuột
-                    int x = MousePosition.X + 5;
-                    int y = MousePosition.Y + 5;
-                    TrackPopupMenu(hMenu, TPM_RIGHTBUTTON, x, y, 0, this.Handle, IntPtr.Zero);
-                    //return; // Dừng xử lý sau khi hiển thị menu
-                }
+                case SC_MINIMIZE:
+                    WindowState = FormWindowState.Minimized;
+                    break;
+                case SC_MAXIMIZE:
+                    WindowState = FormWindowState.Maximized;
+                    break;
+                case SC_RESTORE:
+                    WindowState = FormWindowState.Normal;
+                    break;
+                case SC_CLOSE:
+                    Close();
+                    break;
             }
-            else if (m.Msg == WM_COMMAND)
-            {
-                int cmd = m.WParam.ToInt32();
-                if (cmd == SC_MINIMIZE) WindowState = FormWindowState.Minimized;
-                else if (cmd == SC_MAXIMIZE) WindowState = FormWindowState.Maximized;
-                else if (cmd == SC_RESTORE) WindowState = FormWindowState.Normal;
-                else if (cmd == SC_CLOSE) Close();
-            }
-            //else base.WndProc(ref m);
         }
 
         private void ResizeForm(ref Message message)
         {
-            if (FormBorderStyle != FormBorderStyle.Sizable || FormBorderStyle != FormBorderStyle.FixedToolWindow)
-                return;
+            //if (FormBorderStyle != FormBorderStyle.Sizable || FormBorderStyle != FormBorderStyle.FixedToolWindow)
+            //    return;
             var x = (int)(message.LParam.ToInt64() & 65535);
             var y = (int)((message.LParam.ToInt64() & -65536) >> 0x10);
             var point = PointToClient(new Point(x, y));
@@ -786,7 +836,7 @@ namespace HeCopUI_Framework.Forms
 
         void OnResizeFormR(ref Message m)
         {
-            if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow && (int)m.Result == HTCLIENT && WindowState == FormWindowState.Normal)
+            if ((FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow) && (int)m.Result == HTCLIENT && WindowState == FormWindowState.Normal)
             {
                 Point screenPoint = new Point(m.LParam.ToInt32()); //Gets screen point coordinates(X and Y coordinate of the pointer)                           
                 Point clientPoint = this.PointToClient(screenPoint); //Computes the location of the screen point into client coordinates                          
@@ -825,5 +875,34 @@ namespace HeCopUI_Framework.Forms
             if (Size.Width < minWidth) Size = new Size(minWidth, Size.Height);
             if (Size.Height < headerHeight + resizeBorder) Size = new Size(Size.Width, headerHeight + resizeBorder);
         }
+
+        public enum DWMWINDOWATTRIBUTE
+        {
+            DWMWA_NCRENDERING_ENABLED,
+            DWMWA_NCRENDERING_POLICY,
+            DWMWA_TRANSITIONS_FORCEDISABLED,
+            DWMWA_ALLOW_NCPAINT,
+            DWMWA_CAPTION_BUTTON_BOUNDS,
+            DWMWA_NONCLIENT_RTL_LAYOUT,
+            DWMWA_FORCE_ICONIC_REPRESENTATION,
+            DWMWA_FLIP3D_POLICY,
+            DWMWA_EXTENDED_FRAME_BOUNDS,
+            DWMWA_HAS_ICONIC_BITMAP,
+            DWMWA_DISALLOW_PEEK,
+            DWMWA_EXCLUDED_FROM_PEEK,
+            DWMWA_CLOAK,
+            DWMWA_CLOAKED,
+            DWMWA_FREEZE_REPRESENTATION,
+            DWMWA_PASSIVE_UPDATE_MODE,
+            DWMWA_USE_HOSTBACKDROPBRUSH,
+            DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
+            DWMWA_WINDOW_CORNER_PREFERENCE = 33,
+            DWMWA_BORDER_COLOR,
+            DWMWA_CAPTION_COLOR,
+            DWMWA_TEXT_COLOR,
+            DWMWA_VISIBLE_FRAME_BORDER_THICKNESS,
+            DWMWA_SYSTEMBACKDROP_TYPE,
+            DWMWA_LAST
+        };
     }
 }
