@@ -714,7 +714,7 @@ namespace HeCopUI_Framework.Forms
 
         private void HandleDoubleClick()
         {
-            if (PositionContainHeader())
+            if (PositionContainHeader() && MaximizeBox)
             {
                 WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
             }
