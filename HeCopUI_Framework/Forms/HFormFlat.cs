@@ -483,7 +483,7 @@ namespace HeCopUI_Framework.Forms
                     cp.Style &= ~WS_CAPTION;
                     cp.Style &= ~WS_THICKFRAME;
                     //cp.ClassStyle |= CS_DBLCLKS;
-                    cp.Style |= WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX;
+                    cp.Style |= WS_SYSMENU;
                    
                 }
                 if (!DesignMode && FormBorderStyle == FormBorderStyle.Sizable|| FormBorderStyle== FormBorderStyle.SizableToolWindow)
