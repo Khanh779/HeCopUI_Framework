@@ -622,7 +622,7 @@ namespace HeCopUI_Framework.Forms
                     break;
                 
                 case WM_MOUSEMOVE:
-                    HandleMouseMove();
+                    //HandleMouseMove();
                     Invalidate(); // Để vẽ lại giao diện nếu cần
                     break;
 
