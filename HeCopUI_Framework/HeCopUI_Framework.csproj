@@ -424,6 +424,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Struct\CornerRadius.cs" />
+    <Compile Include="Struct\PAINTSTRUCT.cs" />
     <Compile Include="SuperNotifyIcon\Animation.cs" />
     <Compile Include="SuperNotifyIcon\Dropzone.cs">
       <SubType>Component</SubType>

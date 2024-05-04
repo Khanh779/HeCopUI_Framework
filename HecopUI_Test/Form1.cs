@@ -159,9 +159,8 @@ namespace HecopUI_Test
         {
             var frmflat= new HFormFlat();
             frmflat.Text = "This is title";
-            frmflat.FormBorderStyle = FormBorderStyle.Sizable;
             frmflat.StartPosition = FormStartPosition.CenterScreen;
-
+            frmflat.BackColor= Color.FromArgb(255, 255, 255);
             Button btn = new Button();
             btn.Text = "Click me";
             btn.Location = new Point(50, 50);
