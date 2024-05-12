@@ -9,6 +9,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 using static HeCopUI_Framework.GetAppResources;
@@ -139,7 +140,7 @@ namespace HeCopUI_Framework.Forms
             base.OnTextChanged(e);
         }
 
-       
+
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
@@ -218,7 +219,7 @@ namespace HeCopUI_Framework.Forms
             get { return borderLinear; }
             set
             {
-                borderLinear = value;Invalidate();
+                borderLinear = value; Invalidate();
             }
         }
 
@@ -269,20 +270,23 @@ namespace HeCopUI_Framework.Forms
                 if (MaximizeBox && FormBorderStyle == FormBorderStyle.Sizable) text.Width -= iconControlBoxHeight;
 
                 close = new RectangleF(Width - iconControlBoxHeight - 5 - resizeBorder, resizeBorder / 2 + offyCenter, iconControlBoxHeight, iconControlBoxHeight);
-              
+
                 g.FillRectangle(new SolidBrush(hoveredClose ? Color.FromArgb(20, Color.White) : Color.Transparent),
                     close.X, close.Y, close.Width, close.Height);
 
                 g.DrawLine(new Pen(hoveredClose ? closeColor : ForeColor, 1.0f), new PointF(close.X + 6, close.Y + 6), new PointF(close.X + close.Width - 6, close.Y + close.Height - 6));
                 g.DrawLine(new Pen(hoveredClose ? closeColor : ForeColor, 1.0f), new PointF(close.X + close.Width - 6, close.Y + 6), new PointF(close.X + 6, close.Y + close.Height - 6));
                 hoveredClose = close.Contains(pointT);
-               
+
                 if (MinimizeBox)
                 {
                     minimize = new RectangleF(close.X - iconControlBoxHeight - 5, close.Y, iconControlBoxHeight, iconControlBoxHeight);
-                    g.FillRectangle(new SolidBrush(hoveredMinimize ? Color.FromArgb(20, Color.White) : Color.Transparent),
-                    minimize.X, minimize.Y, minimize.Width, minimize.Height);
-                    hoveredMinimize = minimize.Contains(pointT);
+                    if (MaximizeBox == false)
+                    {
+                        hoveredMinimize = minimize.Contains(pointT);
+                        g.FillRectangle(new SolidBrush(hoveredMinimize ? Color.FromArgb(20, Color.White) : Color.Transparent), minimize.X, minimize.Y, minimize.Width, minimize.Height);
+
+                    }
                     if (MaximizeBox)
                     {
                         maximize = new RectangleF(close.X - iconControlBoxHeight - 5, minimize.Y, iconControlBoxHeight, iconControlBoxHeight);
@@ -338,7 +342,7 @@ namespace HeCopUI_Framework.Forms
                         }
                     }
 
-                    g .DrawLine(new Pen(hoveredMinimize ? minimizeColor : ForeColor, 1.0f), new PointF(minimize.X + 6, minimize.Y + (minimize.Width / 2) + 1),
+                    g.DrawLine(new Pen(hoveredMinimize ? minimizeColor : ForeColor, 1.0f), new PointF(minimize.X + 6, minimize.Y + (minimize.Width / 2) + 1),
                         new PointF(minimize.X + minimize.Width - 6, minimize.Y + (minimize.Width / 2) + 1));
 
                 }
@@ -352,7 +356,7 @@ namespace HeCopUI_Framework.Forms
             base.OnResizeEnd(e);
 
 
-            if (FormBorderStyle == FormBorderStyle.Sizable && MaximizeBox && WindowState== FormWindowState.Normal)
+            if (FormBorderStyle == FormBorderStyle.Sizable && MaximizeBox && WindowState == FormWindowState.Normal)
             {
                 int screenY = Screen.FromPoint(Location).Bounds.Location.Y;
                 int screenX = Screen.FromPoint(Location).Bounds.Location.X;
@@ -368,11 +372,19 @@ namespace HeCopUI_Framework.Forms
 
         public HFormFlat()
         {
-            SetStyle(ControlStyles.ResizeRedraw| ControlStyles.AllPaintingInWmPaint| ControlStyles.UserPaint |ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             BackColor = Color.FromArgb(25, 25, 25);
             ForeColor = Color.FromArgb(200, 200, 200);
-           
+
             //SetAeroEffect();
+        }
+
+        private static void Composited(IntPtr hwnd)
+        {
+            int GWL_EXSTYLE = -20;
+            IntPtr exStyle = (IntPtr)GetWindowLong(hwnd, GWL_EXSTYLE);
+            int compositedStyle = (int)exStyle | 0x02000000; //WS_EX_COMPOSITED
+            SetWindowLong(hwnd, GWL_EXSTYLE, compositedStyle);
         }
 
 
@@ -412,10 +424,10 @@ namespace HeCopUI_Framework.Forms
         public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool TrackPopupMenu(IntPtr hMenu,int uFlags,int x,int y,int nReserved,IntPtr hWnd,IntPtr lpRect);
+        public static extern bool TrackPopupMenu(IntPtr hMenu, int uFlags, int x, int y, int nReserved, IntPtr hWnd, IntPtr lpRect);
 
         [DllImport("user32.dll")]
-        private static extern bool SetWindowPos(IntPtr hWnd,IntPtr hWndInsertAfter,int x,int y,int cx,int cy,uint uFlags);
+        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
 
         [DllImport("User32.dll")]
         public static extern bool PostMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
@@ -438,7 +450,10 @@ namespace HeCopUI_Framework.Forms
         WM_MOUSEMOVE = 0x0200, WM_RBUTTONUP = 0x0205, WM_NCRBUTTONDOWN = 0x00A4,
         WM_COMMAND = 0x0111, WM_SYSCOMMAND = 0x112, SC_MINIMIZE = 0xF020, SC_MAXIMIZE = 0xF030, SC_CLOSE = 0xF060, SC_RESTORE = 0xF120, SC_SIZE = 0xF000, SC_MOVE = 0xF010, SC_MOVE1 = 0xF012,
         TPM_LEFTBUTTON = 0x0000, TPM_RIGHTBUTTON = 0x0002, TPM_RETURNCMD = 0x0100,
-        SIZE_RESTORED = 0, SIZE_MINIMIZED = 1, SIZE_MAXIMIZED = 2, SIZE_MAXSHOW = 3, SIZE_MAXHIDE = 4, WM_SIZE = 0x0005, WS_MINIMIZEBOX = 0x20000, WS_CONTROLBOX = 0x00080000;
+        SIZE_RESTORED = 0, SIZE_MINIMIZED = 1, SIZE_MAXIMIZED = 2, SIZE_MAXSHOW = 3, SIZE_MAXHIDE = 4, WM_SIZE = 0x0005, WS_MINIMIZEBOX = 0x20000, WS_CONTROLBOX = 0x00080000,
+            WS_EX_BUFFERED_DRAW = 0x200, WS_EX_LAYERED = 0x80000, WS_EX_TRANSPARENT = 0x20, WS_EX_TOOLWINDOW = 0x80, WS_EX_TOPMOST = 0x8, WS_EX_NOACTIVATE = 0x08000000, WS_EX_APPWINDOW = 0x40000,
+            WS_EX_BUFFERED_DRAW1 = 0x00000040, WS_EX_PROCESS_UI_UPDATES = 0x00000020, NCACTIVATE = 0x0086, MDIACTIVATE = 0x0222, NCMOUSELEAVE = 0x02A2,
+                MOUSEHOVER = 0x2A1, MOUSELEAVE = 0x02A3, ACTIVATEAPP = 0x001C;
 
         private const int RDW_INVALIDATE = 0x0001;
         private const int RDW_FRAME = 0x0400;
@@ -492,9 +507,18 @@ namespace HeCopUI_Framework.Forms
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, int flags);
         [DllImport("user32.dll")]
-        public static extern bool GetWindowRect(IntPtr hWnd, out GetAppResources.WinApi. RECT lpRect);
+        public static extern bool GetWindowRect(IntPtr hWnd, out GetAppResources.WinApi.RECT lpRect);
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetDCEx(IntPtr hWnd, IntPtr hrgnClip, DCXFlags flags);
 
+        [Flags]
+        public enum DCXFlags : long
+        {
+            DCX_WINDOW = 0x00000001L,
+            DCX_CACHE = 0x00000002L,
+            DCX_CLIPSIBLINGS = 0x00000010L,
+        }
 
         #endregion
 
@@ -503,23 +527,25 @@ namespace HeCopUI_Framework.Forms
             get
             {
                 CreateParams cp = base.CreateParams;
+                //cp.ExStyle |= WS_EX_COMPOSITED;
+                //cp.ExStyle |= WS_EX_PROCESS_UI_UPDATES;
+                //cp.ClassStyle |= 0x8;
                 if (FormBorderStyle != FormBorderStyle.None)
                 {
                     //cp.Style &= ~WS_CAPTION;
                     //cp.Style &= ~WS_THICKFRAME;
-                    cp.Style &= ~WS_MINIMIZEBOX;
-                    cp.Style &= ~WS_MAXIMIZEBOX;
-                    cp.Style &= ~WS_CONTROLBOX;
-                    cp.Style |= WS_SYSMENU ;
+
+                    //cp.Style &= ~WS_MINIMIZEBOX;
+                    //cp.Style &= ~WS_MAXIMIZEBOX;
+                    //cp.Style &= ~WS_CONTROLBOX;
+                    cp.Style |= WS_SYSMENU;
 
                 }
                 if (!DesignMode && FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
                 {
-                    //cp.Style |= WS_SIZEBOX;
+                    cp.Style |= WS_SIZEBOX;
                 }
 
-                cp.ExStyle |= WS_EX_COMPOSITED;
-               
 
                 return cp;
             }
@@ -537,7 +563,7 @@ namespace HeCopUI_Framework.Forms
                 bottomHeight = a,
             };
 
-           DwmExtendFrameIntoClientArea(this.Handle, ref margins); // Mở rộng vùng trong suốt
+            DwmExtendFrameIntoClientArea(this.Handle, ref margins); // Mở rộng vùng trong suốt
         }
 
         bool PositionContainHeader()
@@ -560,9 +586,9 @@ namespace HeCopUI_Framework.Forms
             return false;
         }
 
-        void IsResize(int msg=161)
+        void IsResize(int msg = 161)
         {
-            if(FormBorderStyle== FormBorderStyle.Sizable || FormBorderStyle== FormBorderStyle.SizableToolWindow)
+            if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
             {
                 System.Drawing.Point mo = PointToClient(MousePosition);
                 if (left.Contains(mo))
@@ -605,11 +631,11 @@ namespace HeCopUI_Framework.Forms
                     ReleaseCapture();
                     SendMessage(Handle, msg, 17, 0);
                 }
-            }    
+            }
         }
 
-        Size GetSizeHeaderExcludeControlBox => 
-             new Size((int)(MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2, HeaderHeight); 
+        Size GetSizeHeaderExcludeControlBox =>
+             new Size((int)(MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2, HeaderHeight);
 
         void hoveredResize()
         {
@@ -649,65 +675,87 @@ namespace HeCopUI_Framework.Forms
         protected override void WndProc(ref Message m)
         {
             var point = Point.Empty;
-            if (m.Msg== WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
+            if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
             {
-                var nccalcsize = (NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(NCCALCSIZE_PARAMS));
-                // Ví dụ: Ẩn viền cửa sổ để tạo giao diện không viền
-                nccalcsize.rgc.Top += headerHeight + resizeBorder; // Ẩn thanh tiêu đề mặc định
-                m.Result = IntPtr.Zero;
-                Marshal.StructureToPtr(nccalcsize, m.LParam, false);
-                //SetMinMaxInfo(ref m);
-              
-                ResizeForm(ref m);
-                DrawCustomHeader(ref m);
+               if(FormBorderStyle != FormBorderStyle.None)
+                {
+                    var nccalcsize = (GetAppResources.WinApi.NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(GetAppResources.WinApi.NCCALCSIZE_PARAMS));
+                    nccalcsize.rcNewWindow.Top += headerHeight + resizeBorder; // Ẩn thanh tiêu đề mặc định
+                    nccalcsize.rcNewWindow.Left += 1;
+                    nccalcsize.rcNewWindow.Right -= 1;
+                    nccalcsize.rcNewWindow.Bottom -= 1;
+                    Marshal.StructureToPtr(nccalcsize, m.LParam, true);
+                    //SetMinMaxInfo(ref m);
+                }
+
             }
-            else if(m.Msg== WM_NCPAINT)
+            else if (m.Msg == WM_NCPAINT)
             {
+                if (FormBorderStyle != FormBorderStyle.None)
                 DrawCustomHeader(ref m);
+
             }
-            else if (m.Msg== WM_NCHITTEST)
+            else if (m.Msg == WM_NCHITTEST)
             {
                 if (FormBorderStyle != FormBorderStyle.None)
                 {
                     if (m.Result == (IntPtr)1) // Nếu hittest trả về vùng client
                     {
-                        point = PointToClient(MousePosition);
-                        if (point.Y < headerHeight) // Nếu ở vùng thanh tiêu đề tùy chỉnh
-                        {
-                            m.Result = (IntPtr)2; // HTCAPTION để cho phép di chuyển
-                        }
+                        //point = PointToClient(MousePosition);
+                        //if (point.X <= GetSizeHeaderExcludeControlBox.Width && point.Y < headerHeight) // Nếu ở vùng thanh tiêu đề tùy chỉnh
+                        //{
+                        //    m.Result = (IntPtr)2; // HTCAPTION để cho phép di chuyển
+                        //}
+                        //else m.Result = (IntPtr)1; // HTCLIENT để cho phép thao tác chuột trên vùng client
                     }
+
+                    //ResizeForm(ref m);
+                    //if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
+                    //    OnResizeFormR(ref m);
+
                 }
+
                 base.WndProc(ref m);
-                if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
-                    OnResizeFormR(ref m);
             }
-            else if (m.Msg== WM_NCLBUTTONDOWN)
+            else if (m.Msg == WM_NCLBUTTONDOWN)
             {
-                ReleaseCapture();
-                SendMessage(Handle, 0x0112, 0xF012, 0); // Di chuyển form
+               if(FormBorderStyle != FormBorderStyle.None)
+                {
+                    ReleaseCapture();
+                    SendMessage(Handle, 0x0112, 0xF012, 0); // Di chuyển form
+                }    
+
             }
-            else if (m.Msg== WM_NCRBUTTONDOWN)
+            else if (m.Msg == WM_NCRBUTTONDOWN)
             {
                 if (IsMouseOverHeader(point.X, point.Y))
                 {
-                    IntPtr hMenu = GetSystemMenu(this.Handle, false);
-                    TrackPopupMenu(hMenu, TPM_LEFTBUTTON | TPM_RETURNCMD, Cursor.Position.X, Cursor.Position.Y, 0, this.Handle, IntPtr.Zero);
+                    IntPtr hMenu = GetSystemMenu(Handle, false);
+                    TrackPopupMenu(hMenu, TPM_LEFTBUTTON | TPM_RETURNCMD, Cursor.Position.X, Cursor.Position.Y, 0, Handle, IntPtr.Zero);
                 }
+             
             }
-            else if (m.Msg== WM_NCMOUSEMOVE)
+            else if (m.Msg == WM_NCMOUSEMOVE)
             {
                 point = PointToClient(MousePosition); point.Y = headerHeight + point.Y;
                 if (point.X <= Width && close != Rectangle.Empty || minimize != Rectangle.Empty || maximize != Rectangle.Empty)
                     pointT = point;
                 DrawCustomHeader(ref m);
+                Composited(m.HWnd);
+
+
             }
-            else if(m.Msg== WM_MOUSEMOVE)
+            else if (m.Msg == WM_MOUSEMOVE)
             {
-                IsResize();
-            }    
-            else if (m.Msg== WM_NCLBUTTONUP)
+                //if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
+                //{
+                //    hoveredResize();
+                //}
+                Composited(m.HWnd);
+            }
+            else if (m.Msg == WM_NCLBUTTONUP)
             {
+                //ReleaseCapture();
                 if (hoveredClose)
                 {
                     // Đóng form
@@ -728,19 +776,29 @@ namespace HeCopUI_Framework.Forms
                 {
                     PostMessage(this.Handle, 0x0112, 0xF020, 0);
                 }
-                ReleaseCapture();
                 DrawCustomHeader(ref m);
             }
-            else if (m.Msg== WM_NCLBUTTONDBLCLK)
+            else if (m.Msg == WM_NCLBUTTONDBLCLK)
             {
-                HandleDoubleClick();
-                ReleaseCapture();
                 //ReleaseCapture();
-                base.WndProc(ref m);
+                HandleDoubleClick();
+
             }
-            else if (m.Msg== WM_COMMAND)
+            else if (m.Msg == WM_COMMAND)
             {
                 HandleSystemCommand(ref m);
+            }
+            else if (m.Msg == NCMOUSELEAVE)
+            {
+                DrawCustomHeader(ref m);
+            }
+            else if (m.Msg == ACTIVATEAPP)
+            {
+                DrawCustomHeader(ref m);
+            }
+            else if (m.Msg == MDIACTIVATE)
+            {
+                DrawCustomHeader(ref m);
             }
             else
             {
@@ -752,7 +810,7 @@ namespace HeCopUI_Framework.Forms
         Rectangle GetSizeFormNonClient()
         {
             GetAppResources.WinApi.RECT a = new WinApi.RECT();
-            GetWindowRect(Handle, out  a);
+            GetWindowRect(Handle, out a);
 
             return a.ToRectangle();
         }
@@ -762,19 +820,17 @@ namespace HeCopUI_Framework.Forms
 
         private void DrawCustomHeader(ref Message m)
         {
+            LinearGradientBrush linearBorder = new LinearGradientBrush(ClientRectangle, borderColor1, borderColor2, borderLinear);
             IntPtr hDC = GetWindowDC(m.HWnd);
             var a = GetSizeFormNonClient();
-            using (Graphics g = Graphics.FromHdc(hDC))
-            {
-                DrawPaint(g);
-                LinearGradientBrush linearBorder = new LinearGradientBrush(ClientRectangle, borderColor1, borderColor2, borderLinear);
-                
-                g.DrawRectangle(new Pen(linearBorder, 2), 0,0, a.Width, a.Height);
-            } 
+            Graphics g = Graphics.FromHdc(hDC);
+            DrawPaint(g);
+            g.DrawRectangle(new Pen(linearBorder, 2), 0, 0, a.Width, a.Height);
+
             ReleaseDC(m.HWnd, hDC);
         }
 
-        Point pointT= Point.Empty;
+        Point pointT = Point.Empty;
         private void HandleDoubleClick()
         {
             if (PositionContainHeader() && MaximizeBox)
@@ -818,8 +874,8 @@ namespace HeCopUI_Framework.Forms
 
         private void ResizeForm(ref Message message)
         {
-            //if (FormBorderStyle != FormBorderStyle.Sizable || FormBorderStyle != FormBorderStyle.FixedToolWindow)
-            //    return;
+            if (FormBorderStyle != FormBorderStyle.Sizable || FormBorderStyle != FormBorderStyle.FixedToolWindow)
+                return;
             var x = (int)(message.LParam.ToInt64() & 65535);
             var y = (int)((message.LParam.ToInt64() & -65536) >> 0x10);
             var point = PointToClient(new Point(x, y));

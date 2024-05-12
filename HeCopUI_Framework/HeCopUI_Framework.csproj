@@ -804,13 +804,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>mkdir C:\Lib\$(ProjectName)
+    <PreBuildEvent>::mkdir C:\Lib\$(ProjectName)
  
-copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PreBuildEvent>
+::copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>mkdir C:\Lib\$(ProjectName)
+    <PostBuildEvent>::mkdir C:\Lib\$(ProjectName)
  
-copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PostBuildEvent>
+::copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -93,9 +93,9 @@ namespace HeCopUI_Framework
             [StructLayout(LayoutKind.Sequential)]
             public struct NCCALCSIZE_PARAMS
             {
-                public RECT rect0;
-                public RECT rect1;
-                public RECT rect2;
+                public RECT rcNewWindow;
+                public RECT rcOldWindow;
+                public RECT rcClient;
                 public IntPtr lppos;
             }
 
