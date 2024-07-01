@@ -29,7 +29,7 @@ namespace HeCopUI_Framework.Controls.Progress
                     _value = 0;
             }
 
-            else if (ProgressStyle == Style.Style5 || ProgressStyle== Style.Style7)
+            else if (ProgressStyle == Style.Style5 || ProgressStyle == Style.Style7)
             {
                 if (_value < dotCount) _value += 0.5f;
                 else _value = 1;
@@ -118,6 +118,9 @@ namespace HeCopUI_Framework.Controls.Progress
                     case Style.Style7:
                         Style7(e);
                         break;
+                    case Style.Style8:
+                        Style8(e.Graphics);
+                        break;
 
                 }
             }
@@ -152,7 +155,7 @@ namespace HeCopUI_Framework.Controls.Progress
 
         int angle = -90;
 
-        public enum Style { Style1, Style2, Style3, Style4, Style5, Style6, Style7 }
+        public enum Style { Style1, Style2, Style3, Style4, Style5, Style6, Style7, Style8 }
 
         private Style _style = Style.Style1;
         public Style ProgressStyle
@@ -301,7 +304,7 @@ namespace HeCopUI_Framework.Controls.Progress
         {
             using (Brush rippleBrush = new SolidBrush(Color.FromArgb((int)(160 - (150 * _value / dotCount)), DotColor)))
             {
-                var rippleSize = (float)((radius * 4+2) * _value / dotCount) - 2;
+                var rippleSize = (float)((radius * 4 + 2) * _value / dotCount) - 2;
                 e.Graphics.FillEllipse(rippleBrush, new RectangleF(Width / 2 - rippleSize / 2, Height / 2 - rippleSize / 2, rippleSize, rippleSize));
             }
         }
@@ -333,6 +336,42 @@ namespace HeCopUI_Framework.Controls.Progress
                         }
                     }
                 }
+            }
+        }
+
+        void Style8(Graphics g)
+        {
+            float x = Width / 2;
+            float y = Height / 2;
+            LinearGradientBrush lb = new LinearGradientBrush(ClientRectangle, DotColor, DotColor, 2);
+
+            var ro = angle;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            for (int i = -1; i < dotCount; i++)
+            {
+                if (i > -1)
+                {
+                    float douangle = i * (360 / (dotCount - 1)) + ro;
+                    float toadoX = (float)(x + (radius * 4 - 2) * Math.Cos(douangle * Math.PI / 180));
+                    float toadoY = (float)(y + (radius * 4 - 2) * Math.Sin(douangle * Math.PI / 180));
+
+                    //  if (!_Reverse)
+                    {
+                        if (douangle <= 360 && douangle >= 0)
+                        {
+                            g.FillEllipse(lb, toadoX - radius, toadoY - radius, radius * 2, radius * 2); // Center the dot
+                        }
+                    }
+                    //else
+                    //{
+                    //    if (douangle <= MaxAngle && douangle >= MinAngle)
+                    //    {
+                    //        g.FillEllipse(lb, toadoX - LoaderThickness, toadoY - LoaderThickness, LoaderThickness * 2, LoaderThickness * 2); // Center the dot
+                    //    }
+                    //}
+                }
+
             }
         }
 

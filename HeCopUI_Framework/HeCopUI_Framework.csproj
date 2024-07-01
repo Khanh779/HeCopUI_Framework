@@ -195,9 +195,6 @@
     <Compile Include="Controls\HRadialRangeSlider .cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Progress\HDotRing.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\Progress\HProgressRing.cs">
       <SubType>Component</SubType>
     </Compile>
