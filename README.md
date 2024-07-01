@@ -43,5 +43,4 @@
 - Visual Studio and supporting tools to run the program.
 
 ## Main:
-![Video Title](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record2.gif)](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.mp4)
-![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record2.gif)
+![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
