@@ -7,6 +7,9 @@
 - [Windows Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/window-class-styles)
 - [Windows and Messages Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/windowing)
 
+## Overview
+![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
+
 ## Controls & Support
 | Control | Support |
 |---------|---------|
@@ -42,5 +45,4 @@
 - Require .Net Framework 4.7.2 or higher.
 - Visual Studio and supporting tools to run the program.
 
-## Main:
-![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
+
