@@ -8,10 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HecopUI_Test", "HecopUI_Test\HecopUI_Test.csproj", "{115CE995-F415-47E4-87AA-EE92EBF983D9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshot", "Screenshot", "{26B4234C-3E37-462A-9737-72A4286981BD}"
-	ProjectSection(SolutionItems) = preProject
-		Screenshot\Record1.mp4 = Screenshot\Record1.mp4
-		Screenshot\Record2.gif = Screenshot\Record2.gif
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
