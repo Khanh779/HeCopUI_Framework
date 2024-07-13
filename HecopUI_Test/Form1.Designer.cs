@@ -180,6 +180,7 @@ namespace HecopUI_Test
             this.tabPage23 = new System.Windows.Forms.TabPage();
             this.hButton12 = new HeCopUI_Framework.Controls.HButton();
             this.hButton11 = new HeCopUI_Framework.Controls.HButton();
+            this.hMontCalendar1 = new HeCopUI_Framework.Controls.HMontCalendar();
             this.hTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -2978,6 +2979,7 @@ namespace HecopUI_Test
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tabPage6.Controls.Add(this.hMontCalendar1);
             this.tabPage6.Controls.Add(this.hTextBox3);
             this.tabPage6.Controls.Add(this.hCircleAnglePicker1);
             this.tabPage6.Controls.Add(this.hRadialRangeSlider1);
@@ -3006,7 +3008,7 @@ namespace HecopUI_Test
             this.hTextBox3.Image = null;
             this.hTextBox3.ImageOffsetX = 2;
             this.hTextBox3.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox3.Location = new System.Drawing.Point(311, 175);
+            this.hTextBox3.Location = new System.Drawing.Point(263, 174);
             this.hTextBox3.MaxLength = 32767;
             this.hTextBox3.Multiline = false;
             this.hTextBox3.Name = "hTextBox3";
@@ -3049,7 +3051,7 @@ namespace HecopUI_Test
             this.hCircleAnglePicker1.LineColor = System.Drawing.Color.Gray;
             this.hCircleAnglePicker1.LineCut = 12;
             this.hCircleAnglePicker1.LineWidth = 2;
-            this.hCircleAnglePicker1.Location = new System.Drawing.Point(287, 23);
+            this.hCircleAnglePicker1.Location = new System.Drawing.Point(234, 23);
             this.hCircleAnglePicker1.Name = "hCircleAnglePicker1";
             this.hCircleAnglePicker1.Size = new System.Drawing.Size(127, 127);
             this.hCircleAnglePicker1.TabIndex = 4;
@@ -3386,6 +3388,25 @@ namespace HecopUI_Test
             this.hButton11.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.hButton11.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
             // 
+            // hMontCalendar1
+            // 
+            this.hMontCalendar1.Date = new System.DateTime(2024, 7, 13, 9, 40, 37, 98);
+            this.hMontCalendar1.DayHoverColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.DaySelectedColor = System.Drawing.Color.SteelBlue;
+            this.hMontCalendar1.HoverDayColor = System.Drawing.Color.White;
+            this.hMontCalendar1.Location = new System.Drawing.Point(410, 116);
+            this.hMontCalendar1.Name = "hMontCalendar1";
+            this.hMontCalendar1.NormalDayColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.hMontCalendar1.PlaceHolderText = System.Drawing.Color.Gray;
+            this.hMontCalendar1.PreviousButtonColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.Size = new System.Drawing.Size(305, 324);
+            this.hMontCalendar1.TabIndex = 6;
+            this.hMontCalendar1.Text = "hMontCalendar1";
+            this.hMontCalendar1.TextRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hMontCalendar1.TitleColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.ToDayColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.YearMonthColor = System.Drawing.Color.White;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -3579,6 +3600,7 @@ namespace HecopUI_Test
         private HButton hButton12;
         private HButton hButton11;
         private HDotProgressRing hDotProgressRing8;
+        private HMontCalendar hMontCalendar1;
     }
 }
 
