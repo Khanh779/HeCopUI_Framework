@@ -1,7 +1,7 @@
 # HeCopUI Framework
 
 ## About
-- HeCopUI Framework is a WinForm library that supports rendering controls such as Form, RecyclerView, TreeView, Buttons, ... 
+- HeCopUI Framework is a WinForm library that supports rendering controls such as Form, TreeView, Buttons, ... 
 - In addition, the library also supports components such as Progress Bar, Progress Indicator and chart types such as Bar Chart, Line Chart, Pie Chart and Radar Chart.
 - High performance, Friendly design. [`TuyetNhiDeThuong`]
 - [Windows Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/window-class-styles)
