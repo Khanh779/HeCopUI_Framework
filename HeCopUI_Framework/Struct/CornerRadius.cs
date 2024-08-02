@@ -2,9 +2,13 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Struct
 {
+    /// <summary>
+    /// Represents Corner Radius information associated with a user interface (UI)
+    /// </summary>
     [Serializable]
     [TypeConverter(typeof(CornerRadiusConverter))]
     public struct CornerRadius
@@ -17,7 +21,7 @@ namespace HeCopUI_Framework.Struct
 
         public static CornerRadius Empty = new CornerRadius(0);
 
-        public CornerRadius(float all) : this(all, all, all, all)
+        public CornerRadius(float all=0) : this(all, all, all, all)
         {
             _all = true;
         }
@@ -40,6 +44,38 @@ namespace HeCopUI_Framework.Struct
         public CornerRadius(CornerRadius radius, float offset = 0)
             : this(radius.TopLeft - offset, radius.TopRight - offset, radius.BottomLeft - offset, radius.BottomRight - offset)
         {
+        }
+
+        public static bool TryParse(string s, out CornerRadius result)
+        {
+            result = new CornerRadius();
+            if (string.IsNullOrEmpty(s))
+            {
+                return false;
+            }
+            s = s.Trim();
+            if (s.Contains(","))
+            {
+              
+                var split = s.Split(',');
+                if (split.Length != 4)
+                {
+                    return false;
+                }
+
+                if (float.TryParse(split[0], out var topLeft) && float.TryParse(split[1], out var topRight) && float.TryParse(split[2], out var bottomLeft) && float.TryParse(split[3], out var bottomRight))
+                {
+                    result = new CornerRadius(topLeft, topRight, bottomLeft, bottomRight);
+                    return true;
+                }
+            }
+            else
+            {
+                result = new CornerRadius(float.Parse(s));
+                return true;
+            }
+
+            return false;
         }
 
         public float All
