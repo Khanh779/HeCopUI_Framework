@@ -24,8 +24,8 @@ namespace HeCopUI_Framework.Converter
 
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
-            if (destinationType == typeof(InstanceDescriptor))
-                return true;
+            //if (destinationType == typeof(InstanceDescriptor))
+            //    return true;
 
             return base.CanConvertTo(context, destinationType);
         }
@@ -94,21 +94,23 @@ namespace HeCopUI_Framework.Converter
                     return string.Join(separator, parts);
                 }
 
-                if (destinationType == typeof(InstanceDescriptor))
-                {
-                    ConstructorInfo ctor = typeof(CornerRadius).GetConstructor(new Type[]
-                    {
-                typeof(float), typeof(float), typeof(float), typeof(float)
-                    });
+                //if (destinationType == typeof(InstanceDescriptor))
+                //{
+                //    ConstructorInfo ctor = typeof(CornerRadius).GetConstructor(new Type[]
+                //    {
+                //        typeof(float), typeof(float), typeof(float), typeof(float)
+                //    });
 
-                    if (ctor != null)
-                    {
-                        return new InstanceDescriptor(ctor, new object[]
-                        {
-                    radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight
-                        });
-                    }
-                }
+                //    if (ctor != null)
+                //    {
+                //        return new InstanceDescriptor(ctor, new object[]
+                //        {
+                //            radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight
+                //        });
+                //    }
+
+                //}
+                return new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight);
             }
 
             return base.ConvertTo(context, culture, value, destinationType);
@@ -117,15 +119,15 @@ namespace HeCopUI_Framework.Converter
 
         public override object CreateInstance(ITypeDescriptorContext context, System.Collections.IDictionary propertyValues)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            //if (context == null)
+            //{
+            //    throw new ArgumentNullException(nameof(context));
+            //}
 
-            if (propertyValues == null)
-            {
-                throw new ArgumentNullException(nameof(propertyValues));
-            }
+            //if (propertyValues == null)
+            //{
+            //    throw new ArgumentNullException(nameof(propertyValues));
+            //}
 
             if (propertyValues.Contains("All"))
             {
