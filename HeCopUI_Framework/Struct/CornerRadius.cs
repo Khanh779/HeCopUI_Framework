@@ -13,6 +13,7 @@ using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Struct
 {
+    [Localizable(true)]
     [Serializable]
     [TypeConverter(typeof(CornerRadiusConverter))]
     public struct CornerRadius
@@ -31,47 +32,29 @@ namespace HeCopUI_Framework.Struct
             _all = true;
             _topLeft = _topRight = _bottomLeft = _bottomRight = all;
             Debug_SanityCheck();
-
-        }
-
-      
-        public CornerRadius(float all, float offset) :this(all-offset)
-        {
-            //_all = true;
-            //_topLeft = _topRight = _bottomLeft = _bottomRight = all-offset;
-            //Debug_SanityCheck();
         }
 
         public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight)
         {
             _topLeft = topLeft;
             _topRight = topRight;
-            _bottomLeft = bottomLeft ;
-            _bottomRight = bottomRight ;
+            _bottomLeft = bottomLeft;
+            _bottomRight = bottomRight;
             _all = _topLeft == _topRight && _topLeft == _bottomLeft && _topLeft == _bottomRight;
             Debug_SanityCheck();
         }
 
-        public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight, float offset): this(topLeft-offset, topRight-offset, bottomLeft-offset, bottomRight-offset)
+
+        public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight, float offset)
+            : this(topLeft - offset, topRight - offset, bottomLeft - offset, bottomRight - offset)
         {
-            //_topLeft = topLeft - offset;
-            //_topRight = topRight - offset;
-            //_bottomLeft = bottomLeft - offset;
-            //_bottomRight = bottomRight - offset;
-            //_all = _topLeft == _topRight && _topLeft == _bottomLeft && _topLeft == _bottomRight;
-            //Debug_SanityCheck();
-        
         }
 
-        public CornerRadius(CornerRadius radius, float offset=0)
+        public CornerRadius(CornerRadius radius, float offset = 0)
+            : this(radius.TopLeft - offset, radius.TopRight - offset, radius.BottomLeft - offset, radius.BottomRight - offset)
         {
-            _topLeft = radius.TopLeft - offset;
-            _topRight = radius.TopRight - offset;
-            _bottomLeft = radius.BottomLeft - offset;
-            _bottomRight = radius.BottomRight - offset;
-            _all = _topLeft == _topRight && _topLeft == _bottomLeft && _topLeft == _bottomRight;
-            Debug_SanityCheck();
         }
+
 
         #region Properties
 
@@ -185,6 +168,7 @@ namespace HeCopUI_Framework.Struct
 
         internal bool ShouldSerializeAll() => _all;
 
+
         [Conditional("DEBUG")]
         private void Debug_SanityCheck()
         {
@@ -199,5 +183,6 @@ namespace HeCopUI_Framework.Struct
                 Debug.Assert(!ShouldSerializeAll(), "ShouldSerializeAll() should not be true when all flag is not set.");
             }
         }
+
     }
 }

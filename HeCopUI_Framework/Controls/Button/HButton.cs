@@ -17,7 +17,7 @@ using DashStyle = System.Drawing.Drawing2D.DashStyle;
 using LinearGradientBrush = System.Drawing.Drawing2D.LinearGradientBrush;
 using Pen = System.Drawing.Pen;
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls.Button
 {
     [ToolboxBitmap(typeof(HButton), "Bitmaps.Button.bmp")]
     public partial class HButton : Control
@@ -248,6 +248,7 @@ namespace HeCopUI_Framework.Controls
         /// <summary>
         /// Gets or sets radius of HButton.
         /// </summary>
+        [Localizable(true)]
         public CornerRadius Radius
         {
             get { return radius; }

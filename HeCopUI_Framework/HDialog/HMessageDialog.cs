@@ -1,4 +1,5 @@
 ﻿using HeCopUI_Framework.Controls;
+using HeCopUI_Framework.Controls.Button;
 using System;
 using System.Drawing;
 using System.Windows.Forms;

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls
 {
-    [ToolboxBitmap(typeof(Button))]
+    [ToolboxBitmap(typeof(System.Windows.Forms.Button))]
     public partial class HImageButton : Control
     {
         ToolTip TT = null;

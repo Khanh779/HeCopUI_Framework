@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls
 {
-    [ToolboxBitmap(typeof(HButton), "Bitmaps.Button.bmp")]
+    [ToolboxBitmap(typeof(System.Windows.Forms.Button), "Bitmaps.Button.bmp")]
     public partial class HCheckedButton : Control
     {
         #region Thành phần tối thiết

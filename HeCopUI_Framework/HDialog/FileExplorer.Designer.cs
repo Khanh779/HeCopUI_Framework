@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new HeCopUI_Framework.Controls.HTreeView();
+            this.treeView1 = new HeCopUI_Framework.Controls.HWTreeView();
             this.hListView1 = new System.Windows.Forms.ListView();
             this.CH_FileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CH_Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -318,7 +318,7 @@
         private System.Windows.Forms.ToolStripMenuItem openInWindowsExplorerToolStripMenuItem;
         private Controls.HComboBox hComboBox1;
         private System.Windows.Forms.Label label1;
-        private Controls.HTreeView treeView1;
+        private Controls.HWTreeView treeView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem1;

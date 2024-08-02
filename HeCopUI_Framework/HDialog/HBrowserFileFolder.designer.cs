@@ -1,4 +1,5 @@
 ﻿using HeCopUI_Framework.Controls;
+using HeCopUI_Framework.Controls.Button;
 using HeCopUI_Framework.Enums;
 
 namespace HeCopUI_Framework.HDialog
@@ -32,12 +33,12 @@ namespace HeCopUI_Framework.HDialog
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Btn_Scan = new HeCopUI_Framework.Controls.HButton();
+            this.Btn_Scan = new HeCopUI_Framework.Controls.Button.HButton();
             this.LB_Info = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.treeView1 = new HeCopUI_Framework.Controls.HTreeView();
-            this.Btn_Cancel = new HeCopUI_Framework.Controls.HButton();
+            this.treeView1 = new HeCopUI_Framework.Controls.HWTreeView();
+            this.Btn_Cancel = new HeCopUI_Framework.Controls.Button.HButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -258,6 +259,6 @@ namespace HeCopUI_Framework.HDialog
         private System.Windows.Forms.Panel panel1;
         private HButton Btn_Cancel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private HTreeView treeView1;
+        private HWTreeView treeView1;
     }
 }

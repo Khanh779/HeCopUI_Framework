@@ -175,5 +175,10 @@ namespace HecopUI_Test
             //frmflat.FormBorderStyle = FormBorderStyle.None;
             frmflat.Show();
         }
+
+        private void hScrollBar4_Scroll(object sender, ScrollEventArgs e)
+        {
+            label1.Text = hScrollBar4.Value.ToString();
+        }
     }
 }

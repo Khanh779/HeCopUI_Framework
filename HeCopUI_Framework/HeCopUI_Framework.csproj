@@ -139,6 +139,32 @@
     <Compile Include="Animations\Flags.cs" />
     <Compile Include="Animations\PointFConverter.cs" />
     <Compile Include="Animations\TransfromHelper.cs" />
+    <Compile Include="Controls\Calendar\CalendarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Calendar\SimpleCalendarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScrollBar\HScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScrollBar\VScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Table\SimpleTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Table\TableColumn.cs" />
+    <Compile Include="Controls\Table\TableColumnCollection.cs" />
+    <Compile Include="Controls\Table\TableRow.cs" />
+    <Compile Include="Controls\Table\TableRowCollection.cs" />
+    <Compile Include="Controls\TreeView\HTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TreeView\TreeNode.cs" />
+    <Compile Include="Controls\TreeView\TreeNodeCollection.cs" />
+    <Compile Include="Controls\TreeView\TreeViewCancelEventArgs.cs" />
+    <Compile Include="Controls\TreeView\TreeViewEventArgs.cs" />
     <Compile Include="Forms\HFormFlat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,7 +257,7 @@
     <Compile Include="Controls\Charts\FunnelChart\UCFunnelChart.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\HTreeView.cs">
+    <Compile Include="Controls\HWTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HMontCalendar.cs">
@@ -240,25 +266,19 @@
     <Compile Include="Controls\Charts\FoldLineDiagram.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HTitleSubButton.cs">
+    <Compile Include="Controls\Button\HTitleSubButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HTitleButton.cs">
+    <Compile Include="Controls\Button\HTitleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HRadioButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\HListView.cs">
+    <Compile Include="Controls\Button\HRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HCheckBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\MetroListView.cs">
+    <Compile Include="Controls\Button\HCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Global\PrimaryColors.cs" />
@@ -292,7 +312,7 @@
     <Compile Include="Controls\HPanel .cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HButton.cs">
+    <Compile Include="Controls\Button\HButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HAnimateControl.cs">
@@ -420,6 +440,7 @@
     <Compile Include="Controls\Progress\HProgressBarWaterWave.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ImageProcessor\StackBlur.cs" />
     <Compile Include="Struct\CornerRadius.cs" />
     <Compile Include="Struct\PAINTSTRUCT.cs" />
     <Compile Include="SuperNotifyIcon\Animation.cs" />
@@ -543,7 +564,7 @@
     <Compile Include="Controls\HImage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HImageButton.cs">
+    <Compile Include="Controls\Button\HImageButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HLabel.cs">

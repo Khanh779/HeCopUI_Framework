@@ -1,22 +1,25 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Helper;
+using HeCopUI_Framework.Struct;
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Security.Cryptography;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 using Brush = System.Drawing.Brush;
 using Color = System.Drawing.Color;
 using DashStyle = System.Drawing.Drawing2D.DashStyle;
 using LinearGradientBrush = System.Drawing.Drawing2D.LinearGradientBrush;
 using Pen = System.Drawing.Pen;
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls.Button
 {
-    [ToolboxBitmap(typeof(HTitleButton), "Bitmaps.Button.bmp")]
-    public partial class HTitleButton : Control
+    [ToolboxBitmap(typeof(HTitleSubButton), "Bitmaps.Button.bmp")]
+    public partial class HTitleSubButton : Control
     {
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public new Padding Padding { get; set; }
 
         /// <summary>
         ///   Gets or sets the text associated with this control.
@@ -30,6 +33,7 @@ namespace HeCopUI_Framework.Controls
                 base.Text = value; Invalidate();
             }
         }
+
         protected override void OnTextChanged(EventArgs e)
         {
             Invalidate();
@@ -42,26 +46,18 @@ namespace HeCopUI_Framework.Controls
             base.OnFontChanged(e);
         }
 
+        protected override void OnCreateControl()
+        {
+            Invalidate();
+            base.OnCreateControl();
+        }
+
         protected override void OnForeColorChanged(EventArgs e)
         {
             Invalidate();
             base.OnForeColorChanged(e);
         }
-
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
-        public System.Drawing.Text.TextRenderingHint TextRenderHint
-        {
-            get { return textRenderHint; }
-            set
-            {
-                textRenderHint = value; Invalidate();
-            }
-        }
-
-       
-
-
-        public HTitleButton()
+        public HTitleSubButton()
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
             DoubleBuffered = true;
@@ -75,23 +71,22 @@ namespace HeCopUI_Framework.Controls
             _animationManager.StartNewAnimation(AnimationDirection.Out);
             _animationManager.SetData(b);
 
-            _animationManager.OnAnimationProgress += _animationManager_OnAnimationProgress;
-            _animationManager.OnAnimationFinished += _animationManager_OnAnimationFinished;
             Size = new Size(111, 123);
-
-            DoubleBuffered = true;
+            BackColor = Color.Transparent;
+           
+            _animationManager.OnAnimationProgress += delegate { Invalidate(); };
+           
             ForeColor = Color.White;
-
+        
         }
 
-        private void _animationManager_OnAnimationFinished(object sender)
+        protected override void OnMouseDown(MouseEventArgs e)
         {
-            _animationManager.Dispose();
-        }
-
-        private void _animationManager_OnAnimationProgress(object sender)
-        {
+            butDo = true;
+            if(AnimationMode== Enums.AnimationMode.Ripple)
+            _animationManager.StartNewAnimation(Animations.AnimationDirection.In, e.Location);
             Invalidate();
+            base.OnMouseDown(e);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -101,26 +96,11 @@ namespace HeCopUI_Framework.Controls
             base.OnMouseUp(e);
         }
 
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            butDo = true;
-            if (BackPressColor1 == Color.Empty)
-            {
-                BackPressColor1 = Color.FromArgb(ButtonColor1.R - 5, ButtonColor1.G - 5, ButtonColor1.B - 5);
-            }
-            if (AnimationMode == Enums.AnimationMode.Ripple)
-                _animationManager.StartNewAnimation(AnimationDirection.In, e.Location);
-            Invalidate();
-            base.OnMouseDown(e);
-        }
-
         protected override void OnMouseEnter(EventArgs e)
         {
             butHo = true;
             if (AnimationMode == Enums.AnimationMode.ColorTransition)
-            {
-                _animationManager.StartNewAnimation(AnimationDirection.In);
-            }
+                _animationManager.StartNewAnimation(Animations.AnimationDirection.In);
             Invalidate();
             base.OnMouseEnter(e);
         }
@@ -129,16 +109,30 @@ namespace HeCopUI_Framework.Controls
         {
             butHo = false;
             if (AnimationMode == Enums.AnimationMode.ColorTransition)
-            {
-                _animationManager.StartNewAnimation(AnimationDirection.Out);
-            }
-
+                _animationManager.StartNewAnimation(Animations.AnimationDirection.Out);
             Invalidate();
             base.OnMouseLeave(e);
         }
 
+        public Color BackHoverColor2 { get; set; } = Global.PrimaryColors.BackHoverColor1;
+        public Color BackPressColor2 { get; set; } = Global.PrimaryColors.BackPressColor1;
+        private Color buttonColor2 = Global.PrimaryColors.BackNormalColor1;
+        public Color ButtonColor2
+        {
+            get { return buttonColor2; }
+            set
+            {
+                buttonColor2 = value;
+            
+                Invalidate();
+            }
+        }
 
-        private Enums.AnimationMode animationMode =Enums.AnimationMode.None;
+    
+
+        private Animations.AnimationManager _animationManager;
+
+        Enums.AnimationMode animationMode= Enums.AnimationMode.None;
         public Enums.AnimationMode AnimationMode
         {
             get { return animationMode; }
@@ -162,13 +156,29 @@ namespace HeCopUI_Framework.Controls
                 Invalidate();
             }
         }
+  
+
+        private int interval = 200;
+        /// <summary>
+        /// Set speed animation with value type milisecond to show animate
+        /// </summary>
+        public int Interval
+        {
+            get { return interval; }
+            set { interval = value; Invalidate(); }
+        }
+
+    
+        public Color RippleColor { get; set; } = Color.Black;
+
 
 
         bool butHo;
         bool butDo;
 
-        private Struct.CornerRadius Ra = new Struct.CornerRadius(5);
-        public Struct.CornerRadius Radius
+        private CornerRadius Ra = new CornerRadius(0);
+        [Localizable(true)]
+        public CornerRadius Radius
         {
             get { return Ra; }
             set
@@ -190,29 +200,13 @@ namespace HeCopUI_Framework.Controls
         private Color BC = Global.PrimaryColors.BackNormalColor1;
         public Color BackHoverColor1 { get; set; } = Global.PrimaryColors.BackHoverColor1;
         public Color BackPressColor1 { get; set; } = Global.PrimaryColors.BackPressColor1;
-        public Color BackHoverColor2 { get; set; } = Global.PrimaryColors.BackHoverColor1;
-        public Color BackPressColor2 { get; set; } = Global.PrimaryColors.BackPressColor1;
-
         public Color ButtonColor1
         {
             get { return BC; }
             set
             {
                 BC = value;
-              
-                Invalidate();
-            }
-        }
-
-        private Color btn2 = Global.PrimaryColors.BackNormalColor1;
-
-        public Color ButtonColor2
-        {
-            get { return btn2; }
-            set
-            {
-                btn2 = value;
-               
+             
                 Invalidate();
             }
         }
@@ -227,6 +221,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
+        #region Ess
         private Image BI;
         public Image ButtonImage
         {
@@ -234,14 +229,13 @@ namespace HeCopUI_Framework.Controls
             set
             {
                 BI = value; Invalidate();
-
             }
         }
 
 
 
-        private float IS = 5;
-        public float ImageOffsetY
+        private int IS = 5;
+        public int ImageOffsetY
         {
             get { return IS; }
             set
@@ -289,54 +283,23 @@ namespace HeCopUI_Framework.Controls
         }
 
 
-        StringFormat SF = new StringFormat();
-        Pen pen;
 
-        private int interval = 200;
-        /// <summary>
-        /// Set speed animation with value type milisecond to show animate
-        /// </summary>
-        public int Interval
+        #endregion
+
+        private LinearGradientMode gradientMode = LinearGradientMode.Vertical;
+        public LinearGradientMode GradientMode
         {
-            get { return interval; }
+            get { return gradientMode; }
             set
             {
-                interval = value; Invalidate();
+                gradientMode = value; Invalidate();
             }
         }
-
-
-        public Color RippleColor { get; set; } = Color.Black;
-
-
-        protected override void OnMouseClick(MouseEventArgs e)
-        {
-            base.OnMouseClick(e);
-        }
-
-        private Padding textPadding = new Padding(0, 0, 0, 0);
-        public Padding TextPadding
-        {
-            get
-            {
-                return textPadding;
-            }
-            set
-            {
-                textPadding = value;
-                if (value.Left < 0) textPadding.Left = 0;
-                if (value.Top < 0) textPadding.Top = 0;
-                if (value.Right < 0) textPadding.Right = 0;
-                if (value.Bottom < 0) textPadding.Bottom = 0; Invalidate();
-            }
-        }
-
-
-
-
 
         public Color BorderHoverColor { get; set; } = Color.Transparent;
         public Color BorderDownColor { get; set; } = Color.Transparent;
+
+
 
         private Padding shadowPadding = new Padding(0, 0, 0, 0);
         public Padding ShadowPadding
@@ -370,33 +333,42 @@ namespace HeCopUI_Framework.Controls
             {
                 shadowRad = value; Invalidate();
             }
+        }
 
+        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        public System.Drawing.Text.TextRenderingHint TextRenderHint
+        {
+            get { return textRenderHint; }
+            set
+            {
+                textRenderHint = value; Invalidate();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             float b = 0f;
-            using (LinearGradientBrush LB1 =
-               (AnimationMode == Enums.AnimationMode.ColorTransition) ? new LinearGradientBrush(ClientRectangle, butDo ? BackPressColor1 : butHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()),
-                butDo ? BackPressColor2 : butHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()), LB) :
-               (AnimationMode == Enums.AnimationMode.Ripple) ? new LinearGradientBrush(ClientRectangle, butHo ? BackHoverColor1 : ButtonColor1, butHo ? BackHoverColor2 : ButtonColor2, LB) :
-                new LinearGradientBrush(ClientRectangle, butDo ? BackPressColor1 : butHo ? BackHoverColor1 : ButtonColor1, butDo ? BackPressColor2 : butHo ? BackHoverColor2 : ButtonColor2, LB))
+           
+            using (GraphicsPath SGP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width, Height), Radius))
+            using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
 
-            using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), 
-                (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius,BT))
-
-            using (GraphicsPath SGP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width-b, Height-b), Radius))
             using (Bitmap bitmap = HeCopUI_Framework.Ultils.DropShadow.Create(SGP, ShadowColor, shadowRad))
             using (Graphics g = Graphics.FromImage(bitmap))
+            using (Pen pen = new Pen(new SolidBrush(butDo ? BorderDownColor : butHo ? BorderHoverColor : BDC), BT))
+            using (LinearGradientBrush LA = (AnimationMode == Enums.AnimationMode.ColorTransition) ? new LinearGradientBrush(ClientRectangle, butDo ? BackPressColor1 : butHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()),
+                butDo ? BackPressColor2 : butHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()), gradientMode) :
+               (AnimationMode == Enums.AnimationMode.Ripple) ? new LinearGradientBrush(ClientRectangle, butHo ? BackHoverColor1 : ButtonColor1, butHo ? BackHoverColor2 : ButtonColor2, gradientMode) :
+                new LinearGradientBrush(ClientRectangle, butDo ? BackPressColor1 : butHo ? BackHoverColor1 : ButtonColor1, butDo ? BackPressColor2 : butHo ? BackHoverColor2 : ButtonColor2, gradientMode))
+
             {
                 bitmap.MakeTransparent();
-                if (ClipRegion == true && DesignMode == false && Ra.All!=0)
+                if (ClipRegion == true && DesignMode == false&& Ra.All!=0)
                 {
                     GetAppResources.MakeTransparent(this, g);
-                    Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new Struct.CornerRadius(Radius, 2.5f)));
+                    Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(Radius, 2.5f)));
                 }
                 g.TextRenderingHint = TextRenderHint;
-                if (Radius.All != 0)
+                if (Ra.All != 0)
                 {
                     GetAppResources.GetControlGraphicsEffect(g);
                     GetAppResources.GetControlGraphicsEffect(e.Graphics);
@@ -404,30 +376,38 @@ namespace HeCopUI_Framework.Controls
                 if (Ra.All == 0)
                 {
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                    g.PixelOffsetMode= PixelOffsetMode.HighQuality;
                 }
-                SF.Trimming = ST;
-                SF.Alignment = StringAlignment.Center;
-                SF.LineAlignment = StringAlignment.Near;
-                pen = new Pen(new SolidBrush(butDo ? BorderDownColor : butHo ? BorderHoverColor : BDC), BT);
+
                 pen.Alignment = PenAlignment.Inset;
 
-                g.FillPath(LB1, GP);
-               
-                if (BT != 0) g.DrawPath(pen, GP);
-
+                g.FillPath(LA, GP);
                 try
                 {
                     AnimateImage();
+                    //Get the next frame ready for rendering.
                     ImageAnimator.UpdateFrames();
+                    //Draw the next frame in the animation.
                     g.DrawImage(BI, new RectangleF(Width / 2 - ISi.Width / 2, IS, ISi.Width, ISi.Height));
+
                 }
                 catch { }
-                if (Text != String.Empty)
-                    g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(2 + textPadding.Left, textPadding.Top + (IS + ISi.Height + TOY), Width - 2 - textPadding.Right - textPadding.Left, (this.Height) - (IS + ISi.Height + TOY) - textPadding.Bottom - textPadding.Top), SF);
+                StringFormat SF = new StringFormat();
+                SF.Trimming = ST;
+                GetAppResources.GetStringAlign(SF, TCA);
+                StringFormat SAF = new StringFormat();
+                SAF.Trimming = ST;
+                GetAppResources.GetStringAlign(SAF, ITCA);
+                SizeF sd = g.MeasureString(Text, Font);
+                g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(2 + TPadd.Left, Font.Height + (IS + ISi.Height + TOY) + TPadd.Top, Width - 2 - TPadd.Right, TeY + Font.Height - TPadd.Bottom), SF);
+                g.DrawString(SubText, TeIF, new SolidBrush(textColor), new RectangleF(2 + ITPadd.Left, TeY + Font.Height * 2 + ITPadd.Top + 4 + (IS + ISi.Height + TOY) + TexInffoOffsetY, Width - 2 - ITPadd.Right, (Height - TexInffoOffsetY - TeIF.Height - IS - ISi.Height - TOY - TeY) - ITPadd.Bottom), SAF);
 
-                if (_animationManager.IsAnimating() && animationMode== Enums.AnimationMode.Ripple)
+                
+                if (BT != 0) g.DrawPath(pen, GP);
+               
+                if (AnimationMode == Enums.AnimationMode.Ripple && _animationManager.IsAnimating())
                 {
+                    g.SmoothingMode = SmoothingMode.AntiAlias;
                     for (var i = 0; i < _animationManager.GetAnimationCount(); i++)
                     {
                         var animationValue = _animationManager.GetProgress(i);
@@ -439,17 +419,18 @@ namespace HeCopUI_Framework.Controls
                         }
                     }
                 }
-                if (Focused)
+                // Constrain the button to the region.
+                if (DesignMode == false && Focused)
                 {
                     using (GraphicsPath gpf = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top),
-                    (Width - shadowPadding.Left) - (shadowPadding.Right),
-                    (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness * 2 + 5))
+                        (Width - shadowPadding.Left) - (shadowPadding.Right),
+                        (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness * 2 + 5))
                         g.DrawPath(new Pen(new SolidBrush(fbc), 1) { Alignment = PenAlignment.Inset, DashStyle = dashStyle }, gpf);
                 }
-                Brush br = new TextureBrush(bitmap);
-                e.Graphics.FillPath(br, SGP);
+                TextureBrush tb = new TextureBrush(bitmap);
+                e.Graphics.FillPath(tb, SGP);
             }
-          
+
             base.OnPaint(e);
         }
 
@@ -464,7 +445,6 @@ namespace HeCopUI_Framework.Controls
             Invalidate();
             base.OnLostFocus(e);
         }
-
 
         Color fbc = Color.White;
         public Color FocusBorderColor
@@ -488,22 +468,96 @@ namespace HeCopUI_Framework.Controls
 
         public bool ClipRegion { get; set; } = false;
 
-        private readonly AnimationManager _animationManager;
-
-        private LinearGradientMode LB = LinearGradientMode.Vertical;
-        public LinearGradientMode GradientMode
+        #region End
+        private Padding ITPadd = new Padding(0, 0, 0, 0);
+        public Padding TextTextPadding
         {
-            get { return LB; }
+            get { return ITPadd; }
             set
             {
-                LB = value; Invalidate();
+                ITPadd = value; Invalidate();
             }
         }
 
-        public int AlphaAnimated { get; set; } = 180;
+        private Padding TPadd = new Padding(0, 0, 0, 0);
+        public Padding TextPadding
+        {
+            get { return TPadd; }
+            set
+            {
+                TPadd = value; Invalidate();
+            }
+        }
 
+        private ContentAlignment ITCA = ContentAlignment.TopCenter;
+        public ContentAlignment SubTextAlign
+        {
+            get { return ITCA; }
+            set
+            {
+                ITCA = value; Invalidate();
+            }
+        }
 
+        private ContentAlignment TCA = ContentAlignment.TopCenter;
+        public ContentAlignment TextAlign
+        {
+            get { return TCA; }
+            set
+            {
+                TCA = value; Invalidate();
+            }
+        }
 
+        private int TexInffoOffsetY = 0;
+        public int SubTextOffSetY
+        {
+            get { return TexInffoOffsetY; }
+            set
+            {
+                TexInffoOffsetY = value; Invalidate();
+            }
+        }
+
+        private int TeY = 10;
+        public int TextY
+        {
+            get { return TeY; }
+            set
+            {
+                TeY = value; Invalidate();
+            }
+        }
+
+        private Font TeIF = new Font(DefaultFont, FontStyle.Regular);
+        public Font SubTextFont
+        {
+            get { return TeIF; }
+            set
+            {
+                TeIF = value; Invalidate();
+            }
+        }
+
+        private Color textColor = Color.Silver;
+        public Color SubTextColor
+        {
+            get { return textColor; }
+            set
+            {
+                textColor = value; Invalidate();
+            }
+        }
+
+        private string subText = "Enter Sub Text Here";
+        public string SubText
+        {
+            get { return subText; }
+            set
+            {
+                subText = value; Invalidate();
+            }
+        }
 
         private StringTrimming ST = StringTrimming.EllipsisCharacter;
         public StringTrimming TextTrim
@@ -515,6 +569,6 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-
+        #endregion
     }
 }

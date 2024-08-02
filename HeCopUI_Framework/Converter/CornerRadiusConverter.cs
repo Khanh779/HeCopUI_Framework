@@ -16,6 +16,11 @@ namespace HeCopUI_Framework.Converter
     public class CornerRadiusConverter : TypeConverter
     {
 
+        public CornerRadiusConverter()
+        {
+           
+        }
+
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
 
@@ -58,6 +63,8 @@ namespace HeCopUI_Framework.Converter
             return base.ConvertFrom(context, culture, value);
         }
 
+
+
         // Overrides the ConvertTo method of TypeConverter.
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
@@ -84,17 +91,20 @@ namespace HeCopUI_Framework.Converter
             return base.ConvertTo(context, culture, value, destinationType);
         }
 
+      
+
         public override object CreateInstance(ITypeDescriptorContext context, IDictionary propertyValues)
         {
-            if (context == null)
+            if (context == null || propertyValues == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(context == null ? "context" : "propertyValues");
             }
 
-            if (propertyValues == null)
-            {
-                throw new ArgumentNullException("propertyValues");
-            }
+            //return new CornerRadius(
+            //    (float)propertyValues["TopLeft"],
+            //    (float)propertyValues["TopRight"],
+            //    (float)propertyValues["BottomLeft"],
+            //    (float)propertyValues["BottomRight"]);
 
             CornerRadius radius = (CornerRadius)context.PropertyDescriptor.GetValue(context.Instance);
             if (radius.All != (float)propertyValues["All"])
@@ -104,6 +114,9 @@ namespace HeCopUI_Framework.Converter
 
             return new CornerRadius((float)propertyValues["TopLeft"], (float)propertyValues["TopRight"], (float)propertyValues["BottomLeft"], (float)propertyValues["BottomRight"]);
         }
+
+
+      
 
         public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
         {

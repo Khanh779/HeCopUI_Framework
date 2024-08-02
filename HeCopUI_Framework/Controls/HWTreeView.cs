@@ -14,7 +14,7 @@ namespace HeCopUI_Framework.Controls
     /// Implements the <see cref="System.Windows.Forms.TreeView" />
     /// </summary>
     /// <seealso cref="System.Windows.Forms.TreeView" />
-    public partial class HTreeView : TreeView
+    public partial class HWTreeView : System.Windows.Forms.TreeView
     {
         private Font _tipFont = new Font("Arial Unicode MS", 12f);
       
@@ -126,9 +126,9 @@ namespace HeCopUI_Framework.Controls
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HTreeView" /> class.
+        /// Initializes a new instance of the <see cref="HWTreeView" /> class.
         /// </summary>
-        public HTreeView()
+        public HWTreeView()
         {
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
             this.BorderStyle = System.Windows.Forms.BorderStyle.None;

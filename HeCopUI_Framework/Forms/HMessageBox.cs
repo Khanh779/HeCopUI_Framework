@@ -1,5 +1,6 @@
 ﻿
 using HeCopUI_Framework.Controls;
+using HeCopUI_Framework.Controls.Button;
 using HeCopUI_Framework.Enums;
 using System;
 using System.Collections.Generic;
