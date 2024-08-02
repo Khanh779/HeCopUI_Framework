@@ -13,13 +13,13 @@ using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Struct
 {
-    [Localizable(true)]
     [Serializable]
+    [Localizable(true)]
     [TypeConverter(typeof(CornerRadiusConverter))]
     public struct CornerRadius
     {
         private bool _all;      // Do NOT rename (binary serialization).
-        private float _topLeft;   // Renamed from _top to _topLeft.
+        private float _topLeft;   // Renamed from _top to _topLeft.                         
         private float _topRight;  // New field for TopRight.
         private float _bottomLeft; // New field for BottomLeft.
         private float _bottomRight; // New field for BottomRight.
@@ -150,8 +150,8 @@ namespace HeCopUI_Framework.Struct
 
         public override string ToString()
         {
-            return "{TopLeft=" + TopLeft.ToString(CultureInfo.CurrentCulture) + ",TopRight=" + TopRight.ToString(CultureInfo.CurrentCulture) + 
-                ",BottomLeft=" + BottomLeft.ToString(CultureInfo.CurrentCulture) + ",BottomRight=" + BottomRight.ToString(CultureInfo.CurrentCulture) + "}";
+            return "{TopLeft=" + TopLeft.ToString() + ",TopRight=" + TopRight.ToString() + 
+                ",BottomLeft=" + BottomLeft.ToString() + ",BottomRight=" + BottomRight.ToString(CultureInfo.CurrentCulture) + "}";
         }
 
 

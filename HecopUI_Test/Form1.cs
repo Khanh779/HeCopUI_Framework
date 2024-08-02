@@ -180,5 +180,10 @@ namespace HecopUI_Test
         {
             label1.Text = hScrollBar4.Value.ToString();
         }
+
+        private void hTitleSubButton7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

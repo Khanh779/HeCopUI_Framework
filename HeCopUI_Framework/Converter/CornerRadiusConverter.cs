@@ -18,7 +18,6 @@ namespace HeCopUI_Framework.Converter
 
         public CornerRadiusConverter()
         {
-           
         }
 
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
@@ -91,20 +90,18 @@ namespace HeCopUI_Framework.Converter
             return base.ConvertTo(context, culture, value, destinationType);
         }
 
-      
 
         public override object CreateInstance(ITypeDescriptorContext context, IDictionary propertyValues)
         {
-            if (context == null || propertyValues == null)
+            if (context == null)
             {
-                throw new ArgumentNullException(context == null ? "context" : "propertyValues");
+                throw new ArgumentNullException("context");
             }
 
-            //return new CornerRadius(
-            //    (float)propertyValues["TopLeft"],
-            //    (float)propertyValues["TopRight"],
-            //    (float)propertyValues["BottomLeft"],
-            //    (float)propertyValues["BottomRight"]);
+            if (propertyValues == null)
+            {
+                throw new ArgumentNullException("propertyValues");
+            }
 
             CornerRadius radius = (CornerRadius)context.PropertyDescriptor.GetValue(context.Instance);
             if (radius.All != (float)propertyValues["All"])
@@ -114,9 +111,6 @@ namespace HeCopUI_Framework.Converter
 
             return new CornerRadius((float)propertyValues["TopLeft"], (float)propertyValues["TopRight"], (float)propertyValues["BottomLeft"], (float)propertyValues["BottomRight"]);
         }
-
-
-      
 
         public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
         {

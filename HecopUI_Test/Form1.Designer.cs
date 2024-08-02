@@ -39,10 +39,7 @@ namespace HecopUI_Test
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            HeCopUI_Framework.Controls.Charts.Series series11 = new HeCopUI_Framework.Controls.Charts.Series();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn1 = new Utility_Tools.CustomControl.Table.TableColumn();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn2 = new Utility_Tools.CustomControl.Table.TableColumn();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn3 = new Utility_Tools.CustomControl.Table.TableColumn();
+            HeCopUI_Framework.Controls.Charts.Series series3 = new HeCopUI_Framework.Controls.Charts.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -164,7 +161,6 @@ namespace HecopUI_Test
             this.hClockDigital1 = new HeCopUI_Framework.Controls.HClockDigital();
             this.hClockCircular1 = new HeCopUI_Framework.Controls.HClockCircular();
             this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.simpleTable1 = new Utility_Tools.CustomControl.Table.SimpleTable();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.hProgressRing1 = new HeCopUI_Framework.Controls.Progress.HProgressRing();
             this.linearParticleAnimation1 = new HeCopUI_Framework.Controls.Progress.LinearParticleAnimation();
@@ -192,7 +188,6 @@ namespace HecopUI_Test
             this.tabPage18.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage19.SuspendLayout();
-            this.tabPage22.SuspendLayout();
             this.tabPage20.SuspendLayout();
             this.tabPage23.SuspendLayout();
             this.SuspendLayout();
@@ -565,6 +560,7 @@ namespace HecopUI_Test
             this.hTitleSubButton7.TextTextPadding = new System.Windows.Forms.Padding(0);
             this.hTitleSubButton7.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
             this.hTitleSubButton7.TextY = 10;
+            this.hTitleSubButton7.Click += new System.EventHandler(this.hTitleSubButton7_Click);
             // 
             // hTitleSubButton8
             // 
@@ -2921,16 +2917,16 @@ namespace HecopUI_Test
             this.hRadarChart1.NumberVisible = true;
             this.hRadarChart1.PointSize = 8;
             this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
-            series11.Color = System.Drawing.Color.OrangeRed;
-            series11.Text = "serieName1";
-            series11.Values = new float[] {
+            series3.Color = System.Drawing.Color.OrangeRed;
+            series3.Text = "serieName1";
+            series3.Values = new float[] {
         90F,
         50F,
         70F,
         40F,
         60F};
             this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Charts.Series[] {
-        series11};
+        series3};
             this.hRadarChart1.ShowTitle = true;
             this.hRadarChart1.ShowValuesTip = false;
             this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
@@ -3166,7 +3162,6 @@ namespace HecopUI_Test
             // tabPage22
             // 
             this.tabPage22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage22.Controls.Add(this.simpleTable1);
             this.tabPage22.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage22.Location = new System.Drawing.Point(139, 4);
             this.tabPage22.Name = "tabPage22";
@@ -3174,66 +3169,6 @@ namespace HecopUI_Test
             this.tabPage22.Size = new System.Drawing.Size(757, 546);
             this.tabPage22.TabIndex = 14;
             this.tabPage22.Text = "ListView & TreeView";
-            // 
-            // simpleTable1
-            // 
-            this.simpleTable1.AcceptRowSelection = false;
-            this.simpleTable1.AllowUserResizeColumn = true;
-            this.simpleTable1.CheckBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
-            this.simpleTable1.CheckBoxVisible = false;
-            this.simpleTable1.CheckColor = System.Drawing.Color.White;
-            tableColumn1.BackColor = System.Drawing.Color.Empty;
-            tableColumn1.DisplayIndex = 0;
-            tableColumn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn1.ForeColor = System.Drawing.Color.Empty;
-            tableColumn1.Index = 0;
-            tableColumn1.Name = "column0";
-            tableColumn1.Text = "colum 0";
-            tableColumn2.BackColor = System.Drawing.Color.Empty;
-            tableColumn2.DisplayIndex = 1;
-            tableColumn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn2.ForeColor = System.Drawing.Color.Empty;
-            tableColumn2.Index = 1;
-            tableColumn2.Name = "column1";
-            tableColumn2.Text = "colum 1";
-            tableColumn3.BackColor = System.Drawing.Color.Empty;
-            tableColumn3.DisplayIndex = 2;
-            tableColumn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn3.ForeColor = System.Drawing.Color.Empty;
-            tableColumn3.Index = 2;
-            tableColumn3.Name = "column2";
-            tableColumn3.Text = "colum 2";
-            this.simpleTable1.Columns.Add(tableColumn1);
-            this.simpleTable1.Columns.Add(tableColumn2);
-            this.simpleTable1.Columns.Add(tableColumn3);
-            this.simpleTable1.ColumnsBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
-            this.simpleTable1.ColumnsForeColor = System.Drawing.Color.White;
-            this.simpleTable1.GridColor = System.Drawing.Color.Gainsboro;
-            this.simpleTable1.GridVisible = false;
-            this.simpleTable1.HeaderFont = new System.Drawing.Font("Arial", 11F);
-            this.simpleTable1.HeaderHeight = 25;
-            this.simpleTable1.ImagesVisible = false;
-            this.simpleTable1.Location = new System.Drawing.Point(21, 22);
-            this.simpleTable1.Margin = new System.Windows.Forms.Padding(2);
-            this.simpleTable1.Name = "simpleTable1";
-            this.simpleTable1.Padding = new System.Windows.Forms.Padding(2);
-            this.simpleTable1.ReOrderable = true;
-            this.simpleTable1.RowFont = new System.Drawing.Font("Arial", 10F);
-            this.simpleTable1.RowsBackColor = System.Drawing.Color.White;
-            this.simpleTable1.RowsForeColor = System.Drawing.Color.Black;
-            this.simpleTable1.RowsHoverBackColor = System.Drawing.Color.Lavender;
-            this.simpleTable1.RowsHoverForeColor = System.Drawing.Color.Black;
-            this.simpleTable1.RowsSelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(252)))));
-            this.simpleTable1.RowsSelectedForeColor = System.Drawing.Color.White;
-            this.simpleTable1.ScrollValue = 0;
-            this.simpleTable1.Size = new System.Drawing.Size(720, 203);
-            this.simpleTable1.SplitLineColor = System.Drawing.Color.LightGray;
-            this.simpleTable1.TabIndex = 1;
-            this.simpleTable1.Text = "simpleTable1";
-            this.simpleTable1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.simpleTable1.UseCustomColumnsBackColor = true;
-            this.simpleTable1.UseCustomHeaderForeColor = true;
-            this.simpleTable1.UseCustomRowsBackColor = true;
             // 
             // tabPage20
             // 
@@ -3423,7 +3358,6 @@ namespace HecopUI_Test
             this.tabPage18.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage19.ResumeLayout(false);
-            this.tabPage22.ResumeLayout(false);
             this.tabPage20.ResumeLayout(false);
             this.tabPage23.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -3567,7 +3501,6 @@ namespace HecopUI_Test
         private HDotProgressRing hDotProgressRing8;
         private HMontCalendar hMontCalendar1;
         private Label label1;
-        private Utility_Tools.CustomControl.Table.SimpleTable simpleTable1;
     }
 }
 

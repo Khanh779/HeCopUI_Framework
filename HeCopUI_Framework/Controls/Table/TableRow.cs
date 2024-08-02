@@ -31,7 +31,7 @@ namespace Utility_Tools.CustomControl.Table
 
         //TableRowCollection subRows = new TableRowCollection();
 
-        [Localizable(true)]
+        //[Localizable(true)]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TableRowCollection SubRows { get; set; } = new TableRowCollection();

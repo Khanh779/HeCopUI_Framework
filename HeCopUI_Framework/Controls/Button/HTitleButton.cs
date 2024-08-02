@@ -168,7 +168,7 @@ namespace HeCopUI_Framework.Controls.Button
         bool butDo;
 
         private Struct.CornerRadius Ra = new Struct.CornerRadius(5);
-        [Localizable(true)]
+      
         public Struct.CornerRadius Radius
         {
             get { return Ra; }

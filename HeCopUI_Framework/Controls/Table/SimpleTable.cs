@@ -203,7 +203,7 @@ namespace Utility_Tools.CustomControl.Table
 
         public TableRow[] CheckedRows => checkedRows.ToArray();
 
-        [Localizable(true)]
+        //[Localizable(true)]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TableColumnCollection Columns
@@ -212,7 +212,7 @@ namespace Utility_Tools.CustomControl.Table
 
         }
 
-        [Localizable(true)]
+        //[Localizable(true)]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TableRowCollection Rows

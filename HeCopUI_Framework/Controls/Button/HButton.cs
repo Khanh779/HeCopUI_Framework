@@ -243,12 +243,12 @@ namespace HeCopUI_Framework.Controls.Button
             return graphicsPath;
         }
 
-        CornerRadius radius = Struct.CornerRadius.Empty;
+        CornerRadius radius = new Struct.CornerRadius(5);
 
         /// <summary>
         /// Gets or sets radius of HButton.
         /// </summary>
-        [Localizable(true)]
+     
         public CornerRadius Radius
         {
             get { return radius; }
