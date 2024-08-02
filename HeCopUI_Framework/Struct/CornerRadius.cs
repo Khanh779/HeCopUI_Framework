@@ -13,8 +13,9 @@ using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Struct
 {
+
     [Serializable]
-    [Localizable(true)]
+    //[TypeConverterAttribute(typeof(CornerRadiusConverter))]
     [TypeConverter(typeof(CornerRadiusConverter))]
     public struct CornerRadius
     {
@@ -25,13 +26,13 @@ namespace HeCopUI_Framework.Struct
         private float _bottomRight; // New field for BottomRight.
 
         public static CornerRadius Empty = new CornerRadius(0);
-
-
-        public CornerRadius(float all)
+        
+      
+        public CornerRadius(float all) :this(all, all, all, all)
         {
             _all = true;
-            _topLeft = _topRight = _bottomLeft = _bottomRight = all;
-            Debug_SanityCheck();
+            //_topLeft = _topRight = _bottomLeft = _bottomRight = all;
+            //Debug_SanityCheck();
         }
 
         public CornerRadius(float topLeft, float topRight, float bottomLeft, float bottomRight)
@@ -55,6 +56,58 @@ namespace HeCopUI_Framework.Struct
         {
         }
 
+        //public static CornerRadius Subtract(CornerRadius p1, CornerRadius p2)
+        //{
+        //    return p1 - p2;
+        //}
+
+        //public static CornerRadius Add(CornerRadius p1, CornerRadius p2)
+        //{
+        //    return p1 + p2;
+        //}
+
+        //public override bool Equals(object other)
+        //{
+        //    if (other is CornerRadius)
+        //    {
+        //        return (CornerRadius)other == this;
+        //    }
+
+        //    return false;
+        //}
+
+        //public static CornerRadius operator +(CornerRadius p1, CornerRadius p2)
+        //{
+        //    return new CornerRadius(p1.TopLeft + p2.TopLeft, p1.BottomLeft + p2.BottomLeft, p1.TopRight + p2.TopRight, p1.BottomLeft + p2.BottomRight);
+        //}
+
+        //public static CornerRadius operator -(CornerRadius p1, CornerRadius p2)
+        //{
+        //    return new CornerRadius(p1.TopLeft - p2.TopLeft, p1.BottomLeft - p2.BottomLeft, p1.TopRight- p2.TopRight, p1.BottomLeft - p2.BottomRight);
+        //}
+
+        //public static bool operator ==(CornerRadius p1, CornerRadius p2)
+        //{
+        //    if (p1.TopLeft == p2.TopLeft && p1.TopRight == p2.TopRight && p1.BottomLeft == p2.BottomLeft)
+        //    {
+        //        return p1.BottomRight == p2.BottomRight;
+        //    }
+
+        //    return false;
+        //}
+
+        //public static bool operator !=(CornerRadius p1, CornerRadius p2)
+        //{
+        //    return !(p1 == p2);
+        //}
+
+        internal void Scale(float dx, float dy)
+        {
+            _topLeft = (int)((float)_topLeft * dy);
+            _topRight = (int)((float)_topRight * dx);
+            _bottomLeft = (int)((float)_bottomLeft * dx);
+            _bottomRight = (int)((float)_bottomRight * dy);
+        }
 
         #region Properties
 
@@ -69,7 +122,7 @@ namespace HeCopUI_Framework.Struct
                     _all = true;
                     _topLeft = _topRight = _bottomLeft = _bottomRight = value;
                 }
-
+                
                 Debug_SanityCheck();
             }
         }
@@ -151,7 +204,7 @@ namespace HeCopUI_Framework.Struct
         public override string ToString()
         {
             return "{TopLeft=" + TopLeft.ToString() + ",TopRight=" + TopRight.ToString() + 
-                ",BottomLeft=" + BottomLeft.ToString() + ",BottomRight=" + BottomRight.ToString(CultureInfo.CurrentCulture) + "}";
+                ",BottomLeft=" + BottomLeft.ToString() + ",BottomRight=" + BottomRight.ToString() + "}";
         }
 
 

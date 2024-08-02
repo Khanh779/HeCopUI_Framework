@@ -146,6 +146,10 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <assembly alias="HeCopUI_Framework" name="HeCopUI_Framework, Version=2.5.23.1, Culture=neutral, PublicKeyToken=null" />
+  <data name="hTitleSubButton7.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleSubButton8.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -164,6 +168,9 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleSubButton8.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleSubButton9.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -184,6 +191,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleSubButton9.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleSubButton4.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -202,6 +212,9 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleSubButton4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleSubButton5.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -222,6 +235,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleSubButton5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleSubButton6.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -240,6 +256,9 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleSubButton6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleSubButton3.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -260,6 +279,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleSubButton3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleSubButton2.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -278,6 +300,9 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleSubButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleButton7.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -298,6 +323,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleButton7.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleButton8.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -316,6 +344,9 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleButton8.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleButton9.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -336,6 +367,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleButton9.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleButton4.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -354,6 +388,9 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleButton4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleButton5.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -374,6 +411,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleButton5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleButton6.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -392,6 +432,9 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleButton6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleButton3.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -412,6 +455,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleButton3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleButton2.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -430,6 +476,18 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton7.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton8.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton9.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="hTitleSubButton1.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -450,6 +508,9 @@
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hTitleSubButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
   <data name="hTitleButton1.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -468,5 +529,56 @@
         H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
         mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="hTitleButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hProgressBar4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hButton10.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hProgressBar3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="HPanel1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="hButton12.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hButton11.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
   </data>
 </root>

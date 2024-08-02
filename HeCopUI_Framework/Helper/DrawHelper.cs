@@ -107,10 +107,9 @@ namespace HeCopUI_Framework.Helper
         public static PathGradientBrush PathBrush(GraphicsPath path, RectangleF bound, Color color1, Color color2, bool InOut=true)
         {
             using (PathGradientBrush brush = new PathGradientBrush(path))
-            {
-                // Thiết lập màu trong suốt ở tâm của brush
+            {  
+
                 brush.CenterColor = InOut? color1:color2;
-                // Thiết lập màu vùng xung quanh brush
                 brush.SurroundColors = new Color[] { InOut? color2:color1 };
                 return brush;
             }

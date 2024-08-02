@@ -24,7 +24,7 @@ namespace Utility_Tools.CustomControl.Table
         TableRowCollection rows = new TableRowCollection();
         private int rowHeight = 20;
         int headerHeight = 25;
-       
+
         bool reOrderable = true;
 
         private int draggingColumnIndex = -1;
@@ -98,7 +98,7 @@ namespace Utility_Tools.CustomControl.Table
 
         }
 
-      
+
 
         private void InitializeComponent()
         {
@@ -208,7 +208,11 @@ namespace Utility_Tools.CustomControl.Table
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TableColumnCollection Columns
         {
-            get { UpdateScrollBar(); Invalidate(); return columns; }
+            get
+            {
+                OnColumnsChanged(EventArgs.Empty);
+                UpdateScrollBar(); Invalidate(); return columns;
+            }
 
         }
 
@@ -219,7 +223,8 @@ namespace Utility_Tools.CustomControl.Table
         {
             get
             {
-                UpdateScrollBar(); RowsChanged?.Invoke(this, null); Invalidate();
+
+                UpdateScrollBar(); OnRowsChanged(EventArgs.Empty); Invalidate();
                 return rows;
             }
 
@@ -312,14 +317,14 @@ namespace Utility_Tools.CustomControl.Table
         {
             base.OnPaint(e);
 
-            if(columns.Count==0)
+            if (columns.Count == 0)
             {
                 e.Graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, Width, Height);
                 e.Graphics.DrawString("No columns found\nPlease add it", new Font("Arial", 12), new SolidBrush(Color.Black), new Rectangle(0, 0, Width, Height), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                 return;
-            } 
-            
-           
+            }
+
+
 
             //if (columns.Count == 0 || columns == null || rows == null) return;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -327,7 +332,7 @@ namespace Utility_Tools.CustomControl.Table
             e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderHint;
 
-           
+
             int y = 0;
             int x = 0;
             int sumAllColWidth = 0;
@@ -345,9 +350,9 @@ namespace Utility_Tools.CustomControl.Table
 
                 using (Pen penSplitCol = new Pen(new SolidBrush(splitLineColor), 1))
                     e.Graphics.DrawLine(penSplitCol, x + headerRect.Width, y, x + headerRect.Width, y + HeaderHeight);
-                col.Width = autoColWidth;
-                x +=autoColWidth;
-                sumAllColWidth += autoColWidth ;
+
+                x += autoColWidth;
+                sumAllColWidth += autoColWidth;
             }
 
 
@@ -639,7 +644,7 @@ namespace Utility_Tools.CustomControl.Table
                     int x = 0;
                     for (int i = 0; i < columns.Count; i++)
                     {
-                        int colWidth =  columns[i].Width;
+                        int colWidth = columns[i].Width;
                         if (e.X >= x && e.X <= x + colWidth)
                         {
                             draggingColumnIndex = i;
@@ -674,7 +679,7 @@ namespace Utility_Tools.CustomControl.Table
                     int x = 0;
                     for (int i = 0; i < columns.Count; i++)
                     {
-                        int colWidth = Width / columns.Count ;
+                        int colWidth = Width / columns.Count;
                         if (e.X >= x + colWidth - 2 && e.X <= x + colWidth + 2)
                         {
                             isResizingColumn = true;
@@ -712,13 +717,13 @@ namespace Utility_Tools.CustomControl.Table
             }
 
 
-            if (allowUserResizeColumn )
+            if (allowUserResizeColumn)
             {
                 Cursor cursor = Cursors.Default;
                 int x = 0;
                 for (int i = 0; i < columns.Count; i++)
                 {
-                    int colWidth = Width / columns.Count ;
+                    int colWidth = Width / columns.Count;
                     if (e.X >= x + colWidth - 2 && e.X <= x + colWidth + 2 && e.Y <= headerHeight)
                     {
                         cursor = Cursors.SizeWE;
@@ -802,6 +807,15 @@ namespace Utility_Tools.CustomControl.Table
             }
         }
 
+        public event EventHandler ColumnsChanged;
+        protected virtual void OnColumnsChanged(EventArgs e)
+        {
+            foreach (var col in columns)
+            {
+                col.Width = autoColWidth;
+            }
+            ColumnsChanged?.Invoke(this, e);
+        }
 
         public event EventHandler SelectionChanged;
         protected virtual void OnSelectionChanged(EventArgs e) => SelectionChanged?.Invoke(this, e);

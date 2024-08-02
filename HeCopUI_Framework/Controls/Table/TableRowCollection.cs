@@ -56,20 +56,19 @@ namespace Utility_Tools.CustomControl.Table
                 item.Parent = parent;
             }
 
-            // Tự động gán các thuộc tính lần đầu tiên thêm vào
             int index = rows.Count;
 
-            // Gán giá trị Index và DisplayIndex
             item.Index = index;
 
-            // Gán giá trị Name và Text nếu chưa được chỉ định
+
+            // Set name and text if they are empty
             if (string.IsNullOrEmpty(item.Name))
             {
-                item.Name = item.Parent==null ? "row" : "subRow" + index;
+                item.Name = (item.Parent == null ? "row" : "subRow") + item.Index;
             }
 
             if (string.IsNullOrEmpty(item.Text))
-                item.Text = item.Parent== null ? "row" : "subRow" + index;
+                item.Text = (item.Parent == null ? "row" : "subRow") + " " + item.Index;
 
             rows.Add(item);
         }
