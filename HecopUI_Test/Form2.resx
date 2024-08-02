@@ -117,4 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="HeCopUI_Framework" name="HeCopUI_Framework, Version=2.5.23.1, Culture=neutral, PublicKeyToken=null" />
+  <data name="hButton10.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hProgressBar4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="hProgressBar1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>2, 2, 2, 2</value>
+  </data>
 </root>

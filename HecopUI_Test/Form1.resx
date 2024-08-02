@@ -126,184 +126,35 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>259, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="hTitleSubButton7.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <assembly alias="HeCopUI_Framework" name="HeCopUI_Framework, Version=2.5.23.1, Culture=neutral, PublicKeyToken=null" />
-  <data name="hTitleSubButton7.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton7.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hTitleSubButton8.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton8.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton8.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hTitleSubButton9.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton9.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton9.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hTitleSubButton4.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hTitleSubButton5.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hTitleSubButton6.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hTitleSubButton3.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hTitleSubButton2.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
+  <data name="hButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="hTitleButton7.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -480,37 +331,6 @@
   <data name="hTitleButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hButton7.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="hButton8.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="hButton9.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="hTitleSubButton1.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
-        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
-        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
-        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
-        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
-        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
-        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
-        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
-        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
-        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
-        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
-        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
-        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
-        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="hTitleSubButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="hTitleButton1.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -533,22 +353,16 @@
   <data name="hTitleButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hButton4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="HPanel1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="hButton12.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hButton5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton11.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hButton6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="hButton3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="hButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="hButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hButton10.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
   <data name="hProgressBar4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
@@ -560,9 +374,6 @@
   <data name="hProgressBar6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="hButton10.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="hProgressBar3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>2, 2, 2, 2</value>
   </data>
@@ -572,13 +383,202 @@
   <data name="hProgressBar1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="HPanel1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
-    <value>0, 0, 0, 0</value>
+  <data name="hTitleSubButton7.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="hButton12.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hTitleSubButton7.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
-  <data name="hButton11.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+  <data name="hTitleSubButton8.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton8.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hTitleSubButton9.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton9.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hTitleSubButton4.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton4.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hTitleSubButton5.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton5.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hTitleSubButton6.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton6.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hTitleSubButton3.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton3.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hTitleSubButton2.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton2.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="hTitleSubButton1.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAyFJREFUaEPtmluITVEYx8+M27xgUC4zXpRo3B6QlDIvivJC0yi5pFweUMMLyYMi
+        JQ/kgVLKpbyJZKJcHkgGKQ8uocYDuZQH5Jrb+P3X+s40o3PO7GP2OrN2/OpX095rfd9/n077rL325P6T
+        gI6OjhpswytYZYezB+GXYp65djh7EP6ivwbHUTucLQg+Fn+4S/B8xCF2OjsQeoeL3501djobELgK2130
+        7tywIdmAwPN87oJMsmHxQ9iTPnNB9tqwuCHoUPzkIhfmNQ6w4fFCyA0ubmkW2fB4IeQdn7UkZ214nBBw
+        qs/ZI99xjE2LD8IdcDGTscWmxQXBBuIbFzEZjzG+hSShlrh45THHpscDoS74bGVxxKZXBhrWohaBDTgL
+        9cvdhKtwI27HrgvEpHzArbgeV+JiVO2ZOBHrMdlCk4Fr8QSexkuo2+cjfIHvMRbe4XN8iLdRWU/hMWzW
+        hWh5nXXadSELUFebVZR9fv7rNR4f6GjGeIIN7iLycGAwntHZjHAeay1+dzihByLdRX5irPzCPVhtsYvD
+        oGaM8SbwBZdbzGQwYRo+1exIeIYzLF55MHEEXlaVPuYajrRYfwcF+qO+k33FYUzviZJiy/CzKleIr7ja
+        2qcLhaejvquheYmzrW0YaFCHWuuEQrXrrF1YaLTftQzDPmsTHprd9z2DcM/ahIVGo1G/rqFQ7fAbEzTR
+        A1BoVli7cNBED2GhOW7twkADLSp1awzNKwy3w0LxKa5NZZhsbdOH4pt8j4rQYm3Th+KtvkdivuFuU3+X
+        Q6u1TRcKaydR2zdJuYudy27+1r7wLZ1IiJ6HBtn09KBooyvfM1pY6imzn03thGPVuA6TfiDpv9Km6C5f
+        uyRXcYJNKQpjxmHXV9fF2GlT0oOiN33tgrxFfdJl3TIZr0fqUhvfbTY0HSioLdNiW6LnsN6Glg1zR2Gx
+        H1n1HGZDew/FtCf7J/rRarIhvYZaC7HQs056r+kodsjXdGhRp09wuJ1ODWrqRapeFnXdjjpop3sPxa77
+        mu7lTPB/jlEP6yXS+ycDiqnwNqyxQ8FRL9yMjXboXyCX+w385X3OHGWxgAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="hTitleSubButton1.Radius" type="HeCopUI_Framework.Struct.CornerRadius, HeCopUI_Framework">
     <value>5, 5, 5, 5</value>
   </data>
 </root>
