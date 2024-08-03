@@ -179,7 +179,7 @@ namespace HeCopUI_Framework.Controls.TreeView
 
         public HTreeView()
         {
-            SetStyle(ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(GetAppResources.SetControlStyles(), true);
             nodes = new TreeNodeCollection(this);
 
             vScroll = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
@@ -214,7 +214,7 @@ namespace HeCopUI_Framework.Controls.TreeView
 
             if (vScroll.Visible == true)
             {
-                vScroll.Maximum = totalHeight - clientArea + (NodeHeight + spaceBetweenNodes);
+                vScroll.Maximum = totalHeight - clientArea + (NodeHeight + spaceBetweenNodes * 2);
                 vScroll.LargeChange = NodeHeight;
             }
 
@@ -246,8 +246,9 @@ namespace HeCopUI_Framework.Controls.TreeView
             bitmapTreeNodes.MakeTransparent();
             using (Graphics g = Graphics.FromImage(bitmapTreeNodes))
             {
-                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-                int y = -vScroll.Value;
+                g.TextRenderingHint = TextRenderHint;
+                g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                int y = -vScroll.Value + 1;
                 DrawNodes(g, nodes, 0, ref y);
             }
 
@@ -278,8 +279,8 @@ namespace HeCopUI_Framework.Controls.TreeView
                 }
 
                 int offsetCheckBox = CheckBoxVisible ? 20 : 0;
-                Rectangle nodeBounds = new Rectangle(x + 15, y, Width - node.Bounds.X - 28 - (ImageList != null && node.Image != null ? ImageList.ImageSize.Width : 0) -
-                    (vScroll.Visible ? vScroll.Width : 0), NodeHeight);
+                Rectangle nodeBounds = new Rectangle(x + 15 + Indent / 2, y, Width - node.Bounds.X - 28 - (ImageList != null && node.Image != null ? ImageList.ImageSize.Width : 0) -
+                    (vScroll.Visible ? vScroll.Width : 0) - Indent / 2, NodeHeight);
                 node.Bounds = nodeBounds;
 
                 bool isHover = node.Bounds.Contains(mp);
@@ -337,7 +338,7 @@ namespace HeCopUI_Framework.Controls.TreeView
                 if (ShowRootLines && node.Nodes.Count > 0 && node.IsExpanded)
                 {
                     // Draw connecting vertical line
-                    float lineX = node.Bounds.X - Indent / 2;
+                    float lineX = node.Bounds.X - Indent + 5;
                     float lineY = node.Bounds.Y + NodeHeight;
                     using (Pen pen = new Pen(rootLinesColor, 1))
                     {
@@ -387,12 +388,12 @@ namespace HeCopUI_Framework.Controls.TreeView
             RectangleF iconRect = new RectangleF(x + Indent / 2 - iconSize / 2, y + NodeHeight / 2 - iconSize / 2, iconSize, iconSize);
 
             using (var brushPlusMinus = new SolidBrush(PlusMinusColor))
-            using(var brushPlusMinusBox = new SolidBrush(PlusMinusBoxColor))
+            using (var brushPlusMinusBox = new SolidBrush(PlusMinusBoxColor))
             using (var pen = new Pen(brushPlusMinus))
             {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                 g.FillEllipse(brushPlusMinusBox, iconRect);
-                g.SmoothingMode= System.Drawing.Drawing2D.SmoothingMode.Default;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
                 if (node.IsExpanded)
                 {
                     g.DrawLine(pen, iconRect.Left + 4, iconRect.Top + 8, iconRect.Right - 4, iconRect.Top + 8); // Horizontal line
@@ -819,7 +820,7 @@ namespace HeCopUI_Framework.Controls.TreeView
             Refresh();
         }
 
-       
+
 
     }
 }

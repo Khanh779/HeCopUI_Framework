@@ -39,10 +39,34 @@ namespace HecopUI_Test
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            HeCopUI_Framework.Controls.Charts.Series series1 = new HeCopUI_Framework.Controls.Charts.Series();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn1 = new Utility_Tools.CustomControl.Table.TableColumn();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn2 = new Utility_Tools.CustomControl.Table.TableColumn();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn3 = new Utility_Tools.CustomControl.Table.TableColumn();
+            Utility_Tools.CustomControl.Table.TableColumn tableColumn4 = new Utility_Tools.CustomControl.Table.TableColumn();
+            Utility_Tools.CustomControl.Table.TableColumn tableColumn5 = new Utility_Tools.CustomControl.Table.TableColumn();
+            Utility_Tools.CustomControl.Table.TableColumn tableColumn6 = new Utility_Tools.CustomControl.Table.TableColumn();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode25 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode26 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode27 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode28 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode29 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode30 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode31 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode32 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode33 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode34 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode35 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode36 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode37 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode38 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode39 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode40 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode41 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode42 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode43 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode44 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode45 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode46 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode47 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.TreeView.TreeNode treeNode48 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
+            HeCopUI_Framework.Controls.Charts.Series series2 = new HeCopUI_Framework.Controls.Charts.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -105,6 +129,22 @@ namespace HecopUI_Test
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.hEffectImage1 = new HeCopUI_Framework.Controls.Effect.HEffectImage();
             this.hImage1 = new HeCopUI_Framework.Controls.HImage();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this.hTabControl10 = new HeCopUI_Framework.Controls.HTabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.simpleTable1 = new Utility_Tools.CustomControl.Table.SimpleTable();
+            this.tabPage35 = new System.Windows.Forms.TabPage();
+            this.hTreeView1 = new HeCopUI_Framework.Controls.TreeView.HTreeView();
+            this.tabPage36 = new System.Windows.Forms.TabPage();
+            this.hTabControl4 = new HeCopUI_Framework.Controls.HTabControl();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.hBarChart1 = new HeCopUI_Framework.Controls.Charts.HBarChart();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.hLineAreaChart1 = new HeCopUI_Framework.Controls.Charts.HLineAreaChart();
+            this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.hPieChart1 = new HeCopUI_Framework.Controls.Charts.HPieChart();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.hRadarChart1 = new HeCopUI_Framework.Controls.Charts.HRadarChart();
             this.tabPage21 = new System.Windows.Forms.TabPage();
             this.hRichTextBox2 = new HeCopUI_Framework.Controls.HRichTextBox();
             this.hTextBox2 = new HeCopUI_Framework.Controls.HTextBox();
@@ -166,16 +206,6 @@ namespace HecopUI_Test
             this.hTabControl2 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.hTabControl4 = new HeCopUI_Framework.Controls.HTabControl();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.hBarChart1 = new HeCopUI_Framework.Controls.Charts.HBarChart();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.hLineAreaChart1 = new HeCopUI_Framework.Controls.Charts.HLineAreaChart();
-            this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.hPieChart1 = new HeCopUI_Framework.Controls.Charts.HPieChart();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.hRadarChart1 = new HeCopUI_Framework.Controls.Charts.HRadarChart();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.hTabControl7 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage30 = new System.Windows.Forms.TabPage();
@@ -184,8 +214,6 @@ namespace HecopUI_Test
             this.hClockCircular1 = new HeCopUI_Framework.Controls.HClockCircular();
             this.tabPage31 = new System.Windows.Forms.TabPage();
             this.hMontCalendar1 = new HeCopUI_Framework.Controls.HMontCalendar();
-            this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.simpleTable1 = new Utility_Tools.CustomControl.Table.SimpleTable();
             this.tabPage23 = new System.Windows.Forms.TabPage();
             this.hButton12 = new HeCopUI_Framework.Controls.Button.HButton();
             this.hButton11 = new HeCopUI_Framework.Controls.Button.HButton();
@@ -199,6 +227,16 @@ namespace HecopUI_Test
             this.tabPage26.SuspendLayout();
             this.tabPage27.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage22.SuspendLayout();
+            this.hTabControl10.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.tabPage35.SuspendLayout();
+            this.tabPage36.SuspendLayout();
+            this.hTabControl4.SuspendLayout();
+            this.tabPage15.SuspendLayout();
+            this.tabPage16.SuspendLayout();
+            this.tabPage17.SuspendLayout();
+            this.tabPage18.SuspendLayout();
             this.tabPage21.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.hTabControl6.SuspendLayout();
@@ -216,17 +254,10 @@ namespace HecopUI_Test
             this.tabPage33.SuspendLayout();
             this.hTabControl3.SuspendLayout();
             this.hTabControl2.SuspendLayout();
-            this.tabPage14.SuspendLayout();
-            this.hTabControl4.SuspendLayout();
-            this.tabPage15.SuspendLayout();
-            this.tabPage16.SuspendLayout();
-            this.tabPage17.SuspendLayout();
-            this.tabPage18.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.hTabControl7.SuspendLayout();
             this.tabPage30.SuspendLayout();
             this.tabPage31.SuspendLayout();
-            this.tabPage22.SuspendLayout();
             this.tabPage23.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,13 +271,12 @@ namespace HecopUI_Test
             this.hTabControl1.Controls.Add(this.tabPage1);
             this.hTabControl1.Controls.Add(this.tabPage2);
             this.hTabControl1.Controls.Add(this.tabPage5);
+            this.hTabControl1.Controls.Add(this.tabPage22);
             this.hTabControl1.Controls.Add(this.tabPage21);
             this.hTabControl1.Controls.Add(this.tabPage4);
             this.hTabControl1.Controls.Add(this.tabPage9);
             this.hTabControl1.Controls.Add(this.tabPage8);
-            this.hTabControl1.Controls.Add(this.tabPage14);
             this.hTabControl1.Controls.Add(this.tabPage6);
-            this.hTabControl1.Controls.Add(this.tabPage22);
             this.hTabControl1.Controls.Add(this.tabPage23);
             this.hTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hTabControl1.CursorTabPages = System.Windows.Forms.Cursors.Default;
@@ -601,7 +631,6 @@ namespace HecopUI_Test
             this.hButton7.IsAutoSize = false;
             this.hButton7.Location = new System.Drawing.Point(475, 290);
             this.hButton7.Name = "hButton7";
-            this.hButton7.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton7.RippleColor = System.Drawing.Color.Black;
             this.hButton7.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton7.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -644,7 +673,6 @@ namespace HecopUI_Test
             this.hButton8.IsAutoSize = false;
             this.hButton8.Location = new System.Drawing.Point(301, 290);
             this.hButton8.Name = "hButton8";
-            this.hButton8.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton8.RippleColor = System.Drawing.Color.Black;
             this.hButton8.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton8.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -687,7 +715,6 @@ namespace HecopUI_Test
             this.hButton9.IsAutoSize = false;
             this.hButton9.Location = new System.Drawing.Point(132, 290);
             this.hButton9.Name = "hButton9";
-            this.hButton9.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton9.RippleColor = System.Drawing.Color.Black;
             this.hButton9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton9.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -730,7 +757,6 @@ namespace HecopUI_Test
             this.hButton4.IsAutoSize = false;
             this.hButton4.Location = new System.Drawing.Point(475, 232);
             this.hButton4.Name = "hButton4";
-            this.hButton4.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton4.RippleColor = System.Drawing.Color.Black;
             this.hButton4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton4.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -774,7 +800,6 @@ namespace HecopUI_Test
             this.hButton5.Location = new System.Drawing.Point(301, 232);
             this.hButton5.Margin = new System.Windows.Forms.Padding(34, 3, 5, 6);
             this.hButton5.Name = "hButton5";
-            this.hButton5.Radius = new HeCopUI_Framework.Struct.CornerRadius(12F, 12F, 12F, 12F);
             this.hButton5.RippleColor = System.Drawing.Color.Black;
             this.hButton5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton5.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -817,7 +842,6 @@ namespace HecopUI_Test
             this.hButton6.IsAutoSize = false;
             this.hButton6.Location = new System.Drawing.Point(132, 232);
             this.hButton6.Name = "hButton6";
-            this.hButton6.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton6.RippleColor = System.Drawing.Color.Black;
             this.hButton6.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton6.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -860,7 +884,6 @@ namespace HecopUI_Test
             this.hButton3.IsAutoSize = false;
             this.hButton3.Location = new System.Drawing.Point(475, 172);
             this.hButton3.Name = "hButton3";
-            this.hButton3.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton3.RippleColor = System.Drawing.Color.Black;
             this.hButton3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton3.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -903,7 +926,6 @@ namespace HecopUI_Test
             this.hButton2.IsAutoSize = false;
             this.hButton2.Location = new System.Drawing.Point(301, 172);
             this.hButton2.Name = "hButton2";
-            this.hButton2.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton2.RippleColor = System.Drawing.Color.Black;
             this.hButton2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton2.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -946,7 +968,6 @@ namespace HecopUI_Test
             this.hButton1.IsAutoSize = false;
             this.hButton1.Location = new System.Drawing.Point(132, 172);
             this.hButton1.Name = "hButton1";
-            this.hButton1.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton1.RippleColor = System.Drawing.Color.Black;
             this.hButton1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton1.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1009,7 +1030,6 @@ namespace HecopUI_Test
             this.hTitleButton7.Interval = 200;
             this.hTitleButton7.Location = new System.Drawing.Point(442, 310);
             this.hTitleButton7.Name = "hTitleButton7";
-            this.hTitleButton7.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton7.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton7.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton7.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1048,7 +1068,6 @@ namespace HecopUI_Test
             this.hTitleButton8.Interval = 200;
             this.hTitleButton8.Location = new System.Drawing.Point(316, 310);
             this.hTitleButton8.Name = "hTitleButton8";
-            this.hTitleButton8.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton8.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton8.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton8.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1087,7 +1106,6 @@ namespace HecopUI_Test
             this.hTitleButton9.Interval = 200;
             this.hTitleButton9.Location = new System.Drawing.Point(187, 310);
             this.hTitleButton9.Name = "hTitleButton9";
-            this.hTitleButton9.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton9.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton9.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1126,7 +1144,6 @@ namespace HecopUI_Test
             this.hTitleButton4.Interval = 200;
             this.hTitleButton4.Location = new System.Drawing.Point(442, 211);
             this.hTitleButton4.Name = "hTitleButton4";
-            this.hTitleButton4.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton4.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton4.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1165,7 +1182,6 @@ namespace HecopUI_Test
             this.hTitleButton5.Interval = 200;
             this.hTitleButton5.Location = new System.Drawing.Point(316, 211);
             this.hTitleButton5.Name = "hTitleButton5";
-            this.hTitleButton5.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton5.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton5.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1204,7 +1220,6 @@ namespace HecopUI_Test
             this.hTitleButton6.Interval = 200;
             this.hTitleButton6.Location = new System.Drawing.Point(187, 211);
             this.hTitleButton6.Name = "hTitleButton6";
-            this.hTitleButton6.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton6.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton6.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton6.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1243,7 +1258,6 @@ namespace HecopUI_Test
             this.hTitleButton3.Interval = 200;
             this.hTitleButton3.Location = new System.Drawing.Point(442, 114);
             this.hTitleButton3.Name = "hTitleButton3";
-            this.hTitleButton3.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton3.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton3.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1282,7 +1296,6 @@ namespace HecopUI_Test
             this.hTitleButton2.Interval = 200;
             this.hTitleButton2.Location = new System.Drawing.Point(316, 114);
             this.hTitleButton2.Name = "hTitleButton2";
-            this.hTitleButton2.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton2.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton2.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1321,7 +1334,6 @@ namespace HecopUI_Test
             this.hTitleButton1.Interval = 200;
             this.hTitleButton1.Location = new System.Drawing.Point(187, 114);
             this.hTitleButton1.Name = "hTitleButton1";
-            this.hTitleButton1.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleButton1.RippleColor = System.Drawing.Color.BlanchedAlmond;
             this.hTitleButton1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton1.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1379,7 +1391,6 @@ namespace HecopUI_Test
             this.hTitleSubButton7.Interval = 200;
             this.hTitleSubButton7.Location = new System.Drawing.Point(449, 328);
             this.hTitleSubButton7.Name = "hTitleSubButton7";
-            this.hTitleSubButton7.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton7.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton7.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton7.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1425,7 +1436,6 @@ namespace HecopUI_Test
             this.hTitleSubButton8.Interval = 200;
             this.hTitleSubButton8.Location = new System.Drawing.Point(449, 197);
             this.hTitleSubButton8.Name = "hTitleSubButton8";
-            this.hTitleSubButton8.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton8.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton8.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton8.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1471,7 +1481,6 @@ namespace HecopUI_Test
             this.hTitleSubButton9.Interval = 200;
             this.hTitleSubButton9.Location = new System.Drawing.Point(449, 68);
             this.hTitleSubButton9.Name = "hTitleSubButton9";
-            this.hTitleSubButton9.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton9.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton9.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1517,7 +1526,6 @@ namespace HecopUI_Test
             this.hTitleSubButton4.Interval = 200;
             this.hTitleSubButton4.Location = new System.Drawing.Point(311, 328);
             this.hTitleSubButton4.Name = "hTitleSubButton4";
-            this.hTitleSubButton4.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton4.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton4.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1563,7 +1571,6 @@ namespace HecopUI_Test
             this.hTitleSubButton5.Interval = 200;
             this.hTitleSubButton5.Location = new System.Drawing.Point(311, 197);
             this.hTitleSubButton5.Name = "hTitleSubButton5";
-            this.hTitleSubButton5.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton5.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton5.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1609,7 +1616,6 @@ namespace HecopUI_Test
             this.hTitleSubButton6.Interval = 200;
             this.hTitleSubButton6.Location = new System.Drawing.Point(311, 68);
             this.hTitleSubButton6.Name = "hTitleSubButton6";
-            this.hTitleSubButton6.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton6.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton6.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton6.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1655,7 +1661,6 @@ namespace HecopUI_Test
             this.hTitleSubButton3.Interval = 200;
             this.hTitleSubButton3.Location = new System.Drawing.Point(174, 328);
             this.hTitleSubButton3.Name = "hTitleSubButton3";
-            this.hTitleSubButton3.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton3.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton3.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1701,7 +1706,6 @@ namespace HecopUI_Test
             this.hTitleSubButton2.Interval = 200;
             this.hTitleSubButton2.Location = new System.Drawing.Point(174, 197);
             this.hTitleSubButton2.Name = "hTitleSubButton2";
-            this.hTitleSubButton2.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton2.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton2.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1747,7 +1751,6 @@ namespace HecopUI_Test
             this.hTitleSubButton1.Interval = 200;
             this.hTitleSubButton1.Location = new System.Drawing.Point(174, 68);
             this.hTitleSubButton1.Name = "hTitleSubButton1";
-            this.hTitleSubButton1.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hTitleSubButton1.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton1.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -2026,6 +2029,638 @@ namespace HecopUI_Test
             this.hImage1.Size = new System.Drawing.Size(222, 215);
             this.hImage1.TabIndex = 0;
             this.hImage1.Text = "hImage1";
+            // 
+            // tabPage22
+            // 
+            this.tabPage22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tabPage22.Controls.Add(this.hTabControl10);
+            this.tabPage22.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage22.Location = new System.Drawing.Point(139, 4);
+            this.tabPage22.Name = "tabPage22";
+            this.tabPage22.Padding = new System.Windows.Forms.Padding(5);
+            this.tabPage22.Size = new System.Drawing.Size(757, 546);
+            this.tabPage22.TabIndex = 14;
+            this.tabPage22.Text = "Data Controls";
+            // 
+            // hTabControl10
+            // 
+            this.hTabControl10.ApplyTabPagesColor = true;
+            this.hTabControl10.BackgroundColor = System.Drawing.Color.Transparent;
+            this.hTabControl10.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl10.BorderThickness = 1;
+            this.hTabControl10.Controls.Add(this.tabPage7);
+            this.hTabControl10.Controls.Add(this.tabPage35);
+            this.hTabControl10.Controls.Add(this.tabPage36);
+            this.hTabControl10.CursorTabPages = System.Windows.Forms.Cursors.Default;
+            this.hTabControl10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hTabControl10.Location = new System.Drawing.Point(5, 5);
+            this.hTabControl10.Name = "hTabControl10";
+            this.hTabControl10.SelectedIndex = 0;
+            this.hTabControl10.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl10.SelectedTextColor = System.Drawing.Color.White;
+            this.hTabControl10.Size = new System.Drawing.Size(747, 536);
+            this.hTabControl10.TabIndex = 3;
+            this.hTabControl10.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.hTabControl10.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
+            this.hTabControl10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hTabControl10.TextPadding = new System.Windows.Forms.Padding(0);
+            this.hTabControl10.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl10.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            this.hTabControl10.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
+            this.hTabControl10.UnSelectedTabColor = System.Drawing.Color.Transparent;
+            this.hTabControl10.UnselectedTextColor = System.Drawing.Color.Silver;
+            this.hTabControl10.UseAnimation = false;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage7.Controls.Add(this.simpleTable1);
+            this.tabPage7.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage7.Location = new System.Drawing.Point(4, 25);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(739, 507);
+            this.tabPage7.TabIndex = 0;
+            this.tabPage7.Text = "Table";
+            // 
+            // simpleTable1
+            // 
+            this.simpleTable1.AcceptRowSelection = true;
+            this.simpleTable1.AllowUserResizeColumn = true;
+            this.simpleTable1.CheckBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
+            this.simpleTable1.CheckBoxVisible = false;
+            this.simpleTable1.CheckColor = System.Drawing.Color.White;
+            tableColumn4.BackColor = System.Drawing.Color.Empty;
+            tableColumn4.DisplayIndex = 0;
+            tableColumn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tableColumn4.ForeColor = System.Drawing.Color.Empty;
+            tableColumn4.Index = 0;
+            tableColumn4.Name = "column0";
+            tableColumn4.Text = "colum 0";
+            tableColumn5.BackColor = System.Drawing.Color.Empty;
+            tableColumn5.DisplayIndex = 1;
+            tableColumn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tableColumn5.ForeColor = System.Drawing.Color.Empty;
+            tableColumn5.Index = 1;
+            tableColumn5.Name = "column1";
+            tableColumn5.Text = "colum 1";
+            tableColumn6.BackColor = System.Drawing.Color.Empty;
+            tableColumn6.DisplayIndex = 2;
+            tableColumn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tableColumn6.ForeColor = System.Drawing.Color.Empty;
+            tableColumn6.Index = 2;
+            tableColumn6.Name = "column2";
+            tableColumn6.Text = "colum 2";
+            this.simpleTable1.Columns.Add(tableColumn4);
+            this.simpleTable1.Columns.Add(tableColumn5);
+            this.simpleTable1.Columns.Add(tableColumn6);
+            this.simpleTable1.ColumnsBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
+            this.simpleTable1.ColumnsForeColor = System.Drawing.Color.White;
+            this.simpleTable1.GridColor = System.Drawing.Color.Gainsboro;
+            this.simpleTable1.GridVisible = false;
+            this.simpleTable1.HeaderFont = new System.Drawing.Font("Arial", 11F);
+            this.simpleTable1.HeaderHeight = 25;
+            this.simpleTable1.ImagesVisible = false;
+            this.simpleTable1.Location = new System.Drawing.Point(24, 25);
+            this.simpleTable1.Margin = new System.Windows.Forms.Padding(2);
+            this.simpleTable1.Name = "simpleTable1";
+            this.simpleTable1.Padding = new System.Windows.Forms.Padding(2);
+            this.simpleTable1.ReOrderable = true;
+            this.simpleTable1.RowFont = new System.Drawing.Font("Arial", 10F);
+            this.simpleTable1.RowsBackColor = System.Drawing.Color.White;
+            this.simpleTable1.RowsForeColor = System.Drawing.Color.Black;
+            this.simpleTable1.RowsHoverBackColor = System.Drawing.Color.Lavender;
+            this.simpleTable1.RowsHoverForeColor = System.Drawing.Color.Black;
+            this.simpleTable1.RowsSelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(252)))));
+            this.simpleTable1.RowsSelectedForeColor = System.Drawing.Color.White;
+            this.simpleTable1.ScrollValue = 0;
+            this.simpleTable1.Size = new System.Drawing.Size(690, 245);
+            this.simpleTable1.SplitLineColor = System.Drawing.Color.LightGray;
+            this.simpleTable1.TabIndex = 2;
+            this.simpleTable1.Text = "simpleTable1";
+            this.simpleTable1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.simpleTable1.UseCustomColumnsBackColor = true;
+            this.simpleTable1.UseCustomHeaderForeColor = true;
+            this.simpleTable1.UseCustomRowsBackColor = true;
+            // 
+            // tabPage35
+            // 
+            this.tabPage35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage35.Controls.Add(this.hTreeView1);
+            this.tabPage35.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage35.Location = new System.Drawing.Point(4, 25);
+            this.tabPage35.Name = "tabPage35";
+            this.tabPage35.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage35.Size = new System.Drawing.Size(739, 507);
+            this.tabPage35.TabIndex = 1;
+            this.tabPage35.Text = "Tree View";
+            // 
+            // hTreeView1
+            // 
+            this.hTreeView1.AcceptNodeSelection = false;
+            this.hTreeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.hTreeView1.CheckBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(252)))));
+            this.hTreeView1.CheckBoxVisible = true;
+            this.hTreeView1.CheckIconColor = System.Drawing.Color.White;
+            this.hTreeView1.ImageList = null;
+            this.hTreeView1.Indent = 20;
+            this.hTreeView1.Location = new System.Drawing.Point(27, 24);
+            this.hTreeView1.Name = "hTreeView1";
+            this.hTreeView1.NodeBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.hTreeView1.NodeFont = new System.Drawing.Font("Arial", 10F);
+            this.hTreeView1.NodeForeColor = System.Drawing.Color.WhiteSmoke;
+            this.hTreeView1.NodeHeight = 20;
+            this.hTreeView1.NodeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            treeNode25.Checked = false;
+            treeNode25.Font = null;
+            treeNode25.Image = null;
+            treeNode25.ImageIndex = -1;
+            treeNode25.Index = 0;
+            treeNode25.IsExpanded = false;
+            treeNode25.IsFocused = false;
+            treeNode25.Name = "treeNode0";
+            treeNode26.Checked = false;
+            treeNode26.Font = null;
+            treeNode26.Image = null;
+            treeNode26.ImageIndex = -1;
+            treeNode26.Index = 0;
+            treeNode26.IsExpanded = false;
+            treeNode26.IsFocused = false;
+            treeNode26.Name = "treeNode0";
+            treeNode26.Parent = treeNode25;
+            treeNode26.Tag = null;
+            treeNode26.Text = "tree Node 0";
+            treeNode27.Checked = false;
+            treeNode27.Font = null;
+            treeNode27.Image = null;
+            treeNode27.ImageIndex = -1;
+            treeNode27.Index = 1;
+            treeNode27.IsExpanded = false;
+            treeNode27.IsFocused = false;
+            treeNode27.Name = "treeNode1";
+            treeNode28.Checked = false;
+            treeNode28.Font = null;
+            treeNode28.Image = null;
+            treeNode28.ImageIndex = -1;
+            treeNode28.Index = 0;
+            treeNode28.IsExpanded = false;
+            treeNode28.IsFocused = false;
+            treeNode28.Name = "treeNode0";
+            treeNode28.Parent = treeNode27;
+            treeNode28.Tag = null;
+            treeNode28.Text = "tree Node 0";
+            treeNode29.Checked = false;
+            treeNode29.Font = null;
+            treeNode29.Image = null;
+            treeNode29.ImageIndex = -1;
+            treeNode29.Index = 1;
+            treeNode29.IsExpanded = false;
+            treeNode29.IsFocused = false;
+            treeNode29.Name = "treeNode1";
+            treeNode29.Parent = treeNode27;
+            treeNode29.Tag = null;
+            treeNode29.Text = "tree Node 1";
+            treeNode30.Checked = false;
+            treeNode30.Font = null;
+            treeNode30.Image = null;
+            treeNode30.ImageIndex = -1;
+            treeNode30.Index = 2;
+            treeNode30.IsExpanded = false;
+            treeNode30.IsFocused = false;
+            treeNode30.Name = "treeNode2";
+            treeNode30.Parent = treeNode27;
+            treeNode30.Tag = null;
+            treeNode30.Text = "tree Node 2";
+            treeNode31.Checked = false;
+            treeNode31.Font = null;
+            treeNode31.Image = null;
+            treeNode31.ImageIndex = -1;
+            treeNode31.Index = 3;
+            treeNode31.IsExpanded = false;
+            treeNode31.IsFocused = false;
+            treeNode31.Name = "treeNode3";
+            treeNode31.Parent = treeNode27;
+            treeNode31.Tag = null;
+            treeNode31.Text = "tree Node 3";
+            treeNode32.Checked = false;
+            treeNode32.Font = null;
+            treeNode32.Image = null;
+            treeNode32.ImageIndex = -1;
+            treeNode32.Index = 4;
+            treeNode32.IsExpanded = false;
+            treeNode32.IsFocused = false;
+            treeNode32.Name = "treeNode4";
+            treeNode32.Parent = treeNode27;
+            treeNode32.Tag = null;
+            treeNode32.Text = "tree Node 4";
+            treeNode33.Checked = false;
+            treeNode33.Font = null;
+            treeNode33.Image = null;
+            treeNode33.ImageIndex = -1;
+            treeNode33.Index = 5;
+            treeNode33.IsExpanded = false;
+            treeNode33.IsFocused = false;
+            treeNode33.Name = "treeNode5";
+            treeNode33.Parent = treeNode27;
+            treeNode33.Tag = null;
+            treeNode33.Text = "tree Node 5";
+            treeNode27.Nodes.Add(treeNode28);
+            treeNode27.Nodes.Add(treeNode29);
+            treeNode27.Nodes.Add(treeNode30);
+            treeNode27.Nodes.Add(treeNode31);
+            treeNode27.Nodes.Add(treeNode32);
+            treeNode27.Nodes.Add(treeNode33);
+            treeNode27.Parent = treeNode25;
+            treeNode27.Tag = null;
+            treeNode27.Text = "tree Node 1";
+            treeNode34.Checked = false;
+            treeNode34.Font = null;
+            treeNode34.Image = null;
+            treeNode34.ImageIndex = -1;
+            treeNode34.Index = 2;
+            treeNode34.IsExpanded = false;
+            treeNode34.IsFocused = false;
+            treeNode34.Name = "treeNode2";
+            treeNode34.Parent = treeNode25;
+            treeNode34.Tag = null;
+            treeNode34.Text = "tree Node 2";
+            treeNode35.Checked = false;
+            treeNode35.Font = null;
+            treeNode35.Image = null;
+            treeNode35.ImageIndex = -1;
+            treeNode35.Index = 3;
+            treeNode35.IsExpanded = false;
+            treeNode35.IsFocused = false;
+            treeNode35.Name = "treeNode3";
+            treeNode35.Parent = treeNode25;
+            treeNode35.Tag = null;
+            treeNode35.Text = "tree Node 3";
+            treeNode25.Nodes.Add(treeNode26);
+            treeNode25.Nodes.Add(treeNode27);
+            treeNode25.Nodes.Add(treeNode34);
+            treeNode25.Nodes.Add(treeNode35);
+            treeNode25.Parent = null;
+            treeNode25.Tag = null;
+            treeNode25.Text = "tree Node 0";
+            treeNode36.Checked = false;
+            treeNode36.Font = null;
+            treeNode36.Image = null;
+            treeNode36.ImageIndex = -1;
+            treeNode36.Index = 1;
+            treeNode36.IsExpanded = false;
+            treeNode36.IsFocused = false;
+            treeNode36.Name = "treeNode1";
+            treeNode36.Parent = null;
+            treeNode36.Tag = null;
+            treeNode36.Text = "tree Node 1";
+            treeNode37.Checked = false;
+            treeNode37.Font = null;
+            treeNode37.Image = null;
+            treeNode37.ImageIndex = -1;
+            treeNode37.Index = 2;
+            treeNode37.IsExpanded = false;
+            treeNode37.IsFocused = false;
+            treeNode37.Name = "treeNode2";
+            treeNode37.Parent = null;
+            treeNode37.Tag = null;
+            treeNode37.Text = "tree Node 2";
+            treeNode38.Checked = false;
+            treeNode38.Font = null;
+            treeNode38.Image = null;
+            treeNode38.ImageIndex = -1;
+            treeNode38.Index = 3;
+            treeNode38.IsExpanded = false;
+            treeNode38.IsFocused = false;
+            treeNode38.Name = "treeNode3";
+            treeNode39.Checked = false;
+            treeNode39.Font = null;
+            treeNode39.Image = null;
+            treeNode39.ImageIndex = -1;
+            treeNode39.Index = 0;
+            treeNode39.IsExpanded = false;
+            treeNode39.IsFocused = false;
+            treeNode39.Name = "treeNode0";
+            treeNode39.Parent = treeNode38;
+            treeNode39.Tag = null;
+            treeNode39.Text = "tree Node 0";
+            treeNode40.Checked = false;
+            treeNode40.Font = null;
+            treeNode40.Image = null;
+            treeNode40.ImageIndex = -1;
+            treeNode40.Index = 1;
+            treeNode40.IsExpanded = false;
+            treeNode40.IsFocused = false;
+            treeNode40.Name = "treeNode1";
+            treeNode40.Parent = treeNode38;
+            treeNode40.Tag = null;
+            treeNode40.Text = "tree Node 1";
+            treeNode41.Checked = false;
+            treeNode41.Font = null;
+            treeNode41.Image = null;
+            treeNode41.ImageIndex = -1;
+            treeNode41.Index = 2;
+            treeNode41.IsExpanded = false;
+            treeNode41.IsFocused = false;
+            treeNode41.Name = "treeNode2";
+            treeNode41.Parent = treeNode38;
+            treeNode41.Tag = null;
+            treeNode41.Text = "tree Node 2";
+            treeNode38.Nodes.Add(treeNode39);
+            treeNode38.Nodes.Add(treeNode40);
+            treeNode38.Nodes.Add(treeNode41);
+            treeNode38.Parent = null;
+            treeNode38.Tag = null;
+            treeNode38.Text = "tree Node 3";
+            treeNode42.Checked = false;
+            treeNode42.Font = null;
+            treeNode42.Image = null;
+            treeNode42.ImageIndex = -1;
+            treeNode42.Index = 4;
+            treeNode42.IsExpanded = false;
+            treeNode42.IsFocused = false;
+            treeNode42.Name = "treeNode4";
+            treeNode42.Parent = null;
+            treeNode42.Tag = null;
+            treeNode42.Text = "tree Node 4";
+            treeNode43.Checked = false;
+            treeNode43.Font = null;
+            treeNode43.Image = null;
+            treeNode43.ImageIndex = -1;
+            treeNode43.Index = 5;
+            treeNode43.IsExpanded = false;
+            treeNode43.IsFocused = false;
+            treeNode43.Name = "treeNode5";
+            treeNode44.Checked = false;
+            treeNode44.Font = null;
+            treeNode44.Image = null;
+            treeNode44.ImageIndex = -1;
+            treeNode44.Index = 0;
+            treeNode44.IsExpanded = false;
+            treeNode44.IsFocused = false;
+            treeNode44.Name = "treeNode0";
+            treeNode44.Parent = treeNode43;
+            treeNode44.Tag = null;
+            treeNode44.Text = "tree Node 0";
+            treeNode45.Checked = false;
+            treeNode45.Font = null;
+            treeNode45.Image = null;
+            treeNode45.ImageIndex = -1;
+            treeNode45.Index = 1;
+            treeNode45.IsExpanded = false;
+            treeNode45.IsFocused = false;
+            treeNode45.Name = "treeNode1";
+            treeNode45.Parent = treeNode43;
+            treeNode45.Tag = null;
+            treeNode45.Text = "tree Node 1";
+            treeNode46.Checked = false;
+            treeNode46.Font = null;
+            treeNode46.Image = null;
+            treeNode46.ImageIndex = -1;
+            treeNode46.Index = 2;
+            treeNode46.IsExpanded = false;
+            treeNode46.IsFocused = false;
+            treeNode46.Name = "treeNode2";
+            treeNode46.Parent = treeNode43;
+            treeNode46.Tag = null;
+            treeNode46.Text = "tree Node 2";
+            treeNode47.Checked = false;
+            treeNode47.Font = null;
+            treeNode47.Image = null;
+            treeNode47.ImageIndex = -1;
+            treeNode47.Index = 3;
+            treeNode47.IsExpanded = false;
+            treeNode47.IsFocused = false;
+            treeNode47.Name = "treeNode3";
+            treeNode47.Parent = treeNode43;
+            treeNode47.Tag = null;
+            treeNode47.Text = "tree Node 3";
+            treeNode43.Nodes.Add(treeNode44);
+            treeNode43.Nodes.Add(treeNode45);
+            treeNode43.Nodes.Add(treeNode46);
+            treeNode43.Nodes.Add(treeNode47);
+            treeNode43.Parent = null;
+            treeNode43.Tag = null;
+            treeNode43.Text = "tree Node 5";
+            treeNode48.Checked = false;
+            treeNode48.Font = null;
+            treeNode48.Image = null;
+            treeNode48.ImageIndex = -1;
+            treeNode48.Index = 6;
+            treeNode48.IsExpanded = false;
+            treeNode48.IsFocused = false;
+            treeNode48.Name = "treeNode6";
+            treeNode48.Parent = null;
+            treeNode48.Tag = null;
+            treeNode48.Text = "tree Node 6";
+            this.hTreeView1.Nodes.Add(treeNode25);
+            this.hTreeView1.Nodes.Add(treeNode36);
+            this.hTreeView1.Nodes.Add(treeNode37);
+            this.hTreeView1.Nodes.Add(treeNode38);
+            this.hTreeView1.Nodes.Add(treeNode42);
+            this.hTreeView1.Nodes.Add(treeNode43);
+            this.hTreeView1.Nodes.Add(treeNode48);
+            this.hTreeView1.NodeSelectedColor = System.Drawing.Color.LightBlue;
+            this.hTreeView1.PathSeparator = "\\";
+            this.hTreeView1.PlusMinusBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
+            this.hTreeView1.PlusMinusColor = System.Drawing.Color.White;
+            this.hTreeView1.RootLinesColor = System.Drawing.Color.Gray;
+            this.hTreeView1.ShowPlusMinus = true;
+            this.hTreeView1.ShowRootLines = true;
+            this.hTreeView1.Size = new System.Drawing.Size(686, 357);
+            this.hTreeView1.SpaceBetweenNodes = 1;
+            this.hTreeView1.TabIndex = 0;
+            this.hTreeView1.Text = "hTreeView1";
+            this.hTreeView1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // tabPage36
+            // 
+            this.tabPage36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage36.Controls.Add(this.hTabControl4);
+            this.tabPage36.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage36.Location = new System.Drawing.Point(4, 25);
+            this.tabPage36.Name = "tabPage36";
+            this.tabPage36.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage36.Size = new System.Drawing.Size(739, 507);
+            this.tabPage36.TabIndex = 2;
+            this.tabPage36.Text = "Charts";
+            // 
+            // hTabControl4
+            // 
+            this.hTabControl4.ApplyTabPagesColor = true;
+            this.hTabControl4.BackgroundColor = System.Drawing.Color.Transparent;
+            this.hTabControl4.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
+            this.hTabControl4.BorderThickness = 1;
+            this.hTabControl4.Controls.Add(this.tabPage15);
+            this.hTabControl4.Controls.Add(this.tabPage16);
+            this.hTabControl4.Controls.Add(this.tabPage17);
+            this.hTabControl4.Controls.Add(this.tabPage18);
+            this.hTabControl4.CursorTabPages = System.Windows.Forms.Cursors.Default;
+            this.hTabControl4.ItemSize = new System.Drawing.Size(54, 28);
+            this.hTabControl4.Location = new System.Drawing.Point(27, 21);
+            this.hTabControl4.Multiline = true;
+            this.hTabControl4.Name = "hTabControl4";
+            this.hTabControl4.SelectedIndex = 0;
+            this.hTabControl4.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
+            this.hTabControl4.SelectedTextColor = System.Drawing.Color.White;
+            this.hTabControl4.Size = new System.Drawing.Size(684, 464);
+            this.hTabControl4.TabIndex = 2;
+            this.hTabControl4.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.hTabControl4.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
+            this.hTabControl4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hTabControl4.TextPadding = new System.Windows.Forms.Padding(0);
+            this.hTabControl4.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl4.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            this.hTabControl4.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
+            this.hTabControl4.UnSelectedTabColor = System.Drawing.Color.Transparent;
+            this.hTabControl4.UnselectedTextColor = System.Drawing.Color.Silver;
+            this.hTabControl4.UseAnimation = false;
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage15.Controls.Add(this.hBarChart1);
+            this.tabPage15.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage15.Location = new System.Drawing.Point(4, 32);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(676, 428);
+            this.tabPage15.TabIndex = 0;
+            this.tabPage15.Text = "Bar";
+            // 
+            // hBarChart1
+            // 
+            this.hBarChart1.BorderItems = true;
+            this.hBarChart1.ItemsTextColor = System.Drawing.Color.DarkGray;
+            this.hBarChart1.LegendColor = System.Drawing.Color.DarkGray;
+            this.hBarChart1.LegendFont = new System.Drawing.Font("Arial", 10F);
+            this.hBarChart1.LegendType = HeCopUI_Framework.Enums.LegendType.Right;
+            this.hBarChart1.LineChart = System.Drawing.Color.Gray;
+            this.hBarChart1.Location = new System.Drawing.Point(32, 33);
+            this.hBarChart1.Name = "hBarChart1";
+            this.hBarChart1.NumbericChartColor = System.Drawing.Color.DarkGray;
+            this.hBarChart1.ShowTitle = true;
+            this.hBarChart1.Size = new System.Drawing.Size(599, 371);
+            this.hBarChart1.SortMode = HeCopUI_Framework.Enums.SortMode.None;
+            this.hBarChart1.SpaceBetweenItems = 50;
+            this.hBarChart1.TabIndex = 0;
+            this.hBarChart1.Text = "hBarChart1";
+            this.hBarChart1.TitleChartAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
+            this.hBarChart1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
+            this.hBarChart1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.hBarChart1.TitleText = "HBar Chart";
+            this.hBarChart1.ToolTipFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hBarChart1.VisibleNumberOy = 10;
+            // 
+            // tabPage16
+            // 
+            this.tabPage16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage16.Controls.Add(this.hLineAreaChart1);
+            this.tabPage16.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage16.Location = new System.Drawing.Point(4, 32);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(676, 428);
+            this.tabPage16.TabIndex = 1;
+            this.tabPage16.Text = "Line";
+            // 
+            // hLineAreaChart1
+            // 
+            this.hLineAreaChart1.ChartColor = System.Drawing.Color.Gray;
+            this.hLineAreaChart1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
+            this.hLineAreaChart1.GraphStyle = HeCopUI_Framework.Controls.Charts.HLineAreaChart.Style.Flat;
+            this.hLineAreaChart1.GridColor = System.Drawing.Color.DimGray;
+            this.hLineAreaChart1.Location = new System.Drawing.Point(32, 33);
+            this.hLineAreaChart1.Name = "hLineAreaChart1";
+            this.hLineAreaChart1.NumbericOfOxy = System.Drawing.Color.DarkGray;
+            this.hLineAreaChart1.NumberOfOyVisible = 10;
+            this.hLineAreaChart1.PointSize = 8;
+            this.hLineAreaChart1.ShowAreas = true;
+            this.hLineAreaChart1.ShowPoints = true;
+            this.hLineAreaChart1.Size = new System.Drawing.Size(599, 371);
+            this.hLineAreaChart1.SortMode = HeCopUI_Framework.Enums.SortMode.None;
+            this.hLineAreaChart1.TabIndex = 0;
+            this.hLineAreaChart1.Text = "hLineAreaChart1";
+            this.hLineAreaChart1.TitleAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
+            this.hLineAreaChart1.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            // 
+            // tabPage17
+            // 
+            this.tabPage17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage17.Controls.Add(this.hPieChart1);
+            this.tabPage17.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage17.Location = new System.Drawing.Point(4, 32);
+            this.tabPage17.Name = "tabPage17";
+            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage17.Size = new System.Drawing.Size(676, 428);
+            this.tabPage17.TabIndex = 2;
+            this.tabPage17.Text = "Pie";
+            // 
+            // hPieChart1
+            // 
+            this.hPieChart1.CircularColor = System.Drawing.Color.Salmon;
+            this.hPieChart1.CircularWidth = 0;
+            this.hPieChart1.LegendChart = HeCopUI_Framework.Enums.LegendType.Right;
+            this.hPieChart1.LegendFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hPieChart1.LegendTextColor = System.Drawing.Color.DarkGray;
+            this.hPieChart1.Location = new System.Drawing.Point(32, 33);
+            this.hPieChart1.Name = "hPieChart1";
+            this.hPieChart1.PieCharSize = 200;
+            this.hPieChart1.SeriesValueFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hPieChart1.ShowValuesTip = true;
+            this.hPieChart1.Size = new System.Drawing.Size(599, 371);
+            this.hPieChart1.StartAngle = 0;
+            this.hPieChart1.TabIndex = 0;
+            this.hPieChart1.Text = "hPieChart1";
+            this.hPieChart1.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hPieChart1.ValueColor = System.Drawing.Color.White;
+            this.hPieChart1.VisibleLegend = true;
+            // 
+            // tabPage18
+            // 
+            this.tabPage18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage18.Controls.Add(this.hRadarChart1);
+            this.tabPage18.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage18.Location = new System.Drawing.Point(4, 32);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage18.Size = new System.Drawing.Size(676, 428);
+            this.tabPage18.TabIndex = 3;
+            this.tabPage18.Text = "Radar";
+            // 
+            // hRadarChart1
+            // 
+            this.hRadarChart1.LegendColor = System.Drawing.Color.DarkGray;
+            this.hRadarChart1.LegendFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.hRadarChart1.LegendType = HeCopUI_Framework.Enums.LegendType.Right;
+            this.hRadarChart1.Location = new System.Drawing.Point(32, 33);
+            this.hRadarChart1.MaxValue = 100;
+            this.hRadarChart1.Name = "hRadarChart1";
+            this.hRadarChart1.NumberVisible = true;
+            this.hRadarChart1.PointSize = 8;
+            this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
+            series2.Color = System.Drawing.Color.OrangeRed;
+            series2.Text = "serieName1";
+            series2.Values = new float[] {
+        90F,
+        50F,
+        70F,
+        40F,
+        60F};
+            this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Charts.Series[] {
+        series2};
+            this.hRadarChart1.ShowTitle = true;
+            this.hRadarChart1.ShowValuesTip = false;
+            this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
+            this.hRadarChart1.Step = 20;
+            this.hRadarChart1.TabIndex = 0;
+            this.hRadarChart1.Text = "hRadarChart1";
+            this.hRadarChart1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.hRadarChart1.Title = "Radar Chart";
+            this.hRadarChart1.TitleChartAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
+            this.hRadarChart1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
+            this.hRadarChart1.TitleFont = new System.Drawing.Font("Segoe UI", 12F);
             // 
             // tabPage21
             // 
@@ -2629,7 +3264,6 @@ namespace HecopUI_Test
             this.hButton10.IsAutoSize = false;
             this.hButton10.Location = new System.Drawing.Point(479, 373);
             this.hButton10.Name = "hButton10";
-            this.hButton10.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton10.RippleColor = System.Drawing.Color.Black;
             this.hButton10.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton10.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -2664,7 +3298,6 @@ namespace HecopUI_Test
             this.hProgressBar4.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar4.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar4.ProgressValue = 32;
-            this.hProgressBar4.Radius = new HeCopUI_Framework.Struct.CornerRadius(2F, 2F, 2F, 2F);
             this.hProgressBar4.Size = new System.Drawing.Size(15, 297);
             this.hProgressBar4.TabIndex = 21;
             this.hProgressBar4.Text = "hProgressBar4";
@@ -2686,7 +3319,6 @@ namespace HecopUI_Test
             this.hProgressBar5.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar5.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar5.ProgressValue = 32;
-            this.hProgressBar5.Radius = new HeCopUI_Framework.Struct.CornerRadius(2F, 2F, 2F, 2F);
             this.hProgressBar5.Size = new System.Drawing.Size(15, 297);
             this.hProgressBar5.TabIndex = 20;
             this.hProgressBar5.Text = "hProgressBar5";
@@ -2708,7 +3340,6 @@ namespace HecopUI_Test
             this.hProgressBar6.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar6.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar6.ProgressValue = 32;
-            this.hProgressBar6.Radius = new HeCopUI_Framework.Struct.CornerRadius(2F, 2F, 2F, 2F);
             this.hProgressBar6.Size = new System.Drawing.Size(15, 297);
             this.hProgressBar6.TabIndex = 19;
             this.hProgressBar6.Text = "hProgressBar6";
@@ -2730,7 +3361,6 @@ namespace HecopUI_Test
             this.hProgressBar3.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar3.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar3.ProgressValue = 32;
-            this.hProgressBar3.Radius = new HeCopUI_Framework.Struct.CornerRadius(2F, 2F, 2F, 2F);
             this.hProgressBar3.Size = new System.Drawing.Size(541, 15);
             this.hProgressBar3.TabIndex = 17;
             this.hProgressBar3.Text = "hProgressBar3";
@@ -2752,7 +3382,6 @@ namespace HecopUI_Test
             this.hProgressBar2.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar2.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar2.ProgressValue = 32;
-            this.hProgressBar2.Radius = new HeCopUI_Framework.Struct.CornerRadius(2F, 2F, 2F, 2F);
             this.hProgressBar2.Size = new System.Drawing.Size(541, 15);
             this.hProgressBar2.TabIndex = 16;
             this.hProgressBar2.Text = "hProgressBar2";
@@ -2774,7 +3403,6 @@ namespace HecopUI_Test
             this.hProgressBar1.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar1.ProgressValue = 32;
-            this.hProgressBar1.Radius = new HeCopUI_Framework.Struct.CornerRadius(2F, 2F, 2F, 2F);
             this.hProgressBar1.Size = new System.Drawing.Size(541, 15);
             this.hProgressBar1.TabIndex = 15;
             this.hProgressBar1.Text = "hProgressBar1";
@@ -3152,7 +3780,6 @@ namespace HecopUI_Test
             this.HPanel1.Name = "HPanel1";
             this.HPanel1.PanelColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
             this.HPanel1.PanelColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
-            this.HPanel1.Radius = new HeCopUI_Framework.Struct.CornerRadius(0F, 0F, 0F, 0F);
             this.HPanel1.RoundBottomLeft = true;
             this.HPanel1.RoundBottomRight = true;
             this.HPanel1.RoundTopLeft = true;
@@ -3275,195 +3902,6 @@ namespace HecopUI_Test
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "Tab 2";
             // 
-            // tabPage14
-            // 
-            this.tabPage14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage14.Controls.Add(this.hTabControl4);
-            this.tabPage14.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage14.Location = new System.Drawing.Point(139, 4);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(757, 546);
-            this.tabPage14.TabIndex = 9;
-            this.tabPage14.Text = "Charts";
-            // 
-            // hTabControl4
-            // 
-            this.hTabControl4.ApplyTabPagesColor = true;
-            this.hTabControl4.BackgroundColor = System.Drawing.Color.Transparent;
-            this.hTabControl4.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hTabControl4.BorderThickness = 1;
-            this.hTabControl4.Controls.Add(this.tabPage15);
-            this.hTabControl4.Controls.Add(this.tabPage16);
-            this.hTabControl4.Controls.Add(this.tabPage17);
-            this.hTabControl4.Controls.Add(this.tabPage18);
-            this.hTabControl4.CursorTabPages = System.Windows.Forms.Cursors.Default;
-            this.hTabControl4.ItemSize = new System.Drawing.Size(54, 28);
-            this.hTabControl4.Location = new System.Drawing.Point(34, 31);
-            this.hTabControl4.Multiline = true;
-            this.hTabControl4.Name = "hTabControl4";
-            this.hTabControl4.SelectedIndex = 0;
-            this.hTabControl4.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hTabControl4.SelectedTextColor = System.Drawing.Color.White;
-            this.hTabControl4.Size = new System.Drawing.Size(684, 464);
-            this.hTabControl4.TabIndex = 1;
-            this.hTabControl4.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hTabControl4.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
-            this.hTabControl4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.hTabControl4.TextPadding = new System.Windows.Forms.Padding(0);
-            this.hTabControl4.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTabControl4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTabControl4.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
-            this.hTabControl4.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
-            this.hTabControl4.UnSelectedTabColor = System.Drawing.Color.Transparent;
-            this.hTabControl4.UnselectedTextColor = System.Drawing.Color.Silver;
-            this.hTabControl4.UseAnimation = false;
-            // 
-            // tabPage15
-            // 
-            this.tabPage15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tabPage15.Controls.Add(this.hBarChart1);
-            this.tabPage15.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage15.Location = new System.Drawing.Point(4, 32);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(676, 428);
-            this.tabPage15.TabIndex = 0;
-            this.tabPage15.Text = "Bar";
-            // 
-            // hBarChart1
-            // 
-            this.hBarChart1.BorderItems = true;
-            this.hBarChart1.ItemsTextColor = System.Drawing.Color.DarkGray;
-            this.hBarChart1.LegendColor = System.Drawing.Color.DarkGray;
-            this.hBarChart1.LegendFont = new System.Drawing.Font("Arial", 10F);
-            this.hBarChart1.LegendType = HeCopUI_Framework.Enums.LegendType.Right;
-            this.hBarChart1.LineChart = System.Drawing.Color.Gray;
-            this.hBarChart1.Location = new System.Drawing.Point(32, 33);
-            this.hBarChart1.Name = "hBarChart1";
-            this.hBarChart1.NumbericChartColor = System.Drawing.Color.DarkGray;
-            this.hBarChart1.ShowTitle = true;
-            this.hBarChart1.Size = new System.Drawing.Size(599, 371);
-            this.hBarChart1.SortMode = HeCopUI_Framework.Enums.SortMode.None;
-            this.hBarChart1.SpaceBetweenItems = 50;
-            this.hBarChart1.TabIndex = 0;
-            this.hBarChart1.Text = "hBarChart1";
-            this.hBarChart1.TitleChartAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
-            this.hBarChart1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hBarChart1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.hBarChart1.TitleText = "HBar Chart";
-            this.hBarChart1.ToolTipFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hBarChart1.VisibleNumberOy = 10;
-            // 
-            // tabPage16
-            // 
-            this.tabPage16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tabPage16.Controls.Add(this.hLineAreaChart1);
-            this.tabPage16.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage16.Location = new System.Drawing.Point(4, 32);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(676, 428);
-            this.tabPage16.TabIndex = 1;
-            this.tabPage16.Text = "Line";
-            // 
-            // hLineAreaChart1
-            // 
-            this.hLineAreaChart1.ChartColor = System.Drawing.Color.Gray;
-            this.hLineAreaChart1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hLineAreaChart1.GraphStyle = HeCopUI_Framework.Controls.Charts.HLineAreaChart.Style.Flat;
-            this.hLineAreaChart1.GridColor = System.Drawing.Color.DimGray;
-            this.hLineAreaChart1.Location = new System.Drawing.Point(32, 33);
-            this.hLineAreaChart1.Name = "hLineAreaChart1";
-            this.hLineAreaChart1.NumbericOfOxy = System.Drawing.Color.DarkGray;
-            this.hLineAreaChart1.NumberOfOyVisible = 10;
-            this.hLineAreaChart1.PointSize = 8;
-            this.hLineAreaChart1.ShowAreas = true;
-            this.hLineAreaChart1.ShowPoints = true;
-            this.hLineAreaChart1.Size = new System.Drawing.Size(599, 371);
-            this.hLineAreaChart1.SortMode = HeCopUI_Framework.Enums.SortMode.None;
-            this.hLineAreaChart1.TabIndex = 0;
-            this.hLineAreaChart1.Text = "hLineAreaChart1";
-            this.hLineAreaChart1.TitleAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
-            this.hLineAreaChart1.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            // 
-            // tabPage17
-            // 
-            this.tabPage17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tabPage17.Controls.Add(this.hPieChart1);
-            this.tabPage17.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage17.Location = new System.Drawing.Point(4, 32);
-            this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(676, 428);
-            this.tabPage17.TabIndex = 2;
-            this.tabPage17.Text = "Pie";
-            // 
-            // hPieChart1
-            // 
-            this.hPieChart1.CircularColor = System.Drawing.Color.Salmon;
-            this.hPieChart1.CircularWidth = 0;
-            this.hPieChart1.LegendChart = HeCopUI_Framework.Enums.LegendType.Right;
-            this.hPieChart1.LegendFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hPieChart1.LegendTextColor = System.Drawing.Color.DarkGray;
-            this.hPieChart1.Location = new System.Drawing.Point(32, 33);
-            this.hPieChart1.Name = "hPieChart1";
-            this.hPieChart1.PieCharSize = 200;
-            this.hPieChart1.SeriesValueFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hPieChart1.ShowValuesTip = true;
-            this.hPieChart1.Size = new System.Drawing.Size(599, 371);
-            this.hPieChart1.StartAngle = 0;
-            this.hPieChart1.TabIndex = 0;
-            this.hPieChart1.Text = "hPieChart1";
-            this.hPieChart1.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hPieChart1.ValueColor = System.Drawing.Color.White;
-            this.hPieChart1.VisibleLegend = true;
-            // 
-            // tabPage18
-            // 
-            this.tabPage18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tabPage18.Controls.Add(this.hRadarChart1);
-            this.tabPage18.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage18.Location = new System.Drawing.Point(4, 32);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(676, 428);
-            this.tabPage18.TabIndex = 3;
-            this.tabPage18.Text = "Radar";
-            // 
-            // hRadarChart1
-            // 
-            this.hRadarChart1.LegendColor = System.Drawing.Color.DarkGray;
-            this.hRadarChart1.LegendFont = new System.Drawing.Font("Segoe UI", 10F);
-            this.hRadarChart1.LegendType = HeCopUI_Framework.Enums.LegendType.Right;
-            this.hRadarChart1.Location = new System.Drawing.Point(32, 33);
-            this.hRadarChart1.MaxValue = 100;
-            this.hRadarChart1.Name = "hRadarChart1";
-            this.hRadarChart1.NumberVisible = true;
-            this.hRadarChart1.PointSize = 8;
-            this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
-            series1.Color = System.Drawing.Color.OrangeRed;
-            series1.Text = "serieName1";
-            series1.Values = new float[] {
-        90F,
-        50F,
-        70F,
-        40F,
-        60F};
-            this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Charts.Series[] {
-        series1};
-            this.hRadarChart1.ShowTitle = true;
-            this.hRadarChart1.ShowValuesTip = false;
-            this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
-            this.hRadarChart1.Step = 20;
-            this.hRadarChart1.TabIndex = 0;
-            this.hRadarChart1.Text = "hRadarChart1";
-            this.hRadarChart1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.hRadarChart1.Title = "Radar Chart";
-            this.hRadarChart1.TitleChartAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
-            this.hRadarChart1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hRadarChart1.TitleFont = new System.Drawing.Font("Segoe UI", 12F);
-            // 
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -3471,7 +3909,7 @@ namespace HecopUI_Test
             this.tabPage6.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage6.Location = new System.Drawing.Point(139, 4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(5);
             this.tabPage6.Size = new System.Drawing.Size(757, 546);
             this.tabPage6.TabIndex = 10;
             this.tabPage6.Text = "Pickers";
@@ -3486,12 +3924,12 @@ namespace HecopUI_Test
             this.hTabControl7.Controls.Add(this.tabPage31);
             this.hTabControl7.CursorTabPages = System.Windows.Forms.Cursors.Default;
             this.hTabControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hTabControl7.Location = new System.Drawing.Point(3, 3);
+            this.hTabControl7.Location = new System.Drawing.Point(5, 5);
             this.hTabControl7.Name = "hTabControl7";
             this.hTabControl7.SelectedIndex = 0;
             this.hTabControl7.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.hTabControl7.SelectedTextColor = System.Drawing.Color.White;
-            this.hTabControl7.Size = new System.Drawing.Size(751, 540);
+            this.hTabControl7.Size = new System.Drawing.Size(747, 536);
             this.hTabControl7.TabIndex = 7;
             this.hTabControl7.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.hTabControl7.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
@@ -3515,7 +3953,7 @@ namespace HecopUI_Test
             this.tabPage30.Location = new System.Drawing.Point(4, 25);
             this.tabPage30.Name = "tabPage30";
             this.tabPage30.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage30.Size = new System.Drawing.Size(743, 511);
+            this.tabPage30.Size = new System.Drawing.Size(739, 507);
             this.tabPage30.TabIndex = 0;
             this.tabPage30.Text = "Clock";
             // 
@@ -3567,7 +4005,7 @@ namespace HecopUI_Test
             this.tabPage31.Location = new System.Drawing.Point(4, 25);
             this.tabPage31.Name = "tabPage31";
             this.tabPage31.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage31.Size = new System.Drawing.Size(743, 511);
+            this.tabPage31.Size = new System.Drawing.Size(739, 507);
             this.tabPage31.TabIndex = 1;
             this.tabPage31.Text = "Calendar";
             // 
@@ -3589,78 +4027,6 @@ namespace HecopUI_Test
             this.hMontCalendar1.TitleColor = System.Drawing.Color.DodgerBlue;
             this.hMontCalendar1.ToDayColor = System.Drawing.Color.DodgerBlue;
             this.hMontCalendar1.YearMonthColor = System.Drawing.Color.White;
-            // 
-            // tabPage22
-            // 
-            this.tabPage22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage22.Controls.Add(this.simpleTable1);
-            this.tabPage22.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage22.Location = new System.Drawing.Point(139, 4);
-            this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage22.Size = new System.Drawing.Size(757, 546);
-            this.tabPage22.TabIndex = 14;
-            this.tabPage22.Text = "ListView & TreeView";
-            // 
-            // simpleTable1
-            // 
-            this.simpleTable1.AcceptRowSelection = true;
-            this.simpleTable1.AllowUserResizeColumn = true;
-            this.simpleTable1.CheckBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
-            this.simpleTable1.CheckBoxVisible = false;
-            this.simpleTable1.CheckColor = System.Drawing.Color.White;
-            tableColumn1.BackColor = System.Drawing.Color.Empty;
-            tableColumn1.DisplayIndex = 0;
-            tableColumn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn1.ForeColor = System.Drawing.Color.Empty;
-            tableColumn1.Index = 0;
-            tableColumn1.Name = "column0";
-            tableColumn1.Text = "colum 0";
-            tableColumn2.BackColor = System.Drawing.Color.Empty;
-            tableColumn2.DisplayIndex = 1;
-            tableColumn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn2.ForeColor = System.Drawing.Color.Empty;
-            tableColumn2.Index = 1;
-            tableColumn2.Name = "column1";
-            tableColumn2.Text = "colum 1";
-            tableColumn3.BackColor = System.Drawing.Color.Empty;
-            tableColumn3.DisplayIndex = 2;
-            tableColumn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn3.ForeColor = System.Drawing.Color.Empty;
-            tableColumn3.Index = 2;
-            tableColumn3.Name = "column2";
-            tableColumn3.Text = "colum 2";
-            this.simpleTable1.Columns.Add(tableColumn1);
-            this.simpleTable1.Columns.Add(tableColumn2);
-            this.simpleTable1.Columns.Add(tableColumn3);
-            this.simpleTable1.ColumnsBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
-            this.simpleTable1.ColumnsForeColor = System.Drawing.Color.White;
-            this.simpleTable1.GridColor = System.Drawing.Color.Gainsboro;
-            this.simpleTable1.GridVisible = false;
-            this.simpleTable1.HeaderFont = new System.Drawing.Font("Arial", 11F);
-            this.simpleTable1.HeaderHeight = 25;
-            this.simpleTable1.ImagesVisible = false;
-            this.simpleTable1.Location = new System.Drawing.Point(74, 44);
-            this.simpleTable1.Margin = new System.Windows.Forms.Padding(2);
-            this.simpleTable1.Name = "simpleTable1";
-            this.simpleTable1.Padding = new System.Windows.Forms.Padding(2);
-            this.simpleTable1.ReOrderable = true;
-            this.simpleTable1.RowFont = new System.Drawing.Font("Arial", 10F);
-            this.simpleTable1.RowsBackColor = System.Drawing.Color.White;
-            this.simpleTable1.RowsForeColor = System.Drawing.Color.Black;
-            this.simpleTable1.RowsHoverBackColor = System.Drawing.Color.Lavender;
-            this.simpleTable1.RowsHoverForeColor = System.Drawing.Color.Black;
-            this.simpleTable1.RowsSelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(252)))));
-            this.simpleTable1.RowsSelectedForeColor = System.Drawing.Color.White;
-            this.simpleTable1.ScrollValue = 0;
-            this.simpleTable1.Size = new System.Drawing.Size(507, 247);
-            this.simpleTable1.SplitLineColor = System.Drawing.Color.LightGray;
-            this.simpleTable1.TabIndex = 0;
-            this.simpleTable1.Text = "simpleTable1";
-            this.simpleTable1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.simpleTable1.UseCustomColumnsBackColor = true;
-            this.simpleTable1.UseCustomHeaderForeColor = true;
-            this.simpleTable1.UseCustomRowsBackColor = true;
             // 
             // tabPage23
             // 
@@ -3701,7 +4067,6 @@ namespace HecopUI_Test
             this.hButton12.IsAutoSize = false;
             this.hButton12.Location = new System.Drawing.Point(326, 259);
             this.hButton12.Name = "hButton12";
-            this.hButton12.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton12.RippleColor = System.Drawing.Color.Black;
             this.hButton12.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton12.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -3745,7 +4110,6 @@ namespace HecopUI_Test
             this.hButton11.IsAutoSize = false;
             this.hButton11.Location = new System.Drawing.Point(166, 171);
             this.hButton11.Name = "hButton11";
-            this.hButton11.Radius = new HeCopUI_Framework.Struct.CornerRadius(5F, 5F, 5F, 5F);
             this.hButton11.RippleColor = System.Drawing.Color.Black;
             this.hButton11.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton11.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -3800,6 +4164,16 @@ namespace HecopUI_Test
             this.tabPage26.ResumeLayout(false);
             this.tabPage27.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage22.ResumeLayout(false);
+            this.hTabControl10.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage35.ResumeLayout(false);
+            this.tabPage36.ResumeLayout(false);
+            this.hTabControl4.ResumeLayout(false);
+            this.tabPage15.ResumeLayout(false);
+            this.tabPage16.ResumeLayout(false);
+            this.tabPage17.ResumeLayout(false);
+            this.tabPage18.ResumeLayout(false);
             this.tabPage21.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.hTabControl6.ResumeLayout(false);
@@ -3817,17 +4191,10 @@ namespace HecopUI_Test
             this.tabPage33.ResumeLayout(false);
             this.hTabControl3.ResumeLayout(false);
             this.hTabControl2.ResumeLayout(false);
-            this.tabPage14.ResumeLayout(false);
-            this.hTabControl4.ResumeLayout(false);
-            this.tabPage15.ResumeLayout(false);
-            this.tabPage16.ResumeLayout(false);
-            this.tabPage17.ResumeLayout(false);
-            this.tabPage18.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.hTabControl7.ResumeLayout(false);
             this.tabPage30.ResumeLayout(false);
             this.tabPage31.ResumeLayout(false);
-            this.tabPage22.ResumeLayout(false);
             this.tabPage23.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -3863,16 +4230,6 @@ namespace HecopUI_Test
         private System.Windows.Forms.LinkLabel linkLabel1;
         private HLabel hLabel10;
         private System.Windows.Forms.TabPage tabPage8;
-        private TabPage tabPage14;
-        private HTabControl hTabControl4;
-        private TabPage tabPage15;
-        private TabPage tabPage16;
-        private HeCopUI_Framework.Controls.Charts.HBarChart hBarChart1;
-        private HeCopUI_Framework.Controls.Charts.HLineAreaChart hLineAreaChart1;
-        private TabPage tabPage17;
-        private HeCopUI_Framework.Controls.Charts.HPieChart hPieChart1;
-        private TabPage tabPage18;
-        private HeCopUI_Framework.Controls.Charts.HRadarChart hRadarChart1;
         private TabPage tabPage6;
         private TabPage tabPage21;
         private TabPage tabPage22;
@@ -3882,7 +4239,6 @@ namespace HecopUI_Test
         private TabPage tabPage23;
         private HButton hButton12;
         private HButton hButton11;
-        private Utility_Tools.CustomControl.Table.SimpleTable simpleTable1;
         private HTabControl hTabControl5;
         private TabPage tabPage24;
         private TabPage tabPage25;
@@ -3989,6 +4345,21 @@ namespace HecopUI_Test
         private HScrollBar hScrollBar2;
         private HScrollBar hScrollBar1;
         private HeCopUI_Framework.Controls.Clock.HClock hClock1;
+        private HTabControl hTabControl10;
+        private TabPage tabPage7;
+        private TabPage tabPage35;
+        private Utility_Tools.CustomControl.Table.SimpleTable simpleTable1;
+        private HeCopUI_Framework.Controls.TreeView.HTreeView hTreeView1;
+        private TabPage tabPage36;
+        private HTabControl hTabControl4;
+        private TabPage tabPage15;
+        private HeCopUI_Framework.Controls.Charts.HBarChart hBarChart1;
+        private TabPage tabPage16;
+        private HeCopUI_Framework.Controls.Charts.HLineAreaChart hLineAreaChart1;
+        private TabPage tabPage17;
+        private HeCopUI_Framework.Controls.Charts.HPieChart hPieChart1;
+        private TabPage tabPage18;
+        private HeCopUI_Framework.Controls.Charts.HRadarChart hRadarChart1;
     }
 }
 

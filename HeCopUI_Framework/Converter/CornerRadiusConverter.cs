@@ -24,8 +24,8 @@ namespace HeCopUI_Framework.Converter
 
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
-            if (destinationType == typeof(InstanceDescriptor))
-                return true;
+            //if (destinationType == typeof(InstanceDescriptor))
+            //    return true;
 
             return base.CanConvertTo(context, destinationType);
         }

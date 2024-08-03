@@ -175,9 +175,5 @@ namespace HecopUI_Test
             //frmflat.FormBorderStyle = FormBorderStyle.None;
             frmflat.Show();
         }
-
-      
-
-     
     }
 }
