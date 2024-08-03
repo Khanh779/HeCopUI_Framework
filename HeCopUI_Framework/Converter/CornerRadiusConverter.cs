@@ -11,24 +11,24 @@ namespace HeCopUI_Framework.Converter
 {
     public class CornerRadiusConverter : TypeConverter
     {
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-        {
+        //public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        //{
 
-            if (sourceType == typeof(string))
-            {
-                return true;
-            }
+        //    if (sourceType == typeof(string))
+        //    {
+        //        return true;
+        //    }
 
-            return base.CanConvertFrom(context, sourceType);
-        }
+        //    return base.CanConvertFrom(context, sourceType);
+        //}
 
-        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
-        {
-            //if (destinationType == typeof(InstanceDescriptor))
-            //    return true;
+        //public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+        //{
+        //    //if (destinationType == typeof(InstanceDescriptor))
+        //    //    return true;
 
-            return base.CanConvertTo(context, destinationType);
-        }
+        //    return base.CanConvertTo(context, destinationType);
+        //}
 
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {

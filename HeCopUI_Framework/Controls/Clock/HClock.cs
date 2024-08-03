@@ -52,6 +52,7 @@ namespace HeCopUI_Framework.Controls.Clock
         {
             base.OnPaint(e);
             Graphics g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             DrawClockFace(g);
             DrawHands(g);
         }
@@ -71,7 +72,8 @@ namespace HeCopUI_Framework.Controls.Clock
                 int y1 = (int)(cy + (radius - 10) * Math.Sin(angle));
                 int x2 = (int)(cx + radius * Math.Cos(angle));
                 int y2 = (int)(cy + radius * Math.Sin(angle));
-                g.DrawLine(new Pen(this.ticksColor, (i % 5 == 0) ? 2 : 1), x1, y1, x2, y2);
+                using (var penTick = new Pen(this.ticksColor, (i % 5 == 0) ? 2 : 1))
+                    g.DrawLine(penTick, x1, y1, x2, y2);
 
                 if (i % 5 == 0)
                 {
@@ -79,7 +81,8 @@ namespace HeCopUI_Framework.Controls.Clock
                     SizeF numberSize = g.MeasureString(number, this.Font);
                     int nx = (int)(cx + (radius - 30) * Math.Cos(angle) - numberSize.Width / 2);
                     int ny = (int)(cy + (radius - 30) * Math.Sin(angle) - numberSize.Height / 2);
-                    g.DrawString(number, this.Font, new SolidBrush(this.ticksColor), nx, ny);
+                    using (var brushTick = new SolidBrush(this.ticksColor))
+                        g.DrawString(number, this.Font, brushTick, nx, ny);
                 }
             }
         }
@@ -103,7 +106,8 @@ namespace HeCopUI_Framework.Controls.Clock
             angle = angle * Math.PI / 180;
             int x = (int)(cx + length * Math.Cos(angle - Math.PI / 2));
             int y = (int)(cy + length * Math.Sin(angle - Math.PI / 2));
-            g.DrawLine(new Pen(color, width), cx, cy, x, y);
+            using (var pen = new Pen(color, width))
+                g.DrawLine(pen, cx, cy, x, y);
         }
     }
 }

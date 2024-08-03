@@ -39,10 +39,10 @@ namespace HecopUI_Test
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            HeCopUI_Framework.Controls.Charts.Series series6 = new HeCopUI_Framework.Controls.Charts.Series();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn4 = new Utility_Tools.CustomControl.Table.TableColumn();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn5 = new Utility_Tools.CustomControl.Table.TableColumn();
-            Utility_Tools.CustomControl.Table.TableColumn tableColumn6 = new Utility_Tools.CustomControl.Table.TableColumn();
+            HeCopUI_Framework.Controls.Charts.Series series5 = new HeCopUI_Framework.Controls.Charts.Series();
+            Utility_Tools.CustomControl.Table.TableColumn tableColumn1 = new Utility_Tools.CustomControl.Table.TableColumn();
+            Utility_Tools.CustomControl.Table.TableColumn tableColumn2 = new Utility_Tools.CustomControl.Table.TableColumn();
+            Utility_Tools.CustomControl.Table.TableColumn tableColumn3 = new Utility_Tools.CustomControl.Table.TableColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -113,6 +113,7 @@ namespace HecopUI_Test
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.hTabControl6 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.linearParticleAnimation1 = new HeCopUI_Framework.Controls.Progress.LinearParticleAnimation();
             this.hStepIndicatorOne1 = new HeCopUI_Framework.Controls.HStepIndicatorOne();
             this.hProgressRing2 = new HeCopUI_Framework.Controls.Progress.HProgressRing();
             this.waveProgressLoading1 = new HeCopUI_Framework.Controls.Progress.WaveProgressLoading();
@@ -139,15 +140,21 @@ namespace HecopUI_Test
             this.hProgressBar3 = new HeCopUI_Framework.Controls.Progress.HProgressBar();
             this.hProgressBar2 = new HeCopUI_Framework.Controls.Progress.HProgressBar();
             this.hProgressBar1 = new HeCopUI_Framework.Controls.Progress.HProgressBar();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.hScrollBar3 = new HeCopUI_Framework.Controls.HScrollBar();
-            this.hScrollBar4 = new HeCopUI_Framework.Controls.HScrollBar();
-            this.hScrollBar2 = new HeCopUI_Framework.Controls.HScrollBar();
-            this.hScrollBar1 = new HeCopUI_Framework.Controls.HScrollBar();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.HPanel1 = new HeCopUI_Framework.Controls.HPanel();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.hTabControl9 = new HeCopUI_Framework.Controls.HTabControl();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.hhTrackBar1 = new HeCopUI_Framework.Controls.HHTrackBar();
+            this.hTextBox3 = new HeCopUI_Framework.Controls.HTextBox();
+            this.hCircleAnglePicker1 = new HeCopUI_Framework.Controls.HCircleAnglePicker();
+            this.hRadialRangeSlider1 = new HeCopUI_Framework.Controls.HRadialRangeSlider();
+            this.tabPage34 = new System.Windows.Forms.TabPage();
+            this.hSolidGauge2 = new HeCopUI_Framework.Controls.HSolidGauge();
+            this.hDigitalGauge2 = new HeCopUI_Framework.Controls.HDigitalGauge();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.hTabControl8 = new HeCopUI_Framework.Controls.HTabControl();
+            this.tabPage32 = new System.Windows.Forms.TabPage();
+            this.HPanel1 = new HeCopUI_Framework.Controls.HPanel();
+            this.tabPage33 = new System.Windows.Forms.TabPage();
             this.hTabControl3 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
@@ -165,25 +172,23 @@ namespace HecopUI_Test
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.hRadarChart1 = new HeCopUI_Framework.Controls.Charts.HRadarChart();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage19 = new System.Windows.Forms.TabPage();
-            this.hClockDigital1 = new HeCopUI_Framework.Controls.HClockDigital();
-            this.hClockCircular1 = new HeCopUI_Framework.Controls.HClockCircular();
-            this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.simpleTable1 = new Utility_Tools.CustomControl.Table.SimpleTable();
-            this.tabPage20 = new System.Windows.Forms.TabPage();
-            this.linearParticleAnimation1 = new HeCopUI_Framework.Controls.Progress.LinearParticleAnimation();
-            this.tabPage23 = new System.Windows.Forms.TabPage();
-            this.hButton12 = new HeCopUI_Framework.Controls.Button.HButton();
-            this.hButton11 = new HeCopUI_Framework.Controls.Button.HButton();
             this.hTabControl7 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage30 = new System.Windows.Forms.TabPage();
             this.tabPage31 = new System.Windows.Forms.TabPage();
-            this.hTextBox3 = new HeCopUI_Framework.Controls.HTextBox();
-            this.hCircleAnglePicker1 = new HeCopUI_Framework.Controls.HCircleAnglePicker();
-            this.hRadialRangeSlider1 = new HeCopUI_Framework.Controls.HRadialRangeSlider();
-            this.hSolidGauge1 = new HeCopUI_Framework.Controls.HSolidGauge();
-            this.hDigitalGauge1 = new HeCopUI_Framework.Controls.HDigitalGauge();
             this.hMontCalendar1 = new HeCopUI_Framework.Controls.HMontCalendar();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this.simpleTable1 = new Utility_Tools.CustomControl.Table.SimpleTable();
+            this.tabPage23 = new System.Windows.Forms.TabPage();
+            this.hButton12 = new HeCopUI_Framework.Controls.Button.HButton();
+            this.hButton11 = new HeCopUI_Framework.Controls.Button.HButton();
+            this.hClockDigital1 = new HeCopUI_Framework.Controls.HClockDigital();
+            this.hClockCircular1 = new HeCopUI_Framework.Controls.HClockCircular();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.hScrollBar3 = new HeCopUI_Framework.Controls.HScrollBar();
+            this.hScrollBar4 = new HeCopUI_Framework.Controls.HScrollBar();
+            this.hScrollBar2 = new HeCopUI_Framework.Controls.HScrollBar();
+            this.hScrollBar1 = new HeCopUI_Framework.Controls.HScrollBar();
+            this.hClock1 = new HeCopUI_Framework.Controls.Clock.HClock();
             this.hTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -200,9 +205,14 @@ namespace HecopUI_Test
             this.tabPage3.SuspendLayout();
             this.tabPage28.SuspendLayout();
             this.tabPage29.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.hTabControl9.SuspendLayout();
+            this.tabPage20.SuspendLayout();
+            this.tabPage34.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.hTabControl8.SuspendLayout();
+            this.tabPage32.SuspendLayout();
+            this.tabPage33.SuspendLayout();
             this.hTabControl3.SuspendLayout();
             this.hTabControl2.SuspendLayout();
             this.tabPage14.SuspendLayout();
@@ -212,13 +222,12 @@ namespace HecopUI_Test
             this.tabPage17.SuspendLayout();
             this.tabPage18.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.tabPage19.SuspendLayout();
-            this.tabPage22.SuspendLayout();
-            this.tabPage20.SuspendLayout();
-            this.tabPage23.SuspendLayout();
             this.hTabControl7.SuspendLayout();
             this.tabPage30.SuspendLayout();
             this.tabPage31.SuspendLayout();
+            this.tabPage22.SuspendLayout();
+            this.tabPage23.SuspendLayout();
+            this.tabPage19.SuspendLayout();
             this.SuspendLayout();
             // 
             // hTabControl1
@@ -233,14 +242,11 @@ namespace HecopUI_Test
             this.hTabControl1.Controls.Add(this.tabPage5);
             this.hTabControl1.Controls.Add(this.tabPage21);
             this.hTabControl1.Controls.Add(this.tabPage4);
-            this.hTabControl1.Controls.Add(this.tabPage7);
-            this.hTabControl1.Controls.Add(this.tabPage8);
             this.hTabControl1.Controls.Add(this.tabPage9);
+            this.hTabControl1.Controls.Add(this.tabPage8);
             this.hTabControl1.Controls.Add(this.tabPage14);
             this.hTabControl1.Controls.Add(this.tabPage6);
-            this.hTabControl1.Controls.Add(this.tabPage19);
             this.hTabControl1.Controls.Add(this.tabPage22);
-            this.hTabControl1.Controls.Add(this.tabPage20);
             this.hTabControl1.Controls.Add(this.tabPage23);
             this.hTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hTabControl1.CursorTabPages = System.Windows.Forms.Cursors.Default;
@@ -2049,7 +2055,7 @@ namespace HecopUI_Test
             this.hRichTextBox2.HideSelection = false;
             this.hRichTextBox2.Lines = new string[] {
         "hRichTextBox2"};
-            this.hRichTextBox2.Location = new System.Drawing.Point(354, 157);
+            this.hRichTextBox2.Location = new System.Drawing.Point(393, 191);
             this.hRichTextBox2.MaxLength = 2147483647;
             this.hRichTextBox2.MultiLine = true;
             this.hRichTextBox2.Name = "hRichTextBox2";
@@ -2062,7 +2068,7 @@ namespace HecopUI_Test
             this.hRichTextBox2.ShorcutEnabled = false;
             this.hRichTextBox2.ShowSelectionMargin = false;
             this.hRichTextBox2.Size = new System.Drawing.Size(250, 268);
-            this.hRichTextBox2.TabIndex = 3;
+            this.hRichTextBox2.TabIndex = 7;
             this.hRichTextBox2.Text = "hRichTextBox2";
             this.hRichTextBox2.TextColor = System.Drawing.Color.Silver;
             this.hRichTextBox2.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
@@ -2083,7 +2089,7 @@ namespace HecopUI_Test
             this.hTextBox2.Image = null;
             this.hTextBox2.ImageOffsetX = 2;
             this.hTextBox2.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox2.Location = new System.Drawing.Point(354, 53);
+            this.hTextBox2.Location = new System.Drawing.Point(393, 87);
             this.hTextBox2.MaxLength = 32767;
             this.hTextBox2.Multiline = false;
             this.hTextBox2.Name = "hTextBox2";
@@ -2095,7 +2101,7 @@ namespace HecopUI_Test
             this.hTextBox2.ShowTopBorder = true;
             this.hTextBox2.Size = new System.Drawing.Size(250, 38);
             this.hTextBox2.Style = HeCopUI_Framework.Controls.HTextBox.TextBoxStyle.Style2;
-            this.hTextBox2.TabIndex = 2;
+            this.hTextBox2.TabIndex = 6;
             this.hTextBox2.TexOffsetX = 2;
             this.hTextBox2.Text = "hTextBox2";
             this.hTextBox2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2124,7 +2130,7 @@ namespace HecopUI_Test
             this.hTextBox1.Image = null;
             this.hTextBox1.ImageOffsetX = 2;
             this.hTextBox1.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox1.Location = new System.Drawing.Point(74, 53);
+            this.hTextBox1.Location = new System.Drawing.Point(113, 87);
             this.hTextBox1.MaxLength = 32767;
             this.hTextBox1.Multiline = false;
             this.hTextBox1.Name = "hTextBox1";
@@ -2136,7 +2142,7 @@ namespace HecopUI_Test
             this.hTextBox1.ShowTopBorder = true;
             this.hTextBox1.Size = new System.Drawing.Size(250, 38);
             this.hTextBox1.Style = HeCopUI_Framework.Controls.HTextBox.TextBoxStyle.Style1;
-            this.hTextBox1.TabIndex = 1;
+            this.hTextBox1.TabIndex = 5;
             this.hTextBox1.TexOffsetX = 2;
             this.hTextBox1.Text = "hTextBox1";
             this.hTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2164,7 +2170,7 @@ namespace HecopUI_Test
             this.hRichTextBox1.HideSelection = false;
             this.hRichTextBox1.Lines = new string[] {
         "hRichTextBox1"};
-            this.hRichTextBox1.Location = new System.Drawing.Point(74, 157);
+            this.hRichTextBox1.Location = new System.Drawing.Point(113, 191);
             this.hRichTextBox1.MaxLength = 2147483647;
             this.hRichTextBox1.MultiLine = true;
             this.hRichTextBox1.Name = "hRichTextBox1";
@@ -2177,7 +2183,7 @@ namespace HecopUI_Test
             this.hRichTextBox1.ShorcutEnabled = false;
             this.hRichTextBox1.ShowSelectionMargin = false;
             this.hRichTextBox1.Size = new System.Drawing.Size(250, 268);
-            this.hRichTextBox1.TabIndex = 0;
+            this.hRichTextBox1.TabIndex = 4;
             this.hRichTextBox1.Text = "hRichTextBox1";
             this.hRichTextBox1.TextColor = System.Drawing.Color.Silver;
             this.hRichTextBox1.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
@@ -2223,11 +2229,12 @@ namespace HecopUI_Test
             this.hTabControl6.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
             this.hTabControl6.UnSelectedTabColor = System.Drawing.Color.Transparent;
             this.hTabControl6.UnselectedTextColor = System.Drawing.Color.Silver;
-            this.hTabControl6.UseAnimation = false;
+            this.hTabControl6.UseAnimation = true;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage3.Controls.Add(this.linearParticleAnimation1);
             this.tabPage3.Controls.Add(this.hStepIndicatorOne1);
             this.tabPage3.Controls.Add(this.hProgressRing2);
             this.tabPage3.Controls.Add(this.waveProgressLoading1);
@@ -2247,6 +2254,14 @@ namespace HecopUI_Test
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Indicator & Loading";
             // 
+            // linearParticleAnimation1
+            // 
+            this.linearParticleAnimation1.Location = new System.Drawing.Point(350, 254);
+            this.linearParticleAnimation1.Name = "linearParticleAnimation1";
+            this.linearParticleAnimation1.Size = new System.Drawing.Size(353, 204);
+            this.linearParticleAnimation1.TabIndex = 28;
+            this.linearParticleAnimation1.Text = "linearParticleAnimation1";
+            // 
             // hStepIndicatorOne1
             // 
             this.hStepIndicatorOne1.BGHeight = 5;
@@ -2254,11 +2269,11 @@ namespace HecopUI_Test
             this.hStepIndicatorOne1.IndicatorBarColor2 = System.Drawing.Color.DimGray;
             this.hStepIndicatorOne1.IndicatorStepColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
             this.hStepIndicatorOne1.IndicatorStepColor2 = System.Drawing.Color.DodgerBlue;
-            this.hStepIndicatorOne1.Location = new System.Drawing.Point(52, 387);
+            this.hStepIndicatorOne1.Location = new System.Drawing.Point(39, 378);
             this.hStepIndicatorOne1.Name = "hStepIndicatorOne1";
             this.hStepIndicatorOne1.RadiusBig = 10;
             this.hStepIndicatorOne1.RadiusSmall = 5;
-            this.hStepIndicatorOne1.Size = new System.Drawing.Size(535, 65);
+            this.hStepIndicatorOne1.Size = new System.Drawing.Size(239, 65);
             this.hStepIndicatorOne1.Steps = 3;
             this.hStepIndicatorOne1.TabIndex = 27;
             this.hStepIndicatorOne1.Text = "hStepIndicatorOne1";
@@ -2269,13 +2284,13 @@ namespace HecopUI_Test
             this.hProgressRing2.Angle = 0;
             this.hProgressRing2.Duration = 50;
             this.hProgressRing2.EndCap = System.Drawing.Drawing2D.LineCap.Round;
-            this.hProgressRing2.ForegroundColor1 = System.Drawing.Color.SeaGreen;
+            this.hProgressRing2.ForegroundColor1 = System.Drawing.Color.SlateBlue;
             this.hProgressRing2.ForegroundColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
             this.hProgressRing2.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
-            this.hProgressRing2.Location = new System.Drawing.Point(579, 194);
+            this.hProgressRing2.Location = new System.Drawing.Point(542, 130);
             this.hProgressRing2.Name = "hProgressRing2";
             this.hProgressRing2.ScaleFactory = 70;
-            this.hProgressRing2.Size = new System.Drawing.Size(114, 104);
+            this.hProgressRing2.Size = new System.Drawing.Size(97, 79);
             this.hProgressRing2.Speed = 1D;
             this.hProgressRing2.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             this.hProgressRing2.StepIncrement = 10;
@@ -2287,10 +2302,10 @@ namespace HecopUI_Test
             // 
             this.waveProgressLoading1.BackColor = System.Drawing.Color.Transparent;
             this.waveProgressLoading1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
-            this.waveProgressLoading1.Location = new System.Drawing.Point(332, 219);
+            this.waveProgressLoading1.Location = new System.Drawing.Point(300, 130);
             this.waveProgressLoading1.MaxHeight = 60;
             this.waveProgressLoading1.Name = "waveProgressLoading1";
-            this.waveProgressLoading1.Size = new System.Drawing.Size(168, 79);
+            this.waveProgressLoading1.Size = new System.Drawing.Size(168, 67);
             this.waveProgressLoading1.SpaceBetweenWave = 20;
             this.waveProgressLoading1.TabIndex = 25;
             this.waveProgressLoading1.Text = "waveProgressLoading1";
@@ -2303,7 +2318,7 @@ namespace HecopUI_Test
             this.hDotProgressRing8.DotColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hDotProgressRing8.DotCount = 8;
             this.hDotProgressRing8.Interval = 50;
-            this.hDotProgressRing8.Location = new System.Drawing.Point(356, 130);
+            this.hDotProgressRing8.Location = new System.Drawing.Point(521, 40);
             this.hDotProgressRing8.Name = "hDotProgressRing8";
             this.hDotProgressRing8.ProgressStyle = HeCopUI_Framework.Controls.Progress.HDotProgressRing.Style.Style8;
             this.hDotProgressRing8.Radius = 5;
@@ -2337,7 +2352,7 @@ namespace HecopUI_Test
             this.hDotProgressRing6.Name = "hDotProgressRing6";
             this.hDotProgressRing6.ProgressStyle = HeCopUI_Framework.Controls.Progress.HDotProgressRing.Style.Style6;
             this.hDotProgressRing6.Radius = 5;
-            this.hDotProgressRing6.Size = new System.Drawing.Size(176, 31);
+            this.hDotProgressRing6.Size = new System.Drawing.Size(239, 31);
             this.hDotProgressRing6.StartAnimation = true;
             this.hDotProgressRing6.SupportTransparent = true;
             this.hDotProgressRing6.TabIndex = 22;
@@ -2363,7 +2378,7 @@ namespace HecopUI_Test
             this.hDotProgressRing4.DotColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hDotProgressRing4.DotCount = 8;
             this.hDotProgressRing4.Interval = 50;
-            this.hDotProgressRing4.Location = new System.Drawing.Point(520, 40);
+            this.hDotProgressRing4.Location = new System.Drawing.Point(401, 40);
             this.hDotProgressRing4.Name = "hDotProgressRing4";
             this.hDotProgressRing4.ProgressStyle = HeCopUI_Framework.Controls.Progress.HDotProgressRing.Style.Style4;
             this.hDotProgressRing4.Radius = 5;
@@ -2378,7 +2393,7 @@ namespace HecopUI_Test
             this.hDotProgressRing3.DotColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hDotProgressRing3.DotCount = 8;
             this.hDotProgressRing3.Interval = 50;
-            this.hDotProgressRing3.Location = new System.Drawing.Point(368, 40);
+            this.hDotProgressRing3.Location = new System.Drawing.Point(277, 40);
             this.hDotProgressRing3.Name = "hDotProgressRing3";
             this.hDotProgressRing3.ProgressStyle = HeCopUI_Framework.Controls.Progress.HDotProgressRing.Style.Style3;
             this.hDotProgressRing3.Radius = 2;
@@ -2393,7 +2408,7 @@ namespace HecopUI_Test
             this.hDotProgressRing2.DotColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hDotProgressRing2.DotCount = 8;
             this.hDotProgressRing2.Interval = 50;
-            this.hDotProgressRing2.Location = new System.Drawing.Point(197, 40);
+            this.hDotProgressRing2.Location = new System.Drawing.Point(161, 40);
             this.hDotProgressRing2.Name = "hDotProgressRing2";
             this.hDotProgressRing2.ProgressStyle = HeCopUI_Framework.Controls.Progress.HDotProgressRing.Style.Style2;
             this.hDotProgressRing2.Radius = 5;
@@ -2763,105 +2778,291 @@ namespace HecopUI_Test
             this.hProgressBar1.TabIndex = 15;
             this.hProgressBar1.Text = "hProgressBar1";
             // 
-            // tabPage7
+            // tabPage9
             // 
-            this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage7.Controls.Add(this.label1);
-            this.tabPage7.Controls.Add(this.hScrollBar3);
-            this.tabPage7.Controls.Add(this.hScrollBar4);
-            this.tabPage7.Controls.Add(this.hScrollBar2);
-            this.tabPage7.Controls.Add(this.hScrollBar1);
-            this.tabPage7.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage7.Location = new System.Drawing.Point(139, 4);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(757, 546);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Scroll Bars";
+            this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tabPage9.Controls.Add(this.hTabControl9);
+            this.tabPage9.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage9.Location = new System.Drawing.Point(139, 4);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(757, 546);
+            this.tabPage9.TabIndex = 18;
+            this.tabPage9.Text = "Slider";
             // 
-            // label1
+            // hTabControl9
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 348);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.hTabControl9.ApplyTabPagesColor = true;
+            this.hTabControl9.BackgroundColor = System.Drawing.Color.Transparent;
+            this.hTabControl9.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl9.BorderThickness = 1;
+            this.hTabControl9.Controls.Add(this.tabPage20);
+            this.hTabControl9.Controls.Add(this.tabPage34);
+            this.hTabControl9.Controls.Add(this.tabPage19);
+            this.hTabControl9.CursorTabPages = System.Windows.Forms.Cursors.Default;
+            this.hTabControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hTabControl9.Location = new System.Drawing.Point(3, 3);
+            this.hTabControl9.Name = "hTabControl9";
+            this.hTabControl9.SelectedIndex = 0;
+            this.hTabControl9.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl9.SelectedTextColor = System.Drawing.Color.White;
+            this.hTabControl9.Size = new System.Drawing.Size(751, 540);
+            this.hTabControl9.TabIndex = 8;
+            this.hTabControl9.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.hTabControl9.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
+            this.hTabControl9.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hTabControl9.TextPadding = new System.Windows.Forms.Padding(0);
+            this.hTabControl9.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl9.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            this.hTabControl9.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
+            this.hTabControl9.UnSelectedTabColor = System.Drawing.Color.Transparent;
+            this.hTabControl9.UnselectedTextColor = System.Drawing.Color.Silver;
+            this.hTabControl9.UseAnimation = false;
             // 
-            // hScrollBar3
+            // tabPage20
             // 
-            this.hScrollBar3.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hScrollBar3.BarRadius = 0;
-            this.hScrollBar3.HighlightOnWheel = true;
-            this.hScrollBar3.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
-            this.hScrollBar3.Location = new System.Drawing.Point(481, 158);
-            this.hScrollBar3.Name = "hScrollBar3";
-            this.hScrollBar3.Orientation = System.Windows.Forms.ScrollOrientation.HorizontalScroll;
-            this.hScrollBar3.Size = new System.Drawing.Size(200, 10);
-            this.hScrollBar3.TabIndex = 4;
-            this.hScrollBar3.Text = "hScrollBar3";
-            this.hScrollBar3.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar3.ThumbRadius = 0;
-            this.hScrollBar3.UseBarColor = true;
+            this.tabPage20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage20.Controls.Add(this.hhTrackBar1);
+            this.tabPage20.Controls.Add(this.hTextBox3);
+            this.tabPage20.Controls.Add(this.hCircleAnglePicker1);
+            this.tabPage20.Controls.Add(this.hRadialRangeSlider1);
+            this.tabPage20.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage20.Location = new System.Drawing.Point(4, 25);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(743, 511);
+            this.tabPage20.TabIndex = 0;
+            this.tabPage20.Text = "Range Slider";
             // 
-            // hScrollBar4
+            // hhTrackBar1
             // 
-            this.hScrollBar4.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hScrollBar4.BarRadius = 0;
-            this.hScrollBar4.HighlightOnWheel = true;
-            this.hScrollBar4.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
-            this.hScrollBar4.LargeChange = 20;
-            this.hScrollBar4.Location = new System.Drawing.Point(416, 56);
-            this.hScrollBar4.Name = "hScrollBar4";
-            this.hScrollBar4.Orientation = System.Windows.Forms.ScrollOrientation.VerticalScroll;
-            this.hScrollBar4.ScrollbarSize = 13;
-            this.hScrollBar4.Size = new System.Drawing.Size(13, 243);
-            this.hScrollBar4.TabIndex = 3;
-            this.hScrollBar4.Text = "hScrollBar4";
-            this.hScrollBar4.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar4.ThumbRadius = 0;
-            this.hScrollBar4.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar4_Scroll);
+            this.hhTrackBar1.BackgroundColor = System.Drawing.Color.DimGray;
+            this.hhTrackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hhTrackBar1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.hhTrackBar1.DisabledBorderColor = System.Drawing.Color.Empty;
+            this.hhTrackBar1.DisabledHandlerColor = System.Drawing.Color.Empty;
+            this.hhTrackBar1.DisabledValueColor = System.Drawing.Color.Empty;
+            this.hhTrackBar1.HandlerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.hhTrackBar1.IsDerivedStyle = true;
+            this.hhTrackBar1.Location = new System.Drawing.Point(81, 296);
+            this.hhTrackBar1.Maximum = 100;
+            this.hhTrackBar1.Minimum = 0;
+            this.hhTrackBar1.Name = "hhTrackBar1";
+            this.hhTrackBar1.Size = new System.Drawing.Size(197, 38);
+            this.hhTrackBar1.TabIndex = 20;
+            this.hhTrackBar1.Text = "hhTrackBar2";
+            this.hhTrackBar1.Value = 0;
+            this.hhTrackBar1.ValueColor = System.Drawing.Color.Olive;
             // 
-            // hScrollBar2
+            // hTextBox3
             // 
-            this.hScrollBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hScrollBar2.BarRadius = 0;
-            this.hScrollBar2.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
-            this.hScrollBar2.Location = new System.Drawing.Point(152, 158);
-            this.hScrollBar2.Name = "hScrollBar2";
-            this.hScrollBar2.Orientation = System.Windows.Forms.ScrollOrientation.HorizontalScroll;
-            this.hScrollBar2.Size = new System.Drawing.Size(200, 10);
-            this.hScrollBar2.TabIndex = 2;
-            this.hScrollBar2.Text = "hScrollBar2";
-            this.hScrollBar2.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar2.ThumbRadius = 0;
-            this.hScrollBar2.UseBarColor = true;
+            this.hTextBox3.AcceptsReturn = true;
+            this.hTextBox3.AcceptsTab = true;
+            this.hTextBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.hTextBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.hTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTextBox3.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
+            this.hTextBox3.BorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(162)))));
+            this.hTextBox3.BorderThickness = 1;
+            this.hTextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.hTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.hTextBox3.Image = null;
+            this.hTextBox3.ImageOffsetX = 2;
+            this.hTextBox3.ImageSize = new System.Drawing.Size(20, 20);
+            this.hTextBox3.Location = new System.Drawing.Point(263, 201);
+            this.hTextBox3.MaxLength = 32767;
+            this.hTextBox3.Multiline = false;
+            this.hTextBox3.Name = "hTextBox3";
+            this.hTextBox3.Radius = 0;
+            this.hTextBox3.ReadOnly = false;
+            this.hTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.hTextBox3.ShortcutsEnabled = false;
+            this.hTextBox3.ShowBottomBorder = true;
+            this.hTextBox3.ShowTopBorder = true;
+            this.hTextBox3.Size = new System.Drawing.Size(80, 28);
+            this.hTextBox3.Style = HeCopUI_Framework.Controls.HTextBox.TextBoxStyle.Style2;
+            this.hTextBox3.TabIndex = 19;
+            this.hTextBox3.TexOffsetX = 2;
+            this.hTextBox3.Text = "0";
+            this.hTextBox3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.hTextBox3.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.hTextBox3.TextBoxHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.hTextBox3.TextColor = System.Drawing.Color.Silver;
+            this.hTextBox3.UseAnimation = false;
+            this.hTextBox3.UseSystemPasswordChar = false;
+            this.hTextBox3.WatermarkColor = System.Drawing.Color.DarkGray;
+            this.hTextBox3.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hTextBox3.WatermarkRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTextBox3.WatermarkText = "";
             // 
-            // hScrollBar1
+            // hCircleAnglePicker1
             // 
-            this.hScrollBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hScrollBar1.BarRadius = 0;
-            this.hScrollBar1.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
-            this.hScrollBar1.Location = new System.Drawing.Point(87, 56);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Orientation = System.Windows.Forms.ScrollOrientation.VerticalScroll;
-            this.hScrollBar1.Size = new System.Drawing.Size(10, 200);
-            this.hScrollBar1.TabIndex = 1;
-            this.hScrollBar1.Text = "hScrollBar1";
-            this.hScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar1.ThumbRadius = 0;
+            this.hCircleAnglePicker1.AutoScroll = false;
+            this.hCircleAnglePicker1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.hCircleAnglePicker1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.hCircleAnglePicker1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hCircleAnglePicker1.CircleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.hCircleAnglePicker1.CircleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
+            this.hCircleAnglePicker1.CoreColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.hCircleAnglePicker1.CoreType = HeCopUI_Framework.Enums.CircleAnglePickerType.Ellipse;
+            this.hCircleAnglePicker1.CoreWidth = 20;
+            this.hCircleAnglePicker1.InnerCircle = true;
+            this.hCircleAnglePicker1.InnerCircleColor = System.Drawing.Color.Gray;
+            this.hCircleAnglePicker1.LineCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
+            this.hCircleAnglePicker1.LineColor = System.Drawing.Color.Gray;
+            this.hCircleAnglePicker1.LineCut = 12;
+            this.hCircleAnglePicker1.LineWidth = 2;
+            this.hCircleAnglePicker1.Location = new System.Drawing.Point(241, 52);
+            this.hCircleAnglePicker1.Name = "hCircleAnglePicker1";
+            this.hCircleAnglePicker1.Size = new System.Drawing.Size(127, 127);
+            this.hCircleAnglePicker1.TabIndex = 18;
+            this.hCircleAnglePicker1.Text = "hCircleAnglePicker2";
+            this.hCircleAnglePicker1.ValueChanged += new System.EventHandler(this.hCircleAnglePicker1_ValueChanged);
+            // 
+            // hRadialRangeSlider1
+            // 
+            this.hRadialRangeSlider1.BarColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.hRadialRangeSlider1.BarColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
+            this.hRadialRangeSlider1.BarThickness = 2;
+            this.hRadialRangeSlider1.EndAngle = 265;
+            this.hRadialRangeSlider1.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.hRadialRangeSlider1.Location = new System.Drawing.Point(31, 62);
+            this.hRadialRangeSlider1.MaxValue = 100;
+            this.hRadialRangeSlider1.MinValue = 0;
+            this.hRadialRangeSlider1.Name = "hRadialRangeSlider1";
+            this.hRadialRangeSlider1.Size = new System.Drawing.Size(136, 139);
+            this.hRadialRangeSlider1.SlideColor1 = System.Drawing.Color.DarkSlateGray;
+            this.hRadialRangeSlider1.SlideColor2 = System.Drawing.Color.SeaGreen;
+            this.hRadialRangeSlider1.SliderScale = 90;
+            this.hRadialRangeSlider1.SlideThickness = 4;
+            this.hRadialRangeSlider1.StartAngle = 137;
+            this.hRadialRangeSlider1.TabIndex = 17;
+            this.hRadialRangeSlider1.Text = "hRadialRangeSlider2";
+            this.hRadialRangeSlider1.TextColor = System.Drawing.Color.WhiteSmoke;
+            this.hRadialRangeSlider1.TextMode = HeCopUI_Framework.Controls.TextMode.FromValue1ToValue2;
+            this.hRadialRangeSlider1.ThumbEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
+            this.hRadialRangeSlider1.ThumbStartColor = System.Drawing.Color.Gray;
+            this.hRadialRangeSlider1.Value1 = 30;
+            this.hRadialRangeSlider1.Value2 = 80;
+            // 
+            // tabPage34
+            // 
+            this.tabPage34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage34.Controls.Add(this.hSolidGauge2);
+            this.tabPage34.Controls.Add(this.hDigitalGauge2);
+            this.tabPage34.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage34.Location = new System.Drawing.Point(4, 25);
+            this.tabPage34.Name = "tabPage34";
+            this.tabPage34.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage34.Size = new System.Drawing.Size(743, 511);
+            this.tabPage34.TabIndex = 1;
+            this.tabPage34.Text = "Knob";
+            // 
+            // hSolidGauge2
+            // 
+            this.hSolidGauge2.BackColor = System.Drawing.Color.Transparent;
+            this.hSolidGauge2.BaseGauge = System.Drawing.Color.Gainsboro;
+            this.hSolidGauge2.CircularDiskColor = System.Drawing.Color.DimGray;
+            this.hSolidGauge2.CircularDiskSizeType = HeCopUI_Framework.Controls.HSolidGauge.DiskSizeMode.Auto;
+            this.hSolidGauge2.CircularSize = 20;
+            this.hSolidGauge2.GaugeColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hSolidGauge2.GaugeColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hSolidGauge2.GaugeMode = HeCopUI_Framework.Controls.HSolidGauge.GaugeType.Gradient;
+            this.hSolidGauge2.GaugeTextType = HeCopUI_Framework.Controls.HSolidGauge.TextType.Percentage;
+            this.hSolidGauge2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.hSolidGauge2.Interval = 10;
+            this.hSolidGauge2.Location = new System.Drawing.Point(346, 81);
+            this.hSolidGauge2.MaximumValue = 100;
+            this.hSolidGauge2.Name = "hSolidGauge2";
+            this.hSolidGauge2.NeedleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hSolidGauge2.NeedleHeight = HeCopUI_Framework.Controls.HSolidGauge.NeedleLongType.Auto;
+            this.hSolidGauge2.NeedleLong = 50;
+            this.hSolidGauge2.NeedleThickness = 2;
+            this.hSolidGauge2.NeedleType = System.Drawing.Drawing2D.LineCap.Flat;
+            this.hSolidGauge2.NumberOfOYVissible = 10;
+            this.hSolidGauge2.ShapeType = System.Drawing.Drawing2D.LineCap.Round;
+            this.hSolidGauge2.ShowMajor = true;
+            this.hSolidGauge2.Size = new System.Drawing.Size(165, 165);
+            this.hSolidGauge2.SolidGaugeWidth = 12;
+            this.hSolidGauge2.TabIndex = 10;
+            this.hSolidGauge2.Text = "hSolidGauge2";
+            this.hSolidGauge2.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hSolidGauge2.UseAnimation = false;
+            this.hSolidGauge2.Value = 0;
+            this.hSolidGauge2.ValueTextColor = System.Drawing.Color.White;
+            // 
+            // hDigitalGauge2
+            // 
+            this.hDigitalGauge2.BackColor = System.Drawing.Color.Transparent;
+            this.hDigitalGauge2.BorderColor = System.Drawing.Color.DarkGray;
+            this.hDigitalGauge2.BorderThickness = 2;
+            this.hDigitalGauge2.GaugeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.hDigitalGauge2.Location = new System.Drawing.Point(70, 81);
+            this.hDigitalGauge2.MaximumValue = 1000;
+            this.hDigitalGauge2.MinimumValue = 0;
+            this.hDigitalGauge2.Name = "hDigitalGauge2";
+            this.hDigitalGauge2.NumberBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(30)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
+            this.hDigitalGauge2.NumberColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
+            this.hDigitalGauge2.NumberHeight = 20F;
+            this.hDigitalGauge2.Radius = 5;
+            this.hDigitalGauge2.Size = new System.Drawing.Size(168, 94);
+            this.hDigitalGauge2.TabIndex = 9;
+            this.hDigitalGauge2.Text = "hDigitalGauge2";
+            this.hDigitalGauge2.Value = 0;
             // 
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage8.Controls.Add(this.HPanel1);
+            this.tabPage8.Controls.Add(this.hTabControl8);
             this.tabPage8.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage8.Location = new System.Drawing.Point(139, 4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(5);
             this.tabPage8.Size = new System.Drawing.Size(757, 546);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Container controls";
+            // 
+            // hTabControl8
+            // 
+            this.hTabControl8.ApplyTabPagesColor = true;
+            this.hTabControl8.BackgroundColor = System.Drawing.Color.Transparent;
+            this.hTabControl8.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl8.BorderThickness = 1;
+            this.hTabControl8.Controls.Add(this.tabPage32);
+            this.hTabControl8.Controls.Add(this.tabPage33);
+            this.hTabControl8.CursorTabPages = System.Windows.Forms.Cursors.Default;
+            this.hTabControl8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hTabControl8.Location = new System.Drawing.Point(5, 5);
+            this.hTabControl8.Name = "hTabControl8";
+            this.hTabControl8.SelectedIndex = 0;
+            this.hTabControl8.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl8.SelectedTextColor = System.Drawing.Color.White;
+            this.hTabControl8.Size = new System.Drawing.Size(747, 536);
+            this.hTabControl8.TabIndex = 1;
+            this.hTabControl8.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.hTabControl8.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
+            this.hTabControl8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hTabControl8.TextPadding = new System.Windows.Forms.Padding(0);
+            this.hTabControl8.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl8.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            this.hTabControl8.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
+            this.hTabControl8.UnSelectedTabColor = System.Drawing.Color.Transparent;
+            this.hTabControl8.UnselectedTextColor = System.Drawing.Color.Silver;
+            this.hTabControl8.UseAnimation = false;
+            // 
+            // tabPage32
+            // 
+            this.tabPage32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage32.Controls.Add(this.HPanel1);
+            this.tabPage32.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage32.Location = new System.Drawing.Point(4, 25);
+            this.tabPage32.Name = "tabPage32";
+            this.tabPage32.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage32.Size = new System.Drawing.Size(739, 507);
+            this.tabPage32.TabIndex = 0;
+            this.tabPage32.Text = "Panel";
             // 
             // HPanel1
             // 
@@ -2869,7 +3070,7 @@ namespace HecopUI_Test
             this.HPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
             this.HPanel1.BorderThickness = 1F;
             this.HPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.HPanel1.Location = new System.Drawing.Point(87, 48);
+            this.HPanel1.Location = new System.Drawing.Point(83, 41);
             this.HPanel1.Name = "HPanel1";
             this.HPanel1.PanelColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
             this.HPanel1.PanelColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
@@ -2882,20 +3083,20 @@ namespace HecopUI_Test
             this.HPanel1.ShadowPadding = new System.Windows.Forms.Padding(5, 4, 5, 8);
             this.HPanel1.ShadowRadius = 5;
             this.HPanel1.Size = new System.Drawing.Size(572, 424);
-            this.HPanel1.TabIndex = 0;
+            this.HPanel1.TabIndex = 2;
             // 
-            // tabPage9
+            // tabPage33
             // 
-            this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage9.Controls.Add(this.hTabControl3);
-            this.tabPage9.Controls.Add(this.hTabControl2);
-            this.tabPage9.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage9.Location = new System.Drawing.Point(139, 4);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(757, 546);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Tab Control";
+            this.tabPage33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage33.Controls.Add(this.hTabControl3);
+            this.tabPage33.Controls.Add(this.hTabControl2);
+            this.tabPage33.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage33.Location = new System.Drawing.Point(4, 25);
+            this.tabPage33.Name = "tabPage33";
+            this.tabPage33.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage33.Size = new System.Drawing.Size(739, 507);
+            this.tabPage33.TabIndex = 1;
+            this.tabPage33.Text = "TabControl";
             // 
             // hTabControl3
             // 
@@ -2906,13 +3107,13 @@ namespace HecopUI_Test
             this.hTabControl3.Controls.Add(this.tabPage12);
             this.hTabControl3.Controls.Add(this.tabPage13);
             this.hTabControl3.CursorTabPages = System.Windows.Forms.Cursors.Default;
-            this.hTabControl3.Location = new System.Drawing.Point(381, 45);
+            this.hTabControl3.Location = new System.Drawing.Point(379, 31);
             this.hTabControl3.Name = "hTabControl3";
             this.hTabControl3.SelectedIndex = 0;
             this.hTabControl3.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.hTabControl3.SelectedTextColor = System.Drawing.Color.White;
             this.hTabControl3.Size = new System.Drawing.Size(340, 444);
-            this.hTabControl3.TabIndex = 1;
+            this.hTabControl3.TabIndex = 3;
             this.hTabControl3.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.hTabControl3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.hTabControl3.TextPadding = new System.Windows.Forms.Padding(0);
@@ -2949,19 +3150,19 @@ namespace HecopUI_Test
             // hTabControl2
             // 
             this.hTabControl2.ApplyTabPagesColor = true;
-            this.hTabControl2.BackgroundColor = System.Drawing.Color.Transparent;
+            this.hTabControl2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.hTabControl2.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.hTabControl2.BorderThickness = 1;
             this.hTabControl2.Controls.Add(this.tabPage10);
             this.hTabControl2.Controls.Add(this.tabPage11);
             this.hTabControl2.CursorTabPages = System.Windows.Forms.Cursors.Default;
-            this.hTabControl2.Location = new System.Drawing.Point(22, 45);
+            this.hTabControl2.Location = new System.Drawing.Point(20, 31);
             this.hTabControl2.Name = "hTabControl2";
             this.hTabControl2.SelectedIndex = 0;
             this.hTabControl2.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.hTabControl2.SelectedTextColor = System.Drawing.Color.White;
             this.hTabControl2.Size = new System.Drawing.Size(340, 444);
-            this.hTabControl2.TabIndex = 0;
+            this.hTabControl2.TabIndex = 2;
             this.hTabControl2.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.hTabControl2.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
             this.hTabControl2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3163,16 +3364,16 @@ namespace HecopUI_Test
             this.hRadarChart1.NumberVisible = true;
             this.hRadarChart1.PointSize = 8;
             this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
-            series6.Color = System.Drawing.Color.OrangeRed;
-            series6.Text = "serieName1";
-            series6.Values = new float[] {
+            series5.Color = System.Drawing.Color.OrangeRed;
+            series5.Text = "serieName1";
+            series5.Values = new float[] {
         90F,
         50F,
         70F,
         40F,
         60F};
             this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Charts.Series[] {
-        series6};
+        series5};
             this.hRadarChart1.ShowTitle = true;
             this.hRadarChart1.ShowValuesTip = false;
             this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
@@ -3195,48 +3396,81 @@ namespace HecopUI_Test
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(757, 546);
             this.tabPage6.TabIndex = 10;
-            this.tabPage6.Text = "Gauge & Pickers";
+            this.tabPage6.Text = "Pickers";
             // 
-            // tabPage19
+            // hTabControl7
             // 
-            this.tabPage19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage19.Controls.Add(this.hClockDigital1);
-            this.tabPage19.Controls.Add(this.hClockCircular1);
-            this.tabPage19.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage19.Location = new System.Drawing.Point(139, 4);
-            this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage19.Size = new System.Drawing.Size(757, 546);
-            this.tabPage19.TabIndex = 11;
-            this.tabPage19.Text = "Clock";
+            this.hTabControl7.ApplyTabPagesColor = true;
+            this.hTabControl7.BackgroundColor = System.Drawing.Color.Transparent;
+            this.hTabControl7.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl7.BorderThickness = 1;
+            this.hTabControl7.Controls.Add(this.tabPage30);
+            this.hTabControl7.Controls.Add(this.tabPage31);
+            this.hTabControl7.CursorTabPages = System.Windows.Forms.Cursors.Default;
+            this.hTabControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hTabControl7.Location = new System.Drawing.Point(3, 3);
+            this.hTabControl7.Name = "hTabControl7";
+            this.hTabControl7.SelectedIndex = 0;
+            this.hTabControl7.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTabControl7.SelectedTextColor = System.Drawing.Color.White;
+            this.hTabControl7.Size = new System.Drawing.Size(751, 540);
+            this.hTabControl7.TabIndex = 7;
+            this.hTabControl7.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.hTabControl7.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
+            this.hTabControl7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hTabControl7.TextPadding = new System.Windows.Forms.Padding(0);
+            this.hTabControl7.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hTabControl7.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            this.hTabControl7.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
+            this.hTabControl7.UnSelectedTabColor = System.Drawing.Color.Transparent;
+            this.hTabControl7.UnselectedTextColor = System.Drawing.Color.Silver;
+            this.hTabControl7.UseAnimation = false;
             // 
-            // hClockDigital1
+            // tabPage30
             // 
-            this.hClockDigital1.BackColor = System.Drawing.Color.Transparent;
-            this.hClockDigital1.Font = new System.Drawing.Font("Segoe UI", 25F);
-            this.hClockDigital1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
-            this.hClockDigital1.Interval = 1000;
-            this.hClockDigital1.Location = new System.Drawing.Point(235, 256);
-            this.hClockDigital1.Name = "hClockDigital1";
-            this.hClockDigital1.ShowMillisecond = false;
-            this.hClockDigital1.Size = new System.Drawing.Size(263, 107);
-            this.hClockDigital1.TabIndex = 1;
-            this.hClockDigital1.Text = "hClockDigital1";
-            this.hClockDigital1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.tabPage30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage30.Controls.Add(this.hClock1);
+            this.tabPage30.Controls.Add(this.hClockDigital1);
+            this.tabPage30.Controls.Add(this.hClockCircular1);
+            this.tabPage30.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage30.Location = new System.Drawing.Point(4, 25);
+            this.tabPage30.Name = "tabPage30";
+            this.tabPage30.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage30.Size = new System.Drawing.Size(743, 511);
+            this.tabPage30.TabIndex = 0;
+            this.tabPage30.Text = "Clock";
             // 
-            // hClockCircular1
+            // tabPage31
             // 
-            this.hClockCircular1.Draw1MinuteTicks = true;
-            this.hClockCircular1.Draw5MinuteTicks = true;
-            this.hClockCircular1.HourHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
-            this.hClockCircular1.Interval = 1000;
-            this.hClockCircular1.Location = new System.Drawing.Point(263, 57);
-            this.hClockCircular1.MinuteHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(86)))), ((int)(((byte)(189)))));
-            this.hClockCircular1.Name = "hClockCircular1";
-            this.hClockCircular1.SecondHandColor = System.Drawing.Color.RoyalBlue;
-            this.hClockCircular1.Size = new System.Drawing.Size(193, 193);
-            this.hClockCircular1.TabIndex = 0;
-            this.hClockCircular1.TicksColor = System.Drawing.Color.Gray;
+            this.tabPage31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage31.Controls.Add(this.hMontCalendar1);
+            this.tabPage31.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabPage31.Location = new System.Drawing.Point(4, 25);
+            this.tabPage31.Name = "tabPage31";
+            this.tabPage31.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage31.Size = new System.Drawing.Size(743, 511);
+            this.tabPage31.TabIndex = 1;
+            this.tabPage31.Text = "Calendar";
+            // 
+            // hMontCalendar1
+            // 
+            this.hMontCalendar1.Date = new System.DateTime(2024, 7, 10, 0, 0, 0, 0);
+            this.hMontCalendar1.DayHoverColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.DaySelectedColor = System.Drawing.Color.SteelBlue;
+            this.hMontCalendar1.HoverDayColor = System.Drawing.Color.White;
+            this.hMontCalendar1.Location = new System.Drawing.Point(219, 93);
+            this.hMontCalendar1.Name = "hMontCalendar1";
+            this.hMontCalendar1.NormalDayColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.hMontCalendar1.PlaceHolderText = System.Drawing.Color.Gray;
+            this.hMontCalendar1.PreviousButtonColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.Size = new System.Drawing.Size(305, 324);
+            this.hMontCalendar1.TabIndex = 13;
+            this.hMontCalendar1.Text = "hMontCalendar1";
+            this.hMontCalendar1.TextRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hMontCalendar1.TitleColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.ToDayColor = System.Drawing.Color.DodgerBlue;
+            this.hMontCalendar1.YearMonthColor = System.Drawing.Color.White;
             // 
             // tabPage22
             // 
@@ -3257,30 +3491,30 @@ namespace HecopUI_Test
             this.simpleTable1.CheckBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
             this.simpleTable1.CheckBoxVisible = false;
             this.simpleTable1.CheckColor = System.Drawing.Color.White;
-            tableColumn4.BackColor = System.Drawing.Color.Empty;
-            tableColumn4.DisplayIndex = 0;
-            tableColumn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn4.ForeColor = System.Drawing.Color.Empty;
-            tableColumn4.Index = 0;
-            tableColumn4.Name = "column0";
-            tableColumn4.Text = "colum 0";
-            tableColumn5.BackColor = System.Drawing.Color.Empty;
-            tableColumn5.DisplayIndex = 1;
-            tableColumn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn5.ForeColor = System.Drawing.Color.Empty;
-            tableColumn5.Index = 1;
-            tableColumn5.Name = "column1";
-            tableColumn5.Text = "colum 1";
-            tableColumn6.BackColor = System.Drawing.Color.Empty;
-            tableColumn6.DisplayIndex = 2;
-            tableColumn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn6.ForeColor = System.Drawing.Color.Empty;
-            tableColumn6.Index = 2;
-            tableColumn6.Name = "column2";
-            tableColumn6.Text = "colum 2";
-            this.simpleTable1.Columns.Add(tableColumn4);
-            this.simpleTable1.Columns.Add(tableColumn5);
-            this.simpleTable1.Columns.Add(tableColumn6);
+            tableColumn1.BackColor = System.Drawing.Color.Empty;
+            tableColumn1.DisplayIndex = 0;
+            tableColumn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tableColumn1.ForeColor = System.Drawing.Color.Empty;
+            tableColumn1.Index = 0;
+            tableColumn1.Name = "column0";
+            tableColumn1.Text = "colum 0";
+            tableColumn2.BackColor = System.Drawing.Color.Empty;
+            tableColumn2.DisplayIndex = 1;
+            tableColumn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tableColumn2.ForeColor = System.Drawing.Color.Empty;
+            tableColumn2.Index = 1;
+            tableColumn2.Name = "column1";
+            tableColumn2.Text = "colum 1";
+            tableColumn3.BackColor = System.Drawing.Color.Empty;
+            tableColumn3.DisplayIndex = 2;
+            tableColumn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tableColumn3.ForeColor = System.Drawing.Color.Empty;
+            tableColumn3.Index = 2;
+            tableColumn3.Name = "column2";
+            tableColumn3.Text = "colum 2";
+            this.simpleTable1.Columns.Add(tableColumn1);
+            this.simpleTable1.Columns.Add(tableColumn2);
+            this.simpleTable1.Columns.Add(tableColumn3);
             this.simpleTable1.ColumnsBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
             this.simpleTable1.ColumnsForeColor = System.Drawing.Color.White;
             this.simpleTable1.GridColor = System.Drawing.Color.Gainsboro;
@@ -3309,26 +3543,6 @@ namespace HecopUI_Test
             this.simpleTable1.UseCustomColumnsBackColor = true;
             this.simpleTable1.UseCustomHeaderForeColor = true;
             this.simpleTable1.UseCustomRowsBackColor = true;
-            // 
-            // tabPage20
-            // 
-            this.tabPage20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tabPage20.Controls.Add(this.linearParticleAnimation1);
-            this.tabPage20.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage20.Location = new System.Drawing.Point(139, 4);
-            this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage20.Size = new System.Drawing.Size(757, 546);
-            this.tabPage20.TabIndex = 16;
-            this.tabPage20.Text = "Loading";
-            // 
-            // linearParticleAnimation1
-            // 
-            this.linearParticleAnimation1.Location = new System.Drawing.Point(66, 30);
-            this.linearParticleAnimation1.Name = "linearParticleAnimation1";
-            this.linearParticleAnimation1.Size = new System.Drawing.Size(353, 204);
-            this.linearParticleAnimation1.TabIndex = 2;
-            this.linearParticleAnimation1.Text = "linearParticleAnimation1";
             // 
             // tabPage23
             // 
@@ -3430,224 +3644,121 @@ namespace HecopUI_Test
             this.hButton11.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.hButton11.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
             // 
-            // hTabControl7
+            // hClockDigital1
             // 
-            this.hTabControl7.ApplyTabPagesColor = true;
-            this.hTabControl7.BackgroundColor = System.Drawing.Color.Transparent;
-            this.hTabControl7.BorderTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hTabControl7.BorderThickness = 1;
-            this.hTabControl7.Controls.Add(this.tabPage30);
-            this.hTabControl7.Controls.Add(this.tabPage31);
-            this.hTabControl7.CursorTabPages = System.Windows.Forms.Cursors.Default;
-            this.hTabControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hTabControl7.Location = new System.Drawing.Point(3, 3);
-            this.hTabControl7.Name = "hTabControl7";
-            this.hTabControl7.SelectedIndex = 0;
-            this.hTabControl7.SelectedTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hTabControl7.SelectedTextColor = System.Drawing.Color.White;
-            this.hTabControl7.Size = new System.Drawing.Size(751, 540);
-            this.hTabControl7.TabIndex = 7;
-            this.hTabControl7.TabsColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hTabControl7.TabStyle = HeCopUI_Framework.Enums.TabStyle.Style2;
-            this.hTabControl7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.hTabControl7.TextPadding = new System.Windows.Forms.Padding(0);
-            this.hTabControl7.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTabControl7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTabControl7.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
-            this.hTabControl7.UnSelectedBorderTabColor = System.Drawing.Color.Silver;
-            this.hTabControl7.UnSelectedTabColor = System.Drawing.Color.Transparent;
-            this.hTabControl7.UnselectedTextColor = System.Drawing.Color.Silver;
-            this.hTabControl7.UseAnimation = false;
+            this.hClockDigital1.BackColor = System.Drawing.Color.Transparent;
+            this.hClockDigital1.Font = new System.Drawing.Font("Segoe UI", 25F);
+            this.hClockDigital1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
+            this.hClockDigital1.Interval = 1000;
+            this.hClockDigital1.Location = new System.Drawing.Point(54, 283);
+            this.hClockDigital1.Name = "hClockDigital1";
+            this.hClockDigital1.ShowMillisecond = false;
+            this.hClockDigital1.Size = new System.Drawing.Size(263, 107);
+            this.hClockDigital1.TabIndex = 3;
+            this.hClockDigital1.Text = "hClockDigital1";
+            this.hClockDigital1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // tabPage30
+            // hClockCircular1
             // 
-            this.tabPage30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tabPage30.Controls.Add(this.hTextBox3);
-            this.tabPage30.Controls.Add(this.hCircleAnglePicker1);
-            this.tabPage30.Controls.Add(this.hRadialRangeSlider1);
-            this.tabPage30.Controls.Add(this.hSolidGauge1);
-            this.tabPage30.Controls.Add(this.hDigitalGauge1);
-            this.tabPage30.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage30.Location = new System.Drawing.Point(4, 25);
-            this.tabPage30.Name = "tabPage30";
-            this.tabPage30.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage30.Size = new System.Drawing.Size(743, 511);
-            this.tabPage30.TabIndex = 0;
-            this.tabPage30.Text = "Tab 1";
+            this.hClockCircular1.Draw1MinuteTicks = true;
+            this.hClockCircular1.Draw5MinuteTicks = true;
+            this.hClockCircular1.HourHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
+            this.hClockCircular1.Interval = 1000;
+            this.hClockCircular1.Location = new System.Drawing.Point(54, 30);
+            this.hClockCircular1.MinuteHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(86)))), ((int)(((byte)(189)))));
+            this.hClockCircular1.Name = "hClockCircular1";
+            this.hClockCircular1.SecondHandColor = System.Drawing.Color.RoyalBlue;
+            this.hClockCircular1.Size = new System.Drawing.Size(193, 193);
+            this.hClockCircular1.TabIndex = 2;
+            this.hClockCircular1.TicksColor = System.Drawing.Color.Gray;
             // 
-            // tabPage31
+            // tabPage19
             // 
-            this.tabPage31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tabPage31.Controls.Add(this.hMontCalendar1);
-            this.tabPage31.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabPage31.Location = new System.Drawing.Point(4, 25);
-            this.tabPage31.Name = "tabPage31";
-            this.tabPage31.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage31.Size = new System.Drawing.Size(743, 511);
-            this.tabPage31.TabIndex = 1;
-            this.tabPage31.Text = "Calendar";
+            this.tabPage19.Controls.Add(this.hScrollBar3);
+            this.tabPage19.Controls.Add(this.hScrollBar4);
+            this.tabPage19.Controls.Add(this.hScrollBar2);
+            this.tabPage19.Controls.Add(this.hScrollBar1);
+            this.tabPage19.Location = new System.Drawing.Point(4, 25);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage19.Size = new System.Drawing.Size(743, 511);
+            this.tabPage19.TabIndex = 2;
+            this.tabPage19.Text = "Scroll Bars";
+            this.tabPage19.UseVisualStyleBackColor = true;
             // 
-            // hTextBox3
+            // hScrollBar3
             // 
-            this.hTextBox3.AcceptsReturn = true;
-            this.hTextBox3.AcceptsTab = true;
-            this.hTextBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.hTextBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.hTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hTextBox3.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hTextBox3.BorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(162)))));
-            this.hTextBox3.BorderThickness = 1;
-            this.hTextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.hTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.hTextBox3.Image = null;
-            this.hTextBox3.ImageOffsetX = 2;
-            this.hTextBox3.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox3.Location = new System.Drawing.Point(263, 198);
-            this.hTextBox3.MaxLength = 32767;
-            this.hTextBox3.Multiline = false;
-            this.hTextBox3.Name = "hTextBox3";
-            this.hTextBox3.Radius = 0;
-            this.hTextBox3.ReadOnly = false;
-            this.hTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.hTextBox3.ShortcutsEnabled = false;
-            this.hTextBox3.ShowBottomBorder = true;
-            this.hTextBox3.ShowTopBorder = true;
-            this.hTextBox3.Size = new System.Drawing.Size(80, 28);
-            this.hTextBox3.Style = HeCopUI_Framework.Controls.HTextBox.TextBoxStyle.Style2;
-            this.hTextBox3.TabIndex = 11;
-            this.hTextBox3.TexOffsetX = 2;
-            this.hTextBox3.Text = "0";
-            this.hTextBox3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.hTextBox3.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hTextBox3.TextBoxHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.hTextBox3.TextColor = System.Drawing.Color.Silver;
-            this.hTextBox3.UseAnimation = false;
-            this.hTextBox3.UseSystemPasswordChar = false;
-            this.hTextBox3.WatermarkColor = System.Drawing.Color.DarkGray;
-            this.hTextBox3.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hTextBox3.WatermarkRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTextBox3.WatermarkText = "";
+            this.hScrollBar3.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.hScrollBar3.BarRadius = 0;
+            this.hScrollBar3.HighlightOnWheel = true;
+            this.hScrollBar3.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+            this.hScrollBar3.Location = new System.Drawing.Point(468, 236);
+            this.hScrollBar3.Name = "hScrollBar3";
+            this.hScrollBar3.Orientation = System.Windows.Forms.ScrollOrientation.HorizontalScroll;
+            this.hScrollBar3.Size = new System.Drawing.Size(200, 10);
+            this.hScrollBar3.TabIndex = 8;
+            this.hScrollBar3.Text = "hScrollBar3";
+            this.hScrollBar3.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
+            this.hScrollBar3.ThumbRadius = 0;
+            this.hScrollBar3.UseBarColor = true;
             // 
-            // hCircleAnglePicker1
+            // hScrollBar4
             // 
-            this.hCircleAnglePicker1.AutoScroll = false;
-            this.hCircleAnglePicker1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.hCircleAnglePicker1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.hCircleAnglePicker1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hCircleAnglePicker1.CircleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.hCircleAnglePicker1.CircleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
-            this.hCircleAnglePicker1.CoreColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.hCircleAnglePicker1.CoreType = HeCopUI_Framework.Enums.CircleAnglePickerType.Ellipse;
-            this.hCircleAnglePicker1.CoreWidth = 20;
-            this.hCircleAnglePicker1.InnerCircle = true;
-            this.hCircleAnglePicker1.InnerCircleColor = System.Drawing.Color.Gray;
-            this.hCircleAnglePicker1.LineCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
-            this.hCircleAnglePicker1.LineColor = System.Drawing.Color.Gray;
-            this.hCircleAnglePicker1.LineCut = 12;
-            this.hCircleAnglePicker1.LineWidth = 2;
-            this.hCircleAnglePicker1.Location = new System.Drawing.Point(234, 47);
-            this.hCircleAnglePicker1.Name = "hCircleAnglePicker1";
-            this.hCircleAnglePicker1.Size = new System.Drawing.Size(127, 127);
-            this.hCircleAnglePicker1.TabIndex = 10;
-            this.hCircleAnglePicker1.Text = "hCircleAnglePicker1";
-            this.hCircleAnglePicker1.ValueChanged += new System.EventHandler(this.hCircleAnglePicker1_ValueChanged);
+            this.hScrollBar4.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.hScrollBar4.BarRadius = 0;
+            this.hScrollBar4.HighlightOnWheel = true;
+            this.hScrollBar4.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+            this.hScrollBar4.LargeChange = 20;
+            this.hScrollBar4.Location = new System.Drawing.Point(403, 134);
+            this.hScrollBar4.Name = "hScrollBar4";
+            this.hScrollBar4.Orientation = System.Windows.Forms.ScrollOrientation.VerticalScroll;
+            this.hScrollBar4.ScrollbarSize = 13;
+            this.hScrollBar4.Size = new System.Drawing.Size(13, 243);
+            this.hScrollBar4.TabIndex = 7;
+            this.hScrollBar4.Text = "hScrollBar4";
+            this.hScrollBar4.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
+            this.hScrollBar4.ThumbRadius = 0;
             // 
-            // hRadialRangeSlider1
+            // hScrollBar2
             // 
-            this.hRadialRangeSlider1.BarColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.hRadialRangeSlider1.BarColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
-            this.hRadialRangeSlider1.BarThickness = 2;
-            this.hRadialRangeSlider1.EndAngle = 265;
-            this.hRadialRangeSlider1.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.hRadialRangeSlider1.Location = new System.Drawing.Point(43, 314);
-            this.hRadialRangeSlider1.MaxValue = 100;
-            this.hRadialRangeSlider1.MinValue = 0;
-            this.hRadialRangeSlider1.Name = "hRadialRangeSlider1";
-            this.hRadialRangeSlider1.Size = new System.Drawing.Size(136, 139);
-            this.hRadialRangeSlider1.SlideColor1 = System.Drawing.Color.DarkSlateGray;
-            this.hRadialRangeSlider1.SlideColor2 = System.Drawing.Color.SeaGreen;
-            this.hRadialRangeSlider1.SliderScale = 90;
-            this.hRadialRangeSlider1.SlideThickness = 4;
-            this.hRadialRangeSlider1.StartAngle = 137;
-            this.hRadialRangeSlider1.TabIndex = 9;
-            this.hRadialRangeSlider1.Text = "hRadialRangeSlider1";
-            this.hRadialRangeSlider1.TextColor = System.Drawing.Color.WhiteSmoke;
-            this.hRadialRangeSlider1.TextMode = HeCopUI_Framework.Controls.TextMode.FromValue1ToValue2;
-            this.hRadialRangeSlider1.ThumbEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
-            this.hRadialRangeSlider1.ThumbStartColor = System.Drawing.Color.Gray;
-            this.hRadialRangeSlider1.Value1 = 30;
-            this.hRadialRangeSlider1.Value2 = 80;
+            this.hScrollBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.hScrollBar2.BarRadius = 0;
+            this.hScrollBar2.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+            this.hScrollBar2.Location = new System.Drawing.Point(139, 236);
+            this.hScrollBar2.Name = "hScrollBar2";
+            this.hScrollBar2.Orientation = System.Windows.Forms.ScrollOrientation.HorizontalScroll;
+            this.hScrollBar2.Size = new System.Drawing.Size(200, 10);
+            this.hScrollBar2.TabIndex = 6;
+            this.hScrollBar2.Text = "hScrollBar2";
+            this.hScrollBar2.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
+            this.hScrollBar2.ThumbRadius = 0;
+            this.hScrollBar2.UseBarColor = true;
             // 
-            // hSolidGauge1
+            // hScrollBar1
             // 
-            this.hSolidGauge1.BackColor = System.Drawing.Color.Transparent;
-            this.hSolidGauge1.BaseGauge = System.Drawing.Color.Gainsboro;
-            this.hSolidGauge1.CircularDiskColor = System.Drawing.Color.DimGray;
-            this.hSolidGauge1.CircularDiskSizeType = HeCopUI_Framework.Controls.HSolidGauge.DiskSizeMode.Auto;
-            this.hSolidGauge1.CircularSize = 20;
-            this.hSolidGauge1.GaugeColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hSolidGauge1.GaugeColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hSolidGauge1.GaugeMode = HeCopUI_Framework.Controls.HSolidGauge.GaugeType.Gradient;
-            this.hSolidGauge1.GaugeTextType = HeCopUI_Framework.Controls.HSolidGauge.TextType.Percentage;
-            this.hSolidGauge1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.hSolidGauge1.Interval = 10;
-            this.hSolidGauge1.Location = new System.Drawing.Point(28, 119);
-            this.hSolidGauge1.MaximumValue = 100;
-            this.hSolidGauge1.Name = "hSolidGauge1";
-            this.hSolidGauge1.NeedleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hSolidGauge1.NeedleHeight = HeCopUI_Framework.Controls.HSolidGauge.NeedleLongType.Auto;
-            this.hSolidGauge1.NeedleLong = 50;
-            this.hSolidGauge1.NeedleThickness = 2;
-            this.hSolidGauge1.NeedleType = System.Drawing.Drawing2D.LineCap.Flat;
-            this.hSolidGauge1.NumberOfOYVissible = 10;
-            this.hSolidGauge1.ShapeType = System.Drawing.Drawing2D.LineCap.Round;
-            this.hSolidGauge1.ShowMajor = true;
-            this.hSolidGauge1.Size = new System.Drawing.Size(165, 165);
-            this.hSolidGauge1.SolidGaugeWidth = 12;
-            this.hSolidGauge1.TabIndex = 8;
-            this.hSolidGauge1.Text = "hSolidGauge1";
-            this.hSolidGauge1.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hSolidGauge1.UseAnimation = false;
-            this.hSolidGauge1.Value = 0;
-            this.hSolidGauge1.ValueTextColor = System.Drawing.Color.White;
+            this.hScrollBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.hScrollBar1.BarRadius = 0;
+            this.hScrollBar1.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+            this.hScrollBar1.Location = new System.Drawing.Point(74, 134);
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Orientation = System.Windows.Forms.ScrollOrientation.VerticalScroll;
+            this.hScrollBar1.Size = new System.Drawing.Size(10, 200);
+            this.hScrollBar1.TabIndex = 5;
+            this.hScrollBar1.Text = "hScrollBar1";
+            this.hScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
+            this.hScrollBar1.ThumbRadius = 0;
             // 
-            // hDigitalGauge1
+            // hClock1
             // 
-            this.hDigitalGauge1.BackColor = System.Drawing.Color.Transparent;
-            this.hDigitalGauge1.BorderColor = System.Drawing.Color.DarkGray;
-            this.hDigitalGauge1.BorderThickness = 2;
-            this.hDigitalGauge1.GaugeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.hDigitalGauge1.Location = new System.Drawing.Point(43, 47);
-            this.hDigitalGauge1.MaximumValue = 1000;
-            this.hDigitalGauge1.MinimumValue = 0;
-            this.hDigitalGauge1.Name = "hDigitalGauge1";
-            this.hDigitalGauge1.NumberBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(30)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
-            this.hDigitalGauge1.NumberColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
-            this.hDigitalGauge1.NumberHeight = 20F;
-            this.hDigitalGauge1.Radius = 5;
-            this.hDigitalGauge1.Size = new System.Drawing.Size(119, 34);
-            this.hDigitalGauge1.TabIndex = 7;
-            this.hDigitalGauge1.Text = "hDigitalGauge1";
-            this.hDigitalGauge1.Value = 0;
-            // 
-            // hMontCalendar1
-            // 
-            this.hMontCalendar1.Date = new System.DateTime(2024, 7, 10, 0, 0, 0, 0);
-            this.hMontCalendar1.DayHoverColor = System.Drawing.Color.DodgerBlue;
-            this.hMontCalendar1.DaySelectedColor = System.Drawing.Color.SteelBlue;
-            this.hMontCalendar1.HoverDayColor = System.Drawing.Color.White;
-            this.hMontCalendar1.Location = new System.Drawing.Point(219, 93);
-            this.hMontCalendar1.Name = "hMontCalendar1";
-            this.hMontCalendar1.NormalDayColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.hMontCalendar1.PlaceHolderText = System.Drawing.Color.Gray;
-            this.hMontCalendar1.PreviousButtonColor = System.Drawing.Color.DodgerBlue;
-            this.hMontCalendar1.Size = new System.Drawing.Size(305, 324);
-            this.hMontCalendar1.TabIndex = 13;
-            this.hMontCalendar1.Text = "hMontCalendar1";
-            this.hMontCalendar1.TextRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hMontCalendar1.TitleColor = System.Drawing.Color.DodgerBlue;
-            this.hMontCalendar1.ToDayColor = System.Drawing.Color.DodgerBlue;
-            this.hMontCalendar1.YearMonthColor = System.Drawing.Color.White;
+            this.hClock1.HourHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
+            this.hClock1.Location = new System.Drawing.Point(333, 54);
+            this.hClock1.MinuteHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(86)))), ((int)(((byte)(189)))));
+            this.hClock1.Name = "hClock1";
+            this.hClock1.SecondHandColor = System.Drawing.Color.RoyalBlue;
+            this.hClock1.Size = new System.Drawing.Size(280, 220);
+            this.hClock1.TabIndex = 4;
+            this.hClock1.Text = "hClock1";
+            this.hClock1.TicksColor = System.Drawing.Color.Gray;
             // 
             // Form1
             // 
@@ -3693,10 +3804,14 @@ namespace HecopUI_Test
             this.tabPage3.ResumeLayout(false);
             this.tabPage28.ResumeLayout(false);
             this.tabPage29.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
+            this.hTabControl9.ResumeLayout(false);
+            this.tabPage20.ResumeLayout(false);
+            this.tabPage34.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            this.hTabControl8.ResumeLayout(false);
+            this.tabPage32.ResumeLayout(false);
+            this.tabPage33.ResumeLayout(false);
             this.hTabControl3.ResumeLayout(false);
             this.hTabControl2.ResumeLayout(false);
             this.tabPage14.ResumeLayout(false);
@@ -3706,13 +3821,12 @@ namespace HecopUI_Test
             this.tabPage17.ResumeLayout(false);
             this.tabPage18.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            this.tabPage19.ResumeLayout(false);
-            this.tabPage22.ResumeLayout(false);
-            this.tabPage20.ResumeLayout(false);
-            this.tabPage23.ResumeLayout(false);
             this.hTabControl7.ResumeLayout(false);
             this.tabPage30.ResumeLayout(false);
             this.tabPage31.ResumeLayout(false);
+            this.tabPage22.ResumeLayout(false);
+            this.tabPage23.ResumeLayout(false);
+            this.tabPage19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3746,20 +3860,7 @@ namespace HecopUI_Test
         private HLabel hLabel9;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private HLabel hLabel10;
-        private System.Windows.Forms.TabPage tabPage7;
-        private HScrollBar hScrollBar1;
-        private HScrollBar hScrollBar3;
-        private HScrollBar hScrollBar4;
-        private HScrollBar hScrollBar2;
         private System.Windows.Forms.TabPage tabPage8;
-        private HPanel HPanel1;
-        private TabPage tabPage9;
-        private HTabControl hTabControl2;
-        private TabPage tabPage10;
-        private TabPage tabPage11;
-        private HTabControl hTabControl3;
-        private TabPage tabPage12;
-        private TabPage tabPage13;
         private TabPage tabPage14;
         private HTabControl hTabControl4;
         private TabPage tabPage15;
@@ -3771,24 +3872,14 @@ namespace HecopUI_Test
         private TabPage tabPage18;
         private HeCopUI_Framework.Controls.Charts.HRadarChart hRadarChart1;
         private TabPage tabPage6;
-        private TabPage tabPage19;
-        private HClockDigital hClockDigital1;
-        private HClockCircular hClockCircular1;
         private TabPage tabPage21;
-        private HTextBox hTextBox1;
-        private HRichTextBox hRichTextBox1;
-        private HTextBox hTextBox2;
-        private HRichTextBox hRichTextBox2;
         private TabPage tabPage22;
         private TabPage tabPage5;
         private HImage hImage1;
         private HeCopUI_Framework.Controls.Effect.HEffectImage hEffectImage1;
-        private TabPage tabPage20;
-        private HeCopUI_Framework.Controls. Progress.LinearParticleAnimation linearParticleAnimation1;
         private TabPage tabPage23;
         private HButton hButton12;
         private HButton hButton11;
-        private Label label1;
         private Utility_Tools.CustomControl.Table.SimpleTable simpleTable1;
         private HTabControl hTabControl5;
         private TabPage tabPage24;
@@ -3861,13 +3952,41 @@ namespace HecopUI_Test
         private HStepIndicatorOne hStepIndicatorOne1;
         private HTabControl hTabControl7;
         private TabPage tabPage30;
+        private TabPage tabPage31;
+        private HMontCalendar hMontCalendar1;
+        private HTabControl hTabControl8;
+        private TabPage tabPage32;
+        private HPanel HPanel1;
+        private TabPage tabPage33;
+        private HTabControl hTabControl3;
+        private TabPage tabPage12;
+        private TabPage tabPage13;
+        private HTabControl hTabControl2;
+        private TabPage tabPage10;
+        private TabPage tabPage11;
+        private LinearParticleAnimation linearParticleAnimation1;
+        private HRichTextBox hRichTextBox2;
+        private HTextBox hTextBox2;
+        private HTextBox hTextBox1;
+        private HRichTextBox hRichTextBox1;
+        private TabPage tabPage9;
+        private HTabControl hTabControl9;
+        private TabPage tabPage20;
+        private HHTrackBar hhTrackBar1;
         private HTextBox hTextBox3;
         private HCircleAnglePicker hCircleAnglePicker1;
         private HRadialRangeSlider hRadialRangeSlider1;
-        private HSolidGauge hSolidGauge1;
-        private HDigitalGauge hDigitalGauge1;
-        private TabPage tabPage31;
-        private HMontCalendar hMontCalendar1;
+        private TabPage tabPage34;
+        private HSolidGauge hSolidGauge2;
+        private HDigitalGauge hDigitalGauge2;
+        private HClockDigital hClockDigital1;
+        private HClockCircular hClockCircular1;
+        private TabPage tabPage19;
+        private HScrollBar hScrollBar3;
+        private HScrollBar hScrollBar4;
+        private HScrollBar hScrollBar2;
+        private HScrollBar hScrollBar1;
+        private HeCopUI_Framework.Controls.Clock.HClock hClock1;
     }
 }
 
