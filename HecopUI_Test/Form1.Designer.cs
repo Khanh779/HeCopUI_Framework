@@ -42,6 +42,9 @@ namespace HecopUI_Test
             Utility_Tools.CustomControl.Table.TableColumn tableColumn4 = new Utility_Tools.CustomControl.Table.TableColumn();
             Utility_Tools.CustomControl.Table.TableColumn tableColumn5 = new Utility_Tools.CustomControl.Table.TableColumn();
             Utility_Tools.CustomControl.Table.TableColumn tableColumn6 = new Utility_Tools.CustomControl.Table.TableColumn();
+            Utility_Tools.CustomControl.Table.TableRow tableRow4 = new Utility_Tools.CustomControl.Table.TableRow();
+            Utility_Tools.CustomControl.Table.TableRow tableRow5 = new Utility_Tools.CustomControl.Table.TableRow();
+            Utility_Tools.CustomControl.Table.TableRow tableRow6 = new Utility_Tools.CustomControl.Table.TableRow();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode25 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode26 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode27 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
@@ -2040,7 +2043,7 @@ namespace HecopUI_Test
             this.tabPage22.Padding = new System.Windows.Forms.Padding(5);
             this.tabPage22.Size = new System.Drawing.Size(757, 546);
             this.tabPage22.TabIndex = 14;
-            this.tabPage22.Text = "Data Controls";
+            this.tabPage22.Text = "Data View";
             // 
             // hTabControl10
             // 
@@ -2086,29 +2089,20 @@ namespace HecopUI_Test
             // 
             // simpleTable1
             // 
-            this.simpleTable1.AcceptRowSelection = true;
-            this.simpleTable1.AllowUserResizeColumn = true;
+            this.simpleTable1.AcceptRowSelection = false;
+            this.simpleTable1.AllowUserResizeColumn = false;
             this.simpleTable1.CheckBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
             this.simpleTable1.CheckBoxVisible = false;
             this.simpleTable1.CheckColor = System.Drawing.Color.White;
-            tableColumn4.BackColor = System.Drawing.Color.Empty;
             tableColumn4.DisplayIndex = 0;
-            tableColumn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn4.ForeColor = System.Drawing.Color.Empty;
             tableColumn4.Index = 0;
             tableColumn4.Name = "column0";
             tableColumn4.Text = "colum 0";
-            tableColumn5.BackColor = System.Drawing.Color.Empty;
             tableColumn5.DisplayIndex = 1;
-            tableColumn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn5.ForeColor = System.Drawing.Color.Empty;
             tableColumn5.Index = 1;
             tableColumn5.Name = "column1";
             tableColumn5.Text = "colum 1";
-            tableColumn6.BackColor = System.Drawing.Color.Empty;
             tableColumn6.DisplayIndex = 2;
-            tableColumn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tableColumn6.ForeColor = System.Drawing.Color.Empty;
             tableColumn6.Index = 2;
             tableColumn6.Name = "column2";
             tableColumn6.Text = "colum 2";
@@ -2126,12 +2120,37 @@ namespace HecopUI_Test
             this.simpleTable1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleTable1.Name = "simpleTable1";
             this.simpleTable1.Padding = new System.Windows.Forms.Padding(2);
-            this.simpleTable1.ReOrderable = true;
+            this.simpleTable1.ReOrderable = false;
             this.simpleTable1.RowFont = new System.Drawing.Font("Arial", 10F);
-            this.simpleTable1.RowsBackColor = System.Drawing.Color.White;
-            this.simpleTable1.RowsForeColor = System.Drawing.Color.Black;
-            this.simpleTable1.RowsHoverBackColor = System.Drawing.Color.Lavender;
-            this.simpleTable1.RowsHoverForeColor = System.Drawing.Color.Black;
+            tableRow4.CheckState = System.Windows.Forms.CheckState.Unchecked;
+            tableRow4.Image = null;
+            tableRow4.Index = 0;
+            tableRow4.IsSelected = false;
+            tableRow4.Name = "row0";
+            tableRow4.Text = "row 0";
+            tableRow4.Width = 100;
+            tableRow5.CheckState = System.Windows.Forms.CheckState.Unchecked;
+            tableRow5.Image = null;
+            tableRow5.Index = 1;
+            tableRow5.IsSelected = false;
+            tableRow5.Name = "row1";
+            tableRow5.Text = "row 1";
+            tableRow5.Width = 100;
+            tableRow6.CheckState = System.Windows.Forms.CheckState.Unchecked;
+            tableRow6.Image = null;
+            tableRow6.Index = 2;
+            tableRow6.IsSelected = false;
+            tableRow6.Name = "row2";
+            tableRow6.Text = "row 2";
+            tableRow6.Width = 100;
+            this.simpleTable1.Rows.AddRange(new Utility_Tools.CustomControl.Table.TableRow[] {
+            tableRow4,
+            tableRow5,
+            tableRow6});
+            this.simpleTable1.RowsBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.simpleTable1.RowsForeColor = System.Drawing.Color.WhiteSmoke;
+            this.simpleTable1.RowsHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.simpleTable1.RowsHoverForeColor = System.Drawing.Color.White;
             this.simpleTable1.RowsSelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(252)))));
             this.simpleTable1.RowsSelectedForeColor = System.Drawing.Color.White;
             this.simpleTable1.ScrollValue = 0;
@@ -2140,9 +2159,6 @@ namespace HecopUI_Test
             this.simpleTable1.TabIndex = 2;
             this.simpleTable1.Text = "simpleTable1";
             this.simpleTable1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.simpleTable1.UseCustomColumnsBackColor = true;
-            this.simpleTable1.UseCustomHeaderForeColor = true;
-            this.simpleTable1.UseCustomRowsBackColor = true;
             // 
             // tabPage35
             // 

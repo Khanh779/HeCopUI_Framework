@@ -15,9 +15,7 @@ namespace Utility_Tools.CustomControl.Table
         public bool IsSubRow => Parent != null;
         public string Text { get; set; }
         public string Name { get; set; }
-        public Color ForeColor { get; set; } = Color.Black;
-        public Color BackColor { get; set; } = Color.White;
-        public Font Font { get; set; } = Control.DefaultFont;
+   
         public int Width { get; set; } = 100;
         public int Index { get; set; } = -1;
 

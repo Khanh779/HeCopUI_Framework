@@ -280,7 +280,7 @@ namespace HeCopUI_Framework.Controls.TreeView
 
                 int offsetCheckBox = CheckBoxVisible ? 20 : 0;
                 Rectangle nodeBounds = new Rectangle(x + 15 + Indent / 2, y, Width - node.Bounds.X - 28 - (ImageList != null && node.Image != null ? ImageList.ImageSize.Width : 0) -
-                    (vScroll.Visible ? vScroll.Width : 0) - Indent / 2, NodeHeight);
+                    (vScroll.Visible ? vScroll.Width : 0) - Indent / 2, NodeHeight+1);
                 node.Bounds = nodeBounds;
 
                 bool isHover = node.Bounds.Contains(mp);
@@ -291,7 +291,7 @@ namespace HeCopUI_Framework.Controls.TreeView
                     g.FillRectangle(brush, nodeBounds);
                 }
 
-                using (var brush = new SolidBrush(NodeForeColor))
+                using (var brush = new SolidBrush(nodeForeColor))
                 {
                     g.DrawString(node.Text, nodeFont != null ? nodeFont : node.Font, brush, new RectangleF(nodeBounds.X + offsetCheckBox, nodeBounds.Y, nodeBounds.Width - offsetCheckBox, nodeBounds.Height), sf);
                 }

@@ -38,8 +38,6 @@ namespace Utility_Tools.CustomControl.Table
         TableRowCollection selectedRow;
         TableRowCollection checkedRows;
 
-        bool useCustomColumnsBackColor = true;
-        bool useCustomRowsBackColor = true;
 
         Color columnsBackColor = Color.FromArgb(56, 67, 87);
         Color rowsBackColor = Color.White;
@@ -51,24 +49,7 @@ namespace Utility_Tools.CustomControl.Table
         private int initialColumnWidth = 0;
         private Point initialMouseLocation;
 
-        public bool UseCustomRowsBackColor
-        {
-            get { return useCustomRowsBackColor; }
-            set
-            {
-                useCustomRowsBackColor = value;
-                Invalidate();
-            }
-        }
 
-        public bool UseCustomColumnsBackColor
-        {
-            get { return useCustomColumnsBackColor; }
-            set
-            {
-                useCustomColumnsBackColor = value; Invalidate();
-            }
-        }
 
         bool acceptRowSelection = false;
 
@@ -203,7 +184,7 @@ namespace Utility_Tools.CustomControl.Table
 
         public TableRow[] CheckedRows => checkedRows.ToArray();
 
-        //[Localizable(true)]
+        [Localizable(true)]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TableColumnCollection Columns
@@ -211,12 +192,12 @@ namespace Utility_Tools.CustomControl.Table
             get
             {
                 OnColumnsChanged(EventArgs.Empty);
-                UpdateScrollBar(); Invalidate(); return columns;
+                UpdateScrollBar(); Refresh(); return columns;
             }
 
         }
 
-        //[Localizable(true)]
+        [Localizable(true)]
         [MergableProperty(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TableRowCollection Rows
@@ -224,7 +205,7 @@ namespace Utility_Tools.CustomControl.Table
             get
             {
 
-                UpdateScrollBar(); OnRowsChanged(EventArgs.Empty); Invalidate();
+                OnRowsChanged(EventArgs.Empty); UpdateScrollBar(); Refresh();
                 return rows;
             }
 
@@ -265,17 +246,7 @@ namespace Utility_Tools.CustomControl.Table
             }
         }
 
-        bool useCustomHeaderForeColor = true;
 
-        public bool UseCustomHeaderForeColor
-        {
-            get { return useCustomHeaderForeColor; }
-            set
-            {
-                useCustomHeaderForeColor = value;
-                this.Invalidate();
-            }
-        }
 
         Font headerFont = new Font("Arial", 11);
 
@@ -313,6 +284,7 @@ namespace Utility_Tools.CustomControl.Table
             }
         }
 
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -323,8 +295,6 @@ namespace Utility_Tools.CustomControl.Table
                 e.Graphics.DrawString("No columns found\nPlease add it", new Font("Arial", 12), new SolidBrush(Color.Black), new Rectangle(0, 0, Width, Height), new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                 return;
             }
-
-
 
             //if (columns.Count == 0 || columns == null || rows == null) return;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -342,11 +312,11 @@ namespace Utility_Tools.CustomControl.Table
                 Rectangle headerRect = new Rectangle(x, y, autoColWidth, HeaderHeight);
                 col.Bounds = new RectangleF(x, y, autoColWidth, HeaderHeight);
 
-                using (var brushFillCol = new SolidBrush(useCustomColumnsBackColor ? columnsBackColor : col.BackColor))
+                using (var brushFillCol = new SolidBrush(columnsBackColor))
                     e.Graphics.FillRectangle(brushFillCol, headerRect);
 
-                using (var brushForeCol = new SolidBrush(useCustomHeaderForeColor ? columnsForeColor : col.ForeColor))
-                    e.Graphics.DrawString(col.Text, headerFont != null ? headerFont : col.Font, brushForeCol, headerRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                using (var brushForeCol = new SolidBrush(columnsForeColor))
+                    e.Graphics.DrawString(col.Text, headerFont != null ? headerFont : Control.DefaultFont, brushForeCol, headerRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
                 using (Pen penSplitCol = new Pen(new SolidBrush(splitLineColor), 1))
                     e.Graphics.DrawLine(penSplitCol, x + headerRect.Width, y, x + headerRect.Width, y + HeaderHeight);
@@ -383,12 +353,12 @@ namespace Utility_Tools.CustomControl.Table
                     rows[i].Bounds = new Rectangle(0, rowY, sumAllColWidth, rowHeight);
                     bool isHover = rows[i].Bounds.Contains(s.X, s.Y - headerHeight) && s.Y > headerHeight;
 
-                    using (var fillBrush = new SolidBrush(rows[i].IsSelected ? rowsSelectedColor : isHover ? RowsHoverBackColor : useCustomRowsBackColor ? rows[i].BackColor : RowsBackColor))
+                    using (var fillBrush = new SolidBrush(rows[i].IsSelected ? rowsSelectedColor : isHover ? rowsHover : rowsBackColor))
                         rg.FillRectangle(fillBrush, rows[i].Bounds);
 
-                    using (var brushCheckBack = new SolidBrush(CheckBoxBackColor))
-                    using (var brushCheckFore = new SolidBrush(CheckColor))
-                    using (var brush = new SolidBrush(rows[i].IsSelected ? rowsSelectedForeColor : isHover ? rowsHoverForeColor : useCustomRowsBackColor ? rows[i].ForeColor : rowsForeColor))
+                    using (var brushCheckBack = new SolidBrush(checkBoxBack))
+                    using (var brushCheckFore = new SolidBrush(checkIconColor))
+                    using (var brush = new SolidBrush(rows[i].IsSelected ? rowsSelectedForeColor : isHover ? rowsHoverForeColor : rowsForeColor))
                     {
                         for (int j = 0; j < columns.Count; j++)
                         {
@@ -418,7 +388,7 @@ namespace Utility_Tools.CustomControl.Table
                                    (checkBoxVisible ? 16 : 0) - (imageVisible ? ImageList.ImageSize.Width + 3 : 0), cellRect.Height - 1);
                                 if (recta.Width >= 2)
                                 {
-                                    rg.DrawString(rows[i].Text, RowFont != null ? RowFont : rows[i].Font, brush, recta, sf);
+                                    rg.DrawString(rows[i].Text, rowFont != null ? rowFont : Control.DefaultFont, brush, recta, sf);
 
                                 }
                             }
@@ -429,7 +399,7 @@ namespace Utility_Tools.CustomControl.Table
                                     var subRow = rows[i].SubRows[columns[j].Index - 1];
                                     if (subRow != null)
                                     {
-                                        rg.DrawString(subRow.Text, RowFont != null ? RowFont : subRow.Font, brush, new RectangleF(cellRect.X, cellRect.Y + 1, cellRect.Width, cellRect.Height - 1), sf);
+                                        rg.DrawString(subRow.Text, rowFont != null ? rowFont : Control.DefaultFont, brush, new RectangleF(cellRect.X, cellRect.Y + 1, cellRect.Width, cellRect.Height - 1), sf);
                                     }
                                 }
                             }
@@ -653,8 +623,8 @@ namespace Utility_Tools.CustomControl.Table
                             dragBitmap?.Dispose();
                             dragBitmap = new Bitmap(colWidth, HeaderHeight);
                             dragBitmap.MakeTransparent();
-                            Color hintBack = RevertColor(useCustomColumnsBackColor ? columnsBackColor : columns[i].BackColor);
-                            Color hintFore = RevertColor(columnsForeColor != null ? columnsForeColor : columns[i].ForeColor);
+                            Color hintBack = RevertColor(columnsBackColor);
+                            Color hintFore = RevertColor(columnsForeColor);
                             using (var brushBackHign = new SolidBrush(Color.FromArgb(140, hintBack)))
                             using (var brushForeHign = new SolidBrush(Color.FromArgb(140, hintFore)))
                             using (Graphics g = Graphics.FromImage(dragBitmap))
@@ -810,9 +780,12 @@ namespace Utility_Tools.CustomControl.Table
         public event EventHandler ColumnsChanged;
         protected virtual void OnColumnsChanged(EventArgs e)
         {
-            foreach (var col in columns)
+            if (columns != null && columns.Count > 0)
             {
-                col.Width = autoColWidth;
+                foreach (var col in columns)
+                {
+                    col.Width = autoColWidth;
+                }
             }
             ColumnsChanged?.Invoke(this, e);
         }
@@ -843,6 +816,7 @@ namespace Utility_Tools.CustomControl.Table
             if (draggingColumnIndex != -1)
             {
                 draggingColumnIndex = -1;
+
                 dragBitmap = null;
                 this.Invalidate();
             }

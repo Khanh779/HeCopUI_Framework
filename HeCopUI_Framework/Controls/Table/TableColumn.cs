@@ -15,9 +15,6 @@ namespace Utility_Tools.CustomControl.Table
         public int DisplayIndex { get; set; } = -1;
         public string Text { get; set; }
         public string Name { get; set; }
-        public Color ForeColor { get; set; } 
-        public Color BackColor { get; set; }
-        public Font Font { get; set; } = Control.DefaultFont;
 
         [Bindable(false), Browsable(false)]
         public RectangleF Bounds { get; internal set; }

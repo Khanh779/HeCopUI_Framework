@@ -21,7 +21,7 @@ namespace HeCopUI_Framework.Struct
 
         public static CornerRadius Empty = new CornerRadius(0);
 
-        public CornerRadius(float all=0) : this(all, all, all, all)
+        public CornerRadius(float all = 0) : this(all, all, all, all)
         {
             _all = true;
         }
@@ -41,8 +41,7 @@ namespace HeCopUI_Framework.Struct
         {
         }
 
-        public CornerRadius(CornerRadius radius, float offset = 0)
-            : this(radius.TopLeft - offset, radius.TopRight - offset, radius.BottomLeft - offset, radius.BottomRight - offset)
+        public CornerRadius(CornerRadius radius, float offset = 0) : this(radius.All - offset)
         {
         }
 
@@ -56,7 +55,7 @@ namespace HeCopUI_Framework.Struct
             s = s.Trim();
             if (s.Contains(","))
             {
-              
+
                 var split = s.Split(',');
                 if (split.Length != 4)
                 {
@@ -151,8 +150,13 @@ namespace HeCopUI_Framework.Struct
         public bool Equals(CornerRadius other) =>
             TopLeft == other.TopLeft && BottomLeft == other.BottomLeft && TopRight == other.TopRight && BottomRight == other.BottomRight;
 
-        public override string ToString() =>
-            "{TopLeft=" + TopLeft.ToString() + ",TopRight=" + TopRight.ToString() + ",BottomLeft=" + BottomLeft.ToString() + ",BottomRight=" + BottomRight.ToString() + "}";
+        //public override string ToString() =>
+        //    "{TopLeft=" + TopLeft.ToString() + ",TopRight=" + TopRight.ToString() + ",BottomLeft=" + BottomLeft.ToString() + ",BottomRight=" + BottomRight.ToString() + "}";
+
+        public override string ToString()
+        {
+            return $"{{TopLeft={TopLeft},TopRight={TopRight},BottomLeft={BottomLeft},BottomRight={BottomRight}}}";
+        }
 
         private void ResetAll() => All = 0;
         private void ResetBottomLeft() => BottomLeft = 0;
