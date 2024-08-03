@@ -18,7 +18,14 @@ namespace HeCopUI_Framework.Controls.Clock
         public HClock()
         {
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
+            timer = new Timer();
+            timer.Interval = 600;
+            timer.Tick += (s, e) => Invalidate();
+
+            timer.Start();
         }
+
+        Timer timer;
 
         public Color HourHandColor
         {
