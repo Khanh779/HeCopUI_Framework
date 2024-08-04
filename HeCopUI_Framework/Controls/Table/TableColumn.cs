@@ -22,19 +22,19 @@ namespace Utility_Tools.CustomControl.Table
         [Bindable(false), Browsable(false)]
         public SimpleTable Owner { get; internal set; }
 
-        public int Width;
+        public int Width { get; set; } = 100;
 
         public TableColumn()
         {
 
         }
 
-        public TableColumn(string text):this()
+        public TableColumn(string text) : this()
         {
-            Text= text; 
+            Text = text;
         }
 
-      
+
         public override string ToString()
         {
 

@@ -2090,7 +2090,7 @@ namespace HecopUI_Test
             // simpleTable1
             // 
             this.simpleTable1.AcceptRowSelection = false;
-            this.simpleTable1.AllowUserResizeColumn = false;
+            this.simpleTable1.AllowUserResizeColumn = true;
             this.simpleTable1.CheckBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
             this.simpleTable1.CheckBoxVisible = false;
             this.simpleTable1.CheckColor = System.Drawing.Color.White;
@@ -2116,11 +2116,11 @@ namespace HecopUI_Test
             this.simpleTable1.HeaderFont = new System.Drawing.Font("Arial", 11F);
             this.simpleTable1.HeaderHeight = 25;
             this.simpleTable1.ImagesVisible = false;
-            this.simpleTable1.Location = new System.Drawing.Point(24, 25);
+            this.simpleTable1.Location = new System.Drawing.Point(30, 42);
             this.simpleTable1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleTable1.Name = "simpleTable1";
             this.simpleTable1.Padding = new System.Windows.Forms.Padding(2);
-            this.simpleTable1.ReOrderable = false;
+            this.simpleTable1.ReOrderable = true;
             this.simpleTable1.RowFont = new System.Drawing.Font("Arial", 10F);
             tableRow4.CheckState = System.Windows.Forms.CheckState.Unchecked;
             tableRow4.Image = null;
@@ -2147,16 +2147,16 @@ namespace HecopUI_Test
             tableRow4,
             tableRow5,
             tableRow6});
-            this.simpleTable1.RowsBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.simpleTable1.RowsForeColor = System.Drawing.Color.WhiteSmoke;
-            this.simpleTable1.RowsHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.simpleTable1.RowsHoverForeColor = System.Drawing.Color.White;
+            this.simpleTable1.RowsBackColor = System.Drawing.Color.White;
+            this.simpleTable1.RowsForeColor = System.Drawing.Color.Black;
+            this.simpleTable1.RowsHoverBackColor = System.Drawing.Color.Lavender;
+            this.simpleTable1.RowsHoverForeColor = System.Drawing.Color.Black;
             this.simpleTable1.RowsSelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(252)))));
             this.simpleTable1.RowsSelectedForeColor = System.Drawing.Color.White;
             this.simpleTable1.ScrollValue = 0;
-            this.simpleTable1.Size = new System.Drawing.Size(690, 245);
+            this.simpleTable1.Size = new System.Drawing.Size(689, 279);
             this.simpleTable1.SplitLineColor = System.Drawing.Color.LightGray;
-            this.simpleTable1.TabIndex = 2;
+            this.simpleTable1.TabIndex = 0;
             this.simpleTable1.Text = "simpleTable1";
             this.simpleTable1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             // 
@@ -2187,7 +2187,7 @@ namespace HecopUI_Test
             this.hTreeView1.NodeFont = new System.Drawing.Font("Arial", 10F);
             this.hTreeView1.NodeForeColor = System.Drawing.Color.WhiteSmoke;
             this.hTreeView1.NodeHeight = 20;
-            this.hTreeView1.NodeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.hTreeView1.NodeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             treeNode25.Checked = false;
             treeNode25.Font = null;
             treeNode25.Image = null;
@@ -4364,7 +4364,6 @@ namespace HecopUI_Test
         private HTabControl hTabControl10;
         private TabPage tabPage7;
         private TabPage tabPage35;
-        private Utility_Tools.CustomControl.Table.SimpleTable simpleTable1;
         private HeCopUI_Framework.Controls.TreeView.HTreeView hTreeView1;
         private TabPage tabPage36;
         private HTabControl hTabControl4;
@@ -4376,6 +4375,7 @@ namespace HecopUI_Test
         private HeCopUI_Framework.Controls.Charts.HPieChart hPieChart1;
         private TabPage tabPage18;
         private HeCopUI_Framework.Controls.Charts.HRadarChart hRadarChart1;
+        private Utility_Tools.CustomControl.Table.SimpleTable simpleTable1;
     }
 }
 

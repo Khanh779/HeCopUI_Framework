@@ -21,6 +21,7 @@ namespace Utility_Tools.CustomControl.Table
 
         public TableColumnCollection()
         {
+            m_arrItem = new List<TableColumn>();
         }
 
         public TableColumn this[int index] { get => m_arrItem[index]; set => m_arrItem[index] = value; }
@@ -36,6 +37,12 @@ namespace Utility_Tools.CustomControl.Table
 
         public bool IsSynchronized => true;
 
+        public int Add(object value)
+        {
+            Add((value as TableColumn));
+            return m_arrItem.Count - 1;
+        }
+
         public void Add(TableColumn item)
         {
             if (item.Index == -1)
@@ -44,22 +51,14 @@ namespace Utility_Tools.CustomControl.Table
             if (string.IsNullOrEmpty(item.Name))
                 item.Name = $"column{item.Index}";
 
-            if(string.IsNullOrEmpty(item.Text))
-                item.Text = $"colum "+ item.Index;
+            if (string.IsNullOrEmpty(item.Text))
+                item.Text = $"colum " + item.Index;
 
-            //if(item.DisplayIndex == -1)
             item.DisplayIndex = m_arrItem.Count;
-
-
             item.Owner = owner;
-            m_arrItem.Add(item);
-            owner.Invalidate();
-        }
 
-        public int Add(object value)
-        {
-            Add((value as TableColumn));
-            return m_arrItem.Count - 1;
+            m_arrItem.Add(item);
+            owner?.Invalidate();
         }
 
         public void AddRange(IEnumerable<TableColumn> columnHeaders)
@@ -67,16 +66,17 @@ namespace Utility_Tools.CustomControl.Table
             foreach (var item in columnHeaders)
             {
                 item.Owner = owner;
+                m_arrItem.Add(item);
             }
-            m_arrItem.AddRange(columnHeaders);
-
-            owner.Invalidate();
+            owner?.Invalidate();
         }
+
+   
 
         public void Clear()
         {
             m_arrItem.Clear();
-            owner.Invalidate();
+            owner?.Invalidate();
         }
 
         public bool Contains(TableColumn item)
@@ -126,7 +126,7 @@ namespace Utility_Tools.CustomControl.Table
             item.DisplayIndex = index;
             item.Owner = owner;
             m_arrItem.Insert(index, item);
-            owner.Invalidate();
+            owner?.Invalidate();
         }
 
         public void Insert(int index, object value)
@@ -137,7 +137,7 @@ namespace Utility_Tools.CustomControl.Table
         public bool Remove(TableColumn item)
         {
             bool result = m_arrItem.Remove(item);
-            owner.Invalidate();
+            owner?.Invalidate();
             return result;
         }
 
@@ -149,7 +149,7 @@ namespace Utility_Tools.CustomControl.Table
         public void RemoveAt(int index)
         {
             m_arrItem.RemoveAt(index);
-            owner.Invalidate();
+            owner?.Invalidate();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -162,7 +162,8 @@ namespace Utility_Tools.CustomControl.Table
             TableColumn temp = m_arrItem[BeforeDragPos];
             m_arrItem.Remove(temp);
             m_arrItem.Insert(AfterDragPos, temp);
-            //owner.Invalidate();
+
+            owner.Invalidate();
         }
 
     }

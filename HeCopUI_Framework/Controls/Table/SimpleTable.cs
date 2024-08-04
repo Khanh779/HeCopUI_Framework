@@ -64,6 +64,7 @@ namespace Utility_Tools.CustomControl.Table
         }
 
         private HeCopUI_Framework.Controls.ScrollBar.VScrollBar vScroll = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
+        HeCopUI_Framework.Controls.ScrollBar.HScrollBar hScroll = new HeCopUI_Framework.Controls.ScrollBar.HScrollBar();
 
         public SimpleTable()
         {
@@ -86,18 +87,24 @@ namespace Utility_Tools.CustomControl.Table
 
             vScroll.Dock = DockStyle.Right;
             vScroll.Visible = false;
-            Padding = new Padding(2);
-            Margin = new Padding(2);
-            vScroll.Margin = new Padding(2);
             vScroll.Value = 0;
             vScroll.Size = new Size(12, this.Height);
-
             vScroll.Scroll += VScroll_Scroll;
+
+            hScroll.Visible = false;
+            hScroll.Dock = DockStyle.Bottom;
+            hScroll.Size = new Size(this.Width - (vScroll.Visible ? vScroll.Height : 0), 12);
+            hScroll.Value = 0;
+            hScroll.Scroll += HScroll_Scroll;
+
+            Controls.Add(hScroll);
             this.Controls.Add(vScroll);
             UpdateScrollBar();
 
 
         }
+
+
 
         protected override void OnCreateControl()
         {
@@ -192,7 +199,7 @@ namespace Utility_Tools.CustomControl.Table
             get
             {
                 OnColumnsChanged(EventArgs.Empty);
-                UpdateScrollBar(); Refresh(); return columns;
+                UpdateScrollBar(); Invalidate(); return columns;
             }
 
         }
@@ -232,7 +239,19 @@ namespace Utility_Tools.CustomControl.Table
             Invalidate();
         }
 
-        int autoColWidth => columns.Count > 0 ? (Width - (vScroll.Visible ? vScroll.Width : 0)) / columns.Count : 0;
+        //int autoColWidth
+        //{
+        //    get
+        //    {
+        //        return columns != null && columns.Count > 0 ? (Width - (vScroll.Visible ? vScroll.Width : 0)) / columns.Count : 0;
+        //    }
+        //}
+
+
+        internal int GetWidthThumb()
+        {
+            return (vScroll.Visible ? vScroll.Width : 0);
+        }
 
         System.Drawing.Text.TextRenderingHint renderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 
@@ -296,7 +315,7 @@ namespace Utility_Tools.CustomControl.Table
                 return;
             }
 
-            //if (columns.Count == 0 || columns == null || rows == null) return;
+            if (columns.Count == 0 || columns == null || rows == null) return;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -304,25 +323,32 @@ namespace Utility_Tools.CustomControl.Table
 
 
             int y = 0;
-            int x = 0;
+            int x = -hScroll.Value;
             int sumAllColWidth = 0;
 
-            foreach (var col in columns)
-            {
-                Rectangle headerRect = new Rectangle(x, y, autoColWidth, HeaderHeight);
-                col.Bounds = new RectangleF(x, y, autoColWidth, HeaderHeight);
 
-                using (var brushFillCol = new SolidBrush(columnsBackColor))
+            using (var brushFillCol = new SolidBrush(columnsBackColor))
+            using (var brushForeCol = new SolidBrush(columnsForeColor))
+            using (Pen penSplitCol = new Pen(new SolidBrush(splitLineColor), 1))
+            {
+                e.Graphics.FillRectangle(brushFillCol, 0, 0, Width, HeaderHeight);
+                foreach (var col in columns)
+                {
+                    Rectangle headerRect = new Rectangle(x, y, col.Width, HeaderHeight);
+                    col.Bounds = new RectangleF(x, y, col.Width, HeaderHeight);
+
+
                     e.Graphics.FillRectangle(brushFillCol, headerRect);
 
-                using (var brushForeCol = new SolidBrush(columnsForeColor))
+
                     e.Graphics.DrawString(col.Text, headerFont != null ? headerFont : Control.DefaultFont, brushForeCol, headerRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
-                using (Pen penSplitCol = new Pen(new SolidBrush(splitLineColor), 1))
+
                     e.Graphics.DrawLine(penSplitCol, x + headerRect.Width, y, x + headerRect.Width, y + HeaderHeight);
 
-                x += autoColWidth;
-                sumAllColWidth += autoColWidth;
+                    x += col.Width;
+                    sumAllColWidth += col.Width;
+                }
             }
 
 
@@ -331,7 +357,7 @@ namespace Utility_Tools.CustomControl.Table
 
             Point s = PointToClient(MousePosition);
 
-            Bitmap rowsBitmap = new Bitmap(Width - (vScroll != null && vScroll.Visible ? vScroll.Width : 0), Height - headerHeight);
+            Bitmap rowsBitmap = new Bitmap(Width - (vScroll != null && vScroll.Visible ? vScroll.Width : 0), Height - headerHeight - (hScroll.Visible ? hScroll.Height : 0));
             rowsBitmap.MakeTransparent();
             using (StringFormat sf = new StringFormat
             {
@@ -342,6 +368,8 @@ namespace Utility_Tools.CustomControl.Table
             using (Graphics rg = Graphics.FromImage(rowsBitmap))
             {
                 rg.TextRenderingHint = TextRenderHint;
+                rg.SmoothingMode = SmoothingMode.HighQuality;
+                rg.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
                 //Draw Rows and Columns
 
@@ -349,7 +377,7 @@ namespace Utility_Tools.CustomControl.Table
 
                 for (int i = 0; i < rows.Count; i++)
                 {
-                    x = 0; // Đặt lại x cho từng dòng
+                    x = -hScroll.Value; // Đặt lại x cho từng dòng
                     rows[i].Bounds = new Rectangle(0, rowY, sumAllColWidth, rowHeight);
                     bool isHover = rows[i].Bounds.Contains(s.X, s.Y - headerHeight) && s.Y > headerHeight;
 
@@ -404,9 +432,11 @@ namespace Utility_Tools.CustomControl.Table
                                 }
                             }
 
-                            x += autoColWidth;
+                            x += columns[j].Width;
                         }
                     }
+
+
 
                     rowY += rowHeight;
                 }
@@ -607,60 +637,64 @@ namespace Utility_Tools.CustomControl.Table
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-            if (e.Button == MouseButtons.Left)
+            if (!DesignMode)
             {
-                if (e.Y <= HeaderHeight && ReOrderable)
+                if (e.Button == MouseButtons.Left)
                 {
-                    int x = 0;
-                    for (int i = 0; i < columns.Count; i++)
+                    if (e.Y <= HeaderHeight && ReOrderable)
                     {
-                        int colWidth = columns[i].Width;
-                        if (e.X >= x && e.X <= x + colWidth)
+                        int x = 0;
+                        for (int i = 0; i < columns.Count; i++)
                         {
-                            draggingColumnIndex = i;
-                            dragOffsetX = e.X - x;
-
-                            dragBitmap?.Dispose();
-                            dragBitmap = new Bitmap(colWidth, HeaderHeight);
-                            dragBitmap.MakeTransparent();
-                            Color hintBack = RevertColor(columnsBackColor);
-                            Color hintFore = RevertColor(columnsForeColor);
-                            using (var brushBackHign = new SolidBrush(Color.FromArgb(140, hintBack)))
-                            using (var brushForeHign = new SolidBrush(Color.FromArgb(140, hintFore)))
-                            using (Graphics g = Graphics.FromImage(dragBitmap))
+                            int colWidth = columns[i].Width;
+                            if (e.X >= x && e.X <= x + colWidth)
                             {
-                                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                                g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-                                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                                g.TextRenderingHint = TextRenderHint;
-                                Rectangle headerRect = new Rectangle(0, 0, colWidth, HeaderHeight);
-                                g.FillRectangle(brushBackHign, headerRect);
-                                g.DrawString(columns[i].Text, headerFont, brushForeHign, headerRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                                draggingColumnIndex = i;
+                                dragOffsetX = e.X - x;
+
+                                dragBitmap?.Dispose();
+                                dragBitmap = new Bitmap(colWidth, HeaderHeight);
+                                dragBitmap.MakeTransparent();
+                                Color hintBack = RevertColor(columnsBackColor);
+                                Color hintFore = RevertColor(columnsForeColor);
+                                using (var brushBackHign = new SolidBrush(Color.FromArgb(140, hintBack)))
+                                using (var brushForeHign = new SolidBrush(Color.FromArgb(140, hintFore)))
+                                using (Graphics g = Graphics.FromImage(dragBitmap))
+                                {
+                                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                                    g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                                    g.TextRenderingHint = TextRenderHint;
+                                    Rectangle headerRect = new Rectangle(0, 0, colWidth, HeaderHeight);
+                                    g.FillRectangle(brushBackHign, headerRect);
+                                    g.DrawString(columns[i].Text, headerFont, brushForeHign, headerRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                                }
+                                dragPoint = e.Location;
+                                break;
                             }
-                            dragPoint = e.Location;
-                            break;
+                            x += colWidth;
                         }
-                        x += colWidth;
+                    }
+
+                    if (allowUserResizeColumn && e.Y <= HeaderHeight)
+                    {
+                        int x = -hScroll.Value;
+                        for (int i = 0; i < columns.Count; i++)
+                        {
+                            int colWidth = columns[i].Width;
+                            if (e.X >= x + colWidth - 2 && e.X <= x + colWidth + 2)
+                            {
+                                isResizingColumn = true;
+                                resizingColumnIndex = i;
+                                initialMouseLocation = e.Location;
+                                initialColumnWidth = colWidth;
+                                break;
+                            }
+                            x += colWidth;
+                        }
                     }
                 }
 
-                if (allowUserResizeColumn && e.Y <= HeaderHeight)
-                {
-                    int x = 0;
-                    for (int i = 0; i < columns.Count; i++)
-                    {
-                        int colWidth = Width / columns.Count;
-                        if (e.X >= x + colWidth - 2 && e.X <= x + colWidth + 2)
-                        {
-                            isResizingColumn = true;
-                            resizingColumnIndex = i;
-                            initialMouseLocation = e.Location;
-                            initialColumnWidth = colWidth;
-                            break;
-                        }
-                        x += colWidth;
-                    }
-                }
             }
         }
 
@@ -669,51 +703,56 @@ namespace Utility_Tools.CustomControl.Table
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (draggingColumnIndex != -1 && ReOrderable && !isResizingColumn)
+            if (!DesignMode)
             {
-                dragPoint = e.Location;
-                int newLeft = e.X - dragOffsetX;
-                int colWidth = Width / columns.Count;
-                int newIndex = newLeft / colWidth;
-                if (newIndex != draggingColumnIndex && newIndex < columns.Count)
+                if (draggingColumnIndex != -1 && ReOrderable && !isResizingColumn)
                 {
-                    var col = columns[draggingColumnIndex];
-                    columns.RemoveAt(draggingColumnIndex);
-                    columns.Insert(newIndex, col);
-                    //columns[newIndex].DisplayIndex = newIndex;
-                    draggingColumnIndex = newIndex;
-                    //this.Invalidate();
-                }
-            }
-
-
-            if (allowUserResizeColumn)
-            {
-                Cursor cursor = Cursors.Default;
-                int x = 0;
-                for (int i = 0; i < columns.Count; i++)
-                {
-                    int colWidth = Width / columns.Count;
-                    if (e.X >= x + colWidth - 2 && e.X <= x + colWidth + 2 && e.Y <= headerHeight)
+                    dragPoint = e.Location;
+                    int newLeft = e.X - dragOffsetX;
+                    int colWidth = columns[draggingColumnIndex].Width;
+                    int newIndex = newLeft / colWidth;
+                    if (newIndex != draggingColumnIndex && newIndex < columns.Count)
                     {
-                        cursor = Cursors.SizeWE;
-                        break;
-                    }
-                    x += colWidth;
-                }
-                Cursor = cursor;
+                        var col = columns[draggingColumnIndex];
+                        columns.RemoveAt(draggingColumnIndex);
+                        columns.Insert(newIndex, col);
+                        //columns[newIndex].DisplayIndex = newIndex;
+                        draggingColumnIndex = newIndex;
 
-                if (isResizingColumn && resizingColumnIndex != -1 && e.Y <= headerHeight)
-                {
-                    int newWidth = initialColumnWidth + (e.X - initialMouseLocation.X);
-                    if (newWidth > 0)
-                    {
-                        columns[resizingColumnIndex].Width = newWidth;
-                        this.Invalidate();
                     }
                 }
+
+
+                if (allowUserResizeColumn)
+                {
+                    Cursor cursor = Cursors.Default;
+                    int x = -hScroll.Value;
+                    for (int i = 0; i < columns.Count; i++)
+                    {
+                        int colWidth = columns[i].Width;
+                        if (e.X >= x + colWidth - 2 && e.X <= x + colWidth + 2 && e.Y <= headerHeight)
+                        {
+                            cursor = Cursors.SizeWE;
+                            break;
+                        }
+
+                        x += colWidth;
+                    }
+                    Cursor = cursor;
+
+                    if (isResizingColumn && resizingColumnIndex != -1 && e.Y <= headerHeight)
+                    {
+                        int newWidth = initialColumnWidth + (e.X - initialMouseLocation.X - (hScroll.Visible ? hScroll.Value : 0));
+                        if (newWidth > 0)
+                        {
+                            columns[resizingColumnIndex].Width = newWidth;
+                            UpdateScrollBar();
+                            //this.Invalidate();
+                        }
+                    }
+                }
+                this.Invalidate();
             }
-            this.Invalidate();
         }
 
 
@@ -721,56 +760,59 @@ namespace Utility_Tools.CustomControl.Table
         protected override void OnMouseClick(MouseEventArgs e)
         {
             base.OnMouseClick(e);
-            var mousePo = new Point(e.Location.X, e.Location.Y - headerHeight);
-            if (e.Y > HeaderHeight)
+            if (!DesignMode)
             {
-                if (acceptRowSelection || checkBoxVisible)
+                var mousePo = new Point(e.Location.X, e.Location.Y - headerHeight);
+                if (e.Y > HeaderHeight)
                 {
-                    for (int rowIndex = 0; rowIndex < rows.Count; rowIndex++)
+                    if (acceptRowSelection || checkBoxVisible)
                     {
-
-                        var row = rows[rowIndex];
-                        if (row.Bounds.Contains(mousePo))
+                        for (int rowIndex = 0; rowIndex < rows.Count; rowIndex++)
                         {
-                            if (checkBoxVisible)
-                            {
-                                int x = 0;
-                                for (int col = 0; col < columns.Count; col++)
-                                {
-                                    int colWidth = columns[col].Width;
 
-                                    if (columns[col].Index == 0 && checkBoxVisible)
+                            var row = rows[rowIndex];
+                            if (row.Bounds.Contains(mousePo))
+                            {
+                                if (checkBoxVisible)
+                                {
+                                    int x = 0;
+                                    for (int col = 0; col < columns.Count; col++)
                                     {
-                                        var checkRect = new RectangleF(x + 1, row.Bounds.Y + rowHeight / 2 - 7, 14, 14);
-                                        if (checkRect.Contains(mousePo))
+                                        int colWidth = columns[col].Width;
+
+                                        if (columns[col].Index == 0 && checkBoxVisible)
                                         {
-                                            rows[rowIndex].CheckState = rows[rowIndex].CheckState == CheckState.Checked ? CheckState.Unchecked : CheckState.Checked;
-                                            Invalidate();
-                                            OnCheckedChanged(EventArgs.Empty);
-                                            return; // Exit the method to avoid toggling the selection state
+                                            var checkRect = new RectangleF(x + 1, row.Bounds.Y + rowHeight / 2 - 7, 14, 14);
+                                            if (checkRect.Contains(mousePo))
+                                            {
+                                                rows[rowIndex].CheckState = rows[rowIndex].CheckState == CheckState.Checked ? CheckState.Unchecked : CheckState.Checked;
+                                                Invalidate();
+                                                OnCheckedChanged(EventArgs.Empty);
+                                                return; // Exit the method to avoid toggling the selection state
+                                            }
                                         }
+                                        x += colWidth;
                                     }
-                                    x += colWidth;
+
                                 }
 
-                            }
-
-                            if (acceptRowSelection == true)
-                            {
-                                if (selectedRow.Contains(row))
+                                if (acceptRowSelection == true)
                                 {
-                                    row.IsSelected = false;
-                                    selectedRow.Remove(row);
+                                    if (selectedRow.Contains(row))
+                                    {
+                                        row.IsSelected = false;
+                                        selectedRow.Remove(row);
+                                    }
+                                    else
+                                    {
+                                        row.IsSelected = true;
+                                        selectedRow.Add(row);
+                                    }
+                                    Invalidate();
                                 }
-                                else
-                                {
-                                    row.IsSelected = true;
-                                    selectedRow.Add(row);
-                                }
-                                Invalidate();
-                            }
 
-                            OnSelectionChanged(EventArgs.Empty);
+                                OnSelectionChanged(EventArgs.Empty);
+                            }
                         }
                     }
                 }
@@ -780,13 +822,7 @@ namespace Utility_Tools.CustomControl.Table
         public event EventHandler ColumnsChanged;
         protected virtual void OnColumnsChanged(EventArgs e)
         {
-            if (columns != null && columns.Count > 0)
-            {
-                foreach (var col in columns)
-                {
-                    col.Width = autoColWidth;
-                }
-            }
+
             ColumnsChanged?.Invoke(this, e);
         }
 
@@ -813,46 +849,58 @@ namespace Utility_Tools.CustomControl.Table
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            if (draggingColumnIndex != -1)
+            if (!DesignMode)
             {
-                draggingColumnIndex = -1;
+                if (draggingColumnIndex != -1)
+                {
+                    draggingColumnIndex = -1;
 
-                dragBitmap = null;
-                this.Invalidate();
-            }
+                    dragBitmap = null;
+                    this.Invalidate();
+                }
 
-            if (isResizingColumn)
-            {
-                isResizingColumn = false;
-                resizingColumnIndex = -1;
-                this.Invalidate();
+                if (isResizingColumn)
+                {
+                    isResizingColumn = false;
+                    resizingColumnIndex = -1;
+                    this.Invalidate();
+                }
             }
         }
 
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            if (vScroll.Visible)
+            if (!DesignMode)
             {
-                int newVal = vScroll.Value - (e.Delta / 120 * SystemInformation.MouseWheelScrollLines) * rowHeight;
-                if (newVal < vScroll.Minimum)
+                if (vScroll.Visible)
                 {
-                    newVal = vScroll.Minimum;
-                }
-                if (newVal > vScroll.Maximum - vScroll.LargeChange)
-                {
-                    newVal = vScroll.Maximum - vScroll.LargeChange;
-                }
-                vScroll.Value = newVal;
+                    int newVal = vScroll.Value - (e.Delta / 120 * SystemInformation.MouseWheelScrollLines) * rowHeight;
+                    if (newVal < vScroll.Minimum)
+                    {
+                        newVal = vScroll.Minimum;
+                    }
+                    if (newVal > vScroll.Maximum - vScroll.LargeChange)
+                    {
+                        newVal = vScroll.Maximum - vScroll.LargeChange;
+                    }
+                    vScroll.Value = newVal;
 
 
-                UpdateScrollBar();
+                    UpdateScrollBar();
+                }
             }
 
             Invalidate();
         }
 
         private void VScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+            UpdateScrollBar();
+            Invalidate();
+        }
+
+        private void HScroll_Scroll(object sender, ScrollEventArgs e)
         {
             UpdateScrollBar();
             Invalidate();
@@ -874,21 +922,33 @@ namespace Utility_Tools.CustomControl.Table
 
         private void UpdateScrollBar()
         {
-            if (rows != null)
+            if (rows != null && vScroll != null)
             {
                 int totalHeight = rows.Count * rowHeight;
                 int clientAreaHeight = this.Height - headerHeight;
-
                 vScroll.Visible = totalHeight > clientAreaHeight;
                 if (vScroll.Visible)
                 {
                     vScroll.LargeChange = rowHeight;
                     vScroll.Maximum = totalHeight - clientAreaHeight + rowHeight;
+                }
+              
+            }
 
+            if (columns != null && hScroll != null)
+            {
+                int totalWidth = columns.Sum(x => x.Width);
+                int clientAreaWidth = this.Width - (vScroll.Visible ? vScroll.Width : 0);
+                hScroll.Visible = totalWidth > clientAreaWidth;
+                if (hScroll.Visible)
+                {
+                    hScroll.LargeChange = columns.Count > 0 ? columns.Min(x => x.Width) : 10;
+                    hScroll.Maximum = totalWidth - clientAreaWidth;
                 }
 
             }
         }
+
 
 
     }
