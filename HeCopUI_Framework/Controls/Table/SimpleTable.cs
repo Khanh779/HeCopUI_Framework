@@ -323,7 +323,7 @@ namespace Utility_Tools.CustomControl.Table
 
 
             int y = 0;
-            int x = -hScroll.Value;
+            int x = hScroll.Visible ? -hScroll.Value : 0;
             int sumAllColWidth = 0;
 
 
@@ -373,11 +373,11 @@ namespace Utility_Tools.CustomControl.Table
 
                 //Draw Rows and Columns
 
-                int rowY = -vScroll.Value;
+                int rowY = vScroll.Visible ? -vScroll.Value : 0;
 
                 for (int i = 0; i < rows.Count; i++)
                 {
-                    x = -hScroll.Value; // Đặt lại x cho từng dòng
+                    x = hScroll.Visible ? -hScroll.Value : 0; // Đặt lại x cho từng dòng
                     rows[i].Bounds = new Rectangle(0, rowY, sumAllColWidth, rowHeight);
                     bool isHover = rows[i].Bounds.Contains(s.X, s.Y - headerHeight) && s.Y > headerHeight;
 
@@ -390,7 +390,7 @@ namespace Utility_Tools.CustomControl.Table
                     {
                         for (int j = 0; j < columns.Count; j++)
                         {
-                            RectangleF cellRect = new RectangleF(x, rowY, columns[i].Width, rowHeight);
+                            RectangleF cellRect = new RectangleF(x, rowY, columns[j].Width, rowHeight);
 
                             if (columns[j].Index == 0)
                             {
@@ -643,7 +643,7 @@ namespace Utility_Tools.CustomControl.Table
                 {
                     if (e.Y <= HeaderHeight && ReOrderable)
                     {
-                        int x = 0;
+                        int x = (hScroll.Visible ? -hScroll.Value : 0);
                         for (int i = 0; i < columns.Count; i++)
                         {
                             int colWidth = columns[i].Width;
@@ -678,7 +678,7 @@ namespace Utility_Tools.CustomControl.Table
 
                     if (allowUserResizeColumn && e.Y <= HeaderHeight)
                     {
-                        int x = -hScroll.Value;
+                        int x = (hScroll.Visible ? -hScroll.Value : 0);
                         for (int i = 0; i < columns.Count; i++)
                         {
                             int colWidth = columns[i].Width;
@@ -726,7 +726,7 @@ namespace Utility_Tools.CustomControl.Table
                 if (allowUserResizeColumn)
                 {
                     Cursor cursor = Cursors.Default;
-                    int x = -hScroll.Value;
+                    int x = (hScroll.Visible ? -hScroll.Value : 0);
                     for (int i = 0; i < columns.Count; i++)
                     {
                         int colWidth = columns[i].Width;
@@ -932,7 +932,7 @@ namespace Utility_Tools.CustomControl.Table
                     vScroll.LargeChange = rowHeight;
                     vScroll.Maximum = totalHeight - clientAreaHeight + rowHeight;
                 }
-              
+
             }
 
             if (columns != null && hScroll != null)
