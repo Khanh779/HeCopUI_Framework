@@ -115,8 +115,8 @@ namespace HeCopUI_Framework.Controls
             set
             {
                 _TextAlignment = value;
-                if(tbCtrl.IsHandleCreated)
-                tbCtrl.TextAlign = _TextAlignment;
+                if (tbCtrl.IsHandleCreated)
+                    tbCtrl.TextAlign = _TextAlignment;
                 Invalidate();
             }
         }
@@ -319,7 +319,7 @@ namespace HeCopUI_Framework.Controls
 
             //Init();
 
-         
+
         }
 
         private AnimationManager _animationManager;
@@ -392,7 +392,7 @@ namespace HeCopUI_Framework.Controls
             //stay the same size/location as the control
             EventHandler updateSize = (sender, args) =>
             {
-                placeholder.Location = new Point( control.Location.X+1, control.Location.Y);
+                placeholder.Location = new Point(control.Location.X + 1, control.Location.Y);
                 placeholder.Size = new Size(control.Size.Width - 1, control.Size.Height);
             };
 
@@ -459,7 +459,7 @@ namespace HeCopUI_Framework.Controls
 
             tbCtrl.Font = Font;
             tbCtrl.ForeColor = textColor;
-            tbCtrl.BackColor = butHover? TextBoxHoverColor: TextBoxColor;
+            tbCtrl.BackColor = butHover ? TextBoxHoverColor : TextBoxColor;
             tbCtrl.ShortcutsEnabled = ShortcutsEnabled;
             tbCtrl.TextAlign = TextAlignment;
             tbCtrl.CharacterCasing = CharacterCasing;
@@ -472,18 +472,15 @@ namespace HeCopUI_Framework.Controls
             tbCtrl.ScrollBars = ScrollBars;
             tbCtrl.AcceptsTab = AcceptsTab;
             tbCtrl.AcceptsReturn = AcceptsReturn;
-        
-                tbCtrl.TextAlign = TextAlignment;
 
-            #region Sự kiện cần thiết
+            tbCtrl.TextAlign = TextAlignment;
 
-            DoubleBuffered = true;
+
 
             //tbCtrl = new TextBox();
             tbCtrl.BorderStyle = BorderStyle.None;
 
-         
-            #endregion
+
         }
 
         protected override void OnMouseLeave(EventArgs e)
@@ -493,7 +490,7 @@ namespace HeCopUI_Framework.Controls
             tbCtrl.BackColor = TextBoxColor;
             if (style != TextBoxStyle.Style2)
                 _animationManager.StartNewAnimation(AnimationDirection.Out);
-            
+
             base.OnMouseLeave(e);
         }
 
@@ -504,7 +501,7 @@ namespace HeCopUI_Framework.Controls
             tbCtrl.BackColor = TextBoxHoverColor;
             if (style != TextBoxStyle.Style2)
                 _animationManager.StartNewAnimation(AnimationDirection.In);
-           
+
             base.OnMouseEnter(e);
         }
 
@@ -663,7 +660,7 @@ namespace HeCopUI_Framework.Controls
                 }
                 Invalidate();
             };
-          
+
         }
 
         void UpdateTextBoxLocation()
@@ -680,7 +677,7 @@ namespace HeCopUI_Framework.Controls
                          - tbCtrl.Height / 2) - ((style == TextBoxStyle.Style2) ? BorderThickness + 1 : 0));
                 }
 
-                tbCtrl.Width = Width - ((Image != null ? ImageSize.Width + imageX : 0) + BorderThickness * 2 +4 + rad / 2) - 2 - tbX;
+                tbCtrl.Width = Width - ((Image != null ? ImageSize.Width + imageX : 0) + BorderThickness * 2 + 4 + rad / 2) - 2 - tbX;
                 if (this.Size.Height <= tbCtrl.Height + b + BorderThickness * 2 + Radius * 2)
                     Size = new Size(Width, tbCtrl.Height + b + BorderThickness * 2 + rad * 2);
 
@@ -700,7 +697,7 @@ namespace HeCopUI_Framework.Controls
         {
             if (_Image != null)
             {
-                g.DrawImage(_Image, 2 + imageX + Radius / 2 + BorderThickness, (Height / 2 - ImageSize.Height / 2) - (Style== TextBoxStyle.Style2? BorderThickness:0)
+                g.DrawImage(_Image, 2 + imageX + Radius / 2 + BorderThickness, (Height / 2 - ImageSize.Height / 2) - (Style == TextBoxStyle.Style2 ? BorderThickness : 0)
                    , ImageSize.Width, ImageSize.Height);
             }
         }
@@ -826,7 +823,7 @@ namespace HeCopUI_Framework.Controls
             g.FillPath(new SolidBrush(butHover ? textBoxHoverColor : textBoxColor), Gp);
 
             //DrawWatermark();
-           
+
             double fade = (UseAnimation ? 255 * _animationManager.GetProgress() : (Focused || butHover || !_animationManager.IsAnimating() ? 255 * 1 : 0));
 
             Pen pen = new Pen(new SolidBrush(tbCtrl.Focused ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(BorderHoverColor, borderFocusColor, fade) : butHover ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(BorderColor, BorderHoverColor, fade) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(BorderColor, BorderHoverColor, fade)), borderThickness)
@@ -834,7 +831,7 @@ namespace HeCopUI_Framework.Controls
             switch (style)
             {
                 case TextBoxStyle.Style1:
-                    g.FillPath(new SolidBrush( tbCtrl.BackColor), HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(0, 0, Width, Height), Radius, BorderThickness));
+                    g.FillPath(new SolidBrush(tbCtrl.BackColor), HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(0, 0, Width, Height), Radius, BorderThickness));
                     if (BorderThickness >= 0)
                         g.DrawPath(pen, HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(0, 0, Width, Height), Radius, BorderThickness));
                     break;
