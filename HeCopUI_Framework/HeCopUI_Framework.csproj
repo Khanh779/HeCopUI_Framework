@@ -483,7 +483,6 @@
     </Compile>
     <Compile Include="TaskSchedulerManager.cs" />
     <Compile Include="TaskShedulerService.cs" />
-    <Compile Include="Ultils\DpiUltils.cs" />
     <Compile Include="Ultils\DropShadow.cs" />
     <Compile Include="Win32\Dwmapi.cs" />
     <Compile Include="Win32\Gdi32.cs" />
