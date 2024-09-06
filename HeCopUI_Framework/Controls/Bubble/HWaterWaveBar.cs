@@ -5,14 +5,14 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls.Progress
+namespace HeCopUI_Framework.Controls.Bubble
 {
     /// <summary>
     /// Class UCWave.
     /// Implements the <see cref="System.Windows.Forms.Control" />
     /// </summary>
     /// <seealso cref="System.Windows.Forms.Control" />
-    public class HProgressBarWaterWave : Control
+    public class HWaterWaveBar : Control
     {
 
 
@@ -94,9 +94,9 @@ namespace HeCopUI_Framework.Controls.Progress
         /// </summary>
         int intLeftX = -200;
         /// <summary>
-        /// Initializes a new instance of the <see cref="HProgressBarWaterWave" /> class.
+        /// Initializes a new instance of the <see cref="HWaterWaveBar" /> class.
         /// </summary>
-        public HProgressBarWaterWave()
+        public HWaterWaveBar()
         {
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.SetStyle(ControlStyles.DoubleBuffer, true);
@@ -160,6 +160,7 @@ namespace HeCopUI_Framework.Controls.Progress
         {
             base.OnPaint(e);
             Bitmap bitmap = new Bitmap(Width, Height);
+            bitmap.MakeTransparent();
             #region Wave
             var g = Graphics.FromImage(bitmap);
             GetAppResources.GetControlGraphicsEffect(g);
@@ -190,27 +191,44 @@ namespace HeCopUI_Framework.Controls.Progress
             path2.AddLine(this.Width + 1, Height, -1, Height);
             path2.AddLine(-1, Height, -1, -1);
 
-            g.FillPath(new SolidBrush(Color.FromArgb(220, m_waveColor.R, m_waveColor.G, m_waveColor.B)), path1);
-            g.FillPath(new SolidBrush(Color.FromArgb(220, m_waveColor.R, m_waveColor.G, m_waveColor.B)), path2);
+            using (var brushb = new SolidBrush(Color.FromArgb(220, m_waveColor.R, m_waveColor.G, m_waveColor.B)))
+            {
+                g.FillPath(brushb, path1);
+                g.FillPath(brushb, path2);
+            }
             #endregion
-            g.DrawString(Value + "%", Font, new SolidBrush(ForeColor), ClientRectangle, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+         
+            
             Bitmap ProgressImage = new Bitmap(Width, Height);
             Graphics gr = Graphics.FromImage(ProgressImage);
             GetAppResources.GetControlGraphicsEffect(gr);
             gr.DrawImage(bitmap, new Rectangle(0, Height - (value * Height / maximum), Width, value * Height / maximum));
+            gr.DrawString(Value + "%", Font, new SolidBrush(ForeColor), ClientRectangle, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             gr.Dispose();
             GetAppResources.GetControlGraphicsEffect(e.Graphics);
-            switch (ProgressShape)
+            using (var texttureBrush = new TextureBrush(ProgressImage))
+            using (var brush = new SolidBrush(BorderColor))
+            using (var penBrush = new Pen(brush, BorderThickness))
             {
-                case ProgressShapeType.Circular:
-                    e.Graphics.FillEllipse(new TextureBrush(ProgressImage), new Rectangle(BorderThickness / 2, BorderThickness / 2, Width - BorderThickness / 2 - 3, Height - BorderThickness / 2 - 3));
-                    e.Graphics.DrawEllipse(new Pen(new SolidBrush(BorderColor), BorderThickness), new Rectangle(BorderThickness / 2, BorderThickness / 2, Width - BorderThickness / 2 - 3, Height - BorderThickness / 2 - 3));
-                    break;
-                case ProgressShapeType.RoundRectangle:
-                    e.Graphics.FillPath(new TextureBrush(ProgressImage), HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, Radius));
-                    e.Graphics.DrawPath(new Pen(new SolidBrush(BorderColor), BorderThickness), HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, Radius, BorderThickness));
-                    break;
+                switch (ProgressShape)
+                {
+                    case ProgressShapeType.Circular:
+                        e.Graphics.FillEllipse(texttureBrush, new Rectangle(BorderThickness / 2, BorderThickness / 2, Width - BorderThickness / 2 - 3, Height - BorderThickness / 2 - 3));
+                        e.Graphics.DrawEllipse(penBrush, new Rectangle(BorderThickness / 2, BorderThickness / 2, Width - BorderThickness / 2 - 3, Height - BorderThickness / 2 - 3));
+                        break;
+                    case ProgressShapeType.RoundRectangle:
+                        e.Graphics.FillPath(texttureBrush, HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, Radius));
+                        e.Graphics.DrawPath(penBrush, HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, Radius, BorderThickness));
+                        break;
+                }
             }
+
+            g.Dispose();
+            gr.Dispose();
+            bitmap.Dispose();
+            ProgressImage.Dispose();
+            path1.Dispose();
+            path2.Dispose();
         }
 
         public Color BorderColor { get; set; } = Color.Gray;

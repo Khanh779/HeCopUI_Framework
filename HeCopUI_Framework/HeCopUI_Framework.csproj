@@ -139,6 +139,12 @@
     <Compile Include="Animations\Flags.cs" />
     <Compile Include="Animations\PointFConverter.cs" />
     <Compile Include="Animations\TransfromHelper.cs" />
+    <Compile Include="Controls\Bubble\HAnimatedCircleControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Bubble\HWaterDropControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Calendar\CalendarControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -168,6 +174,7 @@
     <Compile Include="Controls\TreeView\TreeNodeCollection.cs" />
     <Compile Include="Controls\TreeView\TreeViewCancelEventArgs.cs" />
     <Compile Include="Controls\TreeView\TreeViewEventArgs.cs" />
+    <Compile Include="Enums\ProgressValueType.cs" />
     <Compile Include="Forms\HFormFlat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,7 +447,7 @@
     <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\HtmlUtils.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\RenderUtils.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\SubString.cs" />
-    <Compile Include="Controls\Progress\HProgressBarWaterWave.cs">
+    <Compile Include="Controls\Bubble\HWaterWaveBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ImageProcessor\StackBlur.cs" />
