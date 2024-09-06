@@ -1,0 +1,13 @@
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_Test.csproj.AssemblyReference.cache
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_Test.Form1.resources
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_Test.Properties.Resources.resources
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_Test.csproj.GenerateResource.cache
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_Test.csproj.CoreCompileInputs.cache
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Release\HecopUI_Test.exe.config
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Release\HecopUI_Test.exe
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Release\HecopUI_Test.pdb
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Release\HeCopUI_Framework.dll
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Release\HeCopUI_Framework.pdb
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_.9411D683.Up2Date
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_Test.exe
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Release\HecopUI_Test.pdb
