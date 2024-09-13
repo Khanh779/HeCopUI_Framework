@@ -170,8 +170,8 @@ namespace HeCopUI_Framework.HDialog
             Cursor = Cursors.Default;
         }
 
-        [DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
-        private static extern int SetWindowTheme(IntPtr hwnd, string pszSubAppName, string pszSubIdList);
+        //[DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
+        //private static extern int SetWindowTheme(IntPtr hwnd, string pszSubAppName, string pszSubIdList);
 
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
