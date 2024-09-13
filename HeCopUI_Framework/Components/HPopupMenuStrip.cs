@@ -1,5 +1,5 @@
 ﻿
-
+using static HeCopUI_Framework.Win32.User32;
 using HeCopUI_Framework.Components;
 using HeCopUI_Framework.Win32;
 using HeCopUI_Framework.Win32.Enums;
@@ -157,13 +157,13 @@ namespace HeCopUI_Framework.Components
             _host = new ToolStripControlHost(content);
             _host.BackColor = Color.Transparent;
             Padding = Margin = _host.Padding = _host.Margin = Padding.Empty;
-            if (Win32.Win32.IsRunningOnMono) content.Margin = Padding.Empty;
+            if (IsRunningOnMono) content.Margin = Padding.Empty;
             MinimumSize = content.MinimumSize;
             content.MinimumSize = content.Size;
             MaximumSize = content.MaximumSize;
             content.MaximumSize = content.Size;
             Size = content.Size;
-            if (Win32.Win32.IsRunningOnMono) _host.Size = content.Size;
+            if (IsRunningOnMono) _host.Size = content.Size;
             TabStop = content.TabStop = true;
             content.Location = Point.Empty;
             Items.Add(_host);
@@ -189,12 +189,12 @@ namespace HeCopUI_Framework.Components
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-            if (Win32.Win32.IsRunningOnMono) return; // in case of non-Windows
+          
             if ((Visible && ShowingAnimation == PopupAnimations.None) || (!Visible && HidingAnimation == PopupAnimations.None))
             {
                 return;
             }
-            Win32.Win32.AnimationFlags flags = Visible ? Win32.Win32.AnimationFlags.Roll : Win32.Win32.AnimationFlags.Hide;
+            HeCopUI_Framework.Win32.Enums.AnimationFlags flags = Visible ? HeCopUI_Framework.Win32.Enums.AnimationFlags.Roll : HeCopUI_Framework.Win32.Enums.AnimationFlags.Hide;
             PopupAnimations _flags = Visible ? ShowingAnimation : HidingAnimation;
             if (_flags == PopupAnimations.SystemDefault)
             {
@@ -240,9 +240,9 @@ namespace HeCopUI_Framework.Components
                     _flags = (_flags & ~PopupAnimations.LeftToRight) | PopupAnimations.RightToLeft;
                 }
             }
-            flags = flags | (Win32.Win32.AnimationFlags.Mask & (Win32.Win32.AnimationFlags)(int)_flags);
-            Win32.Win32.SetForegroundWindow(this.Handle);
-            Win32.Win32.AnimateWindow(this.Handle, AnimationDuration, (int)flags);
+            flags = flags | (HeCopUI_Framework.Win32.Enums  .AnimationFlags.Mask & (HeCopUI_Framework.Win32.Enums.AnimationFlags)(int)_flags);
+            SetForegroundWindow(this.Handle);
+            Win32.User32.AnimateWindow(this.Handle, AnimationDuration, (int)flags);
         }
 
         /// <summary>
@@ -401,11 +401,7 @@ namespace HeCopUI_Framework.Components
         /// <param name="e">A <see cref="T:System.Windows.Forms.LayoutEventArgs" /> that contains the event data.</param>
         protected override void OnLayout(LayoutEventArgs e)
         {
-            if (!Win32.Win32.IsRunningOnMono)
-            {
-                base.OnLayout(e);
-                return;
-            }
+            base.OnLayout(e);
             Size suggestedSize = GetPreferredSize(Size.Empty);
             if (AutoSize && suggestedSize != Size)
             {
@@ -498,7 +494,7 @@ namespace HeCopUI_Framework.Components
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         private bool InternalProcessResizing(ref Message m, bool contentControl)
         {
-            if (m.Msg == (int)Win32.Win32.WM_NCACTIVATE && m.WParam != IntPtr.Zero && _childPopup != null && _childPopup.Visible)
+            if (m.Msg == (int)HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCACTIVATE && m.WParam != IntPtr.Zero && _childPopup != null && _childPopup.Visible)
             {
                 _childPopup.Hide();
             }
@@ -506,11 +502,11 @@ namespace HeCopUI_Framework.Components
             {
                 return false;
             }
-            if (m.Msg == (int)Win32.Win32.WM_NCHITTEST)
+            if (m.Msg == (int)HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCHITTEST)
             {
                 return OnNcHitTest(ref m, contentControl);
             }
-            else if (m.Msg == Win32.Win32.WM_GETMINMAXINFO)
+            else if (m.Msg == (int)HeCopUI_Framework.Win32.Enums.WindowMessages.WM_GETMINMAXINFO)
             {
                 return OnGetMinMaxInfo(ref m);
             }
@@ -520,7 +516,7 @@ namespace HeCopUI_Framework.Components
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         private bool OnGetMinMaxInfo(ref Message m)
         {
-            Win32.Win32.MINMAXINFO minmax = (Win32.Win32.MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(Win32.Win32.MINMAXINFO));
+            Win32.Struct.MINMAXINFO minmax = (Win32.Struct.MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(Win32.Struct.MINMAXINFO));
             if (!MaximumSize.IsEmpty)
             {
                 minmax.maxTrackSize = MaximumSize;
@@ -534,7 +530,7 @@ namespace HeCopUI_Framework.Components
         {
             if (NonInteractive)
             {
-                m.Result = (IntPtr)Win32.Win32.HTTRANSPARENT;
+                m.Result = (IntPtr)Win32.Enums.HitTests.HTTRANSPARENT;
                 return true;
             }
 
@@ -543,23 +539,23 @@ namespace HeCopUI_Framework.Components
             Point clientLocation = PointToClient(new Point(x, y));
 
             GripBounds gripBouns = new GripBounds(contentControl ? Content.ClientRectangle : ClientRectangle);
-            IntPtr transparent = new IntPtr(Win32.Win32.HTTRANSPARENT);
+            IntPtr transparent = new IntPtr((int)Win32.Enums.HitTests.HTTRANSPARENT);
 
             if (_resizableTop)
             {
                 if (_resizableLeft && gripBouns.TopLeft.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTTOPLEFT;
+                    m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTTOPLEFT;
                     return true;
                 }
                 if (!_resizableLeft && gripBouns.TopRight.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTTOPRIGHT;
+                    m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTTOPRIGHT;
                     return true;
                 }
                 if (gripBouns.Top.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTTOP;
+                    m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTTOP;
                     return true;
                 }
             }
@@ -567,28 +563,28 @@ namespace HeCopUI_Framework.Components
             {
                 if (_resizableLeft && gripBouns.BottomLeft.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTBOTTOMLEFT;
+                    m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTBOTTOMLEFT;
                     return true;
                 }
                 if (!_resizableLeft && gripBouns.BottomRight.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTBOTTOMRIGHT;
+                    m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTBOTTOMRIGHT;
                     return true;
                 }
                 if (gripBouns.Bottom.Contains(clientLocation))
                 {
-                    m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTBOTTOM;
+                    m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTBOTTOM;
                     return true;
                 }
             }
             if (_resizableLeft && gripBouns.Left.Contains(clientLocation))
             {
-                m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTLEFT;
+                m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTLEFT;
                 return true;
             }
             if (!_resizableLeft && gripBouns.Right.Contains(clientLocation))
             {
-                m.Result = contentControl ? transparent : (IntPtr)Win32.Win32.HTRIGHT;
+                m.Result = contentControl ? transparent : (IntPtr)Win32.Enums.HitTests.HTRIGHT;
                 return true;
             }
             return false;

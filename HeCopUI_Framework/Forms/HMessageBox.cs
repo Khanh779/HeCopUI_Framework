@@ -11,6 +11,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static HeCopUI_Framework.Win32.User32;
 
 namespace HeCopUI_Framework.Forms
 {
@@ -24,8 +25,8 @@ namespace HeCopUI_Framework.Forms
         private HFormControlBox hFormControlBox11;
         private static Timer _timer;
 
-        [DllImport("Msg.dll", CharSet = CharSet.Auto)]
-        private static extern bool MessageBeep(uint type);
+        //[DllImport("User32.dll", CharSet = CharSet.Auto)]
+        //private static extern bool MessageBeep(uint type);
 
         public enum MessageBoxStyle
         {

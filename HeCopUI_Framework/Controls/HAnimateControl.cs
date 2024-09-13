@@ -21,7 +21,7 @@ namespace HeCopUI_Framework.Controls
             {
                 tar = value;
                 if (DesignMode == false)
-                    HeCopUI_Framework.Win32.Win32.AnimateWindow(TargetControl.Handle, Interval, AnimateMode);
+                    HeCopUI_Framework.Win32.User32.AnimateWindow(TargetControl.Handle, Interval, AnimateMode);
                 TargetControl.Invalidate();
                 //System.Drawing.Design.UITypeEditorEditStyle.
                 //EnumSetEditor
@@ -34,7 +34,7 @@ namespace HeCopUI_Framework.Controls
         /// </summary>
 
         //[SettingsBindable(true)]
-        public HeCopUI_Framework.Win32.Win32.AnimateWindowFlags AnimateMode { get; set; } = HeCopUI_Framework.Win32.Win32.AnimateWindowFlags.AW_BLEND;
+        public HeCopUI_Framework.Win32.Enums.AnimateWindowFlags AnimateMode { get; set; } = HeCopUI_Framework.Win32.Enums.AnimateWindowFlags.AW_BLEND;
 
         public int Interval { get; set; } = 100;
     }

@@ -19,7 +19,7 @@ namespace HeCopUI_Framework.Forms
             InitializeComponent();
             SetStyle(GetAppResources.SetControlStyles(), true);
             base.FormBorderStyle = FormBorderStyle.None;
-        
+
             CalcSystemBoxPos();
             MouseLeave += HForm_MouseLeave;
         }
@@ -56,7 +56,7 @@ namespace HeCopUI_Framework.Forms
             //Size = formSize;
             //formSize = this.ClientSize;
             hDropShadowForm = new HDropShadowForm();
-          
+
             hDropShadowForm.ShadowSpread = ShadowSpread;
             hDropShadowForm.HideResizeShadow = HideResizeShadow;
             hDropShadowForm.ShadowBlur = ShadowBlur;
@@ -70,7 +70,7 @@ namespace HeCopUI_Framework.Forms
             base.OnLoad(e);
         }
 
-      
+
 
         HDropShadowForm hDropShadowForm = new HDropShadowForm();
         //[Browsable(false)]
@@ -161,7 +161,7 @@ namespace HeCopUI_Framework.Forms
             base.OnMouseMove(e);
         }
 
-      
+
         public bool MaximizeFullScreen { get; set; } = false;
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -215,9 +215,9 @@ namespace HeCopUI_Framework.Forms
                     Size = new Size(200, Height);
                 if (Size.Height <= 40)
                     Size = new Size(Width, 40);
-              
+
             }
-         
+
             CalcSystemBoxPos(); Invalidate();
             base.OnSizeChanged(e);
         }
@@ -237,7 +237,7 @@ namespace HeCopUI_Framework.Forms
             base.OnResize(e);
         }
 
-        
+
 
         //const int SC_MINIMIZE = 0xF020; //Minimize form (Before)
         //const int SC_RESTORE = 0xF120; //Restore form (Before)
@@ -324,13 +324,13 @@ namespace HeCopUI_Framework.Forms
         protected override void WndProc(ref Message m)
         {
             //base.WndProc(ref m);
-       
+
             switch (m.Msg)
             {
-            
+
                 case WM_NCHITTEST:
                     base.WndProc(ref m);
-                    if (Resizable && (int)m.Result == HTCLIENT && WindowState== FormWindowState.Normal)
+                    if (Resizable && (int)m.Result == HTCLIENT && WindowState == FormWindowState.Normal)
                     {
                         Point screenPoint = new Point(m.LParam.ToInt32()); //Gets screen point coordinates(X and Y coordinate of the pointer)                           
                         Point clientPoint = this.PointToClient(screenPoint); //Computes the location of the screen point into client coordinates                          
@@ -360,21 +360,21 @@ namespace HeCopUI_Framework.Forms
                                 m.Result = (IntPtr)HTBOTTOMRIGHT;
                         }
                     }
-               
+
                     return;
             }
 
             base.WndProc(ref m);
         }
 
-       
+
         private void AdjustForm()
         {
             switch (this.WindowState)
             {
                 case FormWindowState.Maximized: //Maximized form (After)
                     //this.Padding = new Padding(8, 8, 8, 0);
-                    MaximumSize= Screen.PrimaryScreen.WorkingArea.Size;
+                    MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
                     break;
                 case FormWindowState.Normal: //Restored form (After)
                     //if (this.Padding.Top != Border.Top)
@@ -383,7 +383,7 @@ namespace HeCopUI_Framework.Forms
             }
         }
 
-   
+
 
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
@@ -645,9 +645,9 @@ namespace HeCopUI_Framework.Forms
                     using (Pen closePen = new Pen(new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.IconCloseColor, CB.IconCloseHoverColor, closestep)), 1.5f))
                         DrawClose(g, closePen);
 
-                    if(MaximizeBox==true)
-                    using (Pen maximizePen = new Pen(new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.IconMaximizeColor, CB.IconMinimizeHoverColor, maxstep)), 1.5f))
-                        DrawMaximize_Restore(g, maximizePen);
+                    if (MaximizeBox == true)
+                        using (Pen maximizePen = new Pen(new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.IconMaximizeColor, CB.IconMinimizeHoverColor, maxstep)), 1.5f))
+                            DrawMaximize_Restore(g, maximizePen);
 
                     //if (MaximizeBox == false)
                     using (Pen minimizePen = new Pen(new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.IconMinimizeColor, CB.IconMinimizeHoverColor, minstep)), 1.5f))
@@ -715,9 +715,10 @@ namespace HeCopUI_Framework.Forms
         void DrawMinimize(Graphics g, System.Drawing.Pen pen)
         {
             g.DrawLine(pen, MinimizeBoxRect.Left + MinimizeBoxRect.Width / 2 - 6,
-                    MinimizeBoxRect.Top + MinimizeBoxRect.Height / 2,
-                    MinimizeBoxRect.Left + MinimizeBoxRect.Width / 2 + 5,
-                    MinimizeBoxRect.Top + MinimizeBoxRect.Height / 2);
+                  MinimizeBoxRect.Top + MinimizeBoxRect.Height / 2,
+                  MinimizeBoxRect.Left + MinimizeBoxRect.Width / 2 + 5,
+                  MinimizeBoxRect.Top + MinimizeBoxRect.Height / 2);
+
         }
         #endregion
 

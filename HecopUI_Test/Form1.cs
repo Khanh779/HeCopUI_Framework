@@ -157,23 +157,8 @@ namespace HecopUI_Test
 
         private void hButton12_Click(object sender, EventArgs e)
         {
-            var frmflat= new HFormFlat();
-            frmflat.Text = "This is title";
-            frmflat.StartPosition = FormStartPosition.CenterScreen;
-            frmflat.BackColor= Color.FromArgb(255, 255, 255);
-            Button btn = new Button();
-            btn.Text = "Click me";
-            btn.Location = new Point(50, 50);
-            btn.Size = new Size(100, 50);
-            btn.Click += (s, ev) =>
-            {
-                MessageBox.Show("Hello");
-            };
-            frmflat.Controls.Add(btn);
-
-
-            //frmflat.FormBorderStyle = FormBorderStyle.None;
-            frmflat.Show();
+            Form2 f = new Form2();
+            f.Show();
         }
     }
 }

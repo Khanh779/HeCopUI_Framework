@@ -1,3 +1,5 @@
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\bin\Release\HeCopUI_Framework.dll
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\bin\Release\HeCopUI_Framework.pdb
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCopUI_Framework.csproj.AssemblyReference.cache
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\Interop.TaskScheduler.dll
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCopUI_Framework.csproj.ResolveComReference.cache
@@ -15,7 +17,5 @@ D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCo
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCopUI_Framework.SuperNotifyIcon.FormDebugger.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCopUI_Framework.csproj.GenerateResource.cache
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCopUI_Framework.csproj.CoreCompileInputs.cache
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\bin\Release\HeCopUI_Framework.dll
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\bin\Release\HeCopUI_Framework.pdb
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCopUI_Framework.dll
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Release\HeCopUI_Framework.pdb

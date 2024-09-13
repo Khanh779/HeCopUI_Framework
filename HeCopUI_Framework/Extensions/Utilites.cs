@@ -125,9 +125,9 @@ namespace HeCopUI_Framework.Extensions
         /// <param name="message">Windows message api.</param>
         public void SmoothCursor(ref Message message)
         {
-            if (message.Msg != Win32.Win32.WM_SETCURSOR)
+            if (message.Msg != (int)Win32.Enums.WindowMessages.WM_SETCURSOR)
                 return;
-            Win32.Win32.SetCursor(Win32.Win32.LoadCursor(IntPtr.Zero, Win32.Win32.IDC_HAND));
+            Win32.User32.SetCursor(Win32.User32.LoadCursor(IntPtr.Zero, (int)Win32.Enums.IconDataCursorFlags.IDC_HAND));
             message.Result = IntPtr.Zero;
         }
 

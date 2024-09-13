@@ -1,4 +1,7 @@
 ﻿using HeCopUI_Framework.Struct;
+using HeCopUI_Framework.Win32;
+using HeCopUI_Framework.Win32.Enums;
+using HeCopUI_Framework.Win32.Struct;
 using Microsoft.Win32;
 using System;
 using System.CodeDom;
@@ -10,11 +13,11 @@ using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
+using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 using static HeCopUI_Framework.GetAppResources;
-using static HeCopUI_Framework.GetAppResources.Win32;
-using static HeCopUI_Framework.Win32.ShellAPI;
 using static System.Net.WebRequestMethods;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
@@ -102,20 +105,14 @@ namespace HeCopUI_Framework.Forms
         }
 
 
-        private RectangleF left, topLeft, bottomLeft,
-            right, topRight, bottomRight,
-            top, bottom,
-            close,
-            minimize,
-            maximize;
+        private Rectangle close, minimize, maximize, titleBounds;
 
-        int headerHeight = 30,
-            resizeBorder = 6;
+        int headerHeight = 35;
 
         /// <summary>
         /// Gets or sets the height of the form's header.
         /// </summary>
-        public int HeaderHeight
+        public int TitleBarHeight
         {
             get { return headerHeight; }
             set
@@ -125,14 +122,37 @@ namespace HeCopUI_Framework.Forms
             }
         }
 
-        [DllImport("user32.dll")]
-        private static extern bool ReleaseCapture();
+        Point mouseClient
+        {
+            get
+            {
+                return PointToClient(MousePosition);
+            }
+        }
 
-        [DllImport("user32.dll")]
-        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        bool hoveredMinimize
+        {
+            get
+            {
+                return minimize.Contains(mouseClient.X, mouseClient.Y * (mouseClient.Y < 0 ? -1 : 1));
+            }
+        }
 
+        bool hoveredMaximize
+        {
+            get
+            {
+                return maximize.Contains(PointToClient(MousePosition));
+            }
+        }
 
-        bool hoveredClose = false, hoveredMinimize = false, hoveredMaximize = false;
+        bool hoveredClose
+        {
+            get
+            {
+                return close.Contains(PointToClient(MousePosition));
+            }
+        }
 
         protected override void OnTextChanged(EventArgs e)
         {
@@ -142,27 +162,17 @@ namespace HeCopUI_Framework.Forms
 
 
 
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                IsResize();
-            }
-            base.OnMouseDown(e);
-
-        }
-
-        float offyCenter = 0; int iconControlBoxHeight = 22;
+        int controlBoxSize = 26;
 
         /// <summary>
         /// Gets or sets the size of the control box icons.
         /// </summary>
-        public int IconControlBoxHeight
+        public int ControlBoxSize
         {
-            get { return iconControlBoxHeight; }
+            get { return controlBoxSize; }
             set
             {
-                iconControlBoxHeight = value;
+                controlBoxSize = value;
                 Invalidate();
             }
         }
@@ -226,762 +236,694 @@ namespace HeCopUI_Framework.Forms
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            e.Graphics.SmoothingMode = SmoothingMode.None;
+            //e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-            topLeft = new Rectangle(0, 0, resizeBorder, resizeBorder);
-            top = new Rectangle(resizeBorder, 0, Width - (resizeBorder * 2), resizeBorder);
-            topRight = new Rectangle(Width - resizeBorder, 0, resizeBorder, resizeBorder);
-            left = new Rectangle(0, resizeBorder, resizeBorder, Height - (resizeBorder * 2));
-            right = new Rectangle(Width - resizeBorder, resizeBorder, resizeBorder, Height - (resizeBorder * 2));
-            bottomLeft = new Rectangle(0, Height - resizeBorder, resizeBorder, resizeBorder);
-            bottom = new Rectangle(resizeBorder, Height - resizeBorder, Width - (resizeBorder * 2), resizeBorder);
-            bottomRight = new Rectangle(Width - resizeBorder, Height - resizeBorder, resizeBorder, resizeBorder);
+            close = new Rectangle(Width - borderPadding.Horizontal - controlBoxSize, TitleBarHeight / 2 - controlBoxSize / 2, controlBoxSize, controlBoxSize);
+            maximize = new Rectangle(close.X - controlBoxSize, TitleBarHeight / 2 - controlBoxSize / 2, controlBoxSize, controlBoxSize);
 
-            #region Draw Resize Border
-            //DrawPaint(e);
+            switch (MaximizeBox)
+            {
+                case true:
+                    minimize = new Rectangle(maximize.X - controlBoxSize, TitleBarHeight / 2 - controlBoxSize / 2, controlBoxSize, controlBoxSize);
+                    break;
+                case false:
+                    minimize = new Rectangle(close.X - controlBoxSize, TitleBarHeight / 2 - controlBoxSize / 2, controlBoxSize, controlBoxSize);
+                    break;
+            }
 
-            #endregion
-            //LinearGradientBrush linearBorder = new LinearGradientBrush(ClientRectangle, borderColor1, borderColor2, borderLinear);
-            //e.Graphics.DrawRectangle(new Pen(linearBorder, 1.0f), 0, 0, Width - 1, Height - 1);
+            titleBounds = new Rectangle(borderPadding.Left, borderPadding.Top, Width - borderPadding.Horizontal, headerHeight);
 
-        }
-
-        void DrawPaint(Graphics g)
-        {
+            // Draw the header
             if (FormBorderStyle != FormBorderStyle.None)
             {
-                offyCenter = (float)((HeaderHeight - iconControlBoxHeight) / 2);
-
-                RectangleF text = new RectangleF(resizeBorder + 2, (headerHeight + resizeBorder) / 2 - titleFont.Height / 2, Width - resizeBorder - iconControlBoxHeight, iconControlBoxHeight);
-
-                g.FillRectangle(new LinearGradientBrush(ClientRectangle, headerColor1, headerColor2, titleLinearGradientMode), 0, 0, Width, headerHeight + resizeBorder);
-
-                if (ShowIcon)
+                using (var brush = new LinearGradientBrush(new Rectangle(0, 0, Width, TitleBarHeight), headerColor1, headerColor2, borderLinear))
                 {
-                    text.X += iconControlBoxHeight + 2;
-                    text.Width -= iconControlBoxHeight;
+                    e.Graphics.FillRectangle(brush, new Rectangle(0, 0, Width, TitleBarHeight));
+                    // Draw icon
+                    e.Graphics.DrawImage(Icon.ToBitmap(), 5, TitleBarHeight / 2 - IconSize.Height / 2, iconSize.Width, iconSize.Height);
+                    // Draw title
+                    StringFormat sf = new StringFormat();
+                    sf.LineAlignment = StringAlignment.Center;
+                    sf.Trimming = StringTrimming.EllipsisCharacter;
+                    switch (textAlignment)
+                    {
+                        case TextAlignment.Left:
+                            sf.Alignment = StringAlignment.Near;
+                            break;
+                        case TextAlignment.Center:
+                            sf.Alignment = StringAlignment.Center;
+                            break;
+                        case TextAlignment.Right:
+                            sf.Alignment = StringAlignment.Far;
+                            break;
+                    }
+                    e.Graphics.DrawString(Text, titleFont, new SolidBrush(titleColor), new RectangleF(IconSize.Width + 10, 0, Width, TitleBarHeight), sf);
                 }
-                if (ShowIcon) g.DrawImage(Icon.ToBitmap(), new RectangleF(resizeBorder, resizeBorder / 2 + offyCenter, iconControlBoxHeight, iconControlBoxHeight));
-                // draw title text
-                g.DrawString(Text, titleFont, new SolidBrush(titleColor), text, new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
 
-                if (MinimizeBox) text.Width -= iconControlBoxHeight;
-                if (MaximizeBox && FormBorderStyle == FormBorderStyle.Sizable) text.Width -= iconControlBoxHeight;
+                // Fill control boxes
+                using (var alphaBrush = new SolidBrush(Color.FromArgb(30, Color.White)))
+                {
+                    if (hoveredClose)
+                    {
+                        e.Graphics.FillRectangle(alphaBrush, close);
+                    }
+                    if (hoveredMaximize)
+                    {
+                        e.Graphics.FillRectangle(alphaBrush, maximize);
+                    }
+                    if (hoveredMinimize)
+                    {
+                        e.Graphics.FillRectangle(alphaBrush, minimize);
+                    }
+                }
 
-                close = new RectangleF(Width - iconControlBoxHeight - 5 - resizeBorder, resizeBorder / 2 + offyCenter, iconControlBoxHeight, iconControlBoxHeight);
 
-                g.FillRectangle(new SolidBrush(hoveredClose ? Color.FromArgb(20, Color.White) : Color.Transparent),
-                    close.X, close.Y, close.Width, close.Height);
-
-                g.DrawLine(new Pen(hoveredClose ? closeColor : ForeColor, 1.0f), new PointF(close.X + 6, close.Y + 6), new PointF(close.X + close.Width - 6, close.Y + close.Height - 6));
-                g.DrawLine(new Pen(hoveredClose ? closeColor : ForeColor, 1.0f), new PointF(close.X + close.Width - 6, close.Y + 6), new PointF(close.X + 6, close.Y + close.Height - 6));
-                hoveredClose = close.Contains(pointT);
+                // Draw the control boxes
+                using (var closeBrush = new SolidBrush(closeColor))
+                using (var closePen = new Pen(closeBrush, 1))
+                {
+                    DrawClose(e.Graphics, closePen);
+                }
 
                 if (MinimizeBox)
                 {
-                    minimize = new RectangleF(close.X - iconControlBoxHeight - 5, close.Y, iconControlBoxHeight, iconControlBoxHeight);
-                    if (MaximizeBox == false)
+                    using (var minimizeBrush = new SolidBrush(minimizeColor))
+                    using (var minimizePen = new Pen(minimizeBrush, 1))
                     {
-                        hoveredMinimize = minimize.Contains(pointT);
-                        g.FillRectangle(new SolidBrush(hoveredMinimize ? Color.FromArgb(20, Color.White) : Color.Transparent), minimize.X, minimize.Y, minimize.Width, minimize.Height);
-
+                        DrawMinimize(e.Graphics, minimizePen);
                     }
-                    if (MaximizeBox)
+                }
+
+                if (MaximizeBox)
+                {
+                    using (var maximizeBrush = new SolidBrush(maximizeColor))
+                    using (var maximizePen = new Pen(maximizeBrush, 1))
                     {
-                        maximize = new RectangleF(close.X - iconControlBoxHeight - 5, minimize.Y, iconControlBoxHeight, iconControlBoxHeight);
-                        minimize = new RectangleF(maximize.X - iconControlBoxHeight - 5, maximize.Y, iconControlBoxHeight, iconControlBoxHeight);
-                        hoveredMinimize = minimize.Contains(pointT);
-                        hoveredMaximize = maximize.Contains(pointT);
-                        g.FillRectangle(new SolidBrush(hoveredMinimize ? Color.FromArgb(20, Color.White) : Color.Transparent), minimize.X, minimize.Y, minimize.Width, minimize.Height);
-                        g.FillRectangle(new SolidBrush(hoveredMaximize ? Color.FromArgb(20, Color.White) : Color.Transparent), maximize.X, maximize.Y, maximize.Width, maximize.Height);
-
-                        if (WindowState == FormWindowState.Maximized)
-                        {
-
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + 6, maximize.Y + 8),
-                                new PointF(maximize.X + 6, maximize.Y + maximize.Height - 6));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + 6, maximize.Y + maximize.Height - 6),
-                                new PointF(maximize.X + maximize.Width - 8, maximize.Y + maximize.Height - 6));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + maximize.Width - 8, maximize.Y + maximize.Height - 6),
-                                new PointF(maximize.X + maximize.Width - 8, maximize.Y + 8));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + maximize.Width - 8, maximize.Y + 8),
-                                new PointF(maximize.X + 6, maximize.Y + 8));
-
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + 8, maximize.Y + 8),
-                                new PointF(maximize.X + 8, maximize.Y + 6));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + 8, maximize.Y + 6),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + 6));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + 6),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + maximize.Height - 8));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + maximize.Height - 8),
-                                new PointF(maximize.X + maximize.Width - 8, maximize.Y + maximize.Height - 8));
-                        }
-                        else if (WindowState == FormWindowState.Normal)
-                        {
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + 6, maximize.Y + 6),
-                                new PointF(maximize.X + 6, maximize.Y + maximize.Height - 6));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + 6, maximize.Y + maximize.Height - 6),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + maximize.Height - 6));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + maximize.Height - 6),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + 6));
-                            g.DrawLine(new Pen(hoveredMaximize ? maximizeColor : ForeColor, 1.0f),
-                                new PointF(maximize.X + maximize.Width - 6, maximize.Y + 6),
-                                new PointF(maximize.X + 6, maximize.Y + 6));
-                        }
+                        DrawMaximize_Restore(e.Graphics, maximizePen);
                     }
-
-                    g.DrawLine(new Pen(hoveredMinimize ? minimizeColor : ForeColor, 1.0f), new PointF(minimize.X + 6, minimize.Y + (minimize.Width / 2) + 1),
-                        new PointF(minimize.X + minimize.Width - 6, minimize.Y + (minimize.Width / 2) + 1));
-
                 }
             }
-        }
-
-        public bool MaximizeFullScreen { get; set; } = false;
-
-        protected override void OnResizeEnd(EventArgs e)
-        {
-            base.OnResizeEnd(e);
 
 
-            if (FormBorderStyle == FormBorderStyle.Sizable && MaximizeBox && WindowState == FormWindowState.Normal)
+
+
+
+
+            if (BorderPadding.All > 0)
             {
-                int screenY = Screen.FromPoint(Location).Bounds.Location.Y;
-                int screenX = Screen.FromPoint(Location).Bounds.Location.X;
-                int screenX2 = Screen.FromPoint(Location).Bounds.Location.X + Screen.FromPoint(Location).Bounds.Size.Width;
-                bool wndSnap = Location.Y <= screenY + 6 && Location.Y >= screenY;
-                bool mouseSnap = MousePosition.Y <= screenY + 6 && MousePosition.Y >= screenY;
-                if (wndSnap || mouseSnap) WindowState = FormWindowState.Maximized;
+                // Draw the border
+                using (var lineBrush = new LinearGradientBrush(ClientRectangle, borderColor1, borderColor2, borderLinear))
+                {
+                    int borderSizeMax = Math.Max(borderPadding.Left, Math.Max(borderPadding.Top, Math.Max(borderPadding.Right, borderPadding.Bottom)));
 
+                    // Draw the border as a rectangle
+                    using (Pen pen = new Pen(lineBrush, borderSizeMax))
+                    {
+                        // Calculate position and size to ensure negative values are respected
+                        RectangleF adjustBorder = new RectangleF(1 + borderPadding.Left - borderSizeMax, 1 + borderPadding.Top - borderSizeMax,
+                            Width - 1 - (borderPadding.Right - borderSizeMax), Height - 1 - (borderPadding.Bottom - borderSizeMax));
+
+                        e.Graphics.DrawRectangle(pen, adjustBorder.Left, adjustBorder.Top, adjustBorder.Right - adjustBorder.Left, adjustBorder.Bottom - adjustBorder.Top);
+                    }
+                }
             }
 
-            MinSizeResize();
         }
+
+
+
+        void DrawClose(Graphics g, System.Drawing.Pen pen)
+        {
+            g.DrawLine(pen, close.Left + close.Width / 2 - 6,
+                    close.Top + close.Height / 2 - 6,
+                    close.Left + close.Width / 2 + 5,
+                    close.Top + close.Height / 2 + 5);
+            g.DrawLine(pen, close.Left + close.Width / 2 - 6,
+                    close.Top + close.Height / 2 + 5,
+                    close.Left + close.Width / 2 + 5,
+                    close.Top + close.Height / 2 - 6);
+        }
+
+        void DrawMaximize_Restore(Graphics g, System.Drawing.Pen pen)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                g.DrawRectangle(pen, maximize.Left + maximize.Width / 2 - 6,
+                        maximize.Top + maximize.Height / 2 - 1,
+                        7, 7);
+
+                g.DrawLine(pen,
+                          maximize.Left + maximize.Width / 2 - 2,
+                          maximize.Top + maximize.Height / 2 - 1,
+                          maximize.Left + maximize.Width / 2 - 2,
+                          maximize.Top + maximize.Height / 2 - 4);
+
+                g.DrawLine(pen,
+                    maximize.Left + maximize.Width / 2 - 2,
+                    maximize.Top + maximize.Height / 2 - 4,
+                    maximize.Left + maximize.Width / 2 + 5,
+                    maximize.Top + maximize.Height / 2 - 4);
+
+                g.DrawLine(pen,
+                    maximize.Left + maximize.Width / 2 + 5,
+                    maximize.Top + maximize.Height / 2 - 4,
+                    maximize.Left + maximize.Width / 2 + 5,
+                    maximize.Top + maximize.Height / 2 + 3);
+
+                g.DrawLine(pen,
+                    maximize.Left + maximize.Width / 2 + 5,
+                    maximize.Top + maximize.Height / 2 + 3,
+                    maximize.Left + maximize.Width / 2 + 2,
+                    maximize.Top + maximize.Height / 2 + 3);
+
+            }
+            else
+            {
+                g.DrawRectangle(pen, maximize.Left + maximize.Width / 2 - 6,
+                       maximize.Top + maximize.Height / 2 - 5, 10, 10);
+            }
+        }
+
+        void DrawMinimize(Graphics g, System.Drawing.Pen pen)
+        {
+            g.DrawLine(pen, minimize.Left + minimize.Width / 2 - 6,
+                  minimize.Top + minimize.Height / 2,
+                  minimize.Left + minimize.Width / 2 + 5,
+                  minimize.Top + minimize.Height / 2);
+
+        }
+
+
+
+        Padding borderPadding = new Padding(1, 2, 1, 1);
+        /// <summary>
+        /// Gets or sets the padding of the form's border.
+        /// </summary>
+        public Padding BorderPadding
+        {
+            get { return borderPadding; }
+            set
+            {
+                borderPadding = value;
+                Invalidate();
+            }
+        }
+
+        TextAlignment textAlignment = TextAlignment.Left;
+        /// <summary>
+        /// Gets or sets the text alignment of the form's title.
+        /// </summary>
+        public TextAlignment TitleTextAlignment
+        {
+            get { return textAlignment; }
+            set
+            {
+                textAlignment = value; Invalidate();
+            }
+        }
+
+        Size iconSize = new Size(20, 20);
+        /// <summary>
+        /// Gets or sets the size of the icon.
+        /// </summary>
+        public Size IconSize
+        {
+            get { return iconSize; }
+            set
+            {
+                iconSize = value;
+                Invalidate();
+            }
+        }
+
+
 
         public HFormFlat()
         {
-            SetStyle(ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(
+               ControlStyles.OptimizedDoubleBuffer |
+               ControlStyles.ResizeRedraw |
+               ControlStyles.UserPaint |
+               ControlStyles.AllPaintingInWmPaint, true);
+
+            base.FormBorderStyle = FormBorderStyle.None;
+
             BackColor = Color.FromArgb(25, 25, 25);
             ForeColor = Color.FromArgb(200, 200, 200);
 
-            //SetAeroEffect();
+            _hitTests = new[] {
+                new[] {
+                    HitTests.HTTOPLEFT, HitTests.HTTOP, HitTests.HTTOPRIGHT
+                },
+                new[] {
+                    HitTests.HTLEFT, HitTests.HTCLIENT,HitTests.HTRIGHT
+                },
+                new[] {
+                    HitTests.HTBOTTOMLEFT, HitTests.HTBOTTOM, HitTests.HTBOTTOMRIGHT
+                },
+            };
+
+
         }
 
-        private static void Composited(IntPtr hwnd)
+        FormBorderStyle formBorderStyle = FormBorderStyle.Sizable;
+        /// <summary>
+        /// Gets or sets the form border style.
+        /// </summary>
+        public new FormBorderStyle FormBorderStyle
         {
-            int GWL_EXSTYLE = -20;
-            IntPtr exStyle = (IntPtr)GetWindowLong(hwnd, GWL_EXSTYLE);
-            int compositedStyle = (int)exStyle | 0x02000000; //WS_EX_COMPOSITED
-            SetWindowLong(hwnd, GWL_EXSTYLE, compositedStyle);
-        }
-
-
-        #region Custom Drop-Shadow
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct MARGINS
-        {
-            public int leftWidth;
-            public int rightWidth;
-            public int topHeight;
-            public int bottomHeight;
-        }
-
-        [DllImport("dwmapi.dll")]
-        private static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
-
-        [DllImport("dwmapi.dll")]
-        private static extern int DwmSetWindowAttribute(IntPtr hWnd, int attr, ref int attrValue, int attrSize);
-
-        [DllImport("dwmapi.dll")]
-        private static extern int DwmIsCompositionEnabled(ref int pfEnabled);
-
-        [DllImport("user32.dll")]
-        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
-        [DllImport("user32.dll")]
-        static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetWindowDC(IntPtr hWnd);
-
-        [DllImport("user32.dll")]
-        private static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool TrackPopupMenu(IntPtr hMenu, int uFlags, int x, int y, int nReserved, IntPtr hWnd, IntPtr lpRect);
-
-        [DllImport("user32.dll")]
-        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
-
-        [DllImport("User32.dll")]
-        public static extern bool PostMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        #region
-        const int WM_NCPAINT = 0x85, WM_NCCALCSIZE = 0x83, WM_NCHITTEST = 0x84, HTCAPTION = 0x2, WS_SIZEBOX = 0x40000, WS_THICKFRAME = 0x00040000,
-        WS_CAPTION = 0x00C00000, WS_BORDE = 0x800000, WS_SYSMENU = 0x80000, WS_MAXIMIZEBOX = 0x10000, WS_MINIMIZE = 0x20000000, WS_MAXIMIZE = 0x1000000,
-        HTCLIENT = 0x1, WS_EX_COMPOSITED = 0x02000000, WM_NCLBUTTONDOWN = 0x00A1, WM_LBUTTONDOWN = 0x0201, WM_LBUTTONDBLCLK = 0x0203, WM_NCLBUTTONUP = 0x00A2,
-
-        WM_LBUTTONUP = 0x0202,
-        WM_NCACTIVATE = 0x86, GWL_EXSTYLE = -20, WM_NCBUTTONDBLCLK = 0x00A6, WM_NCLBUTTONDBLCLK = 0x00A3, WM_NCRBUTTONDBLCLK = 0x00A7,
-        WM_ERASEBKGND = 0x14,
-        CS_HREDRAW = 0x0002,
-        CS_VREDRAW = 0x0001,
-        CS_DBLCLKS = 0x8,
-        GWL_STYLE = -16,
-        WM_GETMINMAXINFO = 0x0024,
-        WM_SIZING = 0x0214,
-        WM_NCMOUSEMOVE = 0x00A0, WM_NCRBUTTONUP = 0x00A5, WM_RBUTTONDOWN = 0x0204,
-        WM_MOUSEMOVE = 0x0200, WM_RBUTTONUP = 0x0205, WM_NCRBUTTONDOWN = 0x00A4,
-        WM_COMMAND = 0x0111, WM_SYSCOMMAND = 0x112, SC_MINIMIZE = 0xF020, SC_MAXIMIZE = 0xF030, SC_CLOSE = 0xF060, SC_RESTORE = 0xF120, SC_SIZE = 0xF000, SC_MOVE = 0xF010, SC_MOVE1 = 0xF012,
-        TPM_LEFTBUTTON = 0x0000, TPM_RIGHTBUTTON = 0x0002, TPM_RETURNCMD = 0x0100,
-        SIZE_RESTORED = 0, SIZE_MINIMIZED = 1, SIZE_MAXIMIZED = 2, SIZE_MAXSHOW = 3, SIZE_MAXHIDE = 4, WM_SIZE = 0x0005, WS_MINIMIZEBOX = 0x20000, WS_CONTROLBOX = 0x00080000,
-            WS_EX_BUFFERED_DRAW = 0x200, WS_EX_LAYERED = 0x80000, WS_EX_TRANSPARENT = 0x20, WS_EX_TOOLWINDOW = 0x80, WS_EX_TOPMOST = 0x8, WS_EX_NOACTIVATE = 0x08000000, WS_EX_APPWINDOW = 0x40000,
-            WS_EX_BUFFERED_DRAW1 = 0x00000040, WS_EX_PROCESS_UI_UPDATES = 0x00000020, NCACTIVATE = 0x0086, MDIACTIVATE = 0x0222, NCMOUSELEAVE = 0x02A2,
-                MOUSEHOVER = 0x2A1, MOUSELEAVE = 0x02A3, ACTIVATEAPP = 0x001C;
-
-        private const int RDW_INVALIDATE = 0x0001;
-        private const int RDW_FRAME = 0x0400;
-        private const int RDW_UPDATENOW = 0x0100;
-        private const int RDW_ALLCHILDREN = 0x0080; public const int SWP_NOACTIVATE = 0x0010;
-
-
-        const int HTLEFT = 10;  //Left border of a window, allows resize horizontally to the left
-        const int HTRIGHT = 11; //Right border of a window, allows resize horizontally to the right
-        const int HTTOP = 12;   //Upper-horizontal border of a window, allows resize vertically up
-        const int HTTOPLEFT = 13;//Upper-left corner of a window border, allows resize diagonally to the left
-        const int HTTOPRIGHT = 14;//Upper-right corner of a window border, allows resize diagonally to the right
-        const int HTBOTTOM = 15; //Lower-horizontal border of a window, allows resize vertically down
-        const int HTBOTTOMLEFT = 16;//Lower-left corner of a window border, allows resize diagonally to the left
-        const int HTBOTTOMRIGHT = 17;//Lower-right corner of a window border, allows resize diagonally to the right  
-
-        private const int SWP_FRAMECHANGED = 0x0020;
-        private const int HWND_TOP = 0;
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct MINMAXINFO
-        {
-            public POINT ptReserved;  // Điểm dự phòng (không sử dụng)
-            public POINT ptMaxSize;  // Kích thước tối đa mà cửa sổ có thể đạt được
-            public POINT ptMaxPosition;  // Vị trí tối đa của cửa sổ khi phóng to
-            public POINT ptMinTrackSize;  // Kích thước tối thiểu của cửa sổ khi kéo
-            public POINT ptMaxTrackSize;  // Kích thước tối đa của cửa sổ khi kéo
-        }
-
-        // Định nghĩa struct POINT
-        [StructLayout(LayoutKind.Sequential)]
-        public struct POINT
-        {
-            public int x;  // Giá trị tọa độ x
-            public int y;  // Giá trị tọa độ y
-
-            public POINT(int x, int y)
+            get { return formBorderStyle; }
+            set
             {
-                this.x = x;
-                this.y = y;
+                formBorderStyle = value;
+                Invalidate();
             }
         }
 
-        [DllImport("user32.dll")]
-        public static extern IntPtr BeginPaint(IntPtr hwnd, out PAINTSTRUCT lpPaint);
-
-        [DllImport("user32.dll")]
-        public static extern bool EndPaint(IntPtr hWnd, [In] ref PAINTSTRUCT lpPaint);
-
-        // Hàm RedrawWindow để gọi API Windows
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, int flags);
-        [DllImport("user32.dll")]
-        public static extern bool GetWindowRect(IntPtr hWnd, out GetAppResources.WinApi.RECT lpRect);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr GetDCEx(IntPtr hWnd, IntPtr hrgnClip, DCXFlags flags);
-
-        [Flags]
-        public enum DCXFlags : long
-        {
-            DCX_WINDOW = 0x00000001L,
-            DCX_CACHE = 0x00000002L,
-            DCX_CLIPSIBLINGS = 0x00000010L,
-        }
-
-        #endregion
+        public bool IsPopup { get; set; } = false;
+        public bool DontShowInAltTab { get; set; } = false;
 
         protected override CreateParams CreateParams
         {
             get
             {
-                CreateParams cp = base.CreateParams;
-                //cp.ExStyle |= WS_EX_COMPOSITED;
-                //cp.ExStyle |= WS_EX_PROCESS_UI_UPDATES;
-                //cp.ClassStyle |= 0x8;
-                if (FormBorderStyle != FormBorderStyle.None)
+                var cp = base.CreateParams;
+
+                if (DesignMode)
+                    return cp;
+
+                if (IsPopup)
                 {
-                    //cp.Style &= ~WS_CAPTION;
-                    //cp.Style &= ~WS_THICKFRAME;
-
-                    //cp.Style &= ~WS_MINIMIZEBOX;
-                    //cp.Style &= ~WS_MAXIMIZEBOX;
-                    //cp.Style &= ~WS_CONTROLBOX;
-                    cp.Style |= WS_SYSMENU;
-
+                    cp.Style = (int)(HeCopUI_Framework.Win32.Enums.WindowStyles.WS_POPUP
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_CLIPCHILDREN // allows to not send paint requests to children when this form is invalidated
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_CLIPSIBLINGS);
+                    // i don't control the exstyle because i can't get it right and it throws an incorrect param
+                    // exception no matter what i put here
+                    cp.ExStyle = cp.ExStyle | (int)(HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_OVERLAPPEDWINDOW);
                 }
-                if (!DesignMode && FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
+                else
                 {
-                    cp.Style |= WS_SIZEBOX;
+                    // below is what makes the windows borderless but resizable
+                    cp.Style = (int)(HeCopUI_Framework.Win32.Enums.WindowStyles.WS_CAPTION // enables aero minimize animation/transition
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_CLIPCHILDREN
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_CLIPSIBLINGS
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_OVERLAPPED
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_SYSMENU // enables the context menu with the move, close, maximize, minize... commands (shift + right-click on the task bar item)
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_MINIMIZEBOX // need to be able to minimize from taskbar
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_MAXIMIZEBOX // same for maximize
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_THICKFRAME); // without this the window cannot be resized and so aero snap, de-maximizing and minimizing won't work
+
+                    cp.ExStyle = (int)(HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_COMPOSITED
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_LEFT
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_LTRREADING
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_APPWINDOW
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_WINDOWEDGE
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_OVERLAPPEDWINDOW
+                        | HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_CONTROLPARENT);
                 }
 
+                if (DontShowInAltTab)
+                {
+                    cp.ExStyle = cp.ExStyle | (int)HeCopUI_Framework.Win32.Enums.WindowStyles.WS_EX_TOOLWINDOW;
+                }
+
+                //if (AlwaysOnTop)
+                //{
+                //    cp.ExStyle = cp.ExStyle | (int)WinApi.WindowStylesEx.WS_EX_TOPMOST;
+                //}
+
+                //if (Unselectable)
+                //{
+                //    cp.ExStyle = cp.ExStyle | (int)WinApi.WindowStylesEx.WS_EX_TRANSPARENT;
+                //    cp.ExStyle = cp.ExStyle | (int)WinApi.WindowStylesEx.WS_EX_NOACTIVATE;
+                //    cp.Style = cp.Style | (int)WinApi.WindowStyles.WS_DISABLED;
+                //}
+
+                cp.ClassStyle = 0;
 
                 return cp;
             }
         }
 
 
-        void SetAeroEffect()
-        {
-            int a = 0;
-            MARGINS margins = new MARGINS
-            {
-                leftWidth = a,
-                rightWidth = a,
-                topHeight = a,
-                bottomHeight = a,
-            };
 
-            DwmExtendFrameIntoClientArea(this.Handle, ref margins); // Mở rộng vùng trong suốt
-        }
 
-        bool PositionContainHeader()
-        {
-            System.Drawing.Point mpo = PointToClient(MousePosition);
-            if (resizeBorder <= mpo.X && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= resizeBorder && mpo.Y <= headerHeight + (resizeBorder * 2))
-                return true;
-            else if (0 <= mpo.X && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= 0 && mpo.Y <= headerHeight)
-                return true;
-            return false;
-        }
-
-        bool PositionContainHeaderMess(ref Message m)
-        {
-            Point mpo = new Point((int)m.LParam);
-            if (resizeBorder <= mpo.X && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= resizeBorder && mpo.Y <= headerHeight + (resizeBorder * 2))
-                return true;
-            else if (0 <= mpo.X && mpo.X <= (MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2 && mpo.Y >= 0 && mpo.Y <= headerHeight)
-                return true;
-            return false;
-        }
-
-        void IsResize(int msg = 161)
-        {
-            if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
-            {
-                System.Drawing.Point mo = PointToClient(MousePosition);
-                if (left.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 10, 0);
-                }
-                else if (right.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 11, 0);
-                }
-                else if (top.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 12, 0);
-                }
-                else if (bottom.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 15, 0);
-                }
-                else if (topLeft.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 13, 0);
-                }
-                else if (topRight.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 14, 0);
-                }
-                else if (bottomLeft.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 16, 0);
-                }
-                else if (bottomRight.Contains(mo))
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, msg, 17, 0);
-                }
-            }
-        }
-
-        Size GetSizeHeaderExcludeControlBox =>
-             new Size((int)(MinimizeBox ? minimize.X : MaximizeBox ? maximize.X : close.X) - resizeBorder * 2, HeaderHeight);
-
-        void hoveredResize()
-        {
-            Point point = PointToClient(MousePosition);
-            if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
-            {
-                if ((left.Contains(point) || right.Contains(point)))
-                    Cursor = Cursors.SizeWE;
-                else if ((top.Contains(point) || bottom.Contains(point)))
-                    Cursor = Cursors.SizeNS;
-                else if ((topLeft.Contains(point) || bottomRight.Contains(point)))
-                    Cursor = Cursors.SizeNWSE;
-                else if ((topRight.Contains(point) || bottomLeft.Contains(point)))
-                    Cursor = Cursors.SizeNESW;
-                else if (close.Contains(point) ||
-                    (minimize.Contains(point) && MinimizeBox) ||
-                    (MinimizeBox && MaximizeBox && maximize.Contains(point)))
-                    Cursor = Cursors.Hand;
-                else Cursor = Cursors.Default;
-            }
-        }
-
-        #endregion
-
-        // Đây là một hàm mới để xử lý các thao tác liên quan đến vùng header
-        private bool IsMouseOverHeader(int x, int y)
-        {
-            return x <= GetSizeHeaderExcludeControlBox.Width && y <= GetSizeHeaderExcludeControlBox.Height;
-        }
-
-        private void InvalidateNonClient()
-        {
-            RedrawWindow(this.Handle, IntPtr.Zero, IntPtr.Zero,
-                RDW_INVALIDATE | RDW_FRAME | RDW_UPDATENOW);
-        }
 
         protected override void WndProc(ref Message m)
         {
-            var point = Point.Empty;
-            if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
+            if (DesignMode)
             {
-               if(FormBorderStyle != FormBorderStyle.None)
-                {
-                    var nccalcsize = (GetAppResources.WinApi.NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(GetAppResources.WinApi.NCCALCSIZE_PARAMS));
-                    nccalcsize.rcNewWindow.Top += headerHeight + resizeBorder; // Ẩn thanh tiêu đề mặc định
-                    nccalcsize.rcNewWindow.Left += 1;
-                    nccalcsize.rcNewWindow.Right -= 1;
-                    nccalcsize.rcNewWindow.Bottom -= 1;
-                    Marshal.StructureToPtr(nccalcsize, m.LParam, true);
-                    //SetMinMaxInfo(ref m);
-                }
-
-            }
-            else if (m.Msg == WM_NCPAINT)
-            {
-                if (FormBorderStyle != FormBorderStyle.None)
-                DrawCustomHeader(ref m);
-
-            }
-            else if (m.Msg == WM_NCHITTEST)
-            {
-                if (FormBorderStyle != FormBorderStyle.None)
-                {
-                    if (m.Result == (IntPtr)1) // Nếu hittest trả về vùng client
-                    {
-                        //point = PointToClient(MousePosition);
-                        //if (point.X <= GetSizeHeaderExcludeControlBox.Width && point.Y < headerHeight) // Nếu ở vùng thanh tiêu đề tùy chỉnh
-                        //{
-                        //    m.Result = (IntPtr)2; // HTCAPTION để cho phép di chuyển
-                        //}
-                        //else m.Result = (IntPtr)1; // HTCLIENT để cho phép thao tác chuột trên vùng client
-                    }
-
-                    //ResizeForm(ref m);
-                    //if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
-                    //    OnResizeFormR(ref m);
-
-                }
-
                 base.WndProc(ref m);
+                return;
             }
-            else if (m.Msg == WM_NCLBUTTONDOWN)
-            {
-               if(FormBorderStyle != FormBorderStyle.None)
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, 0x0112, 0xF012, 0); // Di chuyển form
-                }    
 
-            }
-            else if (m.Msg == WM_NCRBUTTONDOWN)
+            switch ((HeCopUI_Framework.Win32.Enums.WindowMessages)m.Msg)
             {
-                if (IsMouseOverHeader(point.X, point.Y))
-                {
-                    IntPtr hMenu = GetSystemMenu(Handle, false);
-                    TrackPopupMenu(hMenu, TPM_LEFTBUTTON | TPM_RETURNCMD, Cursor.Position.X, Cursor.Position.Y, 0, Handle, IntPtr.Zero);
-                }
-             
-            }
-            else if (m.Msg == WM_NCMOUSEMOVE)
-            {
-                point = PointToClient(MousePosition); point.Y = headerHeight + point.Y;
-                if (point.X <= Width && close != Rectangle.Empty || minimize != Rectangle.Empty || maximize != Rectangle.Empty)
-                    pointT = point;
-                DrawCustomHeader(ref m);
-                Composited(m.HWnd);
-
-
-            }
-            else if (m.Msg == WM_MOUSEMOVE)
-            {
-                //if (FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow)
-                //{
-                //    hoveredResize();
-                //}
-                Composited(m.HWnd);
-            }
-            else if (m.Msg == WM_NCLBUTTONUP)
-            {
-                //ReleaseCapture();
-                if (hoveredClose)
-                {
-                    // Đóng form
-                    PostMessage(this.Handle, 0x0112, 0xF060, 0);
-                }
-                else if (hoveredMaximize && MinimizeBox && MaximizeBox)
-                {
-                    if (WindowState == FormWindowState.Maximized)
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCMOUSEMOVE:
+                    if (hoveredClose || hoveredMaximize || hoveredMinimize)
                     {
-                        PostMessage(this.Handle, 0x0112, 0xF120, 0);
+                        Cursor = Cursors.Hand;
                     }
                     else
                     {
-                        PostMessage(this.Handle, 0x0112, 0xF030, 0);
+                        Cursor = Cursors.Default;
                     }
-                }
-                else if (hoveredMinimize && MinimizeBox)
-                {
-                    PostMessage(this.Handle, 0x0112, 0xF020, 0);
-                }
-                DrawCustomHeader(ref m);
-            }
-            else if (m.Msg == WM_NCLBUTTONDBLCLK)
-            {
-                //ReleaseCapture();
-                HandleDoubleClick();
+                    Invalidate();
+                    break;
 
+                case WindowMessages.WM_NCLBUTTONDOWN:
+                    if (hoveredClose)
+                    {
+                        Close();
+                    }
+                    else if (hoveredMaximize)
+                    {
+                        if (WindowState == FormWindowState.Maximized)
+                        {
+                            WindowState = FormWindowState.Normal;
+                        }
+                        else
+                        {
+                            WindowState = FormWindowState.Maximized;
+                        }
+                    }
+                    else if (hoveredMinimize)
+                    {
+                        WindowState = FormWindowState.Minimized;
+                    }
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_SYSCOMMAND:
+                    switch ((HeCopUI_Framework.Win32.Enums.SystemCommands)m.WParam)
+                    {
+                        // prevent the window from moving
+                        case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_MOVE:
+                            if (!mouseInTitleBar)
+                                return;
+                            break;
+                    }
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCHITTEST:
+                    // here we return on which part of the window the cursor currently is :
+                    // this allows to resize the windows when grabbing edges
+                    // and allows to move/double click to maximize the window if the cursor is on the caption (title) bar
+                    var ht = HitTestNca(m.LParam);
+                    if (!mouseInTitleBar && ht == HitTests.HTCAPTION)
+                    {
+                        ht = HeCopUI_Framework.Win32.Enums.HitTests.HTNOWHERE;
+                    }
+                    if (FormBorderStyle != FormBorderStyle.Sizable && (int)ht >= (int)HeCopUI_Framework.Win32.Enums.HitTests.HTRESIZESTARTNUMBER && (int)ht <= (int)HeCopUI_Framework.Win32.Enums.HitTests.HTRESIZEENDNUMBER)
+                    {
+                        ht = HeCopUI_Framework.Win32.Enums.HitTests.HTNOWHERE;
+                    }
+                    m.Result = (IntPtr)ht;
+                    return;
+
+                //case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_WINDOWPOSCHANGING:
+                //    //https://msdn.microsoft.com/fr-fr/library/windows/desktop/ms632653(v=vs.85).aspx?f=255&MSPPError=-2147217396
+                //    //https://blogs.msdn.microsoft.com/oldnewthing/20080116-00/?p=23803
+                //    //    The WM_WINDOWPOSCHANGING message is sent early in the window state changing process, unlike WM_WINDOWPOSCHANGED,
+                //    //    which tells you about what already happened
+                //    // A crucial difference(aside from the timing) is that you can influence the state change by handling
+                //    // the WM_WINDOWPOSCHANGING message and modifying the WINDOWPOS structure
+                //    var windowpos = (HeCopUI_Framework.Win32.Struct.WINDOWPOS)Marshal.PtrToStructure(m.LParam, typeof(HeCopUI_Framework.Win32.Struct.WINDOWPOS));
+                //    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_ENTERSIZEMOVE:
+                    // Useful if your window contents are dependent on window size but expensive to compute, as they give you a way to defer paints until the end of the resize action. We found WM_WINDOWPOSCHANGING/ED wasn’t reliable for that purpose.
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_EXITSIZEMOVE:
+                    //if (Resizing)
+                    //{
+                    //    // restore caption style
+                    //    WindowStyle |= WinApi.WindowStyles.WS_CAPTION;
+                    //}
+                    //Resizing = false;
+                    //Moving = false;
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_SIZING:
+                    //if (!Resizing)
+                    //{
+                    //    // disable caption style to avoid seeing it when resizing 
+                    //    WindowStyle &= ~WinApi.WindowStyles.WS_CAPTION;
+                    //}
+                    //Resizing = true;
+                    break;
+
+                //case Window.Msg.WM_MOVING:
+                //    Moving = true;
+                //    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_MBUTTONDOWN:
+                    //var state = (WinApi.WmSizeEnum) m.WParam;
+                    //if (state == WinApi.WmSizeEnum.SIZE_MAXIMIZED || state == WinApi.WmSizeEnum.SIZE_MAXSHOW) {
+                    // Refresh();
+                    //}
+                    // var wid = m.LParam.LoWord();
+                    // var h = m.LParam.HiWord();
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_SIZE:
+                    var state = (HeCopUI_Framework.Win32.Enums.WmSizeEnum)m.WParam;
+                    if (state == HeCopUI_Framework.Win32.Enums.WmSizeEnum.SIZE_MAXIMIZED || state == HeCopUI_Framework.Win32.Enums.WmSizeEnum.SIZE_MAXSHOW || state == HeCopUI_Framework.Win32.Enums.WmSizeEnum.SIZE_RESTORED)
+                    {
+                        _needRedraw = true;
+                    }
+                    // var wid = m.LParam.LoWord();
+                    // var h = m.LParam.HiWord();
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCPAINT:
+                    //Return Zero
+                    m.Result = IntPtr.Zero;
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_GETMINMAXINFO:
+                    // allows the window to be maximized at the size of the working area instead of the whole screen size
+                    OnGetMinMaxInfo(ref m, 1);
+                    //Return Zero
+                    m.Result = IntPtr.Zero;
+                    return;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCCALCSIZE:
+                    // we respond to this message to say we do not want a non client area
+                    if (OnNcCalcSize(ref m))
+                        return;
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_ACTIVATEAPP:
+                    //IsActive = (int)m.WParam != 0;
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_ACTIVATE:
+                    //IsActive = ((int)WinApi.WAFlags.WA_ACTIVE == (int)m.WParam || (int)WinApi.WAFlags.WA_CLICKACTIVE == (int)m.WParam);
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCACTIVATE:
+                    /* Prevent Windows from drawing the default title bar by temporarily
+                        toggling the WS_VISIBLE style. This is recommended in:
+                        https://blogs.msdn.microsoft.com/wpfsdk/2008/09/08/custom-window-chrome-in-wpf/ */
+                    //var oldStyle = WindowStyle;
+                    //WindowStyle = oldStyle & ~HeCopUI_Framework.Win32.Enums.WindowStyles.WS_VISIBLE;
+                    //DefWndProc(ref m);
+                    //WindowStyle = oldStyle;
+                    return;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_WINDOWPOSCHANGED:
+                    // the default From handler for this message messes up the restored height/width for non client area window
+                    // var newwindowpos = (WinApi.WINDOWPOS) Marshal.PtrToStructure(m.LParam, typeof(WinApi.WINDOWPOS));
+                    DefWndProc(ref m);
+                    UpdateBounds();
+                    m.Result = IntPtr.Zero;
+                    return;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_ERASEBKGND:
+                    // https://msdn.microsoft.com/en-us/library/windows/desktop/ms648055(v=vs.85).aspx
+                    m.Result = IntPtr.Zero;
+                    // BUG HACK thing to correctly redraw th window after maximizing it
+                    // will not be needed once we get rid of the nonclient scroll panel
+                    if (_needRedraw)
+                    {
+                        _needRedraw = false;
+                        HeCopUI_Framework.Win32.User32.RedrawWindow(new HandleRef(this, Handle).Handle, IntPtr.Zero, IntPtr.Zero, (uint)HeCopUI_Framework.Win32.Enums.RedrawWindowFlags.RDW_INVALIDATE);
+                    }
+                    return;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCUAHDRAWCAPTION:
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCUAHDRAWFRAME:
+                    /* These undocumented messages are sent to draw themed window borders
+                       Block them to prevent drawing borders over the client area */
+                    m.Result = IntPtr.Zero;
+                    return;
             }
-            else if (m.Msg == WM_COMMAND)
+
+            base.WndProc(ref m);
+        }
+
+        bool mouseInTitleBar
+        {
+            get
             {
-                HandleSystemCommand(ref m);
+                return titleBounds.Contains(PointToClient(MousePosition));
             }
-            else if (m.Msg == NCMOUSELEAVE)
+        }
+
+        Padding _nonClientAreaPadding = new Padding(2);
+        /// <summary>
+        /// Gets or sets the padding of the non client area.
+        /// </summary>
+        public Padding NonClientAreaPadding
+        {
+            get { return _nonClientAreaPadding; }
+            set { _nonClientAreaPadding = value; Invalidate(); }
+        }
+
+
+        protected virtual HitTests HitTestNca(IntPtr lparam)
+        {
+            var cursorLocation = PointToClient(new Point(lparam.ToInt32()));
+
+            bool resizeBorder = false;
+            int uRow = 1;
+            int uCol = 1;
+
+            // Determine if the point is at the top or bottom of the window
+            if (cursorLocation.Y >= 0 && cursorLocation.Y <= TitleBarHeight)
             {
-                DrawCustomHeader(ref m);
+                resizeBorder = cursorLocation.Y <= NonClientAreaPadding.Top && WindowState != FormWindowState.Maximized;
+                uRow = 0;
             }
-            else if (m.Msg == ACTIVATEAPP)
+            else if (cursorLocation.Y <= Height && cursorLocation.Y >= Height - NonClientAreaPadding.Bottom)
             {
-                DrawCustomHeader(ref m);
+                uRow = 2;
             }
-            else if (m.Msg == MDIACTIVATE)
+
+            // Determine if the point is at the left or right of the window
+            if (cursorLocation.X >= 0 && cursorLocation.X <= NonClientAreaPadding.Left)
             {
-                DrawCustomHeader(ref m);
+                uCol = 0;
+            }
+            else if (cursorLocation.X <= Width && cursorLocation.X >= Width - NonClientAreaPadding.Right)
+            {
+                uCol = 2;
+            }
+            else if (uRow == 0 && !resizeBorder)
+            {
+                return HitTests.HTCAPTION;
+            }
+
+            return _hitTests[uRow][uCol];
+
+        }
+
+        HitTests[][] _hitTests;
+
+        private bool OnNcCalcSize(ref Message m)
+        {
+            // by default, the proposed rect is already equals to the window size (=no NC area) so we just respond 0
+            // however, in a default windows, the non client border of the window "hangs" outside the screen
+            // since we don't have this non client border we don't want the window to go outside the screen...
+            // we handle it here
+
+            if (m.WParam != IntPtr.Zero)
+            {
+                // When TRUE, LPARAM Points to a NCCALCSIZE_PARAMS structure
+                var nccsp = (NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(NCCALCSIZE_PARAMS));
+                if (OnNcCalcSize_ModifyProposedRectangle(ref nccsp.rectProposed))
+                {
+                    Marshal.StructureToPtr(nccsp, m.LParam, true);
+                }
             }
             else
             {
-                base.WndProc(ref m);
-            }
-
-        }
-
-        Rectangle GetSizeFormNonClient()
-        {
-            GetAppResources.WinApi.RECT a = new WinApi.RECT();
-            GetWindowRect(Handle, out a);
-
-            return a.ToRectangle();
-        }
-
-        private int LOWORD(int value) => value & 0xFFFF;
-        private int HIWORD(int value) => (value >> 16) & 0xFFFF;
-
-        private void DrawCustomHeader(ref Message m)
-        {
-            LinearGradientBrush linearBorder = new LinearGradientBrush(ClientRectangle, borderColor1, borderColor2, borderLinear);
-            IntPtr hDC = GetWindowDC(m.HWnd);
-            var a = GetSizeFormNonClient();
-            Graphics g = Graphics.FromHdc(hDC);
-            DrawPaint(g);
-            g.DrawRectangle(new Pen(linearBorder, 2), 0, 0, a.Width, a.Height);
-
-            ReleaseDC(m.HWnd, hDC);
-        }
-
-        Point pointT = Point.Empty;
-        private void HandleDoubleClick()
-        {
-            if (PositionContainHeader() && MaximizeBox)
-            {
-                WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
-            }
-        }
-
-        private void SetMinMaxInfo(ref Message m)
-        {
-            MINMAXINFO mmi = (MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(MINMAXINFO));
-            int desiredWidth = (int)(Screen.PrimaryScreen.WorkingArea.Width);
-            int desiredHeight = (int)(Screen.PrimaryScreen.WorkingArea.Height);
-            mmi.ptMaxSize.x = desiredWidth;
-            mmi.ptMaxSize.y = desiredHeight;
-            mmi.ptMaxTrackSize.x = desiredWidth;
-            mmi.ptMaxTrackSize.y = desiredHeight;
-
-            Marshal.StructureToPtr(mmi, m.LParam, true); // Cập nhật MINMAXINFO
-        }
-
-        private void HandleSystemCommand(ref Message m)
-        {
-            int cmd = m.WParam.ToInt32();
-            switch (cmd)
-            {
-                case SC_MINIMIZE:
-                    WindowState = FormWindowState.Minimized;
-                    break;
-                case SC_MAXIMIZE:
-                    WindowState = FormWindowState.Maximized;
-                    break;
-                case SC_RESTORE:
-                    WindowState = FormWindowState.Normal;
-                    break;
-                case SC_CLOSE:
-                    Close();
-                    break;
-            }
-        }
-
-        private void ResizeForm(ref Message message)
-        {
-            if (FormBorderStyle != FormBorderStyle.Sizable || FormBorderStyle != FormBorderStyle.FixedToolWindow)
-                return;
-            var x = (int)(message.LParam.ToInt64() & 65535);
-            var y = (int)((message.LParam.ToInt64() & -65536) >> 0x10);
-            var point = PointToClient(new Point(x, y));
-
-            #region  From Corners  
-
-            if (point.Y >= Height - 0x10)
-            {
-                if (point.X >= Width - 0x10)
+                // When FALSE, LPARAM Points to a RECT structure
+                var clnRect = (RECT)Marshal.PtrToStructure(m.LParam, typeof(RECT));
+                if (OnNcCalcSize_ModifyProposedRectangle(ref clnRect))
                 {
-                    message.Result = (IntPtr)(IsMirrored ? 0x10 : 0x11);
-                    return;
-                }
-
-                if (point.X <= 0x10)
-                {
-                    message.Result = (IntPtr)(IsMirrored ? 0x11 : 0x10);
-                    return;
-                }
-            }
-            else if (point.Y <= 0x10)
-            {
-                if (point.X <= 0x10)
-                {
-                    message.Result = (IntPtr)(IsMirrored ? 0xe : 0xd);
-                    return;
-                }
-
-                if (point.X >= Width - 0x10)
-                {
-                    message.Result = (IntPtr)(IsMirrored ? 0xd : 0xe);
-                    return;
+                    Marshal.StructureToPtr(clnRect, m.LParam, true);
                 }
             }
 
-            #endregion
-
-            #region From Sides
-
-            if (point.Y <= 0x10)
-            {
-                message.Result = (IntPtr)0xc;
-                return;
-            }
-
-            if (point.Y >= Height - 0x10)
-            {
-                message.Result = (IntPtr)0xf;
-                return;
-            }
-
-            if (point.X <= 0x10)
-            {
-                message.Result = (IntPtr)0xa;
-                return;
-            }
-
-            if (point.X >= Width - 0x10)
-            {
-                message.Result = (IntPtr)0xb;
-            }
-
-            #endregion
+            //Return Zero (we can return flags, see the manual)
+            m.Result = IntPtr.Zero;
+            return true;
         }
 
-        void OnResizeFormR(ref Message m)
+        private bool OnNcCalcSize_ModifyProposedRectangle(ref RECT rect)
         {
-            if ((FormBorderStyle == FormBorderStyle.Sizable || FormBorderStyle == FormBorderStyle.SizableToolWindow) && (int)m.Result == HTCLIENT && WindowState == FormWindowState.Normal)
+            if (WindowState == FormWindowState.Maximized)
             {
-                Point screenPoint = new Point(m.LParam.ToInt32()); //Gets screen point coordinates(X and Y coordinate of the pointer)                           
-                Point clientPoint = this.PointToClient(screenPoint); //Computes the location of the screen point into client coordinates                          
-                if (clientPoint.Y <= resizeBorder)//If the pointer is at the top of the form (within the resize area- X coordinate)
-                {
-                    if (clientPoint.X <= resizeBorder) //If the pointer is at the coordinate X=0 or less than the resizing area(X=10) in 
-                        m.Result = (IntPtr)HTTOPLEFT; //Resize diagonally to the left
-                    else if (clientPoint.X < (this.Size.Width - resizeBorder))//If the pointer is at the coordinate X=11 or less than the width of the form(X=Form.Width-resizeArea)
-                        m.Result = (IntPtr)HTTOP; //Resize vertically up
-                    else //Resize diagonally to the right
-                        m.Result = (IntPtr)HTTOPRIGHT;
-                }
-                else if (clientPoint.Y <= (this.Size.Height - resizeBorder)) //If the pointer is inside the form at the Y coordinate(discounting the resize area size)
-                {
-                    if (clientPoint.X <= resizeBorder)//Resize horizontally to the left
-                        m.Result = (IntPtr)HTLEFT;
-                    else if (clientPoint.X > (this.Width - resizeBorder))//Resize horizontally to the right
-                        m.Result = (IntPtr)HTRIGHT;
-                }
-                else
-                {
-                    if (clientPoint.X <= resizeBorder)//Resize diagonally to the left
-                        m.Result = (IntPtr)HTBOTTOMLEFT;
-                    else if (clientPoint.X < (this.Size.Width - resizeBorder)) //Resize vertically down
-                        m.Result = (IntPtr)HTBOTTOM;
-                    else //Resize diagonally to the right
-                        m.Result = (IntPtr)HTBOTTOMRIGHT;
-                }
+                var s = Screen.FromHandle(Handle);
+                // the proposed rect is the maximized position/size that window suggest using the "out of screen" borders
+                // we change that here
+
+                rect.Set(s.WorkingArea);
+                return true;
+            }
+            return false;
+        }
+
+        private void OnGetMinMaxInfo(ref Message m, int offSet = 0)
+        {
+            _lastMinMaxInfo = (MINMAXINFO)Marshal.PtrToStructure(m.LParam, typeof(MINMAXINFO));
+            var s = Screen.FromHandle(Handle);
+            _lastMinMaxInfo.maxPosition.X = Math.Abs(s.WorkingArea.Left - s.Bounds.Left) + offSet;
+            _lastMinMaxInfo.maxPosition.Y = Math.Abs(s.WorkingArea.Top - s.Bounds.Top) + offSet;
+            _lastMinMaxInfo.maxSize.Width = s.WorkingArea.Width - offSet * 2;
+            _lastMinMaxInfo.maxSize.Height = s.WorkingArea.Height - offSet * 2;
+            Marshal.StructureToPtr(_lastMinMaxInfo, m.LParam, true);
+        }
+
+        MINMAXINFO _lastMinMaxInfo;
+        bool _needRedraw = false;
+
+        /// <summary>
+        /// Resizes the form so that it doesn't go out of screen
+        /// </summary>
+        protected void ResizeFormToFitScreen()
+        {
+            var loc = Location;
+            loc.Offset(Width / 2, Height / 2);
+            var screen = Screen.FromPoint(loc);
+            if (Location.X < screen.WorkingArea.X)
+            {
+                var rightPos = Location.X + Width;
+                Location = new Point(screen.WorkingArea.X, Location.Y);
+                Width = rightPos - Location.X;
+            }
+
+            if (Location.X + Width > screen.WorkingArea.X + screen.WorkingArea.Width)
+            {
+                Width -= (Location.X + Width) - (screen.WorkingArea.X + screen.WorkingArea.Width);
+            }
+
+            if (Location.Y < screen.WorkingArea.Y)
+            {
+                var bottomPos = Location.Y + Height;
+                Location = new Point(Location.X, screen.WorkingArea.Y);
+                Height = bottomPos - Location.Y;
+            }
+
+            if (Location.Y + Height > screen.WorkingArea.Y + screen.WorkingArea.Height)
+            {
+                Height -= (Location.Y + Height) - (screen.WorkingArea.Y + screen.WorkingArea.Height);
             }
         }
 
-        void MinSizeResize()
+        /// <summary>
+        /// Retrieves information about this window
+        /// </summary>
+        protected WINDOWINFO GetWindowInfo()
         {
-            int minWidth = (int)(CreateGraphics().MeasureString(Text, titleFont).ToSize().Width + iconControlBoxHeight + 20 + (MinimizeBox ? minimize.Width + 10 : 0) +
-            (MaximizeBox ? maximize.Width + 10 : 0) + close.Width);
-            if (Size.Width < minWidth) Size = new Size(minWidth, Size.Height);
-            if (Size.Height < headerHeight + resizeBorder) Size = new Size(Size.Width, headerHeight + resizeBorder);
+            WINDOWINFO info = new WINDOWINFO();
+            info.cbSize = (uint)Marshal.SizeOf(info);
+            HeCopUI_Framework.Win32.User32.GetWindowInfo(Handle, ref info);
+            return info;
         }
-
     }
 }

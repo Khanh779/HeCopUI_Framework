@@ -144,6 +144,9 @@
     <Compile Include="Controls\Bubble\HAnimatedCircleControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\Bubble\HGreenCircleControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Bubble\HWaterDropControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -454,7 +457,11 @@
     </Compile>
     <Compile Include="ImageProcessor\StackBlur.cs" />
     <Compile Include="Struct\CornerRadius.cs" />
-    <Compile Include="Struct\PAINTSTRUCT.cs" />
+    <Compile Include="Win32\Enums\GetIconListFlags.cs" />
+    <Compile Include="Win32\Enums\IconDataCursorFlags.cs" />
+    <Compile Include="Win32\Enums\RedrawWindowFlags.cs" />
+    <Compile Include="Win32\Enums\WmSizeEnum.cs" />
+    <Compile Include="Win32\Struct\PAINTSTRUCT.cs" />
     <Compile Include="SuperNotifyIcon\Animation.cs" />
     <Compile Include="SuperNotifyIcon\Dropzone.cs">
       <SubType>Component</SubType>
@@ -493,49 +500,52 @@
     <Compile Include="TaskSchedulerManager.cs" />
     <Compile Include="TaskShedulerService.cs" />
     <Compile Include="Ultils\DropShadow.cs" />
+    <Compile Include="Win32\Enums\AnimateWindowFlags.cs" />
+    <Compile Include="Win32\Struct\APPBARDATA.cs" />
+    <Compile Include="Win32\Struct\DeviceScaleFactor.cs" />
+    <Compile Include="Win32\Enums\ACCENT_STATE.cs" />
+    <Compile Include="Win32\Enums\AnimationFlags.cs" />
+    <Compile Include="Win32\Enums\SetWindowPosFlags.cs" />
+    <Compile Include="Win32\Enums\ShowWindowStyles.cs" />
+    <Compile Include="Win32\Enums\SystemMetricFlags.cs" />
+    <Compile Include="Win32\Struct\ARGB.cs" />
+    <Compile Include="Win32\Struct\MARGINS.cs" />
+    <Compile Include="Win32\Struct\BLENDFUNCTION.cs" />
+    <Compile Include="Win32\Enums\MonitorDpiType.cs" />
+    <Compile Include="Win32\Enums\WINCOMPATTR.cs" />
+    <Compile Include="Win32\Struct\ACCENT_POLICY.cs" />
+    <Compile Include="Win32\Bitmap\Enums\AlphaBlend.cs" />
     <Compile Include="Win32\Dwmapi.cs" />
+    <Compile Include="Win32\Enums\ABEs.cs" />
+    <Compile Include="Win32\Enums\ABMs.cs" />
+    <Compile Include="Win32\Enums\ClassStyles.cs" />
+    <Compile Include="Win32\Enums\GetWindowFlags.cs" />
+    <Compile Include="Win32\Enums\GetWindowClassLongFlags.cs" />
+    <Compile Include="Win32\Enums\GetWindowLongFlags.cs" />
+    <Compile Include="Win32\Enums\HitTests.cs" />
+    <Compile Include="Win32\Enums\UpdateLayeredWindows.cs" />
+    <Compile Include="Win32\Enums\WindowHooks.cs" />
+    <Compile Include="Win32\Enums\SystemCommands.cs" />
     <Compile Include="Win32\Gdi32.cs" />
     <Compile Include="Win32\Gdip.cs" />
     <Compile Include="Win32\Kernel32.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IAdviseSink.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IContextMenu.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IContextMenu2.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IContextMenu3.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IDataObject.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IDragSourceHelper.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IDropSource.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IDropTarget.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IDropTargetHelper.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IEnumFORMATETC.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IEnumIDList.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IEnumSTATSTG.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IQueryInfo.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IShellExtInit.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IShellFolder.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IStorage.cs" />
-    <Compile Include="Win32\Shell\Interfaces\IStream.cs" />
-    <Compile Include="Win32\Shell\PIDL.cs" />
-    <Compile Include="Win32\Shell\ShellAPI.cs" />
-    <Compile Include="Win32\Shell\ShellBrowser.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Win32\Shell\ShellBrowserUpdater.cs" />
-    <Compile Include="Win32\Shell\ShellHelper.cs" />
-    <Compile Include="Win32\Shell\ShellIconStateConstants.cs" />
-    <Compile Include="Win32\Shell\ShellImageList.cs" />
-    <Compile Include="Win32\Shell\ShellItem.cs" />
-    <Compile Include="Win32\Shell\ShellItemCollection.cs" />
-    <Compile Include="Win32\Shell\ShellItemEnumerator.cs" />
-    <Compile Include="Win32\Shell\ShellItemUpdateCondition.cs" />
-    <Compile Include="Win32\Shell\ShellItemUpdateEventArgs.cs" />
-    <Compile Include="Win32\Shell\ShellItemUpdateEventHandler.cs" />
-    <Compile Include="Win32\Shell\ShellItemUpdateType.cs" />
-    <Compile Include="Win32\Enums\Win32Enums.cs" />
-    <Compile Include="Win32\SystemImageList.cs" />
-    <Compile Include="Win32\SystemImageListHelper.cs" />
-    <Compile Include="Win32\SystemImageListSize.cs" />
+    <Compile Include="Win32\Enums\ScrollBarFlags.cs" />
+    <Compile Include="Win32\Struct\MINMAXINFO.cs" />
+    <Compile Include="Win32\Struct\NCCALCSIZE_PARAMS.cs" />
+    <Compile Include="Win32\Struct\POINT.cs" />
+    <Compile Include="Win32\Struct\RECT.cs" />
+    <Compile Include="Win32\Struct\SIZE.cs" />
+    <Compile Include="Win32\Struct\TRACKMOUSEEVENTS.cs" />
+    <Compile Include="Win32\Struct\WINCOMPATTRDATA.cs" />
+    <Compile Include="Win32\Struct\WINDOWINFO.cs" />
+    <Compile Include="Win32\Struct\WINDOWPOS.cs" />
+    <Compile Include="Win32\Struct\WNDCLASS.cs" />
+    <Compile Include="Win32\Enums\TabControlHitTest.cs" />
+    <Compile Include="Win32\Struct\TCHITTESTINFO.cs" />
     <Compile Include="Win32\User32.cs" />
+    <Compile Include="Win32\Enums\WindowMessages.cs" />
     <Compile Include="WindowComposition.cs" />
+    <Compile Include="Win32\Enums\WindowStyles.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Child\HItemCollection.cs" />

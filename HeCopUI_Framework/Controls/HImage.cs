@@ -8,7 +8,6 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Effects;
-using static HeCopUI_Framework.Win32.ShellAPI;
 
 namespace HeCopUI_Framework.Controls
 {

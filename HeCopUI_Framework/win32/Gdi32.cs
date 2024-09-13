@@ -20,10 +20,10 @@ namespace HeCopUI_Framework.Win32
 				this.y = y;
 			}
 
-			public POINT(GetAppResources.Win32.Point point)
+			public POINT(Point point)
 			{
-				x = point.x;
-				y = point.y;
+				x = point.X;
+				y = point.Y;
 			}
 
 			public override string ToString()
