@@ -70,5 +70,8 @@ namespace HeCopUI_Framework.Win32
 
     	[DllImport("kernel32", CharSet = CharSet.Unicode)]
     	public static extern long GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filepath);
+
+        [DllImport("kernel32", CharSet = CharSet.Unicode)]
+      
     }
 }

@@ -278,20 +278,17 @@ namespace HeCopUI_Framework
         #endregion
 
         #region Read .Ini File
-        [DllImport("kernel32", CharSet = CharSet.Unicode)]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filepath);
-        [DllImport("kernel32", CharSet = CharSet.Unicode)]
-        private static extern long GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filepath);
+      
         string EXE = Assembly.GetExecutingAssembly().GetName().Name;
         public static string READINIFILE(string filePath, string Section, string Key)
         {
             StringBuilder tmp = new StringBuilder(255);
-            long i = GetPrivateProfileString(Section, Key, "", tmp, 255, filePath);
+            long i = HeCopUI_Framework.Win32.Kernel32. GetPrivateProfileString(Section, Key, "", tmp, 255, filePath);
             return tmp.ToString();
         }
         public static void WRITEINIFILE(string filePath, string Section, string Key, string szData)
         {
-            WritePrivateProfileString(Section, Key, szData, filePath);
+            HeCopUI_Framework.Win32.Kernel32.WritePrivateProfileString(Section, Key, szData, filePath);
         }
         public void DeleteSection(string filePath, string Section = null)
         {
