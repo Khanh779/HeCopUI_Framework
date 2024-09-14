@@ -20,6 +20,21 @@ namespace HeCopUI_Framework.Win32.Enums
         WM_NCMOUSELEAVE = 0x02A2,
         WM_NCHITTEST = 0x0084,
         WM_NCCREATE = 0x0081,
+        WM_NCLBUTTONDBLCLK = 0x00A3,
+        WM_NCRBUTTONDBLCLK = 0x00A6,
+        WM_NCMOUSEENTER = 0x00A0,
+
+        WM_NCLBUTTONCLICK = WM_NCLBUTTONDOWN | WM_NCLBUTTONUP,
+
+      
+        WM_NCMBUTTONDOWN = 0xa7,
+        WM_NCMBUTTONUP = 0xa8,
+        WM_NCMBUTTONDBLCLK = 0xa9,
+        WM_NCXBUTTONDOWN = 0xab,
+        WM_NCXBUTTONUP = 0xac,
+        WM_NCXBUTTONDBLCLK = 0xad,
+
+
         WM_LBUTTONDOWN = 0x0201,
         WM_CAPTURECHANGED = 0x0215,
         WM_LBUTTONUP = 0x0202,
@@ -46,7 +61,7 @@ namespace HeCopUI_Framework.Win32.Enums
         WM_DESTROY = 0x2,
         WM_SHOWWINDOW = 0x18,
         WM_SHARED_MENU = 0x1E2,
-     
+
         WM_NULL = 0x0,
         WM_MOVE = 0x3,
         WM_ACTIVATE = 0x6,
@@ -111,16 +126,8 @@ namespace HeCopUI_Framework.Win32.Enums
         WM_NCDESTROY = 0x82,
         WM_GETDLGCODE = 0x87,
         WM_SYNCPAINT = 0x88,
-      
-        WM_NCLBUTTONDBLCLK = 0xa3,
-   
-        WM_NCRBUTTONDBLCLK = 0xa6,
-        WM_NCMBUTTONDOWN = 0xa7,
-        WM_NCMBUTTONUP = 0xa8,
-        WM_NCMBUTTONDBLCLK = 0xa9,
-        WM_NCXBUTTONDOWN = 0xab,
-        WM_NCXBUTTONUP = 0xac,
-        WM_NCXBUTTONDBLCLK = 0xad,
+
+     
         WM_INPUT = 0xff,
         WM_KEYFIRST = 0x100,
         WM_KEYDOWN = 0x100,
@@ -252,12 +259,12 @@ namespace HeCopUI_Framework.Win32.Enums
         SC_CONTEXTHELP = 0xF180,
         SC_KEYMENU = 0xF100,
 
-       
+
         NIN_BALLOONSHOW = 1026,
         NIN_BALLOONHIDE = 1027,
         NIN_BALLOONTIMEOUT = 1028,
         NIN_BALLOONUSERCLICK = 1029,
-       
+
         SC_SIZE = 61440,
         WM_NCUAHDRAWCAPTION = 174,
         WM_NCUAHDRAWFRAME = 175,

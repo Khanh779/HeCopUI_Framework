@@ -41,7 +41,7 @@ namespace HeCopUI_Framework
                 | color.R;
         }
 
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         private static extern int SetWindowCompositionAttribute(HandleRef hWnd, in WindowCompositionAttributeData data);
 
         private unsafe struct WindowCompositionAttributeData

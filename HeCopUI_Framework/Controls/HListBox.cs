@@ -747,10 +747,10 @@ namespace HeCopUI_Framework.Controls
         public const int WM_SETCURSOR = 0x0020;
         public const int IDC_HAND = 32649;
 
-        [DllImport("Msg.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("User32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern IntPtr LoadCursor(IntPtr hInstance, int lpCursorName);
 
-        [DllImport("Msg.dll", CharSet = CharSet.Auto)]
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
         public static extern IntPtr SetCursor(IntPtr hCursor);
 
         protected override void WndProc(ref Message m)

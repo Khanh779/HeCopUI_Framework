@@ -48,10 +48,10 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms.Utilities
 
         public const int TextAlignBaselineRtl = 256 + 24;
 
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         public static extern int SetCursor(int hCursor);
 
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         public static extern int LoadCursor(int hInstance, int lpCursorName);
 
         /// <summary>
@@ -96,10 +96,10 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms.Utilities
             DeleteDC(memoryHdc);
         }
 
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         public static extern bool IsWindowVisible(IntPtr hWnd);
 
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         public static extern IntPtr WindowFromDC(IntPtr hdc);
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms.Utilities
         /// <param name="hWnd">A handle to the window.</param>
         /// <param name="lpRect">A pointer to a RECT structure that receives the screen coordinates of the upper-left and lower-right corners of the window.</param>
         /// <returns>If the function succeeds, the return value is nonzero.</returns>
-        [DllImport("Msg", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern int GetWindowRect(IntPtr hWnd, out Rectangle lpRect);
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms.Utilities
             return new Rectangle(rect.Left, rect.Top, rect.Right - rect.Left, rect.Bottom - rect.Top);
         }
 
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         public static extern bool MoveWindow(IntPtr handle, int x, int y, int width, int height, bool redraw);
 
         [DllImport("gdi32.dll")]

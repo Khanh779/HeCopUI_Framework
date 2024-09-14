@@ -275,7 +275,7 @@ namespace HeCopUI_Framework.Forms
         [DllImport("dwmapi.dll")]
         public static extern int DwmIsCompositionEnabled(ref int pfEnabled);
 
-        [System.Runtime.InteropServices.DllImport("Msg.dll")]
+        [System.Runtime.InteropServices.DllImport("User32.dll")]
         public static extern int GetSystemMetrics(int nIndex);
 
         public struct MARGINS
@@ -385,31 +385,6 @@ namespace HeCopUI_Framework.Forms
 
 
 
-        [StructLayout(LayoutKind.Sequential)]
-        public struct RECT
-        {
-            public int Left;
-            public int Top;
-            public int Right;
-            public int Bottom;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct POINT
-        {
-            public int X;
-            public int Y;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct MINMAXINFO
-        {
-            public POINT ptReserved;
-            public POINT ptMaxSize;
-            public POINT ptMaxPosition;
-            public POINT ptMinTrackSize;
-            public POINT ptMaxTrackSize;
-        }
 
         private Padding _borderP = new Padding(1, 2, 1, 1);
         public Padding Border

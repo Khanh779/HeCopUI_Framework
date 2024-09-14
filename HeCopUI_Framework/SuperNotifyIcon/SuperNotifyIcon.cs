@@ -15,7 +15,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
 
         private Animation Animation { get; set; }
 
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         private static extern bool DestroyIcon(IntPtr hIcon);
 
         public SuperNotifyIcon()

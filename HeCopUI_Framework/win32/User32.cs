@@ -29,6 +29,8 @@ namespace HeCopUI_Framework.Win32
 
         public AnimateWindowFlags AW_HIDE { get; set; }
 
+
+
         [DllImport("User32.dll")]
         public static extern bool AnimateWindow(IntPtr handle, int msec, int flags);
 

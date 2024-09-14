@@ -49,7 +49,7 @@ namespace HeCopUI_Framework.Win32
 		[return: MarshalAs(UnmanagedType.Bool)]
 		public static extern bool DeleteObject([In] IntPtr hObject);
 
-		[DllImport("Msg.dll")]
+		[DllImport("User32.dll")]
 		internal static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool redraw);
 
 		[DllImport("gdi32.dll", CharSet = CharSet.Auto, ExactSpelling = true, SetLastError = true)]

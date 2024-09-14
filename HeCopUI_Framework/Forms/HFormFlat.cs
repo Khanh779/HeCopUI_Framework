@@ -142,7 +142,7 @@ namespace HeCopUI_Framework.Forms
         {
             get
             {
-                return maximize.Contains(PointToClient(MousePosition));
+                return maximize.Contains(mouseClient.X, mouseClient.Y * (mouseClient.Y < 0 ? -1 : 1));
             }
         }
 
@@ -150,7 +150,7 @@ namespace HeCopUI_Framework.Forms
         {
             get
             {
-                return close.Contains(PointToClient(MousePosition));
+                return close.Contains(mouseClient.X, mouseClient.Y * (mouseClient.Y < 0 ? -1 : 1));
             }
         }
 
@@ -236,7 +236,7 @@ namespace HeCopUI_Framework.Forms
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            //e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             e.Graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
@@ -299,12 +299,13 @@ namespace HeCopUI_Framework.Forms
                     }
                 }
 
+                int iconControSize = controlBoxSize * 65 / 100;
 
                 // Draw the control boxes
                 using (var closeBrush = new SolidBrush(closeColor))
                 using (var closePen = new Pen(closeBrush, 1))
                 {
-                    DrawClose(e.Graphics, closePen);
+                    DrawClose(e.Graphics, closePen, controlBoxSize - iconControSize);
                 }
 
                 if (MinimizeBox)
@@ -312,7 +313,7 @@ namespace HeCopUI_Framework.Forms
                     using (var minimizeBrush = new SolidBrush(minimizeColor))
                     using (var minimizePen = new Pen(minimizeBrush, 1))
                     {
-                        DrawMinimize(e.Graphics, minimizePen);
+                        DrawMinimize(e.Graphics, minimizePen, controlBoxSize - iconControSize);
                     }
                 }
 
@@ -321,7 +322,7 @@ namespace HeCopUI_Framework.Forms
                     using (var maximizeBrush = new SolidBrush(maximizeColor))
                     using (var maximizePen = new Pen(maximizeBrush, 1))
                     {
-                        DrawMaximize_Restore(e.Graphics, maximizePen);
+                        DrawMaximize_Restore(e.Graphics, maximizePen, controlBoxSize - iconControSize);
                     }
                 }
             }
@@ -354,66 +355,53 @@ namespace HeCopUI_Framework.Forms
 
 
 
-        void DrawClose(Graphics g, System.Drawing.Pen pen)
+        void DrawClose(Graphics g, System.Drawing.Pen pen, int size)
         {
-            g.DrawLine(pen, close.Left + close.Width / 2 - 6,
-                    close.Top + close.Height / 2 - 6,
-                    close.Left + close.Width / 2 + 5,
-                    close.Top + close.Height / 2 + 5);
-            g.DrawLine(pen, close.Left + close.Width / 2 - 6,
-                    close.Top + close.Height / 2 + 5,
-                    close.Left + close.Width / 2 + 5,
-                    close.Top + close.Height / 2 - 6);
+            float halfSize = size / 2;
+            g.DrawLine(pen, (float)close.X + close.Width / 2 - halfSize,
+                    close.Y + close.Height / 2 - halfSize,
+                    close.X + close.Width / 2 + halfSize,
+                    close.Y + close.Height / 2 + halfSize);
+            g.DrawLine(pen, (float)close.X + close.Width / 2 - halfSize,
+                    close.Y + close.Height / 2 + halfSize,
+                    close.X + close.Width / 2 + halfSize,
+                    close.Y + close.Height / 2 - halfSize);
         }
 
-        void DrawMaximize_Restore(Graphics g, System.Drawing.Pen pen)
+        void DrawMaximize_Restore(Graphics g, System.Drawing.Pen pen, int size)
         {
+            float halfSize = size / 2;
+
             if (WindowState == FormWindowState.Maximized)
             {
-                g.DrawRectangle(pen, maximize.Left + maximize.Width / 2 - 6,
-                        maximize.Top + maximize.Height / 2 - 1,
-                        7, 7);
+                // Vẽ biểu tượng "Restore"
+                g.DrawRectangle(pen, (float)maximize.X + maximize.Width / 2 - halfSize,
+                    maximize.Y + maximize.Height / 2 - halfSize + 3, size - 4, size - 4);
 
-                g.DrawLine(pen,
-                          maximize.Left + maximize.Width / 2 - 2,
-                          maximize.Top + maximize.Height / 2 - 1,
-                          maximize.Left + maximize.Width / 2 - 2,
-                          maximize.Top + maximize.Height / 2 - 4);
+                //g.DrawRectangle(pen, (float)maximize.X + maximize.Width / 2 - halfSize + 3,
+                //    maximize.Y + maximize.Height / 2 - halfSize, size - 4, size - 4);
 
-                g.DrawLine(pen,
-                    maximize.Left + maximize.Width / 2 - 2,
-                    maximize.Top + maximize.Height / 2 - 4,
-                    maximize.Left + maximize.Width / 2 + 5,
-                    maximize.Top + maximize.Height / 2 - 4);
+                g.DrawLine(pen, maximize.X + maximize.Width / 2 - 1, maximize.Y + maximize.Height / 2 - halfSize - pen.Width,
+                    maximize.X + maximize.Width / 2 - 1, maximize.Y + maximize.Height / 2 - halfSize + 3);
 
-                g.DrawLine(pen,
-                    maximize.Left + maximize.Width / 2 + 5,
-                    maximize.Top + maximize.Height / 2 - 4,
-                    maximize.Left + maximize.Width / 2 + 5,
-                    maximize.Top + maximize.Height / 2 + 3);
 
-                g.DrawLine(pen,
-                    maximize.Left + maximize.Width / 2 + 5,
-                    maximize.Top + maximize.Height / 2 + 3,
-                    maximize.Left + maximize.Width / 2 + 2,
-                    maximize.Top + maximize.Height / 2 + 3);
 
             }
             else
             {
-                g.DrawRectangle(pen, maximize.Left + maximize.Width / 2 - 6,
-                       maximize.Top + maximize.Height / 2 - 5, 10, 10);
+                g.DrawRectangle(pen, (float)maximize.X + maximize.Width / 2 - halfSize,
+                       maximize.Y + maximize.Height / 2 - halfSize, size, size);
             }
         }
 
-        void DrawMinimize(Graphics g, System.Drawing.Pen pen)
+        void DrawMinimize(Graphics g, System.Drawing.Pen pen, int size)
         {
-            g.DrawLine(pen, minimize.Left + minimize.Width / 2 - 6,
-                  minimize.Top + minimize.Height / 2,
-                  minimize.Left + minimize.Width / 2 + 5,
-                  minimize.Top + minimize.Height / 2);
-
+            g.DrawLine(pen, (float)minimize.X + minimize.Width / 2 - size / 2,
+                  minimize.Y + minimize.Height / 2,
+                  minimize.X + minimize.Width / 2 + size / 2,
+                  minimize.Y + minimize.Height / 2);
         }
+
 
 
 
@@ -582,37 +570,41 @@ namespace HeCopUI_Framework.Forms
             switch ((HeCopUI_Framework.Win32.Enums.WindowMessages)m.Msg)
             {
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCMOUSEMOVE:
-                    if (hoveredClose || hoveredMaximize || hoveredMinimize)
+                    if (!mouseInTitleBar && (hoveredClose || hoveredMaximize || hoveredMinimize))
                     {
                         Cursor = Cursors.Hand;
+                        Invalidate();
                     }
                     else
                     {
                         Cursor = Cursors.Default;
+                        Invalidate();
                     }
-                    Invalidate();
-                    break;
+
+                    return;
 
                 case WindowMessages.WM_NCLBUTTONDOWN:
                     if (hoveredClose)
                     {
                         Close();
+                        return;
                     }
                     else if (hoveredMaximize)
                     {
                         if (WindowState == FormWindowState.Maximized)
-                        {
                             WindowState = FormWindowState.Normal;
-                        }
                         else
-                        {
                             WindowState = FormWindowState.Maximized;
-                        }
+                        return;
                     }
                     else if (hoveredMinimize)
                     {
                         WindowState = FormWindowState.Minimized;
+                        return;
                     }
+                    break;
+
+                case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCRBUTTONDOWN:
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_SYSCOMMAND:
@@ -760,6 +752,9 @@ namespace HeCopUI_Framework.Forms
                        Block them to prevent drawing borders over the client area */
                     m.Result = IntPtr.Zero;
                     return;
+
+
+
             }
 
             base.WndProc(ref m);
@@ -834,7 +829,7 @@ namespace HeCopUI_Framework.Forms
             {
                 // When TRUE, LPARAM Points to a NCCALCSIZE_PARAMS structure
                 var nccsp = (NCCALCSIZE_PARAMS)Marshal.PtrToStructure(m.LParam, typeof(NCCALCSIZE_PARAMS));
-                if (OnNcCalcSize_ModifyProposedRectangle(ref nccsp.rectProposed))
+                if (OnNcCalcSize_ModifyProposedRectangle(ref nccsp.rcClient))
                 {
                     Marshal.StructureToPtr(nccsp, m.LParam, true);
                 }

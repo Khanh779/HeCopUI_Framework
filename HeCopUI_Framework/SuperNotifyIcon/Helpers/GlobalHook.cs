@@ -57,7 +57,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             public int dwExtraInfo;
         }
 
-        [DllImport("Msg.dll", CharSet = CharSet.Auto,
+        [DllImport("User32.dll", CharSet = CharSet.Auto,
            CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         protected static extern int SetWindowsHookEx(
             int idHook,
@@ -65,12 +65,12 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             IntPtr hMod,
             int dwThreadId);
 
-        [DllImport("Msg.dll", CharSet = CharSet.Auto,
+        [DllImport("User32.dll", CharSet = CharSet.Auto,
             CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         protected static extern int UnhookWindowsHookEx(int idHook);
 
 
-        [DllImport("Msg.dll", CharSet = CharSet.Auto,
+        [DllImport("User32.dll", CharSet = CharSet.Auto,
              CallingConvention = CallingConvention.StdCall)]
         protected static extern int CallNextHookEx(
             int idHook,
@@ -78,7 +78,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             int wParam,
             IntPtr lParam);
 
-        [DllImport("Msg")]
+        [DllImport("User32")]
         protected static extern int ToAscii(
             int uVirtKey,
             int uScanCode,
@@ -86,10 +86,10 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             byte[] lpwTransKey,
             int fuState);
 
-        [DllImport("Msg")]
+        [DllImport("User32")]
         protected static extern int GetKeyboardState(byte[] pbKeyState);
 
-        [DllImport("Msg.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        [DllImport("User32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
         protected static extern short GetKeyState(int vKey);
 
         protected delegate int HookProc(int nCode, int wParam, IntPtr lParam);

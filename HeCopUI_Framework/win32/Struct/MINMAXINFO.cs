@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HeCopUI_Framework.Win32.Struct
 {
-    internal struct MINMAXINFO
+    public struct MINMAXINFO
     {
 #pragma warning disable
         public Point reserved;

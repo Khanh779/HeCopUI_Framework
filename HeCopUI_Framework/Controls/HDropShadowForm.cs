@@ -429,7 +429,7 @@ namespace HeCopUI_Framework.Controls
                 int nHeightEllipse // width of ellipse
                 );
 
-            [DllImport("Msg.dll", SetLastError = true)]
+            [DllImport("User32.dll", SetLastError = true)]
             public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
             /// <summary>

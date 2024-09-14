@@ -65,12 +65,14 @@
             this.BorderColor2 = System.Drawing.Color.DodgerBlue;
             this.BorderLinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.BorderPadding = new System.Windows.Forms.Padding(1);
-            this.ClientSize = new System.Drawing.Size(328, 214);
+            this.ClientSize = new System.Drawing.Size(315, 227);
+            this.ControlBoxSize = 35;
             this.Controls.Add(this.hCheckBox1);
             this.Name = "Form2";
             this.NonClientAreaPadding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.TitleBarHeight = 40;
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 

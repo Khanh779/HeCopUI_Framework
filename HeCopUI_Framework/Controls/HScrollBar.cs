@@ -22,7 +22,7 @@ namespace HeCopUI_Framework.Controls
     {
 
 
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         internal const int SCROLLBAR_DEFAULT_SIZE = 10;

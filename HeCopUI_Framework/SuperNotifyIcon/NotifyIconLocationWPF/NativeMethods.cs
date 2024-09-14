@@ -466,7 +466,7 @@
         /// <param name="lpRect">A pointer to a RECT structure that receives the client coordinates. The left and top members are zero. The right and bottom members contain the width and height of the window.</param>
         /// <returns>If the function succeeds, the return value is nonzero.
         /// If the function fails, the return value is zero. To get extended error information, call GetLastError.</returns>
-        [DllImport("Msg.dll")]
+        [DllImport("User32.dll")]
         public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
         /// <summary>
@@ -485,7 +485,7 @@
         /// <param name="lpRect">A pointer to a RECT structure that receives the screen coordinates of the upper-left and lower-right corners of the window.</param>
         /// <returns>If the function succeeds, the return value is nonzero. 
         /// If the function fails, the return value is zero. To get extended error information, call GetLastError.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
         /// <summary>
@@ -499,7 +499,7 @@
         /// If the function succeeds, the low-order word of the return value is the number of pixels added to the horizontal coordinate of each source point in order to compute the horizontal coordinate of each destination point. (In addition to that, if precisely one of hWndFrom and hWndTo is mirrored, then each resulting horizontal coordinate is multiplied by -1.) The high-order word is the number of pixels added to the vertical coordinate of each source point in order to compute the vertical coordinate of each destination point.
         /// If the function fails, the return value is zero. Call SetLastError prior to calling this method to differentiate an error return value from a legitimate "0" return value.
         /// </returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
         public static extern int MapWindowPoints(IntPtr hWndFrom, IntPtr hWndTo, ref RECT lpPoints, uint cPoints);
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
@@ -510,7 +510,7 @@
         /// <param name="hWnd">A handle to the window.</param>
         /// <param name="lpdwProcessId">A pointer to a variable that receives the process identifier. If this parameter is not NULL, GetWindowThreadProcessId copies the identifier of the process to the variable; otherwise, it does not.</param>
         /// <returns>The return value is the identifier of the thread that created the window.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 #pragma warning disable CS3002 // Return type is not CLS-compliant
         public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
@@ -644,7 +644,7 @@
         /// <param name="nMaxCount">The length of the lpClassName buffer, in characters. The buffer must be large enough to include the terminating null character; otherwise, the class name string is truncated to nMaxCount-1 characters.</param>
         /// <returns>If the function succeeds, the return value is the number of characters copied to the buffer, not including the terminating null character.
         /// If the function fails, the return value is zero. To get extended error information, call GetLastError.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
 
         /// <summary>
@@ -656,7 +656,7 @@
         /// <param name="wParam">Additional message-specific information (wParam).</param>
         /// <param name="lParam">Additional message-specific information (lParam).</param>
         /// <returns>The return value specifies the result of the message processing; it depends on the message sent.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
@@ -670,7 +670,7 @@
         /// <param name="wParam">Additional message-specific information (wParam).</param>
         /// <param name="lParam">Additional message-specific information (lParam).</param>
         /// <returns>The return value specifies the result of the message processing; it depends on the message sent.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, ref TBBUTTON lParam);
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
@@ -689,7 +689,7 @@
         /// <param name="lpszWindow">The window name (the window's title). If this parameter is NULL, all window names match.</param>
         /// <returns>If the function succeeds, the return value is a handle to the window that has the specified class and window names.
         /// If the function fails, the return value is NULL. To get extended error information, call GetLastError.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
 
         /// <summary>
@@ -701,7 +701,7 @@
         /// <param name="lpWindowName">The window name (the window's title). If this parameter is NULL, all window names match.</param>
         /// <returns>If the function succeeds, the return value is a handle to the window that has the specified class name and window name.
         /// If the function fails, the return value is NULL. To get extended error information, call GetLastError.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
         /// <summary>
@@ -710,7 +710,7 @@
         /// <param name="hWnd">A handle to the window or control.</param>
         /// <returns>If the function succeeds, the return value is the length, in characters, of the text. Under certain conditions, this value may actually be greater than the length of the text. For more information, see the following Remarks section.
         /// If the window has no text, the return value is zero. To get extended error information, call GetLastError.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern int GetWindowTextLength(IntPtr hWnd);
 
         /// <summary>
@@ -720,7 +720,7 @@
         /// <param name="lpEnumFunc">A pointer to an application-defined callback function. For more information, see EnumChildProc.</param>
         /// <param name="lParam">An application-defined value to be passed to the callback function.</param>
         /// <returns>The return value is not used.</returns>
-        [DllImport("Msg", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool EnumChildWindows(IntPtr hWndParent, EnumWindowProc lpEnumFunc, IntPtr lParam);
 
@@ -827,7 +827,7 @@
         /// </summary>
         /// <param name="lpPoint">A pointer to a POINT structure that receives the screen coordinates of the cursor.</param>
         /// <returns>Returns nonzero if successful or zero otherwise. To get extended error information, call GetLastError.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetCursorPos(out POINT lpPoint);
 
@@ -847,7 +847,7 @@
         /// <param name="dwFlags">Determines the function's return value if the rectangle does not intersect any display monitor.</param>
         /// <returns>If the rectangle intersects one or more display monitor rectangles, the return value is an HMONITOR handle to the display monitor that has the largest area of intersection with the rectangle.
         /// If the rectangle does not intersect a display monitor, the return value depends on the value of dwFlags.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
         public static extern IntPtr MonitorFromRect(ref RECT lprc, uint dwFlags);
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
@@ -858,14 +858,14 @@
         /// <param name="hMonitor">A handle to the display monitor of interest.</param>
         /// <param name="lpmi">A pointer to a MONITORINFO or MONITORINFOEX structure that receives information about the specified display monitor.</param>
         /// <returns>If the function succeeds, the return value is nonzero. If the function fails, the return value is zero.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFO lpmi);
 
         /// <summary>
         /// Retrieves a handle to the foreground window (the window with which the user is currently working). The system assigns a slightly higher priority to the thread that creates the foreground window than it does to other threads.
         /// </summary>
         /// <returns>The return value is a handle to the foreground window. The foreground window can be NULL in certain circumstances, such as when a window is losing activation.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
         public static extern IntPtr GetForegroundWindow();
 
         /// <summary>
@@ -885,7 +885,7 @@
         /// <param name="wParam">Additional message information. The content of this parameter depends on the value of the Msg parameter (wParam).</param>
         /// <param name="lParam">Additional message information. The content of this parameter depends on the value of the Msg parameter (lParam).</param>
         /// <returns>The return value is the result of the message processing and depends on the message.</returns>
-        [DllImport("Msg.dll", SetLastError = true)]
+        [DllImport("User32.dll", SetLastError = true)]
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
         public static extern IntPtr DefWindowProc(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
@@ -912,7 +912,7 @@
         /// <param name="smIndex">The system metric or configuration setting to be retrieved. Note that all SM_CX* values are widths and all SM_CY* values are heights. Also note that all settings designed to return Boolean data represent TRUE as any nonzero value, and FALSE as a zero value.</param>
         /// <returns>If the function succeeds, the return value is the requested system metric or configuration setting.
         /// If the function fails, the return value is 0. GetLastError does not provide extended error information.</returns>
-        [DllImport("Msg.dll", SetLastError = false)]
+        [DllImport("User32.dll", SetLastError = false)]
         public static extern int GetSystemMetrics(SystemMetric smIndex);
 
         /// <summary>
