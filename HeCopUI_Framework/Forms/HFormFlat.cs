@@ -283,19 +283,22 @@ namespace HeCopUI_Framework.Forms
                 }
 
                 // Fill control boxes
-                using (var alphaBrush = new SolidBrush(Color.FromArgb(30, Color.White)))
+                if (!DesignMode)
                 {
-                    if (hoveredClose)
+                    using (var alphaBrush = new SolidBrush(Color.FromArgb(30, Color.White)))
                     {
-                        e.Graphics.FillRectangle(alphaBrush, close);
-                    }
-                    if (hoveredMaximize)
-                    {
-                        e.Graphics.FillRectangle(alphaBrush, maximize);
-                    }
-                    if (hoveredMinimize)
-                    {
-                        e.Graphics.FillRectangle(alphaBrush, minimize);
+                        if (hoveredClose)
+                        {
+                            e.Graphics.FillRectangle(alphaBrush, close);
+                        }
+                        if (hoveredMaximize)
+                        {
+                            e.Graphics.FillRectangle(alphaBrush, maximize);
+                        }
+                        if (hoveredMinimize)
+                        {
+                            e.Graphics.FillRectangle(alphaBrush, minimize);
+                        }
                     }
                 }
 
@@ -375,22 +378,28 @@ namespace HeCopUI_Framework.Forms
             if (WindowState == FormWindowState.Maximized)
             {
                 // Vẽ biểu tượng "Restore"
-                g.DrawRectangle(pen, (float)maximize.X + maximize.Width / 2 - halfSize,
-                    maximize.Y + maximize.Height / 2 - halfSize + 3, size - 4, size - 4);
+                g.DrawRectangle(pen, (int)(maximize.X + maximize.Width / 2 - halfSize),
+                    (int)(maximize.Y + maximize.Height / 2 - halfSize + 3), size - 4, size - 4);
 
                 //g.DrawRectangle(pen, (float)maximize.X + maximize.Width / 2 - halfSize + 3,
                 //    maximize.Y + maximize.Height / 2 - halfSize, size - 4, size - 4);
 
+                g.DrawLine(pen, (int)(maximize.X + maximize.Width / 2 - 1), (int)(maximize.Y + maximize.Height / 2 - halfSize - pen.Width),
+                    (int)(maximize.X + maximize.Width / 2 - 1), maximize.Y + maximize.Height / 2 - halfSize + 3);
+
                 g.DrawLine(pen, maximize.X + maximize.Width / 2 - 1, maximize.Y + maximize.Height / 2 - halfSize - pen.Width,
-                    maximize.X + maximize.Width / 2 - 1, maximize.Y + maximize.Height / 2 - halfSize + 3);
+                   maximize.X + maximize.Width / 2 + halfSize + 2, maximize.Y + maximize.Height / 2 - halfSize - pen.Width);
 
+                g.DrawLine(pen, maximize.X + maximize.Width / 2 + halfSize + 2, maximize.Y + maximize.Height / 2 - halfSize - pen.Width,
+                    maximize.X + maximize.Width / 2 + halfSize + 2, maximize.Y + maximize.Height / 2 + halfSize - 3);
 
+            
 
             }
-            else
+            else if (WindowState == FormWindowState.Minimized || WindowState == FormWindowState.Normal)
             {
-                g.DrawRectangle(pen, (float)maximize.X + maximize.Width / 2 - halfSize,
-                       maximize.Y + maximize.Height / 2 - halfSize, size, size);
+                g.DrawRectangle(pen, (int)(maximize.X + maximize.Width / 2 - halfSize),
+                       (int)(maximize.Y + maximize.Height / 2 - halfSize), size, size);
             }
         }
 
@@ -558,7 +567,6 @@ namespace HeCopUI_Framework.Forms
 
 
 
-
         protected override void WndProc(ref Message m)
         {
             if (DesignMode)
@@ -573,12 +581,12 @@ namespace HeCopUI_Framework.Forms
                     if (!mouseInTitleBar && (hoveredClose || hoveredMaximize || hoveredMinimize))
                     {
                         Cursor = Cursors.Hand;
-                        Invalidate();
+                        Refresh();
                     }
                     else
                     {
                         Cursor = Cursors.Default;
-                        Invalidate();
+                        Refresh();
                     }
 
                     return;
@@ -587,7 +595,6 @@ namespace HeCopUI_Framework.Forms
                     if (hoveredClose)
                     {
                         Close();
-                        return;
                     }
                     else if (hoveredMaximize)
                     {
@@ -595,16 +602,22 @@ namespace HeCopUI_Framework.Forms
                             WindowState = FormWindowState.Normal;
                         else
                             WindowState = FormWindowState.Maximized;
-                        return;
                     }
                     else if (hoveredMinimize)
                     {
                         WindowState = FormWindowState.Minimized;
-                        return;
                     }
                     break;
 
+
+
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCRBUTTONDOWN:
+                    if (mouseInTitleBar)
+                    {
+                        IntPtr hMenu = HeCopUI_Framework.Win32.User32.GetSystemMenu(this.Handle, false);
+                        HeCopUI_Framework.Win32.User32.TrackPopupMenu(hMenu, (int)HeCopUI_Framework.Win32.Enums.TrackPopupMenuFlags.TPM_RETURNCMD,
+                            MousePosition.X, MousePosition.Y, 0, m.HWnd, IntPtr.Zero);
+                    }
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_SYSCOMMAND:
@@ -615,7 +628,25 @@ namespace HeCopUI_Framework.Forms
                             if (!mouseInTitleBar)
                                 return;
                             break;
+
+                        case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_CLOSE:
+
+                            this.Close();
+                            break;
+                        case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_MINIMIZE:
+
+                            this.WindowState = FormWindowState.Minimized;
+                            break;
+                        case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_MAXIMIZE:
+
+                            this.WindowState = FormWindowState.Maximized;
+                            break;
+                        case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_RESTORE:
+
+                            this.WindowState = FormWindowState.Normal;
+                            break;
                     }
+
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCHITTEST:
@@ -631,6 +662,9 @@ namespace HeCopUI_Framework.Forms
                     {
                         ht = HeCopUI_Framework.Win32.Enums.HitTests.HTNOWHERE;
                     }
+
+                    HeCopUI_Framework.Win32.User32.RedrawWindow(new HandleRef(this, Handle).Handle, IntPtr.Zero, IntPtr.Zero, (uint)HeCopUI_Framework.Win32.Enums.RedrawWindowFlags.RDW_INVALIDATE);
+
                     m.Result = (IntPtr)ht;
                     return;
 
@@ -646,26 +680,30 @@ namespace HeCopUI_Framework.Forms
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_ENTERSIZEMOVE:
                     // Useful if your window contents are dependent on window size but expensive to compute, as they give you a way to defer paints until the end of the resize action. We found WM_WINDOWPOSCHANGING/ED wasn’t reliable for that purpose.
+
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_EXITSIZEMOVE:
                     //if (Resizing)
                     //{
                     //    // restore caption style
-                    //    WindowStyle |= WinApi.WindowStyles.WS_CAPTION;
+                    //CreateParams.Style |= (int)WindowStyles.WS_CAPTION;
                     //}
                     //Resizing = false;
                     //Moving = false;
+
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_SIZING:
                     //if (!Resizing)
                     //{
                     //    // disable caption style to avoid seeing it when resizing 
-                    //    WindowStyle &= ~WinApi.WindowStyles.WS_CAPTION;
+                    //CreateParams.Style &= ~(int)WindowStyles.WS_CAPTION;
                     //}
                     //Resizing = true;
+
                     break;
+
 
                 //case Window.Msg.WM_MOVING:
                 //    Moving = true;
@@ -688,6 +726,7 @@ namespace HeCopUI_Framework.Forms
                     }
                     // var wid = m.LParam.LoWord();
                     // var h = m.LParam.HiWord();
+
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCPAINT:
@@ -697,7 +736,7 @@ namespace HeCopUI_Framework.Forms
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_GETMINMAXINFO:
                     // allows the window to be maximized at the size of the working area instead of the whole screen size
-                    OnGetMinMaxInfo(ref m, 1);
+                    OnGetMinMaxInfo(ref m);
                     //Return Zero
                     m.Result = IntPtr.Zero;
                     return;
@@ -706,6 +745,7 @@ namespace HeCopUI_Framework.Forms
                     // we respond to this message to say we do not want a non client area
                     if (OnNcCalcSize(ref m))
                         return;
+
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_ACTIVATEAPP:
@@ -714,6 +754,7 @@ namespace HeCopUI_Framework.Forms
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_ACTIVATE:
                     //IsActive = ((int)WinApi.WAFlags.WA_ACTIVE == (int)m.WParam || (int)WinApi.WAFlags.WA_CLICKACTIVE == (int)m.WParam);
+
                     break;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCACTIVATE:
@@ -722,8 +763,9 @@ namespace HeCopUI_Framework.Forms
                         https://blogs.msdn.microsoft.com/wpfsdk/2008/09/08/custom-window-chrome-in-wpf/ */
                     //var oldStyle = WindowStyle;
                     //WindowStyle = oldStyle & ~HeCopUI_Framework.Win32.Enums.WindowStyles.WS_VISIBLE;
-                    //DefWndProc(ref m);
+                    DefWndProc(ref m);
                     //WindowStyle = oldStyle;
+
                     return;
 
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_WINDOWPOSCHANGED:
@@ -731,6 +773,7 @@ namespace HeCopUI_Framework.Forms
                     // var newwindowpos = (WinApi.WINDOWPOS) Marshal.PtrToStructure(m.LParam, typeof(WinApi.WINDOWPOS));
                     DefWndProc(ref m);
                     UpdateBounds();
+
                     m.Result = IntPtr.Zero;
                     return;
 
@@ -750,6 +793,8 @@ namespace HeCopUI_Framework.Forms
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCUAHDRAWFRAME:
                     /* These undocumented messages are sent to draw themed window borders
                        Block them to prevent drawing borders over the client area */
+
+
                     m.Result = IntPtr.Zero;
                     return;
 
@@ -759,6 +804,8 @@ namespace HeCopUI_Framework.Forms
 
             base.WndProc(ref m);
         }
+
+
 
         bool mouseInTitleBar
         {
@@ -856,7 +903,6 @@ namespace HeCopUI_Framework.Forms
                 var s = Screen.FromHandle(Handle);
                 // the proposed rect is the maximized position/size that window suggest using the "out of screen" borders
                 // we change that here
-
                 rect.Set(s.WorkingArea);
                 return true;
             }
@@ -873,6 +919,8 @@ namespace HeCopUI_Framework.Forms
             _lastMinMaxInfo.maxSize.Height = s.WorkingArea.Height - offSet * 2;
             Marshal.StructureToPtr(_lastMinMaxInfo, m.LParam, true);
         }
+
+
 
         MINMAXINFO _lastMinMaxInfo;
         bool _needRedraw = false;

@@ -2,37 +2,17 @@ using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using HeCopUI_Framework.Win32.Enums;
+using HeCopUI_Framework.Win32.Struct;
 
 namespace HeCopUI_Framework.Win32
 {
 
 	public class Gdi32
 	{
-		public struct POINT
-		{
-			public int x;
+        [DllImport("gdi32.dll")]
+        public static extern int GetRgnBox(IntPtr hrgn, out RECT lprc);
 
-			public int y;
-
-			public POINT(int x, int y)
-			{
-				this.x = x;
-				this.y = y;
-			}
-
-			public POINT(Point point)
-			{
-				x = point.X;
-				y = point.Y;
-			}
-
-			public override string ToString()
-			{
-				return $"x:{x} y:{y}";
-			}
-		}
-
-		public const int RGN_AND = 1;
+        public const int RGN_AND = 1;
 
 		public const int RGN_OR = 2;
 
@@ -49,8 +29,7 @@ namespace HeCopUI_Framework.Win32
 		[return: MarshalAs(UnmanagedType.Bool)]
 		public static extern bool DeleteObject([In] IntPtr hObject);
 
-		[DllImport("User32.dll")]
-		internal static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool redraw);
+	
 
 		[DllImport("gdi32.dll", CharSet = CharSet.Auto, ExactSpelling = true, SetLastError = true)]
 		internal static extern int BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, uint dwRop);

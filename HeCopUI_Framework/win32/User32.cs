@@ -25,11 +25,12 @@ namespace HeCopUI_Framework.Win32
 
         private static HandleRef HWND_TOPMOST = new HandleRef(null, new IntPtr(-1));
 
-
+     
 
         public AnimateWindowFlags AW_HIDE { get; set; }
 
-
+        [DllImport("user32.dll")]
+        public static extern int GetWindowRgn(IntPtr hWnd, IntPtr hRgn);
 
         [DllImport("User32.dll")]
         public static extern bool AnimateWindow(IntPtr handle, int msec, int flags);

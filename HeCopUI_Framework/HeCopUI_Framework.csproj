@@ -460,6 +460,7 @@
     <Compile Include="Win32\Enums\GetIconListFlags.cs" />
     <Compile Include="Win32\Enums\IconDataCursorFlags.cs" />
     <Compile Include="Win32\Enums\RedrawWindowFlags.cs" />
+    <Compile Include="Win32\Enums\TrackPopupMenuFlags.cs" />
     <Compile Include="Win32\Enums\WmSizeEnum.cs" />
     <Compile Include="Win32\Struct\PAINTSTRUCT.cs" />
     <Compile Include="SuperNotifyIcon\Animation.cs" />
