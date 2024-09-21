@@ -172,6 +172,9 @@
     <Compile Include="Controls\Table\TableColumnCollection.cs" />
     <Compile Include="Controls\Table\TableRow.cs" />
     <Compile Include="Controls\Table\TableRowCollection.cs" />
+    <Compile Include="Controls\TextControl\HTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\TreeView\HTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -214,12 +217,6 @@
     </Compile>
     <Compile Include="Controls\Progress\HDotProgressRing.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\hColorPicker.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\hColorPicker.Designer.cs">
-      <DependentUpon>hColorPicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\HComboBox.cs">
       <SubType>Component</SubType>
@@ -288,9 +285,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Button\HRadioButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\HTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Button\HCheckBox.cs">
@@ -598,7 +592,7 @@
     <Compile Include="Controls\Charts\HPieChart.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HRichTextBox.cs">
+    <Compile Include="Controls\TextControl\HRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HShowFormLocation.cs">
@@ -658,9 +652,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\HCircleAnglePicker.resx">
       <DependentUpon>HCircleAnglePicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\hColorPicker.resx">
-      <DependentUpon>hColorPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HForm.resx">
       <DependentUpon>HForm.cs</DependentUpon>

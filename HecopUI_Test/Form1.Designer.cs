@@ -2,6 +2,7 @@
 using HeCopUI_Framework.Controls.Bubble;
 using HeCopUI_Framework.Controls.Button;
 using HeCopUI_Framework.Controls.Progress;
+using HeCopUI_Framework.Controls.TextControl;
 using HeCopUI_Framework.Enums;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -150,10 +151,8 @@ namespace HecopUI_Test
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.hRadarChart1 = new HeCopUI_Framework.Controls.Charts.HRadarChart();
             this.tabPage21 = new System.Windows.Forms.TabPage();
-            this.hRichTextBox2 = new HeCopUI_Framework.Controls.HRichTextBox();
-            this.hTextBox2 = new HeCopUI_Framework.Controls.HTextBox();
-            this.hTextBox1 = new HeCopUI_Framework.Controls.HTextBox();
-            this.hRichTextBox1 = new HeCopUI_Framework.Controls.HRichTextBox();
+            this.hRichTextBox2 = new HeCopUI_Framework.Controls.TextControl.HRichTextBox();
+            this.hRichTextBox1 = new HeCopUI_Framework.Controls.TextControl.HRichTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.hTabControl6 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -191,7 +190,6 @@ namespace HecopUI_Test
             this.hTabControl9 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.hhTrackBar1 = new HeCopUI_Framework.Controls.HHTrackBar();
-            this.hTextBox3 = new HeCopUI_Framework.Controls.HTextBox();
             this.hCircleAnglePicker1 = new HeCopUI_Framework.Controls.HCircleAnglePicker();
             this.hRadialRangeSlider1 = new HeCopUI_Framework.Controls.HRadialRangeSlider();
             this.tabPage34 = new System.Windows.Forms.TabPage();
@@ -2717,8 +2715,6 @@ namespace HecopUI_Test
             // 
             this.tabPage21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.tabPage21.Controls.Add(this.hRichTextBox2);
-            this.tabPage21.Controls.Add(this.hTextBox2);
-            this.tabPage21.Controls.Add(this.hTextBox1);
             this.tabPage21.Controls.Add(this.hRichTextBox1);
             this.tabPage21.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage21.Location = new System.Drawing.Point(139, 4);
@@ -2760,88 +2756,6 @@ namespace HecopUI_Test
             this.hRichTextBox2.TextColor = System.Drawing.Color.Silver;
             this.hRichTextBox2.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.hRichTextBox2.WordWrap = true;
-            // 
-            // hTextBox2
-            // 
-            this.hTextBox2.AcceptsReturn = true;
-            this.hTextBox2.AcceptsTab = true;
-            this.hTextBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.hTextBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.hTextBox2.BorderColor = System.Drawing.Color.DimGray;
-            this.hTextBox2.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hTextBox2.BorderHoverColor = System.Drawing.Color.Silver;
-            this.hTextBox2.BorderThickness = 1;
-            this.hTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.hTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.hTextBox2.Image = null;
-            this.hTextBox2.ImageOffsetX = 2;
-            this.hTextBox2.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox2.Location = new System.Drawing.Point(393, 87);
-            this.hTextBox2.MaxLength = 32767;
-            this.hTextBox2.Multiline = false;
-            this.hTextBox2.Name = "hTextBox2";
-            this.hTextBox2.Radius = 0;
-            this.hTextBox2.ReadOnly = false;
-            this.hTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.hTextBox2.ShortcutsEnabled = false;
-            this.hTextBox2.ShowBottomBorder = true;
-            this.hTextBox2.ShowTopBorder = true;
-            this.hTextBox2.Size = new System.Drawing.Size(250, 38);
-            this.hTextBox2.Style = HeCopUI_Framework.Controls.HTextBox.TextBoxStyle.Style2;
-            this.hTextBox2.TabIndex = 6;
-            this.hTextBox2.TexOffsetX = 2;
-            this.hTextBox2.Text = "hTextBox2";
-            this.hTextBox2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.hTextBox2.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hTextBox2.TextBoxHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.hTextBox2.TextColor = System.Drawing.Color.Silver;
-            this.hTextBox2.UseAnimation = true;
-            this.hTextBox2.UseSystemPasswordChar = false;
-            this.hTextBox2.WatermarkColor = System.Drawing.Color.DarkGray;
-            this.hTextBox2.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hTextBox2.WatermarkRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTextBox2.WatermarkText = "Enter watermark";
-            // 
-            // hTextBox1
-            // 
-            this.hTextBox1.AcceptsReturn = true;
-            this.hTextBox1.AcceptsTab = true;
-            this.hTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.hTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.hTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hTextBox1.BorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(162)))));
-            this.hTextBox1.BorderThickness = 1;
-            this.hTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.hTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.hTextBox1.Image = null;
-            this.hTextBox1.ImageOffsetX = 2;
-            this.hTextBox1.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox1.Location = new System.Drawing.Point(113, 87);
-            this.hTextBox1.MaxLength = 32767;
-            this.hTextBox1.Multiline = false;
-            this.hTextBox1.Name = "hTextBox1";
-            this.hTextBox1.Radius = 0;
-            this.hTextBox1.ReadOnly = false;
-            this.hTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.hTextBox1.ShortcutsEnabled = false;
-            this.hTextBox1.ShowBottomBorder = true;
-            this.hTextBox1.ShowTopBorder = true;
-            this.hTextBox1.Size = new System.Drawing.Size(250, 38);
-            this.hTextBox1.Style = HeCopUI_Framework.Controls.HTextBox.TextBoxStyle.Style1;
-            this.hTextBox1.TabIndex = 5;
-            this.hTextBox1.TexOffsetX = 2;
-            this.hTextBox1.Text = "hTextBox1";
-            this.hTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.hTextBox1.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hTextBox1.TextBoxHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.hTextBox1.TextColor = System.Drawing.Color.Silver;
-            this.hTextBox1.UseAnimation = false;
-            this.hTextBox1.UseSystemPasswordChar = false;
-            this.hTextBox1.WatermarkColor = System.Drawing.Color.DarkGray;
-            this.hTextBox1.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hTextBox1.WatermarkRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTextBox1.WatermarkText = "Enter watermark";
             // 
             // hRichTextBox1
             // 
@@ -3545,7 +3459,6 @@ namespace HecopUI_Test
             // 
             this.tabPage20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.tabPage20.Controls.Add(this.hhTrackBar1);
-            this.tabPage20.Controls.Add(this.hTextBox3);
             this.tabPage20.Controls.Add(this.hCircleAnglePicker1);
             this.tabPage20.Controls.Add(this.hRadialRangeSlider1);
             this.tabPage20.Cursor = System.Windows.Forms.Cursors.Default;
@@ -3575,47 +3488,6 @@ namespace HecopUI_Test
             this.hhTrackBar1.Text = "hhTrackBar2";
             this.hhTrackBar1.Value = 0;
             this.hhTrackBar1.ValueColor = System.Drawing.Color.Olive;
-            // 
-            // hTextBox3
-            // 
-            this.hTextBox3.AcceptsReturn = true;
-            this.hTextBox3.AcceptsTab = true;
-            this.hTextBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.hTextBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.hTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hTextBox3.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hTextBox3.BorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(162)))));
-            this.hTextBox3.BorderThickness = 1;
-            this.hTextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.hTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.hTextBox3.Image = null;
-            this.hTextBox3.ImageOffsetX = 2;
-            this.hTextBox3.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox3.Location = new System.Drawing.Point(263, 201);
-            this.hTextBox3.MaxLength = 32767;
-            this.hTextBox3.Multiline = false;
-            this.hTextBox3.Name = "hTextBox3";
-            this.hTextBox3.Radius = 0;
-            this.hTextBox3.ReadOnly = false;
-            this.hTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.hTextBox3.ShortcutsEnabled = false;
-            this.hTextBox3.ShowBottomBorder = true;
-            this.hTextBox3.ShowTopBorder = true;
-            this.hTextBox3.Size = new System.Drawing.Size(80, 28);
-            this.hTextBox3.Style = HeCopUI_Framework.Controls.HTextBox.TextBoxStyle.Style2;
-            this.hTextBox3.TabIndex = 19;
-            this.hTextBox3.TexOffsetX = 2;
-            this.hTextBox3.Text = "0";
-            this.hTextBox3.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.hTextBox3.TextBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.hTextBox3.TextBoxHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.hTextBox3.TextColor = System.Drawing.Color.Silver;
-            this.hTextBox3.UseAnimation = false;
-            this.hTextBox3.UseSystemPasswordChar = false;
-            this.hTextBox3.WatermarkColor = System.Drawing.Color.DarkGray;
-            this.hTextBox3.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hTextBox3.WatermarkRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hTextBox3.WatermarkText = "";
             // 
             // hCircleAnglePicker1
             // 
@@ -4420,14 +4292,11 @@ namespace HecopUI_Test
         private TabPage tabPage11;
         private LinearParticleAnimation linearParticleAnimation1;
         private HRichTextBox hRichTextBox2;
-        private HTextBox hTextBox2;
-        private HTextBox hTextBox1;
         private HRichTextBox hRichTextBox1;
         private TabPage tabPage9;
         private HTabControl hTabControl9;
         private TabPage tabPage20;
         private HHTrackBar hhTrackBar1;
-        private HTextBox hTextBox3;
         private HCircleAnglePicker hCircleAnglePicker1;
         private HRadialRangeSlider hRadialRangeSlider1;
         private TabPage tabPage34;

@@ -73,18 +73,18 @@ namespace HeCopUI_Framework.Controls.Button
 
             Size = new Size(111, 123);
             BackColor = Color.Transparent;
-           
+
             _animationManager.OnAnimationProgress += delegate { Invalidate(); };
-           
+
             ForeColor = Color.White;
-        
+
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
             butDo = true;
-            if(AnimationMode== Enums.AnimationMode.Ripple)
-            _animationManager.StartNewAnimation(Animations.AnimationDirection.In, e.Location);
+            if (AnimationMode == Enums.AnimationMode.Ripple)
+                _animationManager.StartNewAnimation(Animations.AnimationDirection.In, e.Location);
             Invalidate();
             base.OnMouseDown(e);
         }
@@ -123,16 +123,16 @@ namespace HeCopUI_Framework.Controls.Button
             set
             {
                 buttonColor2 = value;
-            
+
                 Invalidate();
             }
         }
 
-    
+
 
         private Animations.AnimationManager _animationManager;
 
-        Enums.AnimationMode animationMode= Enums.AnimationMode.None;
+        Enums.AnimationMode animationMode = Enums.AnimationMode.None;
         public Enums.AnimationMode AnimationMode
         {
             get { return animationMode; }
@@ -156,7 +156,7 @@ namespace HeCopUI_Framework.Controls.Button
                 Invalidate();
             }
         }
-  
+
 
         private int interval = 200;
         /// <summary>
@@ -168,7 +168,7 @@ namespace HeCopUI_Framework.Controls.Button
             set { interval = value; Invalidate(); }
         }
 
-    
+
         public Color RippleColor { get; set; } = Color.Black;
 
 
@@ -177,7 +177,11 @@ namespace HeCopUI_Framework.Controls.Button
         bool butDo;
 
         private CornerRadius Ra = new CornerRadius(5);
-    
+
+        /// <summary>
+        /// Get or set radius of button
+        /// </summary>
+        [Localizable(true)]
         public CornerRadius Radius
         {
             get { return Ra; }
@@ -206,7 +210,7 @@ namespace HeCopUI_Framework.Controls.Button
             set
             {
                 BC = value;
-             
+
                 Invalidate();
             }
         }
@@ -348,7 +352,7 @@ namespace HeCopUI_Framework.Controls.Button
         protected override void OnPaint(PaintEventArgs e)
         {
             float b = 0f;
-           
+
             using (GraphicsPath SGP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width, Height), Radius))
             using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
 
@@ -362,7 +366,7 @@ namespace HeCopUI_Framework.Controls.Button
 
             {
                 bitmap.MakeTransparent();
-                if (ClipRegion == true && DesignMode == false&& Ra.All!=0)
+                if (ClipRegion == true && DesignMode == false && Ra.All != 0)
                 {
                     GetAppResources.MakeTransparent(this, g);
                     Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(Radius, 2.5f)));
@@ -376,7 +380,7 @@ namespace HeCopUI_Framework.Controls.Button
                 if (Ra.All == 0)
                 {
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    g.PixelOffsetMode= PixelOffsetMode.HighQuality;
+                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 }
 
                 pen.Alignment = PenAlignment.Inset;
@@ -402,9 +406,9 @@ namespace HeCopUI_Framework.Controls.Button
                 g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(2 + TPadd.Left, Font.Height + (IS + ISi.Height + TOY) + TPadd.Top, Width - 2 - TPadd.Right, TeY + Font.Height - TPadd.Bottom), SF);
                 g.DrawString(SubText, TeIF, new SolidBrush(textColor), new RectangleF(2 + ITPadd.Left, TeY + Font.Height * 2 + ITPadd.Top + 4 + (IS + ISi.Height + TOY) + TexInffoOffsetY, Width - 2 - ITPadd.Right, (Height - TexInffoOffsetY - TeIF.Height - IS - ISi.Height - TOY - TeY) - ITPadd.Bottom), SAF);
 
-                
+
                 if (BT != 0) g.DrawPath(pen, GP);
-               
+
                 if (AnimationMode == Enums.AnimationMode.Ripple && _animationManager.IsAnimating())
                 {
                     g.SmoothingMode = SmoothingMode.AntiAlias;

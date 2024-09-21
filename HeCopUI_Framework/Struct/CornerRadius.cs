@@ -2,10 +2,12 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Struct
-{
+{                       
     /// <summary>
     /// Represents Corner Radius information associated with a user interface (UI)
     /// </summary>
@@ -43,6 +45,7 @@ namespace HeCopUI_Framework.Struct
 
         public CornerRadius(CornerRadius radius, float offset = 0) : this(radius.All - offset)
         {
+            
         }
 
         public static bool TryParse(string s, out CornerRadius result)
@@ -153,9 +156,16 @@ namespace HeCopUI_Framework.Struct
         //public override string ToString() =>
         //    "{TopLeft=" + TopLeft.ToString() + ",TopRight=" + TopRight.ToString() + ",BottomLeft=" + BottomLeft.ToString() + ",BottomRight=" + BottomRight.ToString() + "}";
 
+        //public override string ToString()
+        //{
+        //    return $"{{TopLeft={TopLeft},TopRight={TopRight},BottomLeft={BottomLeft},BottomRight={BottomRight}}}";
+        //}
+
         public override string ToString()
         {
-            return $"{{TopLeft={TopLeft},TopRight={TopRight},BottomLeft={BottomLeft},BottomRight={BottomRight}}}";
+          
+            return "{TopLeft=" + TopLeft.ToString(CultureInfo.CurrentCulture) + ",TopRight=" + TopRight.ToString(CultureInfo.CurrentCulture) + 
+                ",TopRight=" + TopRight.ToString(CultureInfo.CurrentCulture) + ",BottomRight=" + BottomRight.ToString(CultureInfo.CurrentCulture) + "}";
         }
 
         private void ResetAll() => All = 0;

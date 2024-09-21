@@ -152,7 +152,7 @@ namespace HecopUI_Test
 
         private void hCircleAnglePicker1_ValueChanged(object sender, EventArgs e)
         {
-            hTextBox3.Text = hCircleAnglePicker1.Value.ToString();
+          
         }
 
         private void hButton12_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using HeCopUI_Framework.Struct;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -263,6 +264,10 @@ namespace HeCopUI_Framework.Controls.Progress
             }
         }
 
+        /// <summary>
+        /// Get or set radius of progress bar
+        /// </summary>
+        [Localizable(true)]
         public CornerRadius Radius
         {
             get { return Ra; }

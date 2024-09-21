@@ -20,7 +20,7 @@ namespace HeCopUI_Framework
 {
     public partial class GetAppResources
     {
-   
+
         #region Run Instance
         public static void ShowInstanceProcess(Form MainForm, string ApplicationName, bool BringWindowToFront)
         {
@@ -170,7 +170,7 @@ namespace HeCopUI_Framework
         public static ControlStyles SetControlStyles()
         {
             ControlStyles CS =
-                     ControlStyles.OptimizedDoubleBuffer| ControlStyles.SupportsTransparentBackColor| ControlStyles.UserPaint| ControlStyles.AllPaintingInWmPaint|
+                     ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint |
                      ControlStyles.ResizeRedraw;
             return CS;
         }
@@ -217,7 +217,7 @@ namespace HeCopUI_Framework
 
         public static System.Drawing.Text.TextRenderingHint SetTextRender()
         {
-            return System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            return System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
         }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -274,16 +274,16 @@ namespace HeCopUI_Framework
             }
         }
 
-  
+
         #endregion
 
         #region Read .Ini File
-      
+
         string EXE = Assembly.GetExecutingAssembly().GetName().Name;
         public static string READINIFILE(string filePath, string Section, string Key)
         {
             StringBuilder tmp = new StringBuilder(255);
-            long i = HeCopUI_Framework.Win32.Kernel32. GetPrivateProfileString(Section, Key, "", tmp, 255, filePath);
+            long i = HeCopUI_Framework.Win32.Kernel32.GetPrivateProfileString(Section, Key, "", tmp, 255, filePath);
             return tmp.ToString();
         }
         public static void WRITEINIFILE(string filePath, string Section, string Key, string szData)

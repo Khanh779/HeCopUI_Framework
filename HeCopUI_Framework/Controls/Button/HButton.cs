@@ -55,7 +55,7 @@ namespace HeCopUI_Framework.Controls.Button
             Invalidate();
             base.OnForeColorChanged(e);
         }
-      
+
         private bool autosize = false;
         public bool IsAutoSize
         {
@@ -159,7 +159,7 @@ namespace HeCopUI_Framework.Controls.Button
             get { return LB; }
             set
             {
-                LB = value; 
+                LB = value;
                 Invalidate();
             }
         }
@@ -248,7 +248,8 @@ namespace HeCopUI_Framework.Controls.Button
         /// <summary>
         /// Gets or sets radius of HButton.
         /// </summary>
-     
+
+        [Localizable(true)]
         public CornerRadius Radius
         {
             get { return radius; }
@@ -266,13 +267,13 @@ namespace HeCopUI_Framework.Controls.Button
             GetAppResources.MakeTransparent(this, e.Graphics);
             using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
             using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
-            
-            using (LinearGradientBrush AHB = 
-                (AnimationMode == AnimationMode.ColorTransition) ? new LinearGradientBrush(ClientRectangle, ButDo ? BackPressColor1 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()), 
+
+            using (LinearGradientBrush AHB =
+                (AnimationMode == AnimationMode.ColorTransition) ? new LinearGradientBrush(ClientRectangle, ButDo ? BackPressColor1 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, 255 * _animationManager.GetProgress()),
                  ButDo ? BackPressColor2 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, 255 * _animationManager.GetProgress()), LB) :
                 (AnimationMode == AnimationMode.Ripple) ? new LinearGradientBrush(ClientRectangle, ButHo ? BackHoverColor1 : ButtonColor1, ButHo ? BackHoverColor2 : ButtonColor2, LB) :
                  new LinearGradientBrush(ClientRectangle, ButDo ? BackPressColor1 : ButHo ? BackHoverColor1 : ButtonColor1, ButDo ? BackPressColor2 : ButHo ? BackHoverColor2 : ButtonColor2, LB))
-            
+
             using (SolidBrush sbText = new SolidBrush(ButDo ? TextDownColor : ButHo ? TextHoverColor : TextNormalColor))
             using (StringFormat SF = new StringFormat())
             using (Bitmap bitmap = HeCopUI_Framework.Ultils.DropShadow.Create(SGP, ShadowColor, shadowRad))
@@ -299,7 +300,7 @@ namespace HeCopUI_Framework.Controls.Button
                 }
                 if (Radius.All == 0) g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 GetAppResources.GetStringAlign(SF, CA);
-                SF.Trimming = STA;    
+                SF.Trimming = STA;
                 if (ClipRegion == true && DesignMode == false)
                 {
                     if (ST == ShapeType.Rectangle) Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(radius, 2.5f)));
@@ -309,7 +310,7 @@ namespace HeCopUI_Framework.Controls.Button
                         Region = new Region(a);
                     }
                 }
-               
+
                 g.FillPath(AHB, GP);
 
                 if (image != null)
@@ -387,14 +388,14 @@ namespace HeCopUI_Framework.Controls.Button
                 //Draw focus border
                 if (DesignMode == false && Focused)
                 {
-                    g.SmoothingMode= SmoothingMode.None;
-                    using (GraphicsPath gpf = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), radius, BorderThickness * 2+3))
+                    g.SmoothingMode = SmoothingMode.None;
+                    using (GraphicsPath gpf = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), radius, BorderThickness * 2 + 3))
                     using (var p = new Pen(new SolidBrush(fbc), 1) { Alignment = PenAlignment.Inset, DashStyle = dashStyle })
                         g.DrawPath(p, gpf);
-                   
+
                 }
                 Brush brr = new TextureBrush(bitmap);
-                    e.Graphics.FillPath(brr, SGP);
+                e.Graphics.FillPath(brr, SGP);
             }
 
         }
@@ -540,14 +541,14 @@ namespace HeCopUI_Framework.Controls.Button
             }
         }
 
-       
+
         AnimationMode animationMode = AnimationMode.None;
         public AnimationMode AnimationMode
         {
             get { return animationMode; }
             set
             {
-                animationMode = value; 
+                animationMode = value;
                 switch (animationMode)
                 {
                     case AnimationMode.None:
@@ -577,21 +578,21 @@ namespace HeCopUI_Framework.Controls.Button
             };
             //_animationManager.SetProgress(0);
             object[] b = new object[] { new Point(0, 0) };
-            _animationManager.StartNewAnimation(AnimationDirection.Out) ;
+            _animationManager.StartNewAnimation(AnimationDirection.Out);
             _animationManager.SetData(b);
-         
-           
+
+
             ForeColor = Color.White;
             if (IsAutoSize == true)
             {
                 SizeF n = TextRenderer.MeasureText(Text, Font);
                 Size = new Size((int)n.Width + (int)Padding.All, (int)n.Height + Padding.All);
             }
-           
+
             _animationManager.OnAnimationProgress += _animationManager_OnAnimationProgress;
             _animationManager.OnAnimationFinished += _animationManager_OnAnimationFinished;
-        
-          
+
+
         }
 
         private void _animationManager_OnAnimationProgress(object sender)
@@ -614,7 +615,7 @@ namespace HeCopUI_Framework.Controls.Button
         protected override void OnMouseEnter(EventArgs e)
         {
             ButHo = true;
-           if(animationMode== AnimationMode.ColorTransition)
+            if (animationMode == AnimationMode.ColorTransition)
                 _animationManager.StartNewAnimation(AnimationDirection.In);
 
             Invalidate();
@@ -640,7 +641,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnMouseDown(e);
         }
 
-       
+
         public Color RippleColor { get; set; } = Color.Black;
         protected override void OnMouseClick(MouseEventArgs e)
         {
@@ -694,6 +695,6 @@ namespace HeCopUI_Framework.Controls.Button
             }
         }
 
-      
+
     }
 }

@@ -19,7 +19,7 @@ namespace HecopUI_Test
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+          
         }
     }
 }

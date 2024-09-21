@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls.TextControl
 {
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(HRichTextBox), "Bitmaps.RitchTextBox.bmp")]
@@ -60,7 +60,7 @@ namespace HeCopUI_Framework.Controls
 
             richTextBox.Leave += delegate
             {
-             
+
                 _animationManager.StartNewAnimation(Animations.AnimationDirection.Out);
             };
 
@@ -101,14 +101,14 @@ namespace HeCopUI_Framework.Controls
             };
 
             Controls.Add(richTextBox);
-        
+
             UpdateR();
             base.OnCreateControl();
         }
 
         void Inti()
         {
-          
+
             richTextBox.SelectionRightIndent = SelectionRightIndent;
             richTextBox.AcceptsTab = AcceptsTab;
             richTextBox.HideSelection = HideSelection;
@@ -223,7 +223,7 @@ namespace HeCopUI_Framework.Controls
 
         }
 
-        
+
         private int sel = 0;
         public int SelectionRightIndent
         {
@@ -310,14 +310,16 @@ namespace HeCopUI_Framework.Controls
 
         public bool MultiLine
         {
-            get {
+            get
+            {
                 bool a = false;
                 if (richTextBox == null && !richTextBox.IsHandleCreated) richTextBox = new RichTextBox();
-                else a= richTextBox.Multiline;
-                return a; }
+                else a = richTextBox.Multiline;
+                return a;
+            }
             set
             {
-               
+
                 richTextBox.Multiline = value;
                 Invalidate();
 
@@ -333,7 +335,7 @@ namespace HeCopUI_Framework.Controls
                 else a = richTextBox.WordWrap;
                 return a;
             }
-            set {   richTextBox.WordWrap = value; Invalidate(); }
+            set { richTextBox.WordWrap = value; Invalidate(); }
         }
 
         private Point autoScrollOffset = new Point(0, 0);
@@ -431,13 +433,14 @@ namespace HeCopUI_Framework.Controls
 
         public string[] Lines
         {
-            get {
+            get
+            {
 
                 string[] a = { };
                 if (richTextBox == null && !richTextBox.IsHandleCreated) richTextBox = new RichTextBox();
                 else a = richTextBox.Lines;
-                return a; 
-               
+                return a;
+
             }
             set
             {
@@ -445,8 +448,8 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-    
-       
+
+
         public bool ReadOnly
         {
             get
@@ -469,7 +472,7 @@ namespace HeCopUI_Framework.Controls
             base.OnGotFocus(e);
         }
 
-       
+
         private Color bc = Global.PrimaryColors.BorderNormalColor1;
         public Color BorderColor
         {
@@ -480,7 +483,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        
+
         private Color bhc = Global.PrimaryColors.BackHoverColor1;
         public Color BorderHoverColor
         {
@@ -499,7 +502,7 @@ namespace HeCopUI_Framework.Controls
             {
                 if (value.A == 0)
                 {
-                    if (richTextBox. IsHandleCreated)
+                    if (richTextBox.IsHandleCreated)
                         richTextBox.BackColor = Color.White;
                 }
                 else
@@ -522,7 +525,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-    
+
         /// <summary>
         ///   Gets or sets the text associated with this control.
         /// </summary>

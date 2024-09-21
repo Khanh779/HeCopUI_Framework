@@ -28,7 +28,6 @@ D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopU
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.AnimatorNS.DoubleBitmapForm.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Controls.Charts.ChartTip.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Controls.HCircleAnglePicker.resources
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Controls.hColorPicker.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Forms.HForm.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.HDialog.FileExplorer.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.HDialog.HBrowserFileFolder.resources
