@@ -35,6 +35,7 @@ namespace HecopUI_Test
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.hTextBox1 = new HecopUI_Test.CControls.HTextBox();
             this.SuspendLayout();
             // 
             // hCheckBox1
@@ -103,6 +104,33 @@ namespace HecopUI_Test
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // hTextBox1
+            // 
+            this.hTextBox1.AcceptReturn = false;
+            this.hTextBox1.AcceptTab = false;
+            this.hTextBox1.BorderColor = System.Drawing.Color.Gray;
+            this.hTextBox1.BorderWidth = 1;
+            this.hTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.hTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.hTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.hTextBox1.HideSelection = true;
+            this.hTextBox1.Lines = new string[0];
+            this.hTextBox1.Location = new System.Drawing.Point(288, 307);
+            this.hTextBox1.MaxLength = 32767;
+            this.hTextBox1.Name = "hTextBox1";
+            this.hTextBox1.PasswordChar = '\0';
+            this.hTextBox1.ReadOnly = false;
+            this.hTextBox1.ShortCutKeysEnabled = true;
+            this.hTextBox1.Size = new System.Drawing.Size(213, 35);
+            this.hTextBox1.TabIndex = 9;
+            this.hTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.hTextBox1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.hTextBox1.UnderlineStyle = true;
+            this.hTextBox1.WartermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hTextBox1.Watermark = "Type watermark text here.";
+            this.hTextBox1.WatermarkForeColor = System.Drawing.Color.Gray;
+            this.hTextBox1.WordWrap = true;
+            // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -113,6 +141,7 @@ namespace HecopUI_Test
             this.BorderPadding = new System.Windows.Forms.Padding(1);
             this.ClientSize = new System.Drawing.Size(649, 408);
             this.ControlBoxSize = 35;
+            this.Controls.Add(this.hTextBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.richTextBox1);
@@ -136,5 +165,6 @@ namespace HecopUI_Test
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Button button1;
+        private CControls.HTextBox hTextBox1;
     }
 }

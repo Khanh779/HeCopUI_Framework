@@ -8,6 +8,7 @@ using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
+
 namespace HecopUI_Test.CControls
 {
     [DefaultEvent("TextChanged")]
@@ -160,6 +161,10 @@ namespace HecopUI_Test.CControls
         #region Properties for CustomTextBox
 
         int _borderWidth = 1;
+        /// <summary>
+        /// Gets or sets the border width of the TextBox control.
+        /// </summary>
+        [Description("The border width of the TextBox control.")]
         public int BorderWidth
         {
             get { return _borderWidth; }
@@ -171,6 +176,10 @@ namespace HecopUI_Test.CControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets the border color of the TextBox control.
+        /// </summary>
+        [Description("The border color of the TextBox control.")]
         public Color BorderColor
         {
             get { return borderColor; }
@@ -184,6 +193,10 @@ namespace HecopUI_Test.CControls
         string _wartermark = "Type watermark text here.";
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [SettingsBindable(true)]
+        /// <summary>
+        /// Gets or sets the watermark text of the TextBox control.
+        /// </summary>
+        [Description("The watermark text of the TextBox control.")]
         public string Watermark
         {
             get { return _wartermark; }
@@ -195,7 +208,10 @@ namespace HecopUI_Test.CControls
         }
 
 
-
+        /// <summary>
+        /// Gets or sets the underline style of the TextBox control.
+        /// </summary>
+        [Description("The underline style of the TextBox control.")]
         public bool UnderlineStyle
         {
             get { return _underlineStyle; }
@@ -210,6 +226,7 @@ namespace HecopUI_Test.CControls
         /// <summary>
         /// Gets or sets the text rendering hint of the text in the TextBox control.
         /// </summary>
+        [Description("The text rendering hint of the text in the TextBox control.")]
         public TextRenderingHint TextRenderHint
         {
             get { return textRenderingHint; }
@@ -221,6 +238,10 @@ namespace HecopUI_Test.CControls
         }
 
         Font wartermarkFont = Control.DefaultFont;
+        /// <summary>
+        /// Gets or sets the font of the watermark text in the TextBox control.
+        /// </summary>
+        [Description("The font of the watermark text in the TextBox control.")]
         public Font WartermarkFont
         {
             get { return wartermarkFont; }
@@ -234,6 +255,10 @@ namespace HecopUI_Test.CControls
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [SettingsBindable(true)]
         [Category("Misc")]
+        /// <summary>
+        /// Gets or sets the text associated with this control.
+        /// </summary>
+        [Description("The text associated with this control.")]
         public override string Text
         {
             get
@@ -255,6 +280,7 @@ namespace HecopUI_Test.CControls
         /// Gets or sets the character casing of the text in the TextBox control.
         /// </summary>
         /// <param name="e"></param>
+        [Description("The character casing of the text in the TextBox control.")]
         public CharacterCasing CharacterCasing
         {
             get { return characterCasing; }
@@ -269,6 +295,7 @@ namespace HecopUI_Test.CControls
         /// <summary>
         /// Gets or sets the maximum number of characters the user can type or paste into the text box control.
         /// </summary>
+        [Description("The maximum number of characters the user can type or paste into the text box control.")]
         public int MaxLength
         {
             get { return maxLength; }
@@ -283,6 +310,7 @@ namespace HecopUI_Test.CControls
         /// <summary>
         /// Gets or sets the character used to mask characters of a password in a single-line TextBox control.
         /// </summary>
+        [Description("The character used to mask characters of a password in a single-line TextBox control.")]
         public char PasswordChar
         {
             get { return passwordChar; }
@@ -297,6 +325,7 @@ namespace HecopUI_Test.CControls
         /// <summary>
         /// Gets or sets a value indicating whether the defined shortcuts are enabled.
         /// </summary>
+        [Description("A value indicating whether the defined shortcuts are enabled.")]
         public bool ShortCutKeysEnabled
         {
             get { return shortCutKeysEnabled; }
@@ -582,18 +611,20 @@ namespace HecopUI_Test.CControls
                 if (wm != null && wm.IsHandleCreated)
                 {
                     wm.Size = new Size(Width - 3 - BorderWidth * 2, innerTextBox.Height);
-                    wm.Location = new Point(innerTextBox.Location.X + 1, innerTextBox.Location.Y);
+                    wm.Location = new Point(innerTextBox.Location.X + (TextAlign == HorizontalAlignment.Left ? 1 : TextAlign == HorizontalAlignment.Right ? -1 : 0),
+                        innerTextBox.Location.Y);
 
                     wm.Text = _wartermark;
                     wm.Font = WartermarkFont;
                     wm.ForeColor = WatermarkForeColor;
                     wm.TextRenderHint = TextRenderHint;
+                    wm.TextAlign = TextAlign;
 
                 }
                 if (innerTextBox != null && innerTextBox.IsHandleCreated)
                 {
                     if (wm != null && wm.IsHandleCreated)
-                        wm.Visible = string.IsNullOrEmpty(innerTextBox.Text) && !Multiline;
+                        wm.Visible = string.IsNullOrEmpty(innerTextBox.Text) && !Multiline && TextAlign != HorizontalAlignment.Center;
 
                     innerTextBox.Font = Font;
                     innerTextBox.BackColor = BackColor;
@@ -610,7 +641,7 @@ namespace HecopUI_Test.CControls
                     innerTextBox.AcceptsReturn = AcceptReturn;
                     innerTextBox.AcceptsTab = AcceptTab;
                     innerTextBox.WordWrap = WordWrap;
-                 
+
                     innerTextBox.RightToLeft = RightToLeft;
 
                     //innerTextBox.AutoCompleteCustomSource = AutoCompleteCustomSource;
@@ -679,6 +710,22 @@ namespace HecopUI_Test.CControls
                 }
             }
 
+            HorizontalAlignment _textAlign = HorizontalAlignment.Left;
+            /// <summary>
+            /// Gets or sets the text alignment within the text box.
+            /// </summary>
+            public HorizontalAlignment TextAlign
+            {
+                get
+                {
+                    return _textAlign;
+                }
+                set
+                {
+                    _textAlign = value;
+                    Invalidate();
+                }
+            }
 
             protected override void OnPaint(PaintEventArgs e)
             {
@@ -696,7 +743,18 @@ namespace HecopUI_Test.CControls
 
                     StringFormat sf = new StringFormat();
                     sf.LineAlignment = StringAlignment.Center;
-                    sf.Alignment = StringAlignment.Near;
+                    switch (_textAlign)
+                    {
+                        case HorizontalAlignment.Left:
+                            sf.Alignment = StringAlignment.Near;
+                            break;
+                        case HorizontalAlignment.Center:
+                            sf.Alignment = StringAlignment.Center;
+                            break;
+                        case HorizontalAlignment.Right:
+                            sf.Alignment = StringAlignment.Far;
+                            break;
+                    }
                     sf.Trimming = StringTrimming.EllipsisCharacter;
 
                     using (var bru = new SolidBrush(ForeColor))
