@@ -2504,6 +2504,7 @@ namespace HecopUI_Test
             this.hTreeView1.TabIndex = 0;
             this.hTreeView1.Text = "hTreeView1";
             this.hTreeView1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.hTreeView1.AfterSelect += new HeCopUI_Framework.Controls.TreeView.HTreeView.TreeViewEventHandler(this.hTreeView1_AfterSelect);
             // 
             // tabPage36
             // 
@@ -3659,54 +3660,71 @@ namespace HecopUI_Test
             // 
             // hScrollBar3
             // 
+            this.hScrollBar3.BackColor = System.Drawing.Color.Transparent;
             this.hScrollBar3.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-         
+            this.hScrollBar3.LargeChange = 10;
             this.hScrollBar3.Location = new System.Drawing.Point(468, 236);
+            this.hScrollBar3.Maximum = 100;
+            this.hScrollBar3.Minimum = 0;
             this.hScrollBar3.Name = "hScrollBar3";
-      
             this.hScrollBar3.Size = new System.Drawing.Size(200, 10);
+            this.hScrollBar3.SmallChange = 1;
             this.hScrollBar3.TabIndex = 8;
             this.hScrollBar3.Text = "hScrollBar3";
             this.hScrollBar3.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-         
+            this.hScrollBar3.ThumbPadding = new System.Windows.Forms.Padding(0);
+            this.hScrollBar3.Value = 0;
             // 
             // hScrollBar4
             // 
+            this.hScrollBar4.BackColor = System.Drawing.Color.Transparent;
             this.hScrollBar4.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-    
             this.hScrollBar4.LargeChange = 20;
             this.hScrollBar4.Location = new System.Drawing.Point(403, 134);
+            this.hScrollBar4.Maximum = 100;
+            this.hScrollBar4.Minimum = 0;
             this.hScrollBar4.Name = "hScrollBar4";
-          
             this.hScrollBar4.Size = new System.Drawing.Size(13, 243);
+            this.hScrollBar4.SmallChange = 1;
             this.hScrollBar4.TabIndex = 7;
             this.hScrollBar4.Text = "hScrollBar4";
             this.hScrollBar4.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-     
+            this.hScrollBar4.ThumbPadding = new System.Windows.Forms.Padding(0);
+            this.hScrollBar4.Value = 0;
             // 
             // hScrollBar2
             // 
+            this.hScrollBar2.BackColor = System.Drawing.Color.Transparent;
             this.hScrollBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-    
+            this.hScrollBar2.LargeChange = 10;
             this.hScrollBar2.Location = new System.Drawing.Point(139, 236);
+            this.hScrollBar2.Maximum = 100;
+            this.hScrollBar2.Minimum = 0;
             this.hScrollBar2.Name = "hScrollBar2";
-      
             this.hScrollBar2.Size = new System.Drawing.Size(200, 10);
+            this.hScrollBar2.SmallChange = 1;
             this.hScrollBar2.TabIndex = 6;
             this.hScrollBar2.Text = "hScrollBar2";
             this.hScrollBar2.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-      
+            this.hScrollBar2.ThumbPadding = new System.Windows.Forms.Padding(0);
+            this.hScrollBar2.Value = 0;
             // 
             // hScrollBar1
             // 
+            this.hScrollBar1.BackColor = System.Drawing.Color.Transparent;
             this.hScrollBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-    
+            this.hScrollBar1.LargeChange = 10;
             this.hScrollBar1.Location = new System.Drawing.Point(74, 134);
+            this.hScrollBar1.Maximum = 100;
+            this.hScrollBar1.Minimum = 0;
             this.hScrollBar1.Name = "hScrollBar1";
             this.hScrollBar1.Size = new System.Drawing.Size(10, 200);
+            this.hScrollBar1.SmallChange = 1;
             this.hScrollBar1.TabIndex = 5;
             this.hScrollBar1.Text = "hScrollBar1";
             this.hScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
+            this.hScrollBar1.ThumbPadding = new System.Windows.Forms.Padding(0);
+            this.hScrollBar1.Value = 0;
             // 
             // tabPage8
             // 

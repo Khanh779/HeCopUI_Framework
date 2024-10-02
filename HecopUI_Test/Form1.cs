@@ -165,5 +165,10 @@ namespace HecopUI_Test
         {
            
         }
+
+        private void hTreeView1_AfterSelect(object sender, HeCopUI_Framework.Controls.TreeView.TreeViewEventArgs e)
+        {
+
+        }
     }
 }
