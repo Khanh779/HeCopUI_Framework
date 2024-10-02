@@ -6,33 +6,27 @@
 - [Windows Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/window-class-styles)
 - [Windows and Messages Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/windowing)
 ## Controls & Support
-| Control | Support |
-|---------|---------|
-| Form | ✔️ |
-| TreeView | ✔️ |
-| Toggle Button | ✔️ |
-| Radio Button | ✔️ |
-| CheckBox Button | ✔️ |
-| Progress Bar, Progress Indicator, Circular Progress | ✔️ |
-| Bar Chart, Line Chart, Pie Chart, Radar Chart | ✔️ |
-| Buttons | ✔️ |
-| Animations | ✔️ |
-| TextBox, RichTextBox | ✔️ |
-| TabControl | ✔️ |
-| Slider | ✔️ |
-| ClockPicker, ColorPicker, MonthCalendar | ✔️ |
-| Image | ✔️ |
-| ListBox, ListView | ✔️ |
-| Panel | ✔️ |
-| TrackBar | ✔️ |
-| ComboBox | ✔️ |
-| ScrollBar | ✔️ |
-| Gauge | ✔️ |
-| FormControlBox | ✔️ |
-| GaussianBlur, BoxBlur | ✔️ |
-| Shadow, Shadow Light Effect | ✔️ |
-| ToolTip | ✔️ |
-| Etc | ❓ |
+| Control                                 | Support |
+|-----------------------------------------|---------|
+| Progress Indicators                     | ✔️      |
+| Charts (Bar, Line, Pie, Radar)         | ✔️      |
+| Buttons (Normal, CheckBox, Radio, Toggle) | ✔️   |
+| Animations                              | ✔️      |
+| Text Controls (TextBox, RichTextBox)   | ✔️      |
+| TabControl                              | ✔️      |
+| Sliders (Slider, TrackBar, ScrollBar)  | ✔️      |
+| Pickers (Clock, Color, MonthCalendar)   | ✔️      |
+| Image                                   | ✔️      |
+| List Controls (ListBox, ListView, ComboBox, TreeView) | ✔️ |
+| Containers (Panel, Form)                | ✔️      |
+| Gauge                                   | ✔️      |
+| FormControlBox                          | ✔️      |
+| Blurs (Gaussian, Box)                   | ✔️      |
+| Effects (Shadow, Light)                 | ✔️      |
+| ToolTip                                 | ✔️      |
+| Others                                  | ❓      |
+
+
 
 ## Your Support
 If you appreciate the HeCopUI Framework and want to support its ongoing development, please consider becoming a supporter. Your contributions will help cover the costs of maintaining and improving the framework, allowing me to add new features and provide better support.
