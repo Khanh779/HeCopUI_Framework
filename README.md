@@ -1,15 +1,10 @@
 # HeCopUI Framework
-
 ## About
 - HeCopUI Framework is a WinForm library that supports rendering controls such as Form, TreeView, Buttons, ... 
 - In addition, the library also supports components such as Progress Bar, Progress Indicator and chart types such as Bar Chart, Line Chart, Pie Chart and Radar Chart.
 - High performance, Friendly design.
 - [Windows Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/window-class-styles)
 - [Windows and Messages Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/windowing)
-
-## Overview
-![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
-
 ## Controls & Support
 | Control | Support |
 |---------|---------|
@@ -41,8 +36,17 @@
 | ToolTip | ✔️ |
 | Etc | ❓ |
 
+## Support
+If you appreciate the HeCopUI Framework and want to support its ongoing development, please consider becoming a supporter. Your contributions will help cover the costs of maintaining and improving the framework, allowing me to add new features and provide better support.
+**[PayPal](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/PP_QR.png)**
+
+## Overview
+![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
+
 ## Installation
 - Require .Net Framework 4.7.2 or higher.
 - Visual Studio and supporting tools to run the program.
+```bash
+git clone https://github.com/Khanh779/HeCopUI_Framework.git
 
 
