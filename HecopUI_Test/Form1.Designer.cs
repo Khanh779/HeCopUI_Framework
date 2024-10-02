@@ -7,7 +7,7 @@ using HeCopUI_Framework.Enums;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static HeCopUI_Framework.GetAppResources;
-using HScrollBar = HeCopUI_Framework.Controls.HScrollBar;
+using HScrollBar = HeCopUI_Framework.Controls.ScrollBar.VScrollBar;
 
 namespace HecopUI_Test
 {
@@ -198,10 +198,10 @@ namespace HecopUI_Test
             this.hSolidGauge2 = new HeCopUI_Framework.Controls.HSolidGauge();
             this.hDigitalGauge2 = new HeCopUI_Framework.Controls.HDigitalGauge();
             this.tabPage19 = new System.Windows.Forms.TabPage();
-            this.hScrollBar3 = new HeCopUI_Framework.Controls.HScrollBar();
-            this.hScrollBar4 = new HeCopUI_Framework.Controls.HScrollBar();
-            this.hScrollBar2 = new HeCopUI_Framework.Controls.HScrollBar();
-            this.hScrollBar1 = new HeCopUI_Framework.Controls.HScrollBar();
+            this.hScrollBar3 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
+            this.hScrollBar4 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
+            this.hScrollBar2 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
+            this.hScrollBar1 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.hTabControl8 = new HeCopUI_Framework.Controls.HTabControl();
             this.tabPage32 = new System.Windows.Forms.TabPage();
@@ -3660,64 +3660,53 @@ namespace HecopUI_Test
             // hScrollBar3
             // 
             this.hScrollBar3.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.hScrollBar3.BarRadius = 0;
-            this.hScrollBar3.HighlightOnWheel = true;
-            this.hScrollBar3.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+         
             this.hScrollBar3.Location = new System.Drawing.Point(468, 236);
             this.hScrollBar3.Name = "hScrollBar3";
-            this.hScrollBar3.Orientation = System.Windows.Forms.ScrollOrientation.HorizontalScroll;
+      
             this.hScrollBar3.Size = new System.Drawing.Size(200, 10);
             this.hScrollBar3.TabIndex = 8;
             this.hScrollBar3.Text = "hScrollBar3";
             this.hScrollBar3.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar3.ThumbRadius = 0;
-            this.hScrollBar3.UseBarColor = true;
+         
             // 
             // hScrollBar4
             // 
             this.hScrollBar4.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.hScrollBar4.BarRadius = 0;
-            this.hScrollBar4.HighlightOnWheel = true;
-            this.hScrollBar4.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+    
             this.hScrollBar4.LargeChange = 20;
             this.hScrollBar4.Location = new System.Drawing.Point(403, 134);
             this.hScrollBar4.Name = "hScrollBar4";
-            this.hScrollBar4.Orientation = System.Windows.Forms.ScrollOrientation.VerticalScroll;
-            this.hScrollBar4.ScrollbarSize = 13;
+          
             this.hScrollBar4.Size = new System.Drawing.Size(13, 243);
             this.hScrollBar4.TabIndex = 7;
             this.hScrollBar4.Text = "hScrollBar4";
             this.hScrollBar4.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar4.ThumbRadius = 0;
+     
             // 
             // hScrollBar2
             // 
             this.hScrollBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.hScrollBar2.BarRadius = 0;
-            this.hScrollBar2.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+    
             this.hScrollBar2.Location = new System.Drawing.Point(139, 236);
             this.hScrollBar2.Name = "hScrollBar2";
-            this.hScrollBar2.Orientation = System.Windows.Forms.ScrollOrientation.HorizontalScroll;
+      
             this.hScrollBar2.Size = new System.Drawing.Size(200, 10);
             this.hScrollBar2.TabIndex = 6;
             this.hScrollBar2.Text = "hScrollBar2";
             this.hScrollBar2.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar2.ThumbRadius = 0;
-            this.hScrollBar2.UseBarColor = true;
+      
             // 
             // hScrollBar1
             // 
             this.hScrollBar1.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.hScrollBar1.BarRadius = 0;
-            this.hScrollBar1.HoverThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(142)))));
+    
             this.hScrollBar1.Location = new System.Drawing.Point(74, 134);
             this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Orientation = System.Windows.Forms.ScrollOrientation.VerticalScroll;
             this.hScrollBar1.Size = new System.Drawing.Size(10, 200);
             this.hScrollBar1.TabIndex = 5;
             this.hScrollBar1.Text = "hScrollBar1";
             this.hScrollBar1.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(122)))));
-            this.hScrollBar1.ThumbRadius = 0;
             // 
             // tabPage8
             // 

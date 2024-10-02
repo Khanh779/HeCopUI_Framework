@@ -223,14 +223,11 @@ namespace HeCopUI_Framework.Controls
             _multiKeyDown = false;
             _scrollBar = new HScrollBar()
             {
-                Orientation = ScrollOrientation.VerticalScroll,
                 Size = new Size(12, Height),
                 Maximum = _items.Count * _itemHeight,
                 SmallChange = _itemHeight,
                 LargeChange = _itemHeight,
-                ThumbColor = thumbColor,
-                HoverThumbColor = thumbHoverColor,
-                BarColor = thumbBarColor
+         
 
             };
             _scrollBar.Scroll += HandleScroll;

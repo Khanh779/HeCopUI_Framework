@@ -224,9 +224,6 @@
     <Compile Include="Controls\HHTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HScrollBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\HListBox.cs">
       <SubType>Component</SubType>
     </Compile>
