@@ -36,10 +36,10 @@
 | ToolTip | ✔️ |
 | Etc | ❓ |
 
-## Support
+## Your Support
 If you appreciate the HeCopUI Framework and want to support its ongoing development, please consider becoming a supporter. Your contributions will help cover the costs of maintaining and improving the framework, allowing me to add new features and provide better support.
-**[PayPal](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/PP_QR.png)**
 **[PayPal](https://www.paypal.me/Khanhtran283)**
+![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/PP_QR.png)
 
 ## Overview
 ![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
