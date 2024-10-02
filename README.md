@@ -8,8 +8,7 @@
 ## Controls & Support
 | Control | Support |
 |---------|---------|
-| Form (HForm, HFormFlat) | ✔️ |
-| RecyclerView | ✔️ |
+| Form | ✔️ |
 | TreeView | ✔️ |
 | Toggle Button | ✔️ |
 | Radio Button | ✔️ |
