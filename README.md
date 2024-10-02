@@ -10,24 +10,22 @@
 |-----------------------------------------|---------|
 | Progress Indicators                     | ✔️      |
 | Charts (Bar, Line, Pie, Radar)         | ✔️      |
-| Buttons (Normal, CheckBox, Radio, Toggle) | ✔️      |
+| Buttons (Normal, CheckBox, Radio, Toggle) | ✔️   |
 | Animations                              | ✔️      |
 | Text Controls (TextBox, RichTextBox)   | ✔️      |
 | TabControl                              | ✔️      |
-| Slider                                  | ✔️      |
+| Sliders (Slider, TrackBar, ScrollBar)  | ✔️      |
 | Pickers (Clock, Color, MonthCalendar)   | ✔️      |
 | Image                                   | ✔️      |
-| List Controls (ListBox, ListView, TreeView)      | ✔️      |
+| List Controls (ListBox, ListView, ComboBox, TreeView) | ✔️ |
 | Containers (Panel, Form)                | ✔️      |
-| TrackBar                                | ✔️      |
-| ComboBox                                | ✔️      |
-| ScrollBar                               | ✔️      |
 | Gauge                                   | ✔️      |
 | FormControlBox                          | ✔️      |
 | Blurs (Gaussian, Box)                   | ✔️      |
 | Effects (Shadow, Light)                 | ✔️      |
 | ToolTip                                 | ✔️      |
 | Others                                  | ❓      |
+
 
 
 ## Your Support
