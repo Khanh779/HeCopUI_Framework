@@ -35,7 +35,7 @@ namespace HecopUI_Test.CControls
             _animationManager = new AnimationManager(true);
             _animationManager.OnAnimationProgress += sender => Invalidate();
             _animationManager.AnimationType = AnimationType.Linear;
-            _animationManager.Increment = 0.06;
+            _animationManager.Increment = 0.08;
 
             innerTextBox = new TextBox();
             Text = innerTextBox.Text;

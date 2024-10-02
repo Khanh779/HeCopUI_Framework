@@ -556,9 +556,6 @@
     <Compile Include="Controls\Progress\HCircularProgressBar2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HClockCircular.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Controls\HClockDigital.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -218,7 +218,6 @@ namespace HecopUI_Test
             this.tabPage30 = new System.Windows.Forms.TabPage();
             this.hClock1 = new HeCopUI_Framework.Controls.Clock.HClock();
             this.hClockDigital1 = new HeCopUI_Framework.Controls.HClockDigital();
-            this.hClockCircular1 = new HeCopUI_Framework.Controls.HClockCircular();
             this.tabPage31 = new System.Windows.Forms.TabPage();
             this.hMontCalendar1 = new HeCopUI_Framework.Controls.HMontCalendar();
             this.tabPage23 = new System.Windows.Forms.TabPage();
@@ -3951,7 +3950,6 @@ namespace HecopUI_Test
             this.tabPage30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.tabPage30.Controls.Add(this.hClock1);
             this.tabPage30.Controls.Add(this.hClockDigital1);
-            this.tabPage30.Controls.Add(this.hClockCircular1);
             this.tabPage30.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage30.Location = new System.Drawing.Point(4, 25);
             this.tabPage30.Name = "tabPage30";
@@ -3962,15 +3960,17 @@ namespace HecopUI_Test
             // 
             // hClock1
             // 
+            this.hClock1.ClockBackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.hClock1.ClockBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.hClock1.HourHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
-            this.hClock1.Location = new System.Drawing.Point(333, 54);
+            this.hClock1.Location = new System.Drawing.Point(204, 45);
             this.hClock1.MinuteHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(86)))), ((int)(((byte)(189)))));
             this.hClock1.Name = "hClock1";
             this.hClock1.SecondHandColor = System.Drawing.Color.RoyalBlue;
-            this.hClock1.Size = new System.Drawing.Size(280, 220);
+            this.hClock1.Size = new System.Drawing.Size(295, 226);
             this.hClock1.TabIndex = 4;
             this.hClock1.Text = "hClock1";
-            this.hClock1.TicksColor = System.Drawing.Color.Gray;
+            this.hClock1.TicksColor = System.Drawing.Color.WhiteSmoke;
             // 
             // hClockDigital1
             // 
@@ -3978,27 +3978,13 @@ namespace HecopUI_Test
             this.hClockDigital1.Font = new System.Drawing.Font("Segoe UI", 25F);
             this.hClockDigital1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
             this.hClockDigital1.Interval = 1000;
-            this.hClockDigital1.Location = new System.Drawing.Point(54, 283);
+            this.hClockDigital1.Location = new System.Drawing.Point(204, 308);
             this.hClockDigital1.Name = "hClockDigital1";
             this.hClockDigital1.ShowMillisecond = false;
-            this.hClockDigital1.Size = new System.Drawing.Size(263, 107);
+            this.hClockDigital1.Size = new System.Drawing.Size(295, 107);
             this.hClockDigital1.TabIndex = 3;
             this.hClockDigital1.Text = "hClockDigital1";
             this.hClockDigital1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            // 
-            // hClockCircular1
-            // 
-            this.hClockCircular1.Draw1MinuteTicks = true;
-            this.hClockCircular1.Draw5MinuteTicks = true;
-            this.hClockCircular1.HourHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
-            this.hClockCircular1.Interval = 1000;
-            this.hClockCircular1.Location = new System.Drawing.Point(54, 30);
-            this.hClockCircular1.MinuteHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(86)))), ((int)(((byte)(189)))));
-            this.hClockCircular1.Name = "hClockCircular1";
-            this.hClockCircular1.SecondHandColor = System.Drawing.Color.RoyalBlue;
-            this.hClockCircular1.Size = new System.Drawing.Size(193, 193);
-            this.hClockCircular1.TabIndex = 2;
-            this.hClockCircular1.TicksColor = System.Drawing.Color.Gray;
             // 
             // tabPage31
             // 
@@ -4339,7 +4325,6 @@ namespace HecopUI_Test
         private HSolidGauge hSolidGauge2;
         private HDigitalGauge hDigitalGauge2;
         private HClockDigital hClockDigital1;
-        private HClockCircular hClockCircular1;
         private TabPage tabPage19;
         private HScrollBar hScrollBar3;
         private HScrollBar hScrollBar4;
