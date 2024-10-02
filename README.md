@@ -8,7 +8,6 @@
 ## Controls & Support
 | Control                                 | Support |
 |-----------------------------------------|---------|
-| TreeView                                | ✔️      |
 | Progress Indicators                     | ✔️      |
 | Charts (Bar, Line, Pie, Radar)         | ✔️      |
 | Buttons (Normal, CheckBox, Radio, Toggle) | ✔️      |
@@ -18,14 +17,14 @@
 | Slider                                  | ✔️      |
 | Pickers (Clock, Color, MonthCalendar)   | ✔️      |
 | Image                                   | ✔️      |
-| List Controls (ListBox, ListView)      | ✔️      |
-| Containers (Panel, Form)      | ✔️      |
+| List Controls (ListBox, ListView, TreeView)      | ✔️      |
+| Containers (Panel, Form)                | ✔️      |
 | TrackBar                                | ✔️      |
 | ComboBox                                | ✔️      |
 | ScrollBar                               | ✔️      |
 | Gauge                                   | ✔️      |
 | FormControlBox                          | ✔️      |
-| Blurs (Gaussian, Box)                  | ✔️      |
+| Blurs (Gaussian, Box)                   | ✔️      |
 | Effects (Shadow, Light)                 | ✔️      |
 | ToolTip                                 | ✔️      |
 | Others                                  | ❓      |
