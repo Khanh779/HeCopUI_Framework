@@ -20,8 +20,7 @@
 | TextBox, RichTextBox | ✔️ |
 | TabControl | ✔️ |
 | Slider | ✔️ |
-| Clock | ✔️ |
-| ColorPicker, MonthCalendar | ✔️ |
+| ClockPicker, ColorPicker, MonthCalendar | ✔️ |
 | Image | ✔️ |
 | ListBox, ListView | ✔️ |
 | Panel | ✔️ |
