@@ -412,7 +412,7 @@ namespace HeCopUI_Framework.Controls.TreeView
         {
             base.OnMouseClick(e);
 
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && !DesignMode)
             {
                 Point p = new Point(e.Location.X - treeNodeBitmapPadding.Left, e.Location.Y - treeNodeBitmapPadding.Top);
                 TreeNode node = GetNodeAtPoint(nodes, p);
@@ -459,7 +459,7 @@ namespace HeCopUI_Framework.Controls.TreeView
         {
             base.OnMouseDown(e);
 
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && !DesignMode)
             {
 
                 #region Focus node
@@ -518,7 +518,7 @@ namespace HeCopUI_Framework.Controls.TreeView
         {
             base.OnMouseDoubleClick(e);
 
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && !DesignMode)
             {
                 Point p = new Point(e.Location.X, e.Location.Y - treeNodeBitmapPadding.Top);
                 TreeNode clickedNode = GetNodeAtPoint(nodes, p);
@@ -564,6 +564,7 @@ namespace HeCopUI_Framework.Controls.TreeView
 
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
             {
+                if(!DesignMode)
                 e.IsInputKey = true;
             }
         }
@@ -574,99 +575,102 @@ namespace HeCopUI_Framework.Controls.TreeView
             base.OnKeyDown(e);
             Debug.WriteLine("Key pressed: " + e.KeyCode); // Debug statement
 
-            TreeNode focusedNode = GetNodeFocused(nodes);
-            if (focusedNode == null)
+            if(!DesignMode)
             {
-                focusedNode = nodes[0];
-            }
-            // Deselect the currently focused node
-            focusedNode.IsFocused = false;
+                TreeNode focusedNode = GetNodeFocused(nodes);
+                if (focusedNode == null)
+                {
+                    focusedNode = nodes[0];
+                }
+                // Deselect the currently focused node
+                focusedNode.IsFocused = false;
 
-            switch (e.KeyCode)
-            {
-                case Keys.Down:
+                switch (e.KeyCode)
+                {
+                    case Keys.Down:
 
-                    if (focusedNode.IsRoot && focusedNode.IsExpanded == false && focusedNode.Index >= 0 && focusedNode.Index < focusedNode.Nodes.Count)
-                    {
-                        int index = focusedNode.Index + 1;
-                        if (index >= 0)
-                            focusedNode = Nodes[index];
-                    }
-
-                    else if (focusedNode.IsExpanded && focusedNode.Nodes.Count > 0)
-                    {
-                        focusedNode = focusedNode.Nodes[0];
-                    }
-                    else
-                    {
-                        TreeNode nextNode = focusedNode.NextNode;
-                        if (nextNode != null)
+                        if (focusedNode.IsRoot && focusedNode.IsExpanded == false && focusedNode.Index >= 0 && focusedNode.Index < focusedNode.Nodes.Count)
                         {
-                            focusedNode = nextNode;
+                            int index = focusedNode.Index + 1;
+                            if (index >= 0)
+                                focusedNode = Nodes[index];
                         }
-                    }
 
-
-                    break;
-
-                case Keys.Up:
-
-                    TreeNode prevNode = focusedNode.PreviousNode;
-                    if (focusedNode.IsRoot && focusedNode.IsExpanded == false && focusedNode.Index >= 0 && focusedNode.Index < focusedNode.Nodes.Count)
-                    {
-                        int index = focusedNode.Index - 1;
-                        if (index >= 0)
-                            focusedNode = Nodes[index];
-
-                    }
-                    else if (prevNode != null)
-                    {
-                        focusedNode = prevNode;
-                    }
-                    else
-                    {
-                        focusedNode = focusedNode.Parent;
-                        if (focusedNode != null)
+                        else if (focusedNode.IsExpanded && focusedNode.Nodes.Count > 0)
                         {
-                            focusedNode = focusedNode.LastNode;
+                            focusedNode = focusedNode.Nodes[0];
                         }
-                    }
+                        else
+                        {
+                            TreeNode nextNode = focusedNode.NextNode;
+                            if (nextNode != null)
+                            {
+                                focusedNode = nextNode;
+                            }
+                        }
 
 
-                    break;
+                        break;
 
-                case Keys.Left:
-                    if (focusedNode.IsExpanded)
-                    {
-                        focusedNode.IsExpanded = false;
-                    }
-                    else
-                    {
-                        focusedNode = focusedNode.Parent;
-                    }
-                    break;
+                    case Keys.Up:
 
-                case Keys.Right:
-                    if (focusedNode.IsLeaf)
-                        return;
+                        TreeNode prevNode = focusedNode.PreviousNode;
+                        if (focusedNode.IsRoot && focusedNode.IsExpanded == false && focusedNode.Index >= 0 && focusedNode.Index < focusedNode.Nodes.Count)
+                        {
+                            int index = focusedNode.Index - 1;
+                            if (index >= 0)
+                                focusedNode = Nodes[index];
 
-                    if (!focusedNode.IsExpanded)
-                    {
-                        focusedNode.IsExpanded = true;
-                    }
-                    else
-                    {
-                        focusedNode = focusedNode.FirstNode;
-                    }
-                    break;
-            }
+                        }
+                        else if (prevNode != null)
+                        {
+                            focusedNode = prevNode;
+                        }
+                        else
+                        {
+                            focusedNode = focusedNode.Parent;
+                            if (focusedNode != null)
+                            {
+                                focusedNode = focusedNode.LastNode;
+                            }
+                        }
 
-            // Select the new focused node
-            if (focusedNode != null)
-            {
-                focusedNode.IsFocused = true;
-                Invalidate(); // Redraw the control
-            }
+
+                        break;
+
+                    case Keys.Left:
+                        if (focusedNode.IsExpanded)
+                        {
+                            focusedNode.IsExpanded = false;
+                        }
+                        else
+                        {
+                            focusedNode = focusedNode.Parent;
+                        }
+                        break;
+
+                    case Keys.Right:
+                        if (focusedNode.IsLeaf)
+                            return;
+
+                        if (!focusedNode.IsExpanded)
+                        {
+                            focusedNode.IsExpanded = true;
+                        }
+                        else
+                        {
+                            focusedNode = focusedNode.FirstNode;
+                        }
+                        break;
+                }
+
+                // Select the new focused node
+                if (focusedNode != null)
+                {
+                    focusedNode.IsFocused = true;
+                    Invalidate(); // Redraw the control
+                }
+            }    
         }
 
 
@@ -727,11 +731,14 @@ namespace HeCopUI_Framework.Controls.TreeView
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            UpdateScroll();
-            if (vScroll.Visible)
+            if(!DesignMode)
             {
-                vScroll.Value -= e.Delta / 120 * SystemInformation.MouseWheelScrollLines;
-            }
+                UpdateScroll();
+                if (vScroll.Visible)
+                {
+                    vScroll.Value -= e.Delta / 120 * SystemInformation.MouseWheelScrollLines;
+                }
+            }    
 
             Refresh();
         }
