@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using HeCopUI_Framework.Animations;
 
 
 namespace HecopUI_Test.CControls
@@ -19,6 +20,10 @@ namespace HecopUI_Test.CControls
         warterMark wm = new warterMark();
         Color watermarkForeColor = Color.Gray;
         Color borderColor = Color.Gray;
+        Color focusBorderColor = Color.FromArgb(0, 168, 148);
+
+
+        AnimationManager _animationManager;
 
         public HTextBox()
         {
@@ -26,10 +31,20 @@ namespace HecopUI_Test.CControls
             Cursor = Cursors.IBeam;
             base.ForeColor = Color.DimGray;
 
+            // Animation
+            _animationManager = new AnimationManager(true);
+            _animationManager.OnAnimationProgress += sender => Invalidate();
+            _animationManager.AnimationType = AnimationType.Linear;
+            _animationManager.Increment = 0.06;
+
             innerTextBox = new TextBox();
             Text = innerTextBox.Text;
             innerTextBox.BorderStyle = BorderStyle.None;
-            innerTextBox.TextChanged += InnerTextBox_TextChanged; ;
+            innerTextBox.TextChanged += InnerTextBox_TextChanged;
+
+            innerTextBox.GotFocus += InnerTextBox_GotFocus;
+            innerTextBox.LostFocus += InnerTextBox_LostFocus;
+
 
             wm.Click += Wm_Click;
 
@@ -37,6 +52,22 @@ namespace HecopUI_Test.CControls
             UpdateInnerTextBoxPosition();
 
 
+        }
+
+        private void InnerTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (innerTextBox != null && innerTextBox.IsHandleCreated && useAnimation && !DesignMode)
+            {
+                _animationManager.StartNewAnimation(AnimationDirection.Out);
+            }
+        }
+
+        private void InnerTextBox_GotFocus(object sender, EventArgs e)
+        {
+            if (innerTextBox != null && innerTextBox.IsHandleCreated && useAnimation && !DesignMode)
+            {
+                _animationManager.StartNewAnimation(AnimationDirection.In);
+            }
         }
 
         private void InnerTextBox_TextChanged(object sender, EventArgs e)
@@ -88,6 +119,9 @@ namespace HecopUI_Test.CControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets the foreground color of wartermark text.
+        /// </summary>
         [Browsable(true)]
         [Category("Misc")]
         [Description("The foreground color of wartermark text.")]
@@ -102,6 +136,9 @@ namespace HecopUI_Test.CControls
         }
 
         bool _multiline = false;
+        /// <summary>
+        /// Gets or sets a value indicating whether the text box is multiline.
+        /// </summary>
         [Browsable(true)]
         [DefaultValue(false)]
         [Description("Indicates whether the text box is multiline.")]
@@ -116,6 +153,9 @@ namespace HecopUI_Test.CControls
         }
 
         bool _readOnly = false;
+        /// <summary>
+        /// Gets or sets a value indicating whether the text box is read-only.
+        /// </summary>
         [Browsable(true)]
         [DefaultValue(true)]
         [Description("Indicates whether the text box is read-only.")]
@@ -130,6 +170,10 @@ namespace HecopUI_Test.CControls
         }
 
         bool _useSystemPasswordChar = false;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the text box control displays characters in the password character.
+        /// </summary>
         [Browsable(true)]
         [DefaultValue(false)]
         [Description("Indicates whether the text box uses the password character.")]
@@ -143,6 +187,24 @@ namespace HecopUI_Test.CControls
             }
         }
 
+        /// <summary>
+        /// Gets or sets the border color of the TextBox control when it has focus.
+        /// </summary>
+        [Description("The border color of the TextBox control when it has focus.")]
+        public Color FocusBorderColor
+        {
+            get { return focusBorderColor; }
+            set
+            {
+                focusBorderColor = value;
+                Invalidate();
+            }
+        }
+
+
+        /// <summary>
+        /// Gets or sets the text alignment within the text box.
+        /// </summary>
         HorizontalAlignment _textAlign = HorizontalAlignment.Left;
         [Browsable(true)]
         [Description("The text alignment within the text box.")]
@@ -480,7 +542,21 @@ namespace HecopUI_Test.CControls
             }
         }
 
-
+        bool useAnimation = false;
+        /// <summary>
+        /// Gets or sets a value indicating whether the TextBox control uses animation.
+        /// </summary>
+        /// <param name="e"></param>
+        [Description("A value indicating whether the TextBox control uses animation.")]
+        public bool UseAnimation
+        {
+            get { return useAnimation; }
+            set
+            {
+                useAnimation = value;
+                Invalidate();
+            }
+        }
 
         #endregion
 
@@ -491,18 +567,42 @@ namespace HecopUI_Test.CControls
             base.OnPaint(e);
             Graphics g = e.Graphics;
 
-            using (var pen = new Pen(BorderColor, _borderWidth))
+            Pen pen = new Pen(new SolidBrush(innerTextBox.Focused ?
+                (useAnimation ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(borderColor, focusBorderColor, _animationManager.GetProgress() * 255) : focusBorderColor) :
+                borderColor), _underlineStyle ? BorderWidth + 1 : BorderWidth);
+
+            if (_underlineStyle)
             {
-                if (_underlineStyle)
+                // Calculate the progress of the animation
+                float progress = (float)_animationManager.GetProgress();
+                float midPoint = Width / 2;
+                float startX = midPoint * (1 - progress);
+                float endX = midPoint + (midPoint * progress);
+
+                if (useAnimation)
                 {
-                    g.DrawLine(pen, 0, Height - 1, Width, Height - 1);
+                    var pen1 = new Pen(new SolidBrush(BorderColor), BorderWidth);
+                    g.DrawLine(pen1, 0, Height - 1, Width, Height - 1);
+                    pen1.Dispose();
+                    // Draw the animated line from the center to the sides
+                    g.DrawLine(pen, startX, Height - 1, endX, Height - 1);
                 }
                 else
                 {
-                    g.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
+                    // Draw the line from the center to the sides
+                    g.DrawLine(pen, 0, Height - 1, Width, Height - 1);
                 }
             }
+            else
+            {
+                // Draw the border
+                g.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
+            }
+
+            pen.Dispose();
         }
+
+
 
         protected override void OnSizeChanged(EventArgs e)
         {
@@ -697,6 +797,7 @@ namespace HecopUI_Test.CControls
             /// <summary>
             /// Gets or sets the text rendering hint of the text in the TextBox control.
             /// </summary>
+            [Description("The text rendering hint of the text in the TextBox control.")]
             public TextRenderingHint TextRenderHint
             {
                 get
@@ -714,6 +815,7 @@ namespace HecopUI_Test.CControls
             /// <summary>
             /// Gets or sets the text alignment within the text box.
             /// </summary>
+            [Description("The text alignment within the text box.")]
             public HorizontalAlignment TextAlign
             {
                 get
