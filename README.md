@@ -32,12 +32,3 @@
 ```bash
 git clone https://github.com/Khanh779/HeCopUI_Framework.git
 ```
-
-## Your Contributions
-If you appreciate the HeCopUI Framework and want to support its ongoing development, please consider contributing. Your contributions will help cover the costs of maintaining and improving the framework, allowing me to add new features and provide better assistance.
-
-**[Contribute on PayPal](https://www.paypal.me/Khanhtran283)**  
-![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/PP_QR.png)
-
-
-
