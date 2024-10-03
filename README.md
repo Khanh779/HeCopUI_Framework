@@ -10,7 +10,7 @@
 |-----------------------------------------|---------|
 | Progress Indicators                     | ✔️      |
 | Charts (Bar, Line, Pie, Radar)         | ✔️      |
-| Buttons (Normal, CheckBox, Radio, Toggle) | ✔️   |
+| Buttons (Normal, CheckBox, Radio, Toggle, FormControlBox) | ✔️   |
 | Animations                              | ✔️      |
 | Text Controls (TextBox, RichTextBox)   | ✔️      |
 | TabControl                              | ✔️      |
@@ -20,9 +20,7 @@
 | List Controls (ListBox, ListView, ComboBox, TreeView) | ✔️ |
 | Containers (Panel, Form)                | ✔️      |
 | Gauge                                   | ✔️      |
-| FormControlBox                          | ✔️      |
-| Blurs (Gaussian, Box)                   | ✔️      |
-| Effects (Shadow, Light)                 | ✔️      |
+| Visual Effects (Gaussian Blur, Box Blur, Shadow, Light) | ✔️      |
 | ToolTip                                 | ✔️      |
 | Others                                  | ❓      |
 
