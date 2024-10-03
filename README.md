@@ -6,23 +6,22 @@
 - [Windows Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/window-class-styles)
 - [Windows and Messages Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/windowing)
 ## Controls & Support
-| Control                                 | Support |
-|-----------------------------------------|---------|
-| Progress Indicators                     | ✔️      |
-| Charts (Bar, Line, Pie, Radar)         | ✔️      |
-| Buttons (Normal, CheckBox, Radio, Toggle, FormControlBox) | ✔️   |
-| Animations                              | ✔️      |
-| Text Controls (TextBox, RichTextBox)   | ✔️      |
-| TabControl                              | ✔️      |
-| Sliders (Slider, TrackBar, ScrollBar)  | ✔️      |
-| Pickers (Clock, Color, MonthCalendar)   | ✔️      |
-| Image                                   | ✔️      |
-| List Controls (ListBox, ListView, ComboBox, TreeView) | ✔️ |
-| Containers (Panel, Form)                | ✔️      |
-| Gauge                                   | ✔️      |
-| Visual Effects (Gaussian Blur, Box Blur, Shadow, Light) | ✔️      |
-| ToolTip                                 | ✔️      |
-| Others                                  | ❓      |
+| Control Group                     | Control Types                                                | Support |
+|-----------------------------------|-------------------------------------------------------------|---------|
+| **Progress and Indicators**       | Progress Indicators, Sliders, Gauge                         | ✔️      |
+| **Charts**                        | Charts (Bar, Line, Pie, Radar)                             | ✔️      |
+| **Buttons**                       | Buttons (Normal, CheckBox, Radio, Toggle, FormControlBox)  | ✔️      |
+| **Animations**                    | Animations                                                  | ✔️      |
+| **Text Controls**                 | Text Controls (TextBox, RichTextBox)                       | ✔️      |
+| **Tab Controls**                  | TabControl                                                 | ✔️      |
+| **Pickers**                       | Pickers (Clock, Color, MonthCalendar)                      | ✔️      |
+| **Image Handling**                | Image                                                       | ✔️      |
+| **List Controls**                 | List Controls (ListBox, ListView, ComboBox, TreeView)     | ✔️      |
+| **Containers**                    | Containers (Panel, Form)                                   | ✔️      |
+| **Visual Effects**                | Visual Effects (Gaussian Blur, Box Blur, Shadow, Light)    | ✔️      |
+| **ToolTip**                       | ToolTip                                                    | ✔️      |
+| **Others**                        | Others                                                      | ❓      |
+
 
 ## Overview
 ![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
