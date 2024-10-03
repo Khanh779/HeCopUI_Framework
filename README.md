@@ -6,32 +6,21 @@
 - [Windows Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/window-class-styles)
 - [Windows and Messages Documentation](https://learn.microsoft.com/en-us/windows/win32/winmsg/windowing)
 ## Controls & Support
-| Control                                 | Support |
-|-----------------------------------------|---------|
-| Progress Indicators                     | ✔️      |
-| Charts (Bar, Line, Pie, Radar)         | ✔️      |
-| Buttons (Normal, CheckBox, Radio, Toggle) | ✔️   |
-| Animations                              | ✔️      |
-| Text Controls (TextBox, RichTextBox)   | ✔️      |
-| TabControl                              | ✔️      |
-| Sliders (Slider, TrackBar, ScrollBar)  | ✔️      |
-| Pickers (Clock, Color, MonthCalendar)   | ✔️      |
-| Image                                   | ✔️      |
-| List Controls (ListBox, ListView, ComboBox, TreeView) | ✔️ |
-| Containers (Panel, Form)                | ✔️      |
-| Gauge                                   | ✔️      |
-| FormControlBox                          | ✔️      |
-| Blurs (Gaussian, Box)                   | ✔️      |
-| Effects (Shadow, Light)                 | ✔️      |
-| ToolTip                                 | ✔️      |
-| Others                                  | ❓      |
+| Control Group                     | Control Types                                                | Support |
+|-----------------------------------|-------------------------------------------------------------|---------|
+| **Progress and Indicators**       | Progress Indicators, Sliders, Gauge                         | ✔️      |
+| **Charts**                        | Bar, Line, Pie, Radar                                       | ✔️      |
+| **Buttons**                       | Normal, CheckBox, Radio, Toggle, Image Button, FormControlBox             | ✔️      |
+| **Animations**                    | Animations                                                  | ✔️      |
+| **Text Controls**                 | TextBox, RichTextBox                                        | ✔️      |
+| **Pickers**                       | Clock, Color, MonthCalendar                                 | ✔️      |
+| **Image Handling**                | Image                                                       | ✔️      |
+| **List Controls**                 | ListBox, ListView, ComboBox, TreeView                       | ✔️      |
+| **Containers**                    | Panel, TabControl, Form                                     | ✔️      |
+| **Visual Effects**                | Gaussian Blur, Box Blur, Shadow, Light                      | ✔️      |
+| **Components**                    | ToolTip                                                     | ✔️      |
+| **Others**                        | ...                                                         | ❓      |
 
-
-
-## Your Support
-If you appreciate the HeCopUI Framework and want to support its ongoing development, please consider becoming a supporter. Your contributions will help cover the costs of maintaining and improving the framework, allowing me to add new features and provide better support.
-**[PayPal](https://www.paypal.me/Khanhtran283)**
-![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/PP_QR.png)
 
 ## Overview
 ![image](https://github.com/Khanh779/HeCopUI_Framework/blob/master/Screenshot/Record1.gif)
@@ -41,5 +30,4 @@ If you appreciate the HeCopUI Framework and want to support its ongoing developm
 - Visual Studio and supporting tools to run the program.
 ```bash
 git clone https://github.com/Khanh779/HeCopUI_Framework.git
-
-
+```
