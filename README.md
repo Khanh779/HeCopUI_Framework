@@ -9,18 +9,17 @@
 | Control Group                     | Control Types                                                | Support |
 |-----------------------------------|-------------------------------------------------------------|---------|
 | **Progress and Indicators**       | Progress Indicators, Sliders, Gauge                         | ✔️      |
-| **Charts**                        | Charts (Bar, Line, Pie, Radar)                             | ✔️      |
-| **Buttons**                       | Buttons (Normal, CheckBox, Radio, Toggle, FormControlBox)  | ✔️      |
+| **Charts**                        | Bar, Line, Pie, Radar                                       | ✔️      |
+| **Buttons**                       | Normal, CheckBox, Radio, Toggle, Image Button, FormControlBox             | ✔️      |
 | **Animations**                    | Animations                                                  | ✔️      |
-| **Text Controls**                 | Text Controls (TextBox, RichTextBox)                       | ✔️      |
-| **Tab Controls**                  | TabControl                                                 | ✔️      |
-| **Pickers**                       | Pickers (Clock, Color, MonthCalendar)                      | ✔️      |
+| **Text Controls**                 | TextBox, RichTextBox                                        | ✔️      |
+| **Pickers**                       | Clock, Color, MonthCalendar                                 | ✔️      |
 | **Image Handling**                | Image                                                       | ✔️      |
-| **List Controls**                 | List Controls (ListBox, ListView, ComboBox, TreeView)     | ✔️      |
-| **Containers**                    | Containers (Panel, Form)                                   | ✔️      |
-| **Visual Effects**                | Visual Effects (Gaussian Blur, Box Blur, Shadow, Light)    | ✔️      |
-| **ToolTip**                       | ToolTip                                                    | ✔️      |
-| **Others**                        | Others                                                      | ❓      |
+| **List Controls**                 | ListBox, ListView, ComboBox, TreeView                       | ✔️      |
+| **Containers**                    | Panel, TabControl, Form                                     | ✔️      |
+| **Visual Effects**                | Gaussian Blur, Box Blur, Shadow, Light                      | ✔️      |
+| **Components**                    | ToolTip                                                     | ✔️      |
+| **Others**                        | ...                                                         | ❓      |
 
 
 ## Overview
