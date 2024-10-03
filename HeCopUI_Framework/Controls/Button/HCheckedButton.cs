@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls .Button
 {
     [ToolboxBitmap(typeof(System.Windows.Forms.Button), "Bitmaps.Button.bmp")]
     public partial class HCheckedButton : Control

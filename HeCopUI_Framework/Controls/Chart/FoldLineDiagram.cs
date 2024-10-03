@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls.Charts
+namespace HeCopUI_Framework.Controls.Chart
 {
     /// <summary>
     /// Line Chart Control

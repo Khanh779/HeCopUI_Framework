@@ -15,12 +15,13 @@ using Color = System.Drawing.Color;
 using HeCopUI_Framework.Animations;
 using System.Drawing.Drawing2D;
 using System.Windows.Media.Media3D;
-using HeCopUI_Framework.Controls.Charts.Model;
+using HeCopUI_Framework.Controls.Chart.Model;
 using System.Windows.Input;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
-namespace HeCopUI_Framework.Controls.Charts
+namespace HeCopUI_Framework.Controls.Chart
 {
+    [ToolboxBitmap(typeof(System.Windows.Forms.DataVisualization.Charting.Chart))]
     public partial class HBarChart:Control
     {
         public HBarChart()
@@ -104,8 +105,8 @@ namespace HeCopUI_Framework.Controls.Charts
         Color legenColor = Color.DimGray;
         public Color LegendColor { get => legenColor; set { legenColor = value; Invalidate(); } }
 
-        HeCopUI_Framework.Controls.Charts.Model.DataItems dataItem = new DataItems();
-
+        HeCopUI_Framework.Controls.Chart.Model.DataItems dataItem = new DataItems();
+                                            
         public void AddItems(string legendText, Dictionary<object, int> items, System.Drawing.Color color)
         {
             animationManager.StartNewAnimation(AnimationDirection.In);

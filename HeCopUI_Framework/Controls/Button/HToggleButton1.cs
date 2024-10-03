@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls.Button
 {
     [ToolboxBitmap(typeof(CheckBox))]
     public partial class HToggleButton1 : Control

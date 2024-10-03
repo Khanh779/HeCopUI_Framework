@@ -1,4 +1,4 @@
-﻿namespace HeCopUI_Framework.Controls.Charts.FunnelChart
+﻿namespace HeCopUI_Framework.Controls.Chart.FunnelChart
 {
     /// <summary>
     /// Class FunelChartItem.

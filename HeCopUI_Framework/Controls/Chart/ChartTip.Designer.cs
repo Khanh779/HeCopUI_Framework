@@ -1,4 +1,4 @@
-﻿namespace HeCopUI_Framework.Controls.Charts
+﻿namespace HeCopUI_Framework.Controls.Chart
 {
     partial class ChartTip
     {

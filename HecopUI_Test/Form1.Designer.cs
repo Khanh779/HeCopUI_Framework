@@ -1,4 +1,4 @@
-﻿using HeCopUI_Framework.Controls;
+﻿using HeCopUI_Framework.Controls.Container;
 using HeCopUI_Framework.Controls.Bubble;
 using HeCopUI_Framework.Controls.Button;
 using HeCopUI_Framework.Controls.Progress;
@@ -8,6 +8,9 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static HeCopUI_Framework.GetAppResources;
 using HScrollBar = HeCopUI_Framework.Controls.ScrollBar.VScrollBar;
+using HeCopUI_Framework.Controls;
+using HeCopUI_Framework.Controls.Gauge;
+using HeCopUI_Framework.Controls.Clock;
 
 namespace HecopUI_Test
 {
@@ -71,11 +74,11 @@ namespace HecopUI_Test
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode22 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode23 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode24 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
-            HeCopUI_Framework.Controls.Charts.Series series3 = new HeCopUI_Framework.Controls.Charts.Series();
+            HeCopUI_Framework.Controls.Chart.Series series3 = new HeCopUI_Framework.Controls.Chart.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.hTabControl1 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl1 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.hLabel10 = new HeCopUI_Framework.Controls.HLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -90,7 +93,7 @@ namespace HecopUI_Test
             this.hLabel2 = new HeCopUI_Framework.Controls.HLabel();
             this.hLabel1 = new HeCopUI_Framework.Controls.HLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.hTabControl5 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl5 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage24 = new System.Windows.Forms.TabPage();
             this.hButton7 = new HeCopUI_Framework.Controls.Button.HButton();
             this.hButton8 = new HeCopUI_Framework.Controls.Button.HButton();
@@ -127,36 +130,36 @@ namespace HecopUI_Test
             this.hCheckBox3 = new HeCopUI_Framework.Controls.Button.HCheckBox();
             this.hCheckBox2 = new HeCopUI_Framework.Controls.Button.HCheckBox();
             this.hRadioButton1 = new HeCopUI_Framework.Controls.Button.HRadioButton();
-            this.hToggleButton21 = new HeCopUI_Framework.Controls.HToggleButton2();
-            this.hToggleButton11 = new HeCopUI_Framework.Controls.HToggleButton1();
-            this.hToggleButton1 = new HeCopUI_Framework.Controls.HToggleButton();
+            this.hToggleButton21 = new HeCopUI_Framework.Controls.Button.HToggleButton2();
+            this.hToggleButton11 = new HeCopUI_Framework.Controls.Button.HToggleButton1();
+            this.hToggleButton1 = new HeCopUI_Framework.Controls.Button.HToggleButton();
             this.hCheckBox1 = new HeCopUI_Framework.Controls.Button.HCheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.hEffectImage1 = new HeCopUI_Framework.Controls.Effect.HEffectImage();
             this.hImage1 = new HeCopUI_Framework.Controls.HImage();
             this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.hTabControl10 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl10 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.simpleTable1 = new Utility_Tools.CustomControl.Table.SimpleTable();
             this.tabPage35 = new System.Windows.Forms.TabPage();
             this.hTreeView1 = new HeCopUI_Framework.Controls.TreeView.HTreeView();
             this.tabPage36 = new System.Windows.Forms.TabPage();
-            this.hTabControl4 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl4 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.hBarChart1 = new HeCopUI_Framework.Controls.Charts.HBarChart();
+            this.hBarChart1 = new HeCopUI_Framework.Controls.Chart.HBarChart();
             this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.hLineAreaChart1 = new HeCopUI_Framework.Controls.Charts.HLineAreaChart();
+            this.hLineAreaChart1 = new HeCopUI_Framework.Controls.Chart.HLineAreaChart();
             this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.hPieChart1 = new HeCopUI_Framework.Controls.Charts.HPieChart();
+            this.hPieChart1 = new HeCopUI_Framework.Controls.Chart.HPieChart();
             this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.hRadarChart1 = new HeCopUI_Framework.Controls.Charts.HRadarChart();
+            this.hRadarChart1 = new HeCopUI_Framework.Controls.Chart.HRadarChart();
             this.tabPage21 = new System.Windows.Forms.TabPage();
             this.hTextBox2 = new HecopUI_Test.CControls.HTextBox();
             this.hTextBox1 = new HecopUI_Test.CControls.HTextBox();
             this.hRichTextBox2 = new HeCopUI_Framework.Controls.TextControl.HRichTextBox();
             this.hRichTextBox1 = new HeCopUI_Framework.Controls.TextControl.HRichTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.hTabControl6 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl6 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.linearParticleAnimation1 = new HeCopUI_Framework.Controls.Progress.LinearParticleAnimation();
             this.hStepIndicatorOne1 = new HeCopUI_Framework.Controls.HStepIndicatorOne();
@@ -189,35 +192,35 @@ namespace HecopUI_Test
             this.hAnimatedCircleControl1 = new HeCopUI_Framework.Controls.Bubble.HAnimatedCircleControl();
             this.hWaterDropControl1 = new HeCopUI_Framework.Controls.Bubble.HWaterDropControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.hTabControl9 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl9 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.hhTrackBar1 = new HeCopUI_Framework.Controls.HHTrackBar();
             this.hCircleAnglePicker1 = new HeCopUI_Framework.Controls.HCircleAnglePicker();
             this.hRadialRangeSlider1 = new HeCopUI_Framework.Controls.HRadialRangeSlider();
             this.tabPage34 = new System.Windows.Forms.TabPage();
-            this.hSolidGauge2 = new HeCopUI_Framework.Controls.HSolidGauge();
-            this.hDigitalGauge2 = new HeCopUI_Framework.Controls.HDigitalGauge();
+            this.hSolidGauge2 = new HeCopUI_Framework.Controls.Gauge.HSolidGauge();
+            this.hDigitalGauge2 = new HeCopUI_Framework.Controls.Gauge.HDigitalGauge();
             this.tabPage19 = new System.Windows.Forms.TabPage();
             this.hScrollBar3 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
             this.hScrollBar4 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
             this.hScrollBar2 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
             this.hScrollBar1 = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.hTabControl8 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl8 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage32 = new System.Windows.Forms.TabPage();
-            this.HPanel1 = new HeCopUI_Framework.Controls.HPanel();
+            this.HPanel1 = new HeCopUI_Framework.Controls.Container.HPanel();
             this.tabPage33 = new System.Windows.Forms.TabPage();
-            this.hTabControl3 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl3 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.hTabControl2 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl2 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.hTabControl7 = new HeCopUI_Framework.Controls.HTabControl();
+            this.hTabControl7 = new HeCopUI_Framework.Controls.Container.HTabControl();
             this.tabPage30 = new System.Windows.Forms.TabPage();
             this.hClock1 = new HeCopUI_Framework.Controls.Clock.HClock();
-            this.hClockDigital1 = new HeCopUI_Framework.Controls.HClockDigital();
+            this.hClockDigital1 = new HeCopUI_Framework.Controls.Clock.HClockDigital();
             this.tabPage31 = new System.Windows.Forms.TabPage();
             this.hMontCalendar1 = new HeCopUI_Framework.Controls.HMontCalendar();
             this.tabPage23 = new System.Windows.Forms.TabPage();
@@ -1959,7 +1962,7 @@ namespace HecopUI_Test
             this.hToggleButton11.Text = "hToggleButton11";
             this.hToggleButton11.TextColor = System.Drawing.Color.White;
             this.hToggleButton11.TextRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hToggleButton11.ToggleState = HeCopUI_Framework.Controls.HToggleButton1.ToggleButtonState.OFF;
+            this.hToggleButton11.ToggleState = HeCopUI_Framework.Controls.Button.HToggleButton1.ToggleButtonState.OFF;
             // 
             // hToggleButton1
             // 
@@ -2602,7 +2605,7 @@ namespace HecopUI_Test
             // 
             this.hLineAreaChart1.ChartColor = System.Drawing.Color.Gray;
             this.hLineAreaChart1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hLineAreaChart1.GraphStyle = HeCopUI_Framework.Controls.Charts.HLineAreaChart.Style.Flat;
+            this.hLineAreaChart1.GraphStyle = HeCopUI_Framework.Controls.Chart.HLineAreaChart.Style.Flat;
             this.hLineAreaChart1.GridColor = System.Drawing.Color.DimGray;
             this.hLineAreaChart1.Location = new System.Drawing.Point(32, 33);
             this.hLineAreaChart1.Name = "hLineAreaChart1";
@@ -2681,7 +2684,7 @@ namespace HecopUI_Test
         70F,
         40F,
         60F};
-            this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Charts.Series[] {
+            this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Chart.Series[] {
         series3};
             this.hRadarChart1.ShowTitle = true;
             this.hRadarChart1.ShowValuesTip = false;
@@ -3596,19 +3599,19 @@ namespace HecopUI_Test
             this.hSolidGauge2.BackColor = System.Drawing.Color.Transparent;
             this.hSolidGauge2.BaseGauge = System.Drawing.Color.Gainsboro;
             this.hSolidGauge2.CircularDiskColor = System.Drawing.Color.DimGray;
-            this.hSolidGauge2.CircularDiskSizeType = HeCopUI_Framework.Controls.HSolidGauge.DiskSizeMode.Auto;
+            this.hSolidGauge2.CircularDiskSizeType = HeCopUI_Framework.Controls.Gauge.HSolidGauge.DiskSizeMode.Auto;
             this.hSolidGauge2.CircularSize = 20;
             this.hSolidGauge2.GaugeColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.hSolidGauge2.GaugeColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hSolidGauge2.GaugeMode = HeCopUI_Framework.Controls.HSolidGauge.GaugeType.Gradient;
-            this.hSolidGauge2.GaugeTextType = HeCopUI_Framework.Controls.HSolidGauge.TextType.Percentage;
+            this.hSolidGauge2.GaugeMode = HeCopUI_Framework.Controls.Gauge.HSolidGauge.GaugeType.Gradient;
+            this.hSolidGauge2.GaugeTextType = HeCopUI_Framework.Controls.Gauge.HSolidGauge.TextType.Percentage;
             this.hSolidGauge2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.hSolidGauge2.Interval = 10;
             this.hSolidGauge2.Location = new System.Drawing.Point(346, 81);
             this.hSolidGauge2.MaximumValue = 100;
             this.hSolidGauge2.Name = "hSolidGauge2";
             this.hSolidGauge2.NeedleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.hSolidGauge2.NeedleHeight = HeCopUI_Framework.Controls.HSolidGauge.NeedleLongType.Auto;
+            this.hSolidGauge2.NeedleHeight = HeCopUI_Framework.Controls.Gauge.HSolidGauge.NeedleLongType.Auto;
             this.hSolidGauge2.NeedleLong = 50;
             this.hSolidGauge2.NeedleThickness = 2;
             this.hSolidGauge2.NeedleType = System.Drawing.Drawing2D.LineCap.Flat;
@@ -4345,13 +4348,13 @@ namespace HecopUI_Test
         private TabPage tabPage36;
         private HTabControl hTabControl4;
         private TabPage tabPage15;
-        private HeCopUI_Framework.Controls.Charts.HBarChart hBarChart1;
+        private HeCopUI_Framework.Controls.Chart.HBarChart hBarChart1;
         private TabPage tabPage16;
-        private HeCopUI_Framework.Controls.Charts.HLineAreaChart hLineAreaChart1;
+        private HeCopUI_Framework.Controls.Chart.HLineAreaChart hLineAreaChart1;
         private TabPage tabPage17;
-        private HeCopUI_Framework.Controls.Charts.HPieChart hPieChart1;
+        private HeCopUI_Framework.Controls.Chart.HPieChart hPieChart1;
         private TabPage tabPage18;
-        private HeCopUI_Framework.Controls.Charts.HRadarChart hRadarChart1;
+        private HeCopUI_Framework.Controls.Chart.HRadarChart hRadarChart1;
         private Utility_Tools.CustomControl.Table.SimpleTable simpleTable1;
         private TabPage tabPage14;
         private HeCopUI_Framework.Controls.Bubble.HWaterDropControl hWaterDropControl1;

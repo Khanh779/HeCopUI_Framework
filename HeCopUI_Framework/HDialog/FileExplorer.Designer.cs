@@ -46,7 +46,7 @@
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openInWindowsExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.htmlLabel1 = new HeCopUI_Framework.HtmlRenderer.WinForms.HtmlLabel();
-            this.hComboBox1 = new HeCopUI_Framework.Controls.HComboBox();
+            this.hComboBox1 = new HeCopUI_Framework.Controls.ListControl.HComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -316,7 +316,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openInWindowsExplorerToolStripMenuItem;
-        private Controls.HComboBox hComboBox1;
+        private Controls.ListControl.HComboBox hComboBox1;
         private System.Windows.Forms.Label label1;
         private Controls.HWTreeView treeView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

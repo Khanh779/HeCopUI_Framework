@@ -112,6 +112,7 @@ namespace HecopUI_Test
             this.hTextBox1.BorderWidth = 1;
             this.hTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.hTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.hTextBox1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
             this.hTextBox1.ForeColor = System.Drawing.Color.DimGray;
             this.hTextBox1.HideSelection = true;
             this.hTextBox1.Lines = new string[0];
@@ -126,6 +127,7 @@ namespace HecopUI_Test
             this.hTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.hTextBox1.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
             this.hTextBox1.UnderlineStyle = true;
+            this.hTextBox1.UseAnimation = false;
             this.hTextBox1.WartermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hTextBox1.Watermark = "Type watermark text here.";
             this.hTextBox1.WatermarkForeColor = System.Drawing.Color.Gray;

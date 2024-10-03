@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls.Container
 {
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(HTabControl), "Bitmaps.TabControl.bmp")]

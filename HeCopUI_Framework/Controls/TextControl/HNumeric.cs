@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls.Button
 {
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(HNumeric), "Bitmaps.Numeric.bmp")]

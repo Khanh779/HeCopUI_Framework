@@ -193,38 +193,38 @@
     </Compile>
     <Compile Include="Components\PopupAnimations.cs" />
     <Compile Include="Components\RandomColor.cs" />
-    <Compile Include="Controls\Charts\ChartTip.cs">
+    <Compile Include="Controls\Chart\ChartTip.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Charts\ChartTip.Designer.cs">
+    <Compile Include="Controls\Chart\ChartTip.Designer.cs">
       <DependentUpon>ChartTip.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Charts\HBarChart.cs">
+    <Compile Include="Controls\Chart\HBarChart.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Charts\HLineAreaChart.cs">
+    <Compile Include="Controls\Chart\HLineAreaChart.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Charts\HRadarChart.cs">
+    <Compile Include="Controls\Chart\HRadarChart.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Charts\Model\DataItems.cs" />
+    <Compile Include="Controls\Chart\Model\DataItems.cs" />
     <Compile Include="Controls\Effect\HEffectImage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HCircleAnglePicker.cs">
+    <Compile Include="Controls\Picker\HCircleAnglePicker.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Progress\HDotProgressRing.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HComboBox.cs">
+    <Compile Include="Controls\ListControl\HComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HHTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HListBox.cs">
+    <Compile Include="Controls\ListControl\HListBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HRadialRangeSlider .cs">
@@ -260,19 +260,19 @@
     <Compile Include="Forms\Shadow_Test.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Charts\FunnelChart\FunelChartAlignment.cs" />
-    <Compile Include="Controls\Charts\FunnelChart\FunelChartDirection.cs" />
-    <Compile Include="Controls\Charts\FunnelChart\FunelChartItem.cs" />
-    <Compile Include="Controls\Charts\FunnelChart\UCFunnelChart.cs">
+    <Compile Include="Controls\Chart\FunnelChart\FunelChartAlignment.cs" />
+    <Compile Include="Controls\Chart\FunnelChart\FunelChartDirection.cs" />
+    <Compile Include="Controls\Chart\FunnelChart\FunelChartItem.cs" />
+    <Compile Include="Controls\Chart\FunnelChart\UCFunnelChart.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\HWTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HMontCalendar.cs">
+    <Compile Include="Controls\Picker\HMontCalendar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Charts\FoldLineDiagram.cs">
+    <Compile Include="Controls\Chart\FoldLineDiagram.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Button\HTitleSubButton.cs">
@@ -315,7 +315,7 @@
     <Compile Include="Controls\Progress\HProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HPanel .cs">
+    <Compile Include="Controls\Container\HPanel .cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Button\HButton.cs">
@@ -553,10 +553,10 @@
     <Compile Include="Controls\Progress\HCircularProgressBar2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HClockDigital.cs">
+    <Compile Include="Controls\Clock\HClockDigital.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HDigitalGauge.cs">
+    <Compile Include="Controls\Gauge\HDigitalGauge.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HDragControl.cs">
@@ -580,10 +580,10 @@
     <Compile Include="Controls\HLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HNumeric.cs">
+    <Compile Include="Controls\TextControl\HNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Charts\HPieChart.cs">
+    <Compile Include="Controls\Chart\HPieChart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\TextControl\HRichTextBox.cs">
@@ -592,25 +592,25 @@
     <Compile Include="Controls\HShowFormLocation.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HSolidGauge.cs">
+    <Compile Include="Controls\Gauge\HSolidGauge.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HStepIndicatorOne.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HCheckedButton.cs">
+    <Compile Include="Controls\Button\HCheckedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HTabControl.cs">
+    <Compile Include="Controls\Container\HTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HToggleButton.cs">
+    <Compile Include="Controls\Button\HToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HToggleButton1.cs">
+    <Compile Include="Controls\Button\HToggleButton1.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HToggleButton2.cs">
+    <Compile Include="Controls\Button\HToggleButton2.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enums\TabStyle.cs" />
@@ -641,10 +641,10 @@
     <EmbeddedResource Include="Animations\DoubleBitmapForm.resx">
       <DependentUpon>DoubleBitmapForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Charts\ChartTip.resx">
+    <EmbeddedResource Include="Controls\Chart\ChartTip.resx">
       <DependentUpon>ChartTip.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\HCircleAnglePicker.resx">
+    <EmbeddedResource Include="Controls\Picker\HCircleAnglePicker.resx">
       <DependentUpon>HCircleAnglePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HForm.resx">

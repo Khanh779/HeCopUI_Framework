@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 using System.Windows.Forms.DataVisualization.Charting;
-using HeCopUI_Framework.Controls.Charts;
+using HeCopUI_Framework.Controls.Chart;
 using System.Collections.Generic;
-using HeCopUI_Framework.Controls.Charts.FunnelChart;
+using HeCopUI_Framework.Controls.Chart.FunnelChart;
 using HeCopUI_Framework.Controls;
 using System.IO;
 using System.Xml.Linq;
@@ -122,19 +122,19 @@ namespace HecopUI_Test
             #region Radar Chart
             // Thằng hRadar1 này xài Series là mảng ấy
             // Ví dụ mẫu đi
-            List<HeCopUI_Framework.Controls.Charts.Series> series = new List<HeCopUI_Framework.Controls.Charts.Series>();
+            List<HeCopUI_Framework.Controls.Chart.Series> series = new List<HeCopUI_Framework.Controls.Chart.Series>();
             
-            HeCopUI_Framework.Controls.Charts.Series s1 = new HeCopUI_Framework.Controls.Charts.Series();
+            HeCopUI_Framework.Controls.Chart.Series s1 = new HeCopUI_Framework.Controls.Chart.Series();
             s1.Text = "Example 1";
             s1.Values = new float[] { 10, 20, 30, 40, 50, 60 };
             s1.Color = Color.MediumVioletRed;
 
-            HeCopUI_Framework.Controls.Charts.Series s2 = new HeCopUI_Framework.Controls.Charts.Series();
+            HeCopUI_Framework.Controls.Chart.Series s2 = new HeCopUI_Framework.Controls.Chart.Series();
             s2.Text = "Example 2";
             s2.Values = new float[] { 60, 50, 40, 30, 20, 10 };
             s2.Color = Color.MediumSeaGreen;
 
-            HeCopUI_Framework.Controls.Charts.Series s3 = new HeCopUI_Framework.Controls.Charts.Series();
+            HeCopUI_Framework.Controls.Chart.Series s3 = new HeCopUI_Framework.Controls.Chart.Series();
             s3.Text = "Example 3";
             s3.Values = new float[] { 30, 40, 50, 60, 70, 80 };
             s3.Color = Color.MediumAquamarine;

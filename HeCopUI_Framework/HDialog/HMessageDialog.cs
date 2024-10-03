@@ -1,8 +1,9 @@
-﻿using HeCopUI_Framework.Controls;
+﻿using HeCopUI_Framework.Controls.Container;
 using HeCopUI_Framework.Controls.Button;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using HeCopUI_Framework.Controls;
 
 
 namespace HeCopUI_Framework.HDialog
@@ -10,7 +11,7 @@ namespace HeCopUI_Framework.HDialog
     public partial class HMessageDialog : UserControl
     {
         #region Components
-        private Controls.HPanel HPanel1;
+        private HPanel HPanel1;
         private FlowLayoutPanel PN_BtnCollection;
         private Controls.HLabel hLabel1;
         private Controls.HLabel hLabel2;
@@ -25,7 +26,7 @@ namespace HeCopUI_Framework.HDialog
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.HPanel1 = new HeCopUI_Framework.Controls.HPanel();
+            this.HPanel1 = new HeCopUI_Framework.Controls.Container.HPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.hLabel2 = new HeCopUI_Framework.Controls.HLabel();
             this.PN_Ico = new System.Windows.Forms.Panel();

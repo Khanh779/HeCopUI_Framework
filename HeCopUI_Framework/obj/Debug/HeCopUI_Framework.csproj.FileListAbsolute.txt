@@ -26,7 +26,7 @@ D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\Intero
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.csproj.ResolveComReference.cache
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.g.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.AnimatorNS.DoubleBitmapForm.resources
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Controls.Charts.ChartTip.resources
+D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Controls.Chart.ChartTip.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Controls.HCircleAnglePicker.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.Forms.HForm.resources
 D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HeCopUI_Framework\obj\Debug\HeCopUI_Framework.HDialog.FileExplorer.resources

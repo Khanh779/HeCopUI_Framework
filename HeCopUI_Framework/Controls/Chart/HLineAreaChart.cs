@@ -1,5 +1,5 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Controls.Charts.Model;
+using HeCopUI_Framework.Controls.Chart.Model;
 using HeCopUI_Framework.Enums;
 using System;
 using System.Collections.Generic;
@@ -18,8 +18,9 @@ using static System.Windows.Forms.AxHost;
 using Color = System.Drawing.Color;
 using Pen = System.Drawing.Pen;
 
-namespace HeCopUI_Framework.Controls.Charts
+namespace HeCopUI_Framework.Controls.Chart
 {
+    [ToolboxBitmap(typeof(System.Windows.Forms.DataVisualization.Charting.Chart))]
     public partial class HLineAreaChart : Control
     {
         #region Properties
@@ -153,7 +154,7 @@ namespace HeCopUI_Framework.Controls.Charts
 
         AnimationManager animationManager;
 
-        HeCopUI_Framework.Controls.Charts.Model.DataItems dataItem = new DataItems();
+        HeCopUI_Framework.Controls.Chart.Model.DataItems dataItem = new DataItems();
 
         public void AddItems(string legendText, Dictionary<object, int> items, System.Drawing.Color color)
         {

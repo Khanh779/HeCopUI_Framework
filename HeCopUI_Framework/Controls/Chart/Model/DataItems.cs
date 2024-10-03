@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 
-namespace HeCopUI_Framework.Controls.Charts.Model
+namespace HeCopUI_Framework.Controls.Chart.Model
 {
     public class DataItems
     {

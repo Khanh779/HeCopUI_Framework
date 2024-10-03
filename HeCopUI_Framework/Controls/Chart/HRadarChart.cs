@@ -10,10 +10,11 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static HeCopUI_Framework.Controls.Charts.HPieChart;
+using static HeCopUI_Framework.Controls.Chart.HPieChart;
 
-namespace HeCopUI_Framework.Controls.Charts
+namespace HeCopUI_Framework.Controls.Chart
 {
+    [ToolboxBitmap(typeof(System.Windows.Forms.DataVisualization.Charting.Chart))]
     public partial class HRadarChart : Control
     {
         AnimationManager animationManager;

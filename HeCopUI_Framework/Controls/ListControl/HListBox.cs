@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace HeCopUI_Framework.Controls
+namespace HeCopUI_Framework.Controls.ListControl
 {
 
     #region MaterialListBox
