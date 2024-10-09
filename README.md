@@ -33,3 +33,12 @@ git clone https://github.com/Khanh779/HeCopUI_Framework.git
 ```
 
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/du122oo)
+
+<a href="https://buymeacoffee.com/du122oo" target="_blank">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee" style="height:50px;width:auto;">
+</a>
+
+<a href="https://paypal.me/Khanhtran283" target="_blank">
+    <img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" alt="PayPal" style="height:50px;width:auto;">
+</a>
+
