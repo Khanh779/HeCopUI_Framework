@@ -203,6 +203,16 @@ namespace HeCopUI_Framework.Controls.Calendar
         Dictionary<RectangleF, DateTime> listDate = new Dictionary<RectangleF, DateTime>();
         private int startYear = 2020;
 
+        public bool ShowYearChange
+        {
+            get => showYearChange;
+            set
+            {
+                showYearChange = value;
+                Invalidate();
+            }
+        }
+
         private void DrawYearCalendar(Graphics g)
         {
             var stringFormat = new StringFormat()

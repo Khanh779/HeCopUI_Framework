@@ -43,10 +43,6 @@ namespace HeCopUI_Framework.Struct
         {
         }
 
-        public CornerRadius(CornerRadius radius, float offset = 0) : this(radius.All - offset)
-        {
-            
-        }
 
         public static bool TryParse(string s, out CornerRadius result)
         {

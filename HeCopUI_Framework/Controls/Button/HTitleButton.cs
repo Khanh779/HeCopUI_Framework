@@ -398,7 +398,7 @@ namespace HeCopUI_Framework.Controls.Button
                 if (ClipRegion == true && DesignMode == false && Ra.All != 0)
                 {
                     GetAppResources.MakeTransparent(this, g);
-                    Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new Struct.CornerRadius(Radius, 2.5f)));
+                    Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new Struct.CornerRadius(Ra.TopLeft, Ra.TopRight, Ra.BottomLeft, Ra.BottomRight, 2.5f)));
                 }
                 g.TextRenderingHint = TextRenderHint;
                 if (Radius.All != 0)

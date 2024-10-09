@@ -324,7 +324,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnPaint(e);
             RectangleF RF = new RectangleF(shadowPadding.Left + 2 + textPadding.Left, shadowPadding.Top + 2 + textPadding.Top, Width - 2 - textPadding.Right - textPadding.Left - shadowPadding.Left - shadowPadding.Right, Height - 2 - textPadding.Bottom - textPadding.Top - shadowPadding.Top - shadowPadding.Bottom);
             GetAppResources.MakeTransparent(this, e.Graphics);
-            using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
+            using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
             using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
 
             using (LinearGradientBrush AHB =
@@ -362,7 +362,7 @@ namespace HeCopUI_Framework.Controls.Button
                 SF.Trimming = STA;
                 if (ClipRegion == true && DesignMode == false)
                 {
-                    if (ST == ShapeType.Rectangle) Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(radius, 2.5f)));
+                    if (ST == ShapeType.Rectangle) Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight, 2.5f)));
                     if (ST == ShapeType.Circular)
                     {
                         GraphicsPath a = new GraphicsPath(); a.AddEllipse(0, 0, Width, Height);

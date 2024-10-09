@@ -15,10 +15,7 @@ namespace HeCopUI_Framework.Converter
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
-            //[SRDescription("ControlPaddingDescr")]
-            //[SRCategory("CatLayout")]
-            //[Localizable(true)]
-
+           
             if (sourceType == typeof(string))
             {
                 return true;
