@@ -19,7 +19,7 @@ using Pen = System.Drawing.Pen;
 
 namespace HeCopUI_Framework.Controls.Button
 {
-    [ToolboxBitmap(typeof(HButton), "Bitmaps.Button.bmp")]
+    [ToolboxBitmap(typeof(HButton), "Bitmaps/Button.bmp")]
     public partial class HButton : Control
     {
         #region Thành phần tối thiết
@@ -71,18 +71,52 @@ namespace HeCopUI_Framework.Controls.Button
         private Color BC { get; set; } = Color.DarkGray;
         private Color BTC { get; set; } = Global.PrimaryColors.BackNormalColor1;
         //Global.PrimaryColors.BackNormalColor1
+
+        /// <summary>
+        /// Gets or sets the color of the button when the mouse is over the button.
+        /// </summary>
+        [Description("Gets or sets the color of the button when the mouse is over the button.")]                     
         public Color BackHoverColor1 { get; set; } = Global.PrimaryColors.BackHoverColor1;
+
         //Global.PrimaryColors.BackHoverColor1
+        /// <summary>
+        /// Gets or sets the color of the button when the mouse is pressed on the button.
+        /// </summary>
+        [Description("Gets or sets the color of the button when the mouse is pressed on the button.")]
         public Color BackPressColor1 { get; set; } = Global.PrimaryColors.BackPressColor1;
         //Global.PrimaryColors.BackPressColor1
+
+        /// <summary>
+        /// Gets or sets the color of the button when the mouse is over the button.
+        /// </summary>
+        [Description("Gets or sets the color of the button when the mouse is over the button.")]
         public Color BackHoverColor2 { get; set; } = Global.PrimaryColors.BackHoverColor2;
+
+        /// <summary>
+        /// Gets or sets the color of the button when the mouse is pressed on the button.
+        /// </summary>
+        [Description("Gets or sets the color of the button when the mouse is pressed on the button.")]
         public Color BackPressColor2 { get; set; } = Global.PrimaryColors.BackPressColor2;
         bool ButDo;
         bool ButHo;
 
+        /// <summary>
+        /// Gets or sets the color of the text when the mouse is over the button.
+        /// </summary>
+        [Description("Gets or sets the color of the text when the mouse is over the button.")]
         public Color TextHoverColor { get; set; } = Color.White;
+
+        /// <summary>
+        /// Gets or sets the color of the text when the mouse is pressed on the button.
+        /// </summary>
+        [Description("Gets or sets the color of the text when the mouse is pressed on the button.")]
         public Color TextDownColor { get; set; } = Color.White;
         private Color textNormalColor = Color.WhiteSmoke;
+
+        /// <summary>
+        /// Gets or sets the color of the text when the mouse is pressed on the button.
+        /// </summary>
+        [Description("Gets or sets the color of the text when the mouse is pressed on the button.")]
         public Color TextNormalColor
         {
             get { return textNormalColor; }
@@ -93,6 +127,10 @@ namespace HeCopUI_Framework.Controls.Button
         }
 
         private Color buttonColor2 = Global.PrimaryColors.BackNormalColor2;
+        /// <summary>
+        /// Gets or sets the color of the button when the mouse is pressed on the button.
+        /// </summary>
+        [Description("Gets or sets the color of the button when the mouse is pressed on the button.")]
         public Color ButtonColor2
         {
             get
@@ -106,6 +144,10 @@ namespace HeCopUI_Framework.Controls.Button
             }
         }
 
+        /// <summary>
+        /// Gets or sets the border thickness of the button.
+        /// </summary>
+        [Description("Gets or sets the border thickness of the button.")]
         public int BorderThickness
         {
             get { return BT; }
@@ -116,6 +158,11 @@ namespace HeCopUI_Framework.Controls.Button
         }
 
         private DialogResult DR = DialogResult.None;
+
+        /// <summary>
+        /// Gets or sets the dialog result of the button.
+        /// </summary>
+        [Description("Gets or sets the dialog result of the button.")]
         public DialogResult DialogResult
         {
             get { return DR; }
@@ -125,6 +172,10 @@ namespace HeCopUI_Framework.Controls.Button
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the button.
+        /// </summary>
+        [Description("Gets or sets the color of the button.")]
         public Color ButtonColor1
         {
             get
@@ -201,6 +252,10 @@ namespace HeCopUI_Framework.Controls.Button
         public new Padding Padding { get; set; } = new Padding(0);
 
         private Padding shadowPadding = new Padding(0, 0, 0, 0);
+        /// <summary>
+        /// Gets or sets the padding of the shadow.
+        /// </summary>
+        [Description("Gets or sets the padding of the shadow.")]
         public Padding ShadowPadding
         {
             get { return shadowPadding; }
@@ -217,6 +272,10 @@ namespace HeCopUI_Framework.Controls.Button
         }
 
         private Color shadowColor = Color.FromArgb(60, 0, 0, 0);
+        /// <summary>
+        /// Gets or sets the color of the shadow.
+        /// </summary>
+        [Description("Gets or sets the color of the shadow.")]
         public Color ShadowColor
         {
             get { return shadowColor; }
@@ -248,7 +307,7 @@ namespace HeCopUI_Framework.Controls.Button
         /// <summary>
         /// Gets or sets radius of HButton.
         /// </summary>
-
+        [Description("Gets or sets radius of HButton.")]
         [Localizable(true)]
         public CornerRadius Radius
         {

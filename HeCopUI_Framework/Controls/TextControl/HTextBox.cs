@@ -13,6 +13,7 @@ using HeCopUI_Framework.Animations;
 namespace HecopUI_Test.CControls
 {
     [DefaultEvent("TextChanged")]
+    [ToolboxBitmap(typeof(TextBox))]
     public class HTextBox : Control
     {
         private bool _underlineStyle = true;
@@ -21,6 +22,7 @@ namespace HecopUI_Test.CControls
         Color watermarkForeColor = Color.Gray;
         Color borderColor = Color.Gray;
         Color focusBorderColor = Color.FromArgb(0, 168, 148);
+        Image _image;
 
 
         AnimationManager _animationManager;
@@ -131,6 +133,65 @@ namespace HecopUI_Test.CControls
             set
             {
                 watermarkForeColor = value;
+                Invalidate();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the image of the TextBox control.
+        /// </summary>
+        [Description("The image of the TextBox control.")]
+        public Image Image
+        {
+            get { return _image; }
+            set
+            {
+                _image = value;
+                Invalidate();
+            }
+        }
+
+        Size _imageSize = new Size(20, 20);
+        /// <summary>
+        /// Gets or sets the size of the image in the TextBox control.
+        /// </summary>
+        [Description("The size of the image in the TextBox control.")]
+        public Size ImageSize
+        {
+            get { return _imageSize; }
+            set
+            {
+                _imageSize = value;
+                Invalidate();
+            }
+        }
+
+        bool imageVisible = false;
+        /// <summary>
+        /// Gets or sets a value indicating whether the image is visible in the TextBox control.
+        /// </summary>
+        [Description("Indicates whether the image is visible in the TextBox control.")]
+        public bool ImageVisible
+        {
+            get { return imageVisible; }
+            set
+            {
+                imageVisible = value;
+                Invalidate();
+            }
+        }
+
+        bool imageAlignRight = false;
+        /// <summary>
+        /// Gets or sets a value indicating whether the image is aligned to the right in the TextBox control.
+        /// </summary>
+        [Description("Indicates whether the image is aligned to the right in the TextBox control.")]
+        public bool ImageAlignRight
+        {
+            get { return imageAlignRight; }
+            set
+            {
+                imageAlignRight = value;
                 Invalidate();
             }
         }
@@ -416,6 +477,7 @@ namespace HecopUI_Test.CControls
         /// <summary>
         /// Gets or sets a value indicating whether pressing ENTER in a multiline TextBox control creates a new line of text in the control or activates the default button for the form.
         /// </summary>
+        [Description("A value indicating whether pressing ENTER in a multiline TextBox control creates a new line of text in the control or activates the default button for the form.")]
         public bool AcceptReturn
         {
             get { return acceptReturn; }
@@ -430,6 +492,7 @@ namespace HecopUI_Test.CControls
         /// <summary>
         /// Gets or sets a value indicating whether pressing the TAB key in a multiline text box control types a TAB character in the control instead of moving the focus to the next control in the tab order.
         /// </summary>
+        [Description("A value indicating whether pressing the TAB key in a multiline text box control types a TAB character in the control instead of moving the focus to the next control in the tab order.")]
         public bool AcceptTab
         {
             get { return acceptTab; }
@@ -444,6 +507,7 @@ namespace HecopUI_Test.CControls
         /// <summary>
         /// Gets or sets a value indicating whether text in the text box control is displayed using multiple lines.
         /// </summary>
+        [Description("A value indicating whether text in the text box control is displayed using multiple lines.")]
         public bool WordWrap
         {
             get { return wordWrap; }
@@ -570,6 +634,21 @@ namespace HecopUI_Test.CControls
             Pen pen = new Pen(new SolidBrush(innerTextBox.Focused ?
                 (useAnimation ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(borderColor, focusBorderColor, _animationManager.GetProgress() * 255) : focusBorderColor) :
                 borderColor), _underlineStyle ? BorderWidth + 1 : BorderWidth);
+
+
+            // Draw image
+            if (Image != null && ImageVisible)
+            {
+                if (ImageAlignRight)
+                {
+                    g.DrawImage(Image, Width - Image.Width - 2 - BorderWidth, (Height - Image.Height) / 2);
+                }
+                else
+                {
+                    g.DrawImage(Image, 2+ BorderWidth, (Height - Image.Height) / 2);
+                }
+            }
+
 
             if (_underlineStyle)
             {
@@ -706,11 +785,11 @@ namespace HecopUI_Test.CControls
         {
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Location = new Point(2 + BorderWidth, (Height - innerTextBox.Height) / 2);
+                innerTextBox.Location = new Point(2 + BorderWidth + (imageVisible && _image != null ? ImageSize.Width : 0), (Height - innerTextBox.Height) / 2);
 
                 if (wm != null && wm.IsHandleCreated)
                 {
-                    wm.Size = new Size(Width - 3 - BorderWidth * 2, innerTextBox.Height);
+                    wm.Size = new Size(Width - 3 - BorderWidth * 2 - (imageVisible && _image!=null? ImageSize.Width:0), innerTextBox.Height);
                     wm.Location = new Point(innerTextBox.Location.X + (TextAlign == HorizontalAlignment.Left ? 1 : TextAlign == HorizontalAlignment.Right ? -1 : 0),
                         innerTextBox.Location.Y);
 
@@ -764,7 +843,7 @@ namespace HecopUI_Test.CControls
         {
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Width = Width - 4 - BorderWidth * 2;
+                innerTextBox.Width = Width - 4 - BorderWidth * 2 -(imageVisible && _image != null ? ImageSize.Width : 0);
 
 
                 if (Height <= (Multiline ? 40 : innerTextBox.Height + BorderWidth * 2 + 4))

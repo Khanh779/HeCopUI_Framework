@@ -9,7 +9,7 @@ namespace HeCopUI_Framework.Controls.Clock
     {
         Color hrColor = Color.White;
         Color minColor = Color.LightBlue;
-        Color secColor = Color.Cyan;
+        Color secColor = Color.DarkOrchid;
         Color ticksColor = Color.WhiteSmoke;
 
         Color clockBackColor1 = Color.FromArgb(45, 45, 45);

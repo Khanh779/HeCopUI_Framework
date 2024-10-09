@@ -74,7 +74,7 @@ namespace HecopUI_Test
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode22 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode23 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode24 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
-            HeCopUI_Framework.Controls.Chart.Series series3 = new HeCopUI_Framework.Controls.Chart.Series();
+            HeCopUI_Framework.Controls.Chart.Series series1 = new HeCopUI_Framework.Controls.Chart.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -222,6 +222,8 @@ namespace HecopUI_Test
             this.hClock1 = new HeCopUI_Framework.Controls.Clock.HClock();
             this.hClockDigital1 = new HeCopUI_Framework.Controls.Clock.HClockDigital();
             this.tabPage31 = new System.Windows.Forms.TabPage();
+            this.calendarControl1 = new HeCopUI_Framework.Controls.Calendar.CalendarControl();
+            this.simpleCalendarControl1 = new HeCopUI_Framework.Controls.Calendar.SimpleCalendarControl();
             this.hMontCalendar1 = new HeCopUI_Framework.Controls.HMontCalendar();
             this.tabPage23 = new System.Windows.Forms.TabPage();
             this.hButton12 = new HeCopUI_Framework.Controls.Button.HButton();
@@ -406,7 +408,7 @@ namespace HecopUI_Test
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.hLabel7);
@@ -423,7 +425,7 @@ namespace HecopUI_Test
             // 
             // hLabel7
             // 
-            this.hLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel7.BackColor = System.Drawing.Color.Transparent;
             this.hLabel7.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -443,7 +445,7 @@ namespace HecopUI_Test
             // 
             // hLabel6
             // 
-            this.hLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel6.BackColor = System.Drawing.Color.Transparent;
             this.hLabel6.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -463,7 +465,7 @@ namespace HecopUI_Test
             // 
             // hLabel5
             // 
-            this.hLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel5.BackColor = System.Drawing.Color.Transparent;
             this.hLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -483,7 +485,7 @@ namespace HecopUI_Test
             // 
             // hLabel4
             // 
-            this.hLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel4.BackColor = System.Drawing.Color.Transparent;
             this.hLabel4.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -504,7 +506,7 @@ namespace HecopUI_Test
             // 
             // hLabel3
             // 
-            this.hLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel3.BackColor = System.Drawing.Color.Transparent;
             this.hLabel3.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -525,7 +527,7 @@ namespace HecopUI_Test
             // 
             // hLabel2
             // 
-            this.hLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel2.BackColor = System.Drawing.Color.Transparent;
             this.hLabel2.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2676,16 +2678,16 @@ namespace HecopUI_Test
             this.hRadarChart1.NumberVisible = true;
             this.hRadarChart1.PointSize = 8;
             this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
-            series3.Color = System.Drawing.Color.OrangeRed;
-            series3.Text = "serieName1";
-            series3.Values = new float[] {
+            series1.Color = System.Drawing.Color.OrangeRed;
+            series1.Text = "serieName1";
+            series1.Values = new float[] {
         90F,
         50F,
         70F,
         40F,
         60F};
             this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Chart.Series[] {
-        series3};
+        series1};
             this.hRadarChart1.ShowTitle = true;
             this.hRadarChart1.ShowValuesTip = false;
             this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
@@ -2724,6 +2726,10 @@ namespace HecopUI_Test
             this.hTextBox2.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
             this.hTextBox2.ForeColor = System.Drawing.Color.Silver;
             this.hTextBox2.HideSelection = true;
+            this.hTextBox2.Image = null;
+            this.hTextBox2.ImageAlignRight = false;
+            this.hTextBox2.ImageSize = new System.Drawing.Size(20, 20);
+            this.hTextBox2.ImageVisible = false;
             this.hTextBox2.Lines = new string[0];
             this.hTextBox2.Location = new System.Drawing.Point(393, 113);
             this.hTextBox2.MaxLength = 32767;
@@ -2754,6 +2760,10 @@ namespace HecopUI_Test
             this.hTextBox1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
             this.hTextBox1.ForeColor = System.Drawing.Color.Silver;
             this.hTextBox1.HideSelection = true;
+            this.hTextBox1.Image = null;
+            this.hTextBox1.ImageAlignRight = false;
+            this.hTextBox1.ImageSize = new System.Drawing.Size(20, 20);
+            this.hTextBox1.ImageVisible = false;
             this.hTextBox1.Lines = new string[0];
             this.hTextBox1.Location = new System.Drawing.Point(113, 113);
             this.hTextBox1.MaxLength = 32767;
@@ -3976,7 +3986,7 @@ namespace HecopUI_Test
             this.hClock1.Location = new System.Drawing.Point(204, 45);
             this.hClock1.MinuteHandColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(86)))), ((int)(((byte)(189)))));
             this.hClock1.Name = "hClock1";
-            this.hClock1.SecondHandColor = System.Drawing.Color.RoyalBlue;
+            this.hClock1.SecondHandColor = System.Drawing.Color.DarkOrchid;
             this.hClock1.Size = new System.Drawing.Size(295, 226);
             this.hClock1.TabIndex = 4;
             this.hClock1.Text = "hClock1";
@@ -3999,6 +4009,8 @@ namespace HecopUI_Test
             // tabPage31
             // 
             this.tabPage31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabPage31.Controls.Add(this.calendarControl1);
+            this.tabPage31.Controls.Add(this.simpleCalendarControl1);
             this.tabPage31.Controls.Add(this.hMontCalendar1);
             this.tabPage31.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPage31.Location = new System.Drawing.Point(4, 25);
@@ -4008,13 +4020,72 @@ namespace HecopUI_Test
             this.tabPage31.TabIndex = 1;
             this.tabPage31.Text = "Calendar";
             // 
+            // calendarControl1
+            // 
+            this.calendarControl1.BorderColor = System.Drawing.Color.Gray;
+            this.calendarControl1.CalendarColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(87)))));
+            this.calendarControl1.CalendarPadding = new System.Windows.Forms.Padding(5);
+            this.calendarControl1.DayOfMonthColor = System.Drawing.Color.LightGray;
+            this.calendarControl1.DaysColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(136)))), ((int)(((byte)(231)))));
+            this.calendarControl1.DaysFont = new System.Drawing.Font("Arial", 10F);
+            this.calendarControl1.DaysHeight = 30;
+            this.calendarControl1.HeaderFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.calendarControl1.HoverDateColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(136)))), ((int)(((byte)(231)))));
+            this.calendarControl1.Location = new System.Drawing.Point(317, 264);
+            this.calendarControl1.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.calendarControl1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.calendarControl1.MonthColor = System.Drawing.Color.WhiteSmoke;
+            this.calendarControl1.MonthDisplay = HeCopUI_Framework.Controls.Calendar.MonthDisplayType.Number;
+            this.calendarControl1.Name = "calendarControl1";
+            this.calendarControl1.NavigationButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(136)))), ((int)(((byte)(231)))));
+            this.calendarControl1.NumberDayFont = new System.Drawing.Font("Arial", 10F);
+            this.calendarControl1.SelectDayColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(164)))), ((int)(((byte)(80)))));
+            this.calendarControl1.SelectedDate = new System.DateTime(2024, 10, 9, 0, 0, 0, 0);
+            this.calendarControl1.SelectedDateColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(164)))), ((int)(((byte)(80)))));
+            this.calendarControl1.ShowTime = false;
+            this.calendarControl1.ShowWeekNumbers = true;
+            this.calendarControl1.Size = new System.Drawing.Size(367, 226);
+            this.calendarControl1.TabIndex = 15;
+            this.calendarControl1.Text = "calendarControl1";
+            this.calendarControl1.TimeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(136)))), ((int)(((byte)(231)))));
+            this.calendarControl1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(34)))), ((int)(((byte)(41)))));
+            this.calendarControl1.TitleHeight = 30;
+            this.calendarControl1.ToDay = new System.DateTime(2024, 10, 9, 0, 0, 0, 0);
+            this.calendarControl1.WeekNumberColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(136)))), ((int)(((byte)(231)))));
+            this.calendarControl1.WeekNumberFont = new System.Drawing.Font("Arial", 10F);
+            // 
+            // simpleCalendarControl1
+            // 
+            this.simpleCalendarControl1.BackColor = System.Drawing.Color.White;
+            this.simpleCalendarControl1.CalendarPadding = new System.Windows.Forms.Padding(2);
+            this.simpleCalendarControl1.DayColor = System.Drawing.Color.Green;
+            this.simpleCalendarControl1.DayOfWeekColor = System.Drawing.Color.IndianRed;
+            this.simpleCalendarControl1.DaysHeight = 30;
+            this.simpleCalendarControl1.HeaderColor = System.Drawing.Color.Black;
+            this.simpleCalendarControl1.HoverDateColor = System.Drawing.Color.LimeGreen;
+            this.simpleCalendarControl1.Location = new System.Drawing.Point(317, 6);
+            this.simpleCalendarControl1.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.simpleCalendarControl1.MinDate = new System.DateTime(((long)(0)));
+            this.simpleCalendarControl1.Name = "simpleCalendarControl1";
+            this.simpleCalendarControl1.SelectedDate = new System.DateTime(((long)(0)));
+            this.simpleCalendarControl1.SelectedDateColor = System.Drawing.Color.Red;
+            this.simpleCalendarControl1.ShowDaysOutOfMonth = true;
+            this.simpleCalendarControl1.ShowWeekNumbers = true;
+            this.simpleCalendarControl1.Size = new System.Drawing.Size(367, 242);
+            this.simpleCalendarControl1.TabIndex = 14;
+            this.simpleCalendarControl1.Text = "simpleCalendarControl1";
+            this.simpleCalendarControl1.TitleHeight = 30;
+            this.simpleCalendarControl1.ToDay = new System.DateTime(2024, 10, 9, 19, 0, 17, 958);
+            this.simpleCalendarControl1.TodayColor = System.Drawing.Color.Blue;
+            this.simpleCalendarControl1.WeekNumberColor = System.Drawing.Color.Gray;
+            // 
             // hMontCalendar1
             // 
             this.hMontCalendar1.Date = new System.DateTime(2024, 7, 10, 0, 0, 0, 0);
             this.hMontCalendar1.DayHoverColor = System.Drawing.Color.DodgerBlue;
             this.hMontCalendar1.DaySelectedColor = System.Drawing.Color.SteelBlue;
             this.hMontCalendar1.HoverDayColor = System.Drawing.Color.White;
-            this.hMontCalendar1.Location = new System.Drawing.Point(219, 93);
+            this.hMontCalendar1.Location = new System.Drawing.Point(6, 6);
             this.hMontCalendar1.Name = "hMontCalendar1";
             this.hMontCalendar1.NormalDayColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.hMontCalendar1.PlaceHolderText = System.Drawing.Color.Gray;
@@ -4362,6 +4433,8 @@ namespace HecopUI_Test
         private HGreenCircleControl hGreenCircleControl1;
         private CControls.HTextBox hTextBox2;
         private CControls.HTextBox hTextBox1;
+        private HeCopUI_Framework.Controls.Calendar.SimpleCalendarControl simpleCalendarControl1;
+        private HeCopUI_Framework.Controls.Calendar.CalendarControl calendarControl1;
     }
 }
 
