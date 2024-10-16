@@ -74,7 +74,7 @@ namespace HecopUI_Test
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode22 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode23 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode24 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
-            HeCopUI_Framework.Controls.Chart.Series series1 = new HeCopUI_Framework.Controls.Chart.Series();
+            HeCopUI_Framework.Controls.Chart.Series series3 = new HeCopUI_Framework.Controls.Chart.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -154,8 +154,8 @@ namespace HecopUI_Test
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.hRadarChart1 = new HeCopUI_Framework.Controls.Chart.HRadarChart();
             this.tabPage21 = new System.Windows.Forms.TabPage();
-            this.hTextBox2 = new HecopUI_Test.CControls.HTextBox();
-            this.hTextBox1 = new HecopUI_Test.CControls.HTextBox();
+            this.hTextBox2 = new HeCopUI_Framework.Controls.TextControl.HTextBox();
+            this.hTextBox1 = new HeCopUI_Framework.Controls.TextControl.HTextBox();
             this.hRichTextBox2 = new HeCopUI_Framework.Controls.TextControl.HRichTextBox();
             this.hRichTextBox1 = new HeCopUI_Framework.Controls.TextControl.HRichTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -408,7 +408,7 @@ namespace HecopUI_Test
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.hLabel7);
@@ -425,7 +425,7 @@ namespace HecopUI_Test
             // 
             // hLabel7
             // 
-            this.hLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.hLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel7.BackColor = System.Drawing.Color.Transparent;
             this.hLabel7.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -445,7 +445,7 @@ namespace HecopUI_Test
             // 
             // hLabel6
             // 
-            this.hLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.hLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel6.BackColor = System.Drawing.Color.Transparent;
             this.hLabel6.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -465,7 +465,7 @@ namespace HecopUI_Test
             // 
             // hLabel5
             // 
-            this.hLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.hLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel5.BackColor = System.Drawing.Color.Transparent;
             this.hLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -485,7 +485,7 @@ namespace HecopUI_Test
             // 
             // hLabel4
             // 
-            this.hLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.hLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel4.BackColor = System.Drawing.Color.Transparent;
             this.hLabel4.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -506,7 +506,7 @@ namespace HecopUI_Test
             // 
             // hLabel3
             // 
-            this.hLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.hLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel3.BackColor = System.Drawing.Color.Transparent;
             this.hLabel3.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -527,7 +527,7 @@ namespace HecopUI_Test
             // 
             // hLabel2
             // 
-            this.hLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.hLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hLabel2.BackColor = System.Drawing.Color.Transparent;
             this.hLabel2.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2678,16 +2678,16 @@ namespace HecopUI_Test
             this.hRadarChart1.NumberVisible = true;
             this.hRadarChart1.PointSize = 8;
             this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
-            series1.Color = System.Drawing.Color.OrangeRed;
-            series1.Text = "serieName1";
-            series1.Values = new float[] {
+            series3.Color = System.Drawing.Color.OrangeRed;
+            series3.Text = "serieName1";
+            series3.Values = new float[] {
         90F,
         50F,
         70F,
         40F,
         60F};
             this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Chart.Series[] {
-        series1};
+        series3};
             this.hRadarChart1.ShowTitle = true;
             this.hRadarChart1.ShowValuesTip = false;
             this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
@@ -2760,10 +2760,10 @@ namespace HecopUI_Test
             this.hTextBox1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
             this.hTextBox1.ForeColor = System.Drawing.Color.Silver;
             this.hTextBox1.HideSelection = true;
-            this.hTextBox1.Image = null;
+            this.hTextBox1.Image = global::HecopUI_Test.Properties.Resources.hTextBox1_Image;
             this.hTextBox1.ImageAlignRight = false;
             this.hTextBox1.ImageSize = new System.Drawing.Size(20, 20);
-            this.hTextBox1.ImageVisible = false;
+            this.hTextBox1.ImageVisible = true;
             this.hTextBox1.Lines = new string[0];
             this.hTextBox1.Location = new System.Drawing.Point(113, 113);
             this.hTextBox1.MaxLength = 32767;
@@ -2932,8 +2932,8 @@ namespace HecopUI_Test
             this.hStepIndicatorOne1.IndicatorStepColor2 = System.Drawing.Color.DodgerBlue;
             this.hStepIndicatorOne1.Location = new System.Drawing.Point(39, 378);
             this.hStepIndicatorOne1.Name = "hStepIndicatorOne1";
-            this.hStepIndicatorOne1.RadiusBig = 10;
-            this.hStepIndicatorOne1.RadiusSmall = 5;
+            this.hStepIndicatorOne1.RadiusBig = 20;
+            this.hStepIndicatorOne1.RadiusSmall = 15;
             this.hStepIndicatorOne1.Size = new System.Drawing.Size(239, 65);
             this.hStepIndicatorOne1.Steps = 3;
             this.hStepIndicatorOne1.TabIndex = 27;
@@ -3057,7 +3057,7 @@ namespace HecopUI_Test
             this.hDotProgressRing3.Location = new System.Drawing.Point(277, 40);
             this.hDotProgressRing3.Name = "hDotProgressRing3";
             this.hDotProgressRing3.ProgressStyle = HeCopUI_Framework.Controls.Progress.HDotProgressRing.Style.Style3;
-            this.hDotProgressRing3.Radius = 2;
+            this.hDotProgressRing3.Radius = 5;
             this.hDotProgressRing3.Size = new System.Drawing.Size(67, 67);
             this.hDotProgressRing3.StartAnimation = true;
             this.hDotProgressRing3.SupportTransparent = true;
@@ -3650,7 +3650,7 @@ namespace HecopUI_Test
             this.hDigitalGauge2.NumberBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(30)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
             this.hDigitalGauge2.NumberColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(128)))));
             this.hDigitalGauge2.NumberHeight = 20F;
-            this.hDigitalGauge2.Radius = 5;
+            this.hDigitalGauge2.Radius = 0;
             this.hDigitalGauge2.Size = new System.Drawing.Size(168, 94);
             this.hDigitalGauge2.TabIndex = 9;
             this.hDigitalGauge2.Text = "hDigitalGauge2";
@@ -4071,6 +4071,7 @@ namespace HecopUI_Test
             this.simpleCalendarControl1.SelectedDateColor = System.Drawing.Color.Red;
             this.simpleCalendarControl1.ShowDaysOutOfMonth = true;
             this.simpleCalendarControl1.ShowWeekNumbers = true;
+            this.simpleCalendarControl1.ShowYearChange = false;
             this.simpleCalendarControl1.Size = new System.Drawing.Size(367, 242);
             this.simpleCalendarControl1.TabIndex = 14;
             this.simpleCalendarControl1.Text = "simpleCalendarControl1";
@@ -4431,10 +4432,9 @@ namespace HecopUI_Test
         private HeCopUI_Framework.Controls.Bubble.HWaterDropControl hWaterDropControl1;
         private HeCopUI_Framework.Controls.Bubble.HAnimatedCircleControl hAnimatedCircleControl1;
         private HGreenCircleControl hGreenCircleControl1;
-        private CControls.HTextBox hTextBox2;
-        private CControls.HTextBox hTextBox1;
+        private HeCopUI_Framework.Controls.TextControl.HTextBox hTextBox2;
+        private HeCopUI_Framework.Controls.TextControl.HTextBox hTextBox1;
         private HeCopUI_Framework.Controls.Calendar.SimpleCalendarControl simpleCalendarControl1;
         private HeCopUI_Framework.Controls.Calendar.CalendarControl calendarControl1;
     }
 }
-

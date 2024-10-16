@@ -1,4 +1,4 @@
-﻿using HeCopUI_Framework.Struct;
+﻿using HeCopUI_Framework.Structs;
 using HeCopUI_Framework.Win32;
 using HeCopUI_Framework.Win32.Enums;
 using HeCopUI_Framework.Win32.Struct;

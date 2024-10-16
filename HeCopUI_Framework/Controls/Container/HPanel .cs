@@ -1,4 +1,4 @@
-﻿using HeCopUI_Framework.Struct;
+﻿using HeCopUI_Framework.Structs;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;

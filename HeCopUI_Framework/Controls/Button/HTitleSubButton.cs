@@ -1,5 +1,5 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Struct;
+using HeCopUI_Framework.Structs;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -181,7 +181,7 @@ namespace HeCopUI_Framework.Controls.Button
         /// <summary>
         /// Get or set radius of button
         /// </summary>
-        [Localizable(true)]
+        [Description("Get or set radius of button")]
         public CornerRadius Radius
         {
             get { return Ra; }

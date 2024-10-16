@@ -83,7 +83,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -447,7 +447,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ImageProcessor\StackBlur.cs" />
-    <Compile Include="Struct\CornerRadius.cs" />
+    <Compile Include="Structs\CornerRadius.cs" />
     <Compile Include="Win32\Enums\GetIconListFlags.cs" />
     <Compile Include="Win32\Enums\IconDataCursorFlags.cs" />
     <Compile Include="Win32\Enums\RedrawWindowFlags.cs" />

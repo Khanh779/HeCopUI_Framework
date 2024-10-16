@@ -1,7 +1,7 @@
 ﻿using HeCopUI_Framework.Animations;
 using HeCopUI_Framework.Enums;
 using HeCopUI_Framework.Helper;
-using HeCopUI_Framework.Struct;
+using HeCopUI_Framework.Structs;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -302,18 +302,19 @@ namespace HeCopUI_Framework.Controls.Button
             return graphicsPath;
         }
 
-        CornerRadius radius = new Struct.CornerRadius(5);
+        CornerRadius radius = new Structs.CornerRadius(5);
 
         /// <summary>
         /// Gets or sets radius of HButton.
         /// </summary>
         [Description("Gets or sets radius of HButton.")]
-        [Localizable(true)]
+    
         public CornerRadius Radius
         {
             get { return radius; }
             set
             {
+               
                 radius = value; Invalidate();
             }
         }

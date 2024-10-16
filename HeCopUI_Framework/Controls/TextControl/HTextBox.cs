@@ -10,7 +10,7 @@ using System.Drawing.Imaging;
 using HeCopUI_Framework.Animations;
 
 
-namespace HecopUI_Test.CControls
+namespace HeCopUI_Framework.Controls.TextControl
 {
     [DefaultEvent("TextChanged")]
     [ToolboxBitmap(typeof(TextBox))]
@@ -641,11 +641,11 @@ namespace HecopUI_Test.CControls
             {
                 if (ImageAlignRight)
                 {
-                    g.DrawImage(Image, Width - Image.Width - 2 - BorderWidth, (Height - Image.Height) / 2);
+                    g.DrawImage(Image, Width - ImageSize.Width - 2 - BorderWidth, (Height - ImageSize.Height) / 2, ImageSize.Width, ImageSize.Height);
                 }
                 else
                 {
-                    g.DrawImage(Image, 2+ BorderWidth, (Height - Image.Height) / 2);
+                    g.DrawImage(Image, 2 + BorderWidth, (Height - ImageSize.Height) / 2, ImageSize.Width, ImageSize.Height);
                 }
             }
 
@@ -781,15 +781,18 @@ namespace HecopUI_Test.CControls
             Invalidate();
         }
 
+        int offx = 5;
+
         void UpdateInnerTextBoxPosition()
         {
+           
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Location = new Point(2 + BorderWidth + (imageVisible && _image != null ? ImageSize.Width : 0), (Height - innerTextBox.Height) / 2);
+                innerTextBox.Location = new Point(2 + BorderWidth + (imageVisible && _image != null ? ImageSize.Width : 0) + offx, (Height - innerTextBox.Height) / 2);
 
                 if (wm != null && wm.IsHandleCreated)
                 {
-                    wm.Size = new Size(Width - 3 - BorderWidth * 2 - (imageVisible && _image!=null? ImageSize.Width:0), innerTextBox.Height);
+                    wm.Size = new Size(Width - offx + 1 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0), innerTextBox.Height);
                     wm.Location = new Point(innerTextBox.Location.X + (TextAlign == HorizontalAlignment.Left ? 1 : TextAlign == HorizontalAlignment.Right ? -1 : 0),
                         innerTextBox.Location.Y);
 
@@ -843,7 +846,7 @@ namespace HecopUI_Test.CControls
         {
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Width = Width - 4 - BorderWidth * 2 -(imageVisible && _image != null ? ImageSize.Width : 0);
+                innerTextBox.Width = Width - offx - 2 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0);
 
 
                 if (Height <= (Multiline ? 40 : innerTextBox.Height + BorderWidth * 2 + 4))

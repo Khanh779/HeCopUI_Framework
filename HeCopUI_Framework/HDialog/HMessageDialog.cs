@@ -60,7 +60,7 @@ namespace HeCopUI_Framework.HDialog
             this.HPanel1.Location = new System.Drawing.Point(25, 50);
             this.HPanel1.Name = "HPanel1";
             this.HPanel1.PanelColor1 = System.Drawing.Color.White;
-            this.HPanel1.Radius = new Struct.CornerRadius(10);
+            this.HPanel1.Radius = new Structs.CornerRadius(10);
             this.HPanel1.RoundBottomLeft = true;
             this.HPanel1.RoundBottomRight = true;
             this.HPanel1.RoundTopLeft = true;
@@ -234,7 +234,7 @@ namespace HeCopUI_Framework.HDialog
                 sd.TextHoverColor = TextHoverColor;
                 sd.TextNormalColor = TextNormalColor;
                 sd.TextDownColor = TextDownColor;
-                sd.Radius = new Struct.CornerRadius(5);
+                sd.Radius = new Structs.CornerRadius(5);
             }
 
             switch (MessageBoxIcon)

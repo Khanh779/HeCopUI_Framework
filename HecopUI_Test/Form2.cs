@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace HecopUI_Test
 {
-    public partial class Form2 : HeCopUI_Framework.Forms.HFormFlat
+    public partial class Form2 : Form
     {
         public Form2()
         {
             InitializeComponent();
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-          
         }
     }
 }
