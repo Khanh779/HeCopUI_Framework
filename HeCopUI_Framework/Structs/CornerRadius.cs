@@ -168,5 +168,10 @@ namespace HeCopUI_Framework.Structs
         {
             return this == other;
         }
+
+        public bool ShouldSerializeAll()
+        {
+            return _all;
+        }
     }
 }
