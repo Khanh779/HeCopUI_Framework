@@ -66,10 +66,10 @@ namespace HeCopUI_Framework.Helper
             rectangle = new RectangleF(rectangle.X + offset, rectangle.Y + offset, rectangle.Width - offset, rectangle.Height - offset);
 
             // Tính toán đường kính cho từng góc
-            float diameterTopLeft = borderRadius.Top * 2;
-            float diameterTopRight = borderRadius.Right * 2;
-            float diameterBottomRight = borderRadius.Bottom * 2;
-            float diameterBottomLeft = borderRadius.Left * 2;
+            float diameterTopLeft = borderRadius.Left * 2;
+            float diameterTopRight = borderRadius.Top * 2;
+            float diameterBottomRight = borderRadius.Right * 2;
+            float diameterBottomLeft = borderRadius.Bottom * 2;
 
             // Thêm các góc bo
             AddArc(rectangle.X, rectangle.Y, diameterTopLeft, 180f, 90f); // Top-Left Arc
