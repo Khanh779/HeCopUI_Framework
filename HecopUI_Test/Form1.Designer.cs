@@ -74,7 +74,7 @@ namespace HecopUI_Test
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode22 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode23 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode24 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
-            HeCopUI_Framework.Controls.Chart.Series series3 = new HeCopUI_Framework.Controls.Chart.Series();
+            HeCopUI_Framework.Controls.Chart.Series series1 = new HeCopUI_Framework.Controls.Chart.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -228,6 +228,7 @@ namespace HecopUI_Test
             this.tabPage23 = new System.Windows.Forms.TabPage();
             this.hButton12 = new HeCopUI_Framework.Controls.Button.HButton();
             this.hButton11 = new HeCopUI_Framework.Controls.Button.HButton();
+            this.hTextBox3 = new HeCopUI_Framework.Controls.TextControl.HTextBox();
             this.hTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -652,6 +653,7 @@ namespace HecopUI_Test
             this.hButton7.IsAutoSize = false;
             this.hButton7.Location = new System.Drawing.Point(464, 287);
             this.hButton7.Name = "hButton7";
+            this.hButton7.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton7.RippleColor = System.Drawing.Color.Black;
             this.hButton7.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton7.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -694,6 +696,7 @@ namespace HecopUI_Test
             this.hButton8.IsAutoSize = false;
             this.hButton8.Location = new System.Drawing.Point(290, 287);
             this.hButton8.Name = "hButton8";
+            this.hButton8.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton8.RippleColor = System.Drawing.Color.Black;
             this.hButton8.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton8.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -736,6 +739,7 @@ namespace HecopUI_Test
             this.hButton9.IsAutoSize = false;
             this.hButton9.Location = new System.Drawing.Point(121, 287);
             this.hButton9.Name = "hButton9";
+            this.hButton9.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton9.RippleColor = System.Drawing.Color.Black;
             this.hButton9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton9.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -778,6 +782,7 @@ namespace HecopUI_Test
             this.hButton4.IsAutoSize = false;
             this.hButton4.Location = new System.Drawing.Point(464, 207);
             this.hButton4.Name = "hButton4";
+            this.hButton4.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton4.RippleColor = System.Drawing.Color.Black;
             this.hButton4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton4.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -821,6 +826,7 @@ namespace HecopUI_Test
             this.hButton5.Location = new System.Drawing.Point(290, 207);
             this.hButton5.Margin = new System.Windows.Forms.Padding(34, 3, 5, 6);
             this.hButton5.Name = "hButton5";
+            this.hButton5.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton5.RippleColor = System.Drawing.Color.Black;
             this.hButton5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton5.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -863,6 +869,7 @@ namespace HecopUI_Test
             this.hButton6.IsAutoSize = false;
             this.hButton6.Location = new System.Drawing.Point(121, 207);
             this.hButton6.Name = "hButton6";
+            this.hButton6.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton6.RippleColor = System.Drawing.Color.Black;
             this.hButton6.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton6.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -905,6 +912,7 @@ namespace HecopUI_Test
             this.hButton3.IsAutoSize = false;
             this.hButton3.Location = new System.Drawing.Point(464, 130);
             this.hButton3.Name = "hButton3";
+            this.hButton3.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton3.RippleColor = System.Drawing.Color.Black;
             this.hButton3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton3.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -947,6 +955,7 @@ namespace HecopUI_Test
             this.hButton2.IsAutoSize = false;
             this.hButton2.Location = new System.Drawing.Point(290, 130);
             this.hButton2.Name = "hButton2";
+            this.hButton2.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton2.RippleColor = System.Drawing.Color.Black;
             this.hButton2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton2.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -989,6 +998,7 @@ namespace HecopUI_Test
             this.hButton1.IsAutoSize = false;
             this.hButton1.Location = new System.Drawing.Point(121, 130);
             this.hButton1.Name = "hButton1";
+            this.hButton1.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton1.RippleColor = System.Drawing.Color.Black;
             this.hButton1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton1.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1051,6 +1061,7 @@ namespace HecopUI_Test
             this.hTitleButton7.Interval = 200;
             this.hTitleButton7.Location = new System.Drawing.Point(456, 344);
             this.hTitleButton7.Name = "hTitleButton7";
+            this.hTitleButton7.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton7.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton7.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton7.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1089,6 +1100,7 @@ namespace HecopUI_Test
             this.hTitleButton8.Interval = 200;
             this.hTitleButton8.Location = new System.Drawing.Point(274, 344);
             this.hTitleButton8.Name = "hTitleButton8";
+            this.hTitleButton8.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton8.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton8.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton8.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1127,6 +1139,7 @@ namespace HecopUI_Test
             this.hTitleButton9.Interval = 200;
             this.hTitleButton9.Location = new System.Drawing.Point(93, 344);
             this.hTitleButton9.Name = "hTitleButton9";
+            this.hTitleButton9.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton9.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton9.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1165,6 +1178,7 @@ namespace HecopUI_Test
             this.hTitleButton4.Interval = 200;
             this.hTitleButton4.Location = new System.Drawing.Point(456, 197);
             this.hTitleButton4.Name = "hTitleButton4";
+            this.hTitleButton4.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton4.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton4.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1203,6 +1217,7 @@ namespace HecopUI_Test
             this.hTitleButton5.Interval = 200;
             this.hTitleButton5.Location = new System.Drawing.Point(274, 197);
             this.hTitleButton5.Name = "hTitleButton5";
+            this.hTitleButton5.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton5.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton5.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1241,6 +1256,7 @@ namespace HecopUI_Test
             this.hTitleButton6.Interval = 200;
             this.hTitleButton6.Location = new System.Drawing.Point(93, 197);
             this.hTitleButton6.Name = "hTitleButton6";
+            this.hTitleButton6.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton6.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton6.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton6.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1279,6 +1295,7 @@ namespace HecopUI_Test
             this.hTitleButton3.Interval = 200;
             this.hTitleButton3.Location = new System.Drawing.Point(456, 57);
             this.hTitleButton3.Name = "hTitleButton3";
+            this.hTitleButton3.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton3.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton3.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1317,6 +1334,7 @@ namespace HecopUI_Test
             this.hTitleButton2.Interval = 200;
             this.hTitleButton2.Location = new System.Drawing.Point(274, 57);
             this.hTitleButton2.Name = "hTitleButton2";
+            this.hTitleButton2.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton2.RippleColor = System.Drawing.Color.Black;
             this.hTitleButton2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton2.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1355,6 +1373,7 @@ namespace HecopUI_Test
             this.hTitleButton1.Interval = 200;
             this.hTitleButton1.Location = new System.Drawing.Point(93, 57);
             this.hTitleButton1.Name = "hTitleButton1";
+            this.hTitleButton1.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleButton1.RippleColor = System.Drawing.Color.BlanchedAlmond;
             this.hTitleButton1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleButton1.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1412,6 +1431,7 @@ namespace HecopUI_Test
             this.hTitleSubButton7.Interval = 200;
             this.hTitleSubButton7.Location = new System.Drawing.Point(456, 344);
             this.hTitleSubButton7.Name = "hTitleSubButton7";
+            this.hTitleSubButton7.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton7.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton7.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton7.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1457,6 +1477,7 @@ namespace HecopUI_Test
             this.hTitleSubButton8.Interval = 200;
             this.hTitleSubButton8.Location = new System.Drawing.Point(456, 197);
             this.hTitleSubButton8.Name = "hTitleSubButton8";
+            this.hTitleSubButton8.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton8.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton8.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton8.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1502,6 +1523,7 @@ namespace HecopUI_Test
             this.hTitleSubButton9.Interval = 200;
             this.hTitleSubButton9.Location = new System.Drawing.Point(456, 57);
             this.hTitleSubButton9.Name = "hTitleSubButton9";
+            this.hTitleSubButton9.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton9.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton9.ShadowPadding = new System.Windows.Forms.Padding(3, 1, 3, 4);
@@ -1547,6 +1569,7 @@ namespace HecopUI_Test
             this.hTitleSubButton4.Interval = 200;
             this.hTitleSubButton4.Location = new System.Drawing.Point(274, 344);
             this.hTitleSubButton4.Name = "hTitleSubButton4";
+            this.hTitleSubButton4.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton4.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton4.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1592,6 +1615,7 @@ namespace HecopUI_Test
             this.hTitleSubButton5.Interval = 200;
             this.hTitleSubButton5.Location = new System.Drawing.Point(274, 197);
             this.hTitleSubButton5.Name = "hTitleSubButton5";
+            this.hTitleSubButton5.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton5.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton5.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1637,6 +1661,7 @@ namespace HecopUI_Test
             this.hTitleSubButton6.Interval = 200;
             this.hTitleSubButton6.Location = new System.Drawing.Point(274, 57);
             this.hTitleSubButton6.Name = "hTitleSubButton6";
+            this.hTitleSubButton6.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton6.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton6.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton6.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1682,6 +1707,7 @@ namespace HecopUI_Test
             this.hTitleSubButton3.Interval = 200;
             this.hTitleSubButton3.Location = new System.Drawing.Point(93, 344);
             this.hTitleSubButton3.Name = "hTitleSubButton3";
+            this.hTitleSubButton3.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton3.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton3.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1727,6 +1753,7 @@ namespace HecopUI_Test
             this.hTitleSubButton2.Interval = 200;
             this.hTitleSubButton2.Location = new System.Drawing.Point(93, 197);
             this.hTitleSubButton2.Name = "hTitleSubButton2";
+            this.hTitleSubButton2.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton2.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton2.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -1772,6 +1799,7 @@ namespace HecopUI_Test
             this.hTitleSubButton1.Interval = 200;
             this.hTitleSubButton1.Location = new System.Drawing.Point(93, 57);
             this.hTitleSubButton1.Name = "hTitleSubButton1";
+            this.hTitleSubButton1.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hTitleSubButton1.RippleColor = System.Drawing.Color.Black;
             this.hTitleSubButton1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hTitleSubButton1.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -2678,16 +2706,16 @@ namespace HecopUI_Test
             this.hRadarChart1.NumberVisible = true;
             this.hRadarChart1.PointSize = 8;
             this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
-            series3.Color = System.Drawing.Color.OrangeRed;
-            series3.Text = "serieName1";
-            series3.Values = new float[] {
+            series1.Color = System.Drawing.Color.OrangeRed;
+            series1.Text = "serieName1";
+            series1.Values = new float[] {
         90F,
         50F,
         70F,
         40F,
         60F};
             this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Chart.Series[] {
-        series3};
+        series1};
             this.hRadarChart1.ShowTitle = true;
             this.hRadarChart1.ShowValuesTip = false;
             this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
@@ -2703,6 +2731,7 @@ namespace HecopUI_Test
             // tabPage21
             // 
             this.tabPage21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tabPage21.Controls.Add(this.hTextBox3);
             this.tabPage21.Controls.Add(this.hTextBox2);
             this.tabPage21.Controls.Add(this.hTextBox1);
             this.tabPage21.Controls.Add(this.hRichTextBox2);
@@ -3269,6 +3298,7 @@ namespace HecopUI_Test
             this.hButton10.IsAutoSize = false;
             this.hButton10.Location = new System.Drawing.Point(479, 373);
             this.hButton10.Name = "hButton10";
+            this.hButton10.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton10.RippleColor = System.Drawing.Color.Black;
             this.hButton10.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton10.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -3303,6 +3333,7 @@ namespace HecopUI_Test
             this.hProgressBar4.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar4.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar4.ProgressValue = 32;
+            this.hProgressBar4.Radius = new HeCopUI_Framework.Structs.CornerRadius(2F);
             this.hProgressBar4.Size = new System.Drawing.Size(15, 297);
             this.hProgressBar4.TabIndex = 21;
             this.hProgressBar4.Text = "hProgressBar4";
@@ -3324,6 +3355,7 @@ namespace HecopUI_Test
             this.hProgressBar5.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar5.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar5.ProgressValue = 32;
+            this.hProgressBar5.Radius = new HeCopUI_Framework.Structs.CornerRadius(2F);
             this.hProgressBar5.Size = new System.Drawing.Size(15, 297);
             this.hProgressBar5.TabIndex = 20;
             this.hProgressBar5.Text = "hProgressBar5";
@@ -3345,6 +3377,7 @@ namespace HecopUI_Test
             this.hProgressBar6.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar6.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar6.ProgressValue = 32;
+            this.hProgressBar6.Radius = new HeCopUI_Framework.Structs.CornerRadius(2F);
             this.hProgressBar6.Size = new System.Drawing.Size(15, 297);
             this.hProgressBar6.TabIndex = 19;
             this.hProgressBar6.Text = "hProgressBar6";
@@ -3366,6 +3399,7 @@ namespace HecopUI_Test
             this.hProgressBar3.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar3.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar3.ProgressValue = 32;
+            this.hProgressBar3.Radius = new HeCopUI_Framework.Structs.CornerRadius(2F);
             this.hProgressBar3.Size = new System.Drawing.Size(541, 15);
             this.hProgressBar3.TabIndex = 17;
             this.hProgressBar3.Text = "hProgressBar3";
@@ -3387,6 +3421,7 @@ namespace HecopUI_Test
             this.hProgressBar2.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar2.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar2.ProgressValue = 32;
+            this.hProgressBar2.Radius = new HeCopUI_Framework.Structs.CornerRadius(2F);
             this.hProgressBar2.Size = new System.Drawing.Size(541, 15);
             this.hProgressBar2.TabIndex = 16;
             this.hProgressBar2.Text = "hProgressBar2";
@@ -3408,6 +3443,7 @@ namespace HecopUI_Test
             this.hProgressBar1.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(102)))));
             this.hProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
             this.hProgressBar1.ProgressValue = 32;
+            this.hProgressBar1.Radius = new HeCopUI_Framework.Structs.CornerRadius(2F);
             this.hProgressBar1.Size = new System.Drawing.Size(541, 15);
             this.hProgressBar1.TabIndex = 15;
             this.hProgressBar1.Text = "hProgressBar1";
@@ -3802,6 +3838,7 @@ namespace HecopUI_Test
             this.HPanel1.Name = "HPanel1";
             this.HPanel1.PanelColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
             this.HPanel1.PanelColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(48)))));
+            this.HPanel1.Radius = new HeCopUI_Framework.Structs.CornerRadius(0F, 0F, 0F, 0F);
             this.HPanel1.RoundBottomLeft = true;
             this.HPanel1.RoundBottomRight = true;
             this.HPanel1.RoundTopLeft = true;
@@ -4138,6 +4175,7 @@ namespace HecopUI_Test
             this.hButton12.IsAutoSize = false;
             this.hButton12.Location = new System.Drawing.Point(334, 171);
             this.hButton12.Name = "hButton12";
+            this.hButton12.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton12.RippleColor = System.Drawing.Color.Black;
             this.hButton12.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton12.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -4181,6 +4219,7 @@ namespace HecopUI_Test
             this.hButton11.IsAutoSize = false;
             this.hButton11.Location = new System.Drawing.Point(166, 171);
             this.hButton11.Name = "hButton11";
+            this.hButton11.Radius = new HeCopUI_Framework.Structs.CornerRadius(5F);
             this.hButton11.RippleColor = System.Drawing.Color.Black;
             this.hButton11.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.hButton11.ShadowPadding = new System.Windows.Forms.Padding(0);
@@ -4197,6 +4236,40 @@ namespace HecopUI_Test
             this.hButton11.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.hButton11.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
             this.hButton11.Click += new System.EventHandler(this.hButton11_Click);
+            // 
+            // hTextBox3
+            // 
+            this.hTextBox3.AcceptReturn = false;
+            this.hTextBox3.AcceptTab = false;
+            this.hTextBox3.BorderColor = System.Drawing.Color.Gray;
+            this.hTextBox3.BorderWidth = 1;
+            this.hTextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.hTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.hTextBox3.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(148)))));
+            this.hTextBox3.ForeColor = System.Drawing.Color.Silver;
+            this.hTextBox3.HideSelection = true;
+            this.hTextBox3.Image = global::HecopUI_Test.Properties.Resources.hTextBox1_Image;
+            this.hTextBox3.ImageAlignRight = false;
+            this.hTextBox3.ImageSize = new System.Drawing.Size(20, 20);
+            this.hTextBox3.ImageVisible = true;
+            this.hTextBox3.Lines = new string[0];
+            this.hTextBox3.Location = new System.Drawing.Point(113, 67);
+            this.hTextBox3.MaxLength = 32767;
+            this.hTextBox3.Name = "hTextBox3";
+            this.hTextBox3.PasswordChar = '\0';
+            this.hTextBox3.ReadOnly = false;
+            this.hTextBox3.ShortCutKeysEnabled = true;
+            this.hTextBox3.Size = new System.Drawing.Size(250, 40);
+            this.hTextBox3.TabIndex = 10;
+            this.hTextBox3.Text = "hTextBox3";
+            this.hTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.hTextBox3.TextRenderHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            this.hTextBox3.UnderlineStyle = false;
+            this.hTextBox3.UseAnimation = true;
+            this.hTextBox3.WartermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hTextBox3.Watermark = "Type watermark text here.";
+            this.hTextBox3.WatermarkForeColor = System.Drawing.Color.Gray;
+            this.hTextBox3.WordWrap = true;
             // 
             // Form1
             // 
@@ -4436,5 +4509,6 @@ namespace HecopUI_Test
         private HeCopUI_Framework.Controls.TextControl.HTextBox hTextBox1;
         private HeCopUI_Framework.Controls.Calendar.SimpleCalendarControl simpleCalendarControl1;
         private HeCopUI_Framework.Controls.Calendar.CalendarControl calendarControl1;
+        private HTextBox hTextBox3;
     }
 }

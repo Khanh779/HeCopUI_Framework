@@ -24,7 +24,7 @@ namespace HeCopUI_Framework.Converter
         {
             if (value is string text)
             {
-                string text2 = text.Trim();
+                string text2 = text.Trim().Replace(" ", "");
                 if (text2.Length == 0)
                 {
                     return null;
@@ -35,7 +35,7 @@ namespace HeCopUI_Framework.Converter
                     culture = CultureInfo.CurrentCulture;
                 }
 
-                char c = culture.TextInfo.ListSeparator[0];
+                char c = ',';
                 string[] array = text2.Split(c);
                 int[] array2 = new int[array.Length];
                 TypeConverter converter = TypeDescriptor.GetConverter(typeof(int));
@@ -132,7 +132,7 @@ namespace HeCopUI_Framework.Converter
             return true;
         }
 
-      
+
         public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
         {
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(CornerRadius), attributes);

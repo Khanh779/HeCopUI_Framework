@@ -58,7 +58,7 @@ namespace HeCopUI_Framework.Controls.TextControl
         {
             if (innerTextBox != null && innerTextBox.IsHandleCreated && useAnimation && !DesignMode)
             {
-                _animationManager.StartNewAnimation( AnimationDirection.Out);
+                _animationManager.StartNewAnimation(AnimationDirection.Out);
             }
         }
 
@@ -787,11 +787,11 @@ namespace HeCopUI_Framework.Controls.TextControl
 
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Location = new Point(BorderWidth + (imageVisible && _image != null ? ImageSize.Width : 0) + offx, (Height - innerTextBox.Height) / 2);
+                innerTextBox.Location = new Point(BorderWidth + (imageVisible && _image != null ? ImageSize.Width + 5 : 0) + offx, (Height - innerTextBox.Height) / 2);
 
                 if (wm != null && wm.IsHandleCreated)
                 {
-                    wm.Size = new Size(Width - offx - 1 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0) - 3, innerTextBox.Height);
+                    wm.Size = new Size(Width - offx * 2 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width + 5 + BorderWidth * 2 : 0) - 3, innerTextBox.Height);
                     wm.Location = new Point(innerTextBox.Location.X + (TextAlign == HorizontalAlignment.Left ? 1 : TextAlign == HorizontalAlignment.Right ? -1 : 0),
                         innerTextBox.Location.Y);
 
@@ -846,7 +846,7 @@ namespace HeCopUI_Framework.Controls.TextControl
         {
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Width = Width - offx - 2 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0);
+                innerTextBox.Width = Width - offx * 2 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width + 5 + BorderWidth * 2 : 0);
 
 
                 if (Height <= (Multiline ? 40 : innerTextBox.Height + BorderWidth * 2 + 4))

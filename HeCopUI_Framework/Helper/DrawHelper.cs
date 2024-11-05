@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Helper
 {
@@ -20,29 +21,83 @@ namespace HeCopUI_Framework.Helper
         public static GraphicsPath SetRoundedCornerRectangle(RectangleF rectf, CornerRadius radius, float offset = 0)
         {
             GraphicsPath path = new GraphicsPath();
-            var x = rectf.X; var y = rectf.Y;
-            var width = rectf.Width; var height = rectf.Height;
+            var x = rectf.X;
+            var y = rectf.Y;
+            var width = rectf.Width;
+            var height = rectf.Height;
+
             if (radius.All != 0)
             {
-                var topLeft = (int)Math.Max((Math.Min(radius.TopLeft, Math.Min(rectf.Width, rectf.Height)) - offset), 1) * 2;
-                var topRight = (int)Math.Max((Math.Min(radius.TopRight , Math.Min(rectf.Width, rectf.Height)) - offset), 1) * 2;
-                var bottomLeft = (int)Math.Max((Math.Min(radius.BottomLeft, Math.Min(rectf.Width, rectf.Height)) - offset), 1) * 2;
-                var bottomRight = (int)Math.Max((Math.Min(radius.BottomRight, Math.Min(rectf.Width, rectf.Height)) - offset), 1) * 2;
-                offset /= 2;
-                //Top-Left Arc
+                // Tính toán kích thước các góc với kiểm tra offset
+                var topLeft = (int)Math.Max(Math.Min(radius.TopLeft, Math.Min(rectf.Width, rectf.Height)) - offset, 1) * 2;
+                var topRight = (int)Math.Max(Math.Min(radius.TopRight, Math.Min(rectf.Width, rectf.Height)) - offset, 1) * 2;
+                var bottomLeft = (int)Math.Max(Math.Min(radius.BottomLeft, Math.Min(rectf.Width, rectf.Height)) - offset, 1) * 2;
+                var bottomRight = (int)Math.Max(Math.Min(radius.BottomRight, Math.Min(rectf.Width, rectf.Height)) - offset, 1) * 2;
+
+                if (offset > 0) offset /= 2; // Chia offset chỉ nếu nó lớn hơn 0
+
+                // Top-Left Arc
                 path.AddArc(new RectangleF(x + offset, y + offset, topLeft, topLeft), 180, 90);
-                //Top-Right Arc
-                path.AddArc(new RectangleF(x+ width - offset - topRight, y + offset, topRight, topRight), 270, 90);
-                //Bottom-Right Arc
-                path.AddArc(new RectangleF(x+ width - offset - bottomRight, y+ height - offset - bottomRight, bottomRight, bottomRight), 0, 90);
-                //Bottom-Left Arc
-                path.AddArc(new RectangleF(x + offset, y+ height - offset - bottomLeft, bottomLeft, bottomLeft), 90, 90);
-                //Close line ( Left)           
-                path.AddLine(new PointF(x + offset, y + offset + topLeft / 2), new PointF(x + offset, y+ height - offset - bottomLeft / 2));
+                // Top-Right Arc
+                path.AddArc(new RectangleF(x + width - offset - topRight, y + offset, topRight, topRight), 270, 90);
+                // Bottom-Right Arc
+                path.AddArc(new RectangleF(x + width - offset - bottomRight, y + height - offset - bottomRight, bottomRight, bottomRight), 0, 90);
+                // Bottom-Left Arc
+                path.AddArc(new RectangleF(x + offset, y + height - offset - bottomLeft, bottomLeft, bottomLeft), 90, 90);
+
+                // Close line (Left)
+                path.AddLine(new PointF(x + offset, y + offset + topLeft / 2), new PointF(x + offset, y + height - offset - bottomLeft / 2));
             }
-            else path.AddRectangle(new RectangleF(x + offset, y + offset, x + width - offset, y + height - offset));
+            else
+            {
+                // Nếu không có góc bo, thêm hình chữ nhật
+                path.AddRectangle(new RectangleF(x + offset, y + offset, width - offset, height - offset));
+            }
+
             return path;
         }
+
+
+        public static GraphicsPath RoundRect(RectangleF rectangle, Padding borderRadius, float offset = 0)
+        {
+            GraphicsPath path = new GraphicsPath();
+
+            // Điều chỉnh hình chữ nhật theo offset
+            rectangle = new RectangleF(rectangle.X + offset, rectangle.Y + offset, rectangle.Width - offset, rectangle.Height - offset);
+
+            // Tính toán đường kính cho từng góc
+            float diameterTopLeft = borderRadius.Top * 2;
+            float diameterTopRight = borderRadius.Right * 2;
+            float diameterBottomRight = borderRadius.Bottom * 2;
+            float diameterBottomLeft = borderRadius.Left * 2;
+
+            // Thêm các góc bo
+            AddArc(rectangle.X, rectangle.Y, diameterTopLeft, 180f, 90f); // Top-Left Arc
+            AddArc(rectangle.Right - diameterTopRight, rectangle.Y, diameterTopRight, 270f, 90f); // Top-Right Arc
+            AddArc(rectangle.Right - diameterBottomRight, rectangle.Bottom - diameterBottomRight, diameterBottomRight, 0f, 90f); // Bottom-Right Arc
+            AddArc(rectangle.X, rectangle.Bottom - diameterBottomLeft, diameterBottomLeft, 90f, 90f); // Bottom-Left Arc
+
+            // Đóng hình
+            path.CloseFigure();
+            return path;
+
+            // Hàm phụ để thêm arc vào path
+            void AddArc(float x, float y, float diameter, float startAngle, float sweepAngle)
+            {
+                if (diameter > 0f)
+                {
+                    RectangleF rect = new RectangleF(x, y, diameter, diameter);
+                    path.AddArc(rect, startAngle, sweepAngle);
+                }
+                else
+                {
+                    float num4 = 1E-06f;
+                    RectangleF rect2 = new RectangleF(x, y, num4, num4);
+                    path.AddArc(rect2, startAngle, sweepAngle);
+                }
+            }
+        }
+
 
         /// <summary>
         /// Draws a blurred version of the provided graphics path.
