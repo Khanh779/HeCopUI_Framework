@@ -94,10 +94,10 @@ namespace HeCopUI_Framework.Converter
 
                     return new InstanceDescriptor(typeof(CornerRadius).GetConstructor(new Type[4]
                     {
-                    typeof(int),
-                    typeof(int),
-                    typeof(int),
-                    typeof(int)
+                        typeof(int),
+                        typeof(int),
+                        typeof(int),
+                        typeof(int)
                     }), new object[4] { padding2.TopLeft, padding2.TopRight, padding2.BottomLeft, padding2.BottomRight });
                 }
             }
@@ -124,7 +124,7 @@ namespace HeCopUI_Framework.Converter
                 return new CornerRadius(num);
             }
 
-            return new CornerRadius((int)propertyValues["Left"], (int)propertyValues["Top"], (int)propertyValues["Right"], (int)propertyValues["Bottom"]);
+            return new CornerRadius((int)propertyValues["TopLeft"], (int)propertyValues["TopRight"], (int)propertyValues["BottomLeft"], (int)propertyValues["BottomRight"]);
         }
 
         public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
@@ -136,7 +136,7 @@ namespace HeCopUI_Framework.Converter
         public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
         {
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(CornerRadius), attributes);
-            return properties.Sort(new string[5] { "All", "Left", "Top", "Right", "Bottom" });
+            return properties.Sort(new string[5] { "All", "TopLeft", "TopRight", "BottomLeft", "BottomRight" });
         }
 
         public override bool GetPropertiesSupported(ITypeDescriptorContext context)
