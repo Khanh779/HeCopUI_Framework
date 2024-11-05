@@ -834,7 +834,7 @@
 ::copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>::mkdir C:\Lib\$(ProjectName)
+    <PostBuildEvent>mkdir C:\Lib\$(ProjectName)
  
 copy $(TargetDir)$(TargetFileName) C:\Lib\HeCopUI_Framework\$(TargetFileName) /y</PostBuildEvent>
   </PropertyGroup>

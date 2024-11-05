@@ -2,12 +2,14 @@
 using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Structs
 {
     [Serializable]
     [TypeConverter(typeof(CornerRadiusConverter))]
-    public struct CornerRadius
+    public struct CornerRadius : IEquatable<CornerRadius>
     {
         private bool _all;
 
@@ -119,6 +121,8 @@ namespace HeCopUI_Framework.Structs
             return obj is CornerRadius other && this == other;
         }
 
+     
+
         public override int GetHashCode()
         {
             return _topLeft.GetHashCode() ^ _topRight.GetHashCode() ^ _bottomLeft.GetHashCode() ^ _bottomRight.GetHashCode();
@@ -135,9 +139,34 @@ namespace HeCopUI_Framework.Structs
                    c1.BottomLeft == c2.BottomLeft && c1.BottomRight == c2.BottomRight;
         }
 
+        public static CornerRadius operator +(CornerRadius c1, CornerRadius c2)
+        {
+            return new CornerRadius(c1.TopLeft + c2.TopLeft, c1.TopRight + c2.TopRight, c1.BottomLeft + c2.BottomLeft, c1.BottomRight + c2.BottomRight);
+        }
+
+        public static CornerRadius operator -(CornerRadius c1, CornerRadius c2)
+        {
+            return new CornerRadius(c1.TopLeft - c2.TopLeft, c1.TopRight - c2.TopRight, c1.BottomLeft - c2.BottomLeft, c1.BottomRight - c2.BottomRight);
+        }
+
         public static bool operator !=(CornerRadius c1, CornerRadius c2)
         {
             return !(c1 == c2);
+        }
+
+        public static CornerRadius Add(CornerRadius p1, CornerRadius p2)
+        {
+            return p1 + p2;
+        }
+
+        public static CornerRadius Subtract(CornerRadius p1, CornerRadius p2)
+        {
+            return p1 - p2;
+        }
+
+        public bool Equals(CornerRadius other)
+        {
+            return this == other;
         }
     }
 }

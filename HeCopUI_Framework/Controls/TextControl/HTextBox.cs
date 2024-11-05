@@ -1,13 +1,12 @@
-﻿using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using HeCopUI_Framework.Animations;
+using HeCopUI_Framework.Helper;
 using System;
-using System.Drawing.Text;
-using System.Security.Cryptography;
+using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using HeCopUI_Framework.Animations;
+using System.Drawing.Text;
+using System.Windows.Forms;
 
 
 namespace HeCopUI_Framework.Controls.TextControl
@@ -21,7 +20,7 @@ namespace HeCopUI_Framework.Controls.TextControl
         warterMark wm = new warterMark();
         Color watermarkForeColor = Color.Gray;
         Color borderColor = Color.Gray;
-        Color focusBorderColor = Color.FromArgb(0, 168, 148);
+        Color focusBorderColor = Color.FromArgb(86, 169, 128);
         Image _image;
 
 
@@ -36,7 +35,6 @@ namespace HeCopUI_Framework.Controls.TextControl
             // Animation
             _animationManager = new AnimationManager(true);
             _animationManager.OnAnimationProgress += sender => Invalidate();
-            _animationManager.AnimationType = AnimationType.Linear;
             _animationManager.Increment = 0.08;
 
             innerTextBox = new TextBox();
@@ -60,7 +58,7 @@ namespace HeCopUI_Framework.Controls.TextControl
         {
             if (innerTextBox != null && innerTextBox.IsHandleCreated && useAnimation && !DesignMode)
             {
-                _animationManager.StartNewAnimation(AnimationDirection.Out);
+                _animationManager.StartNewAnimation( AnimationDirection.Out);
             }
         }
 
@@ -218,7 +216,6 @@ namespace HeCopUI_Framework.Controls.TextControl
         /// Gets or sets a value indicating whether the text box is read-only.
         /// </summary>
         [Browsable(true)]
-        [DefaultValue(true)]
         [Description("Indicates whether the text box is read-only.")]
         public bool ReadOnly
         {
@@ -226,6 +223,8 @@ namespace HeCopUI_Framework.Controls.TextControl
             set
             {
                 _readOnly = value;
+                if (innerTextBox != null && innerTextBox.IsHandleCreated)
+                    innerTextBox.ReadOnly = value;
                 Invalidate();
             }
         }
@@ -345,7 +344,7 @@ namespace HeCopUI_Framework.Controls.TextControl
             }
         }
 
-        TextRenderingHint textRenderingHint = HeCopUI_Framework.GetAppResources.SetTextRender();
+        TextRenderingHint textRenderingHint = TextRenderingHint.ClearTypeGridFit;
         /// <summary>
         /// Gets or sets the text rendering hint of the text in the TextBox control.
         /// </summary>
@@ -632,7 +631,7 @@ namespace HeCopUI_Framework.Controls.TextControl
             Graphics g = e.Graphics;
 
             Pen pen = new Pen(new SolidBrush(innerTextBox.Focused ?
-                (useAnimation ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(borderColor, focusBorderColor, _animationManager.GetProgress() * 255) : focusBorderColor) :
+                (useAnimation ? DrawHelper.BlendColor(borderColor, focusBorderColor, _animationManager.GetProgress() * 255) : focusBorderColor) :
                 borderColor), _underlineStyle ? BorderWidth + 1 : BorderWidth);
 
 
@@ -781,18 +780,18 @@ namespace HeCopUI_Framework.Controls.TextControl
             Invalidate();
         }
 
-        int offx = 5;
+        int offx = 1;
 
         void UpdateInnerTextBoxPosition()
         {
-           
+
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Location = new Point(2 + BorderWidth + (imageVisible && _image != null ? ImageSize.Width : 0) + offx, (Height - innerTextBox.Height) / 2);
+                innerTextBox.Location = new Point(BorderWidth + (imageVisible && _image != null ? ImageSize.Width : 0) + offx, (Height - innerTextBox.Height) / 2);
 
                 if (wm != null && wm.IsHandleCreated)
                 {
-                    wm.Size = new Size(Width - offx + 1 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0), innerTextBox.Height);
+                    wm.Size = new Size(Width - offx - 1 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0) - 3, innerTextBox.Height);
                     wm.Location = new Point(innerTextBox.Location.X + (TextAlign == HorizontalAlignment.Left ? 1 : TextAlign == HorizontalAlignment.Right ? -1 : 0),
                         innerTextBox.Location.Y);
 
@@ -801,6 +800,7 @@ namespace HeCopUI_Framework.Controls.TextControl
                     wm.ForeColor = WatermarkForeColor;
                     wm.TextRenderHint = TextRenderHint;
                     wm.TextAlign = TextAlign;
+                    wm.BackColor = BackColor;
 
                 }
                 if (innerTextBox != null && innerTextBox.IsHandleCreated)
@@ -875,7 +875,7 @@ namespace HeCopUI_Framework.Controls.TextControl
                          ControlStyles.SupportsTransparentBackColor, true);
             }
 
-            TextRenderingHint trd = HeCopUI_Framework.GetAppResources.SetTextRender();
+            TextRenderingHint trd = TextRenderingHint.ClearTypeGridFit;
             /// <summary>
             /// Gets or sets the text rendering hint of the text in the TextBox control.
             /// </summary>
