@@ -9,6 +9,18 @@ namespace HeCopUI_Framework.Helper
 {
     public class ColorHelper
     {
+
+        public static Color BlendColor(Color backgroundColor, Color frontColor, double blend)
+        {
+            var ratio = blend / 255d;
+            var invRatio = 1d - ratio;
+            var a = (int)((backgroundColor.A * invRatio) + (frontColor.A * ratio));
+            var r = (int)((backgroundColor.R * invRatio) + (frontColor.R * ratio));
+            var g = (int)((backgroundColor.G * invRatio) + (frontColor.G * ratio));
+            var b = (int)((backgroundColor.B * invRatio) + (frontColor.B * ratio));
+            return Color.FromArgb(a, r, g, b);
+        }
+
         public static Color GetLighterColor(Color baseColor, int percentage)
         {
             int r0 = baseColor.R;

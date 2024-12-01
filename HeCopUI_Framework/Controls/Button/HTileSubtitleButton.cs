@@ -14,8 +14,8 @@ using Pen = System.Drawing.Pen;
 
 namespace HeCopUI_Framework.Controls.Button
 {
-    [ToolboxBitmap(typeof(HTitleSubButton), "Bitmaps.Button.bmp")]
-    public partial class HTitleSubButton : Control
+    [ToolboxBitmap(typeof(HTileSubtitleButton), "Bitmaps.Button.bmp")]
+    public partial class HTileSubtitleButton : Control
     {
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -57,7 +57,7 @@ namespace HeCopUI_Framework.Controls.Button
             Invalidate();
             base.OnForeColorChanged(e);
         }
-        public HTitleSubButton()
+        public HTileSubtitleButton()
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
             DoubleBuffered = true;

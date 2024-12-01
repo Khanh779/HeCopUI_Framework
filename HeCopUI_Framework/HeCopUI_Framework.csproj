@@ -141,15 +141,6 @@
     <Compile Include="Animations\Flags.cs" />
     <Compile Include="Animations\PointFConverter.cs" />
     <Compile Include="Animations\TransfromHelper.cs" />
-    <Compile Include="Controls\Bubble\HAnimatedCircleControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Bubble\HGreenCircleControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Bubble\HWaterDropControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\Calendar\CalendarControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -165,13 +156,6 @@
     <Compile Include="Controls\ScrollBar\VScrollBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Table\SimpleTable.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Table\TableColumn.cs" />
-    <Compile Include="Controls\Table\TableColumnCollection.cs" />
-    <Compile Include="Controls\Table\TableRow.cs" />
-    <Compile Include="Controls\Table\TableRowCollection.cs" />
     <Compile Include="Controls\TextControl\HTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -275,10 +259,10 @@
     <Compile Include="Controls\Chart\FoldLineDiagram.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Button\HTitleSubButton.cs">
+    <Compile Include="Controls\Button\HTileSubtitleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Button\HTitleButton.cs">
+    <Compile Include="Controls\Button\HTileButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Button\HRadioButton.cs">
@@ -325,7 +309,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GetAppResources.cs" />
-    <Compile Include="GraphicsExtensionMethods.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\BrushAdapter.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\ContextMenuAdapter.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\ControlAdapter.cs" />
@@ -443,9 +426,6 @@
     <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\HtmlUtils.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\RenderUtils.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer\Core\Utils\SubString.cs" />
-    <Compile Include="Controls\Bubble\HWaterWaveBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ImageProcessor\StackBlur.cs" />
     <Compile Include="Structs\CornerRadius.cs" />
     <Compile Include="Win32\Enums\GetIconListFlags.cs" />

@@ -1,4 +1,5 @@
 ﻿using HeCopUI_Framework.Animations;
+using HeCopUI_Framework.Enums;
 using HeCopUI_Framework.Helper;
 using System;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 
 
-namespace HeCopUI_Framework.Controls.TextControl
+namespace HeCopUI_Framework.Controls.TextControls
 {
     [DefaultEvent("TextChanged")]
     [ToolboxBitmap(typeof(TextBox))]
@@ -631,7 +632,7 @@ namespace HeCopUI_Framework.Controls.TextControl
             Graphics g = e.Graphics;
 
             Pen pen = new Pen(new SolidBrush(innerTextBox.Focused ?
-                (useAnimation ? DrawHelper.BlendColor(borderColor, focusBorderColor, _animationManager.GetProgress() * 255) : focusBorderColor) :
+                (useAnimation ? ColorHelper.BlendColor(borderColor, focusBorderColor, _animationManager.GetProgress() * 255) : focusBorderColor) :
                 borderColor), _underlineStyle ? BorderWidth + 1 : BorderWidth);
 
 
@@ -787,11 +788,11 @@ namespace HeCopUI_Framework.Controls.TextControl
 
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Location = new Point(BorderWidth + (imageVisible && _image != null ? ImageSize.Width + 5 : 0) + offx, (Height - innerTextBox.Height) / 2);
+                innerTextBox.Location = new Point(BorderWidth + (imageVisible && _image != null ? ImageSize.Width : 0) + offx, (Height - innerTextBox.Height) / 2);
 
                 if (wm != null && wm.IsHandleCreated)
                 {
-                    wm.Size = new Size(Width - offx * 2 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width + 5 + BorderWidth * 2 : 0) - 3, innerTextBox.Height);
+                    wm.Size = new Size(Width - offx - 1 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0) - 3, innerTextBox.Height);
                     wm.Location = new Point(innerTextBox.Location.X + (TextAlign == HorizontalAlignment.Left ? 1 : TextAlign == HorizontalAlignment.Right ? -1 : 0),
                         innerTextBox.Location.Y);
 
@@ -846,7 +847,7 @@ namespace HeCopUI_Framework.Controls.TextControl
         {
             if (innerTextBox != null && innerTextBox.IsHandleCreated)
             {
-                innerTextBox.Width = Width - offx * 2 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width + 5 + BorderWidth * 2 : 0);
+                innerTextBox.Width = Width - offx - 2 - BorderWidth * 2 - (imageVisible && _image != null ? ImageSize.Width : 0);
 
 
                 if (Height <= (Multiline ? 40 : innerTextBox.Height + BorderWidth * 2 + 4))

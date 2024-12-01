@@ -14,8 +14,8 @@ using Pen = System.Drawing.Pen;
 
 namespace HeCopUI_Framework.Controls.Button
 {
-    [ToolboxBitmap(typeof(HTitleButton), "Bitmaps.Button.bmp")]
-    public partial class HTitleButton : Control
+    [ToolboxBitmap(typeof(HTileButton), "Bitmaps.Button.bmp")]
+    public partial class HTileButton : Control
     {
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace HeCopUI_Framework.Controls.Button
 
 
 
-        public HTitleButton()
+        public HTileButton()
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
             DoubleBuffered = true;

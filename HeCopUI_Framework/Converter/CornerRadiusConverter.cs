@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace HeCopUI_Framework.Converter
 {
-    public class CornerRadiusConverter : TypeConverter
+    public class CornerRadiusConverter : ExpandableObjectConverter
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
