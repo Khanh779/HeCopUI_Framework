@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls.TreeView
@@ -22,7 +18,7 @@ namespace HeCopUI_Framework.Controls.TreeView
             this.node = node;
         }
 
-        public TreeViewEventArgs(TreeNode node, TreeViewAction action)  : this(node)
+        public TreeViewEventArgs(TreeNode node, TreeViewAction action) : this(node)
         {
             this.node = node;
             this.action = action;

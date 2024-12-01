@@ -92,16 +92,16 @@ namespace HeCopUI_Framework.AnimatorNS
             DoubleBitmap.MouseDown += OnMouseDown;
 
             this.animation = animation;
-            this.AnimatedControl = control;
+            AnimatedControl = control;
             this.mode = mode;
 
-            this.CustomClipRect = controlClipRect;
+            CustomClipRect = controlClipRect;
 
             if (mode == AnimateMode.Show || mode == AnimateMode.BeginUpdate)
                 timeStep = -timeStep;
 
-            this.TimeStep = timeStep * (animation.TimeCoeff == 0f ? 1f : animation.TimeCoeff);
-            if (this.TimeStep == 0f)
+            TimeStep = timeStep * (animation.TimeCoeff == 0f ? 1f : animation.TimeCoeff);
+            if (TimeStep == 0f)
                 timeStep = 0.01f;
 
             try

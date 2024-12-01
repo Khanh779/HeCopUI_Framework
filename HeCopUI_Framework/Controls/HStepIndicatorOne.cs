@@ -54,7 +54,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        Color indicatorBarColor1= Global.PrimaryColors.BaseProgressBarColor1;
+        Color indicatorBarColor1 = Global.PrimaryColors.BaseProgressBarColor1;
         public Color IndicatorBarColor1
         {
             get { return indicatorBarColor1; }
@@ -64,7 +64,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        private Color indicatorStepColor1= Global.PrimaryColors.ProgressBarColor1;
+        private Color indicatorStepColor1 = Global.PrimaryColors.ProgressBarColor1;
 
         public Color IndicatorStepColor1
         {

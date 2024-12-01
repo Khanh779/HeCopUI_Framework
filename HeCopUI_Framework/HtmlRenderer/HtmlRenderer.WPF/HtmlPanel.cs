@@ -44,16 +44,20 @@ namespace HeCopUI_Framework.HtmlRenderer.WPF
         /// </summary>
         public HtmlPanel()
         {
-            _verticalScrollBar = new ScrollBar();
-            _verticalScrollBar.Orientation = Orientation.Vertical;
-            _verticalScrollBar.Width = 18;
+            _verticalScrollBar = new ScrollBar
+            {
+                Orientation = Orientation.Vertical,
+                Width = 18
+            };
             _verticalScrollBar.Scroll += OnScrollBarScroll;
             AddVisualChild(_verticalScrollBar);
             AddLogicalChild(_verticalScrollBar);
 
-            _horizontalScrollBar = new ScrollBar();
-            _horizontalScrollBar.Orientation = Orientation.Horizontal;
-            _horizontalScrollBar.Height = 18;
+            _horizontalScrollBar = new ScrollBar
+            {
+                Orientation = Orientation.Horizontal,
+                Height = 18
+            };
             _horizontalScrollBar.Scroll += OnScrollBarScroll;
             AddVisualChild(_horizontalScrollBar);
             AddLogicalChild(_horizontalScrollBar);

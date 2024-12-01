@@ -83,8 +83,10 @@ namespace HeCopUI_Framework.HtmlRenderer.WPF.Adapters
         /// </summary>
         public Pen CreatePen()
         {
-            var pen = new Pen(_brush, _width);
-            pen.DashStyle = _dashStyle;
+            var pen = new Pen(_brush, _width)
+            {
+                DashStyle = _dashStyle
+            };
             return pen;
         }
     }

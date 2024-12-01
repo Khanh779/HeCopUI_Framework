@@ -8,7 +8,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static HeCopUI_Framework.Win32.User32;
@@ -56,194 +55,194 @@ namespace HeCopUI_Framework.Forms
         #region FormDesignMess
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.LB_Product = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.hFormControlBox11 = new HeCopUI_Framework.Controls.HFormControlBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.hDragControl1 = new HeCopUI_Framework.Controls.HDragControl();
-            this.hDragControl2 = new HeCopUI_Framework.Controls.HDragControl();
-            this.hDragControl3 = new HeCopUI_Framework.Controls.HDragControl();
-            this.hDragControl4 = new HeCopUI_Framework.Controls.HDragControl();
-            this.hDropShadowForm1 = new HeCopUI_Framework.Controls.HDropShadowForm();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            LB_Product = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            hFormControlBox11 = new HeCopUI_Framework.Controls.HFormControlBox();
+            panel2 = new System.Windows.Forms.Panel();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            panel3 = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            hDragControl1 = new HeCopUI_Framework.Controls.HDragControl();
+            hDragControl2 = new HeCopUI_Framework.Controls.HDragControl();
+            hDragControl3 = new HeCopUI_Framework.Controls.HDragControl();
+            hDragControl4 = new HeCopUI_Framework.Controls.HDragControl();
+            hDropShadowForm1 = new HeCopUI_Framework.Controls.HDropShadowForm();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
+            panel3.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.LB_Product);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(320, 38);
-            this.panel1.TabIndex = 1;
+            panel1.BackColor = System.Drawing.Color.Transparent;
+            panel1.Controls.Add(LB_Product);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(flowLayoutPanel1);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(320, 38);
+            panel1.TabIndex = 1;
             // 
             // LB_Product
             // 
-            this.LB_Product.AutoEllipsis = true;
-            this.LB_Product.CausesValidation = false;
-            this.LB_Product.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_Product.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.LB_Product.Location = new System.Drawing.Point(30, 10);
-            this.LB_Product.Name = "LB_Product";
-            this.LB_Product.Size = new System.Drawing.Size(215, 20);
-            this.LB_Product.TabIndex = 2;
-            this.LB_Product.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            LB_Product.AutoEllipsis = true;
+            LB_Product.CausesValidation = false;
+            LB_Product.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            LB_Product.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            LB_Product.Location = new System.Drawing.Point(30, 10);
+            LB_Product.Name = "LB_Product";
+            LB_Product.Size = new System.Drawing.Size(215, 20);
+            LB_Product.TabIndex = 2;
+            LB_Product.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(8, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Location = new System.Drawing.Point(8, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(20, 20);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.hFormControlBox11);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(278, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(42, 38);
-            this.flowLayoutPanel1.TabIndex = 2;
+            flowLayoutPanel1.Controls.Add(hFormControlBox11);
+            flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new System.Drawing.Point(278, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 0);
+            flowLayoutPanel1.Size = new System.Drawing.Size(42, 38);
+            flowLayoutPanel1.TabIndex = 2;
             // 
             // hFormControlBox11
             // 
-            this.hFormControlBox11.ForeColor = System.Drawing.Color.Gray;
-            this.hFormControlBox11.HoverColorType = ShapeType.Circular;
-            this.hFormControlBox11.IconButtonType = HeCopUI_Framework.Controls.HFormControlBox.IconType.Close;
-            this.hFormControlBox11.Location = new System.Drawing.Point(3, 5);
-            this.hFormControlBox11.MaximizeToFullScreen = false;
-            this.hFormControlBox11.Name = "hFormControlBox11";
-            this.hFormControlBox11.Radius = 0;
-            this.hFormControlBox11.Size = new System.Drawing.Size(32, 28);
-            this.hFormControlBox11.TabIndex = 0;
+            hFormControlBox11.ForeColor = System.Drawing.Color.Gray;
+            hFormControlBox11.HoverColorType = ShapeType.Circular;
+            hFormControlBox11.IconButtonType = HeCopUI_Framework.Controls.HFormControlBox.IconType.Close;
+            hFormControlBox11.Location = new System.Drawing.Point(3, 5);
+            hFormControlBox11.MaximizeToFullScreen = false;
+            hFormControlBox11.Name = "hFormControlBox11";
+            hFormControlBox11.Radius = 0;
+            hFormControlBox11.Size = new System.Drawing.Size(32, 28);
+            hFormControlBox11.TabIndex = 0;
 
-            this.hFormControlBox11.Text = "hFormControlBox11";
+            hFormControlBox11.Text = "hFormControlBox11";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(52, 93);
-            this.panel2.TabIndex = 2;
+            panel2.BackColor = System.Drawing.Color.Transparent;
+            panel2.Controls.Add(pictureBox2);
+            panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            panel2.Location = new System.Drawing.Point(0, 38);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(52, 93);
+            panel2.TabIndex = 2;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(15, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Location = new System.Drawing.Point(15, 18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(32, 32);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.flowLayoutPanel2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(52, 38);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(268, 93);
-            this.panel3.TabIndex = 3;
+            panel3.BackColor = System.Drawing.Color.Transparent;
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(flowLayoutPanel2);
+            panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel3.Location = new System.Drawing.Point(52, 38);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(268, 93);
+            panel3.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.CausesValidation = false;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 12, 0, 0);
-            this.label1.Size = new System.Drawing.Size(268, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter Message Text Here!\r\n=>This is example about Message Box!";
+            label1.CausesValidation = false;
+            label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 163);
+            label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            label1.Location = new System.Drawing.Point(0, 0);
+            label1.Name = "label1";
+            label1.Padding = new System.Windows.Forms.Padding(6, 12, 0, 0);
+            label1.Size = new System.Drawing.Size(268, 42);
+            label1.TabIndex = 0;
+            label1.Text = "Enter Message Text Here!\r\n=>This is example about Message Box!";
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 42);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 2, 0, 0);
-            this.flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(268, 51);
-            this.flowLayoutPanel2.TabIndex = 1;
+            flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            flowLayoutPanel2.Location = new System.Drawing.Point(0, 42);
+            flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 2, 0, 0);
+            flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            flowLayoutPanel2.Size = new System.Drawing.Size(268, 51);
+            flowLayoutPanel2.TabIndex = 1;
             // 
             // hDragControl1
             // 
-            this.hDragControl1.GetControl = this.panel1;
-            this.hDragControl1.TargetControl = this;
+            hDragControl1.GetControl = panel1;
+            hDragControl1.TargetControl = this;
             // 
             // hDragControl2
             // 
-            this.hDragControl2.GetControl = this.pictureBox1;
-            this.hDragControl2.TargetControl = this;
+            hDragControl2.GetControl = pictureBox1;
+            hDragControl2.TargetControl = this;
             // 
             // hDragControl3
             // 
-            this.hDragControl3.GetControl = this.LB_Product;
-            this.hDragControl3.TargetControl = this;
+            hDragControl3.GetControl = LB_Product;
+            hDragControl3.TargetControl = this;
             // 
             // hDragControl4
             // 
-            this.hDragControl4.GetControl = this.flowLayoutPanel1;
-            this.hDragControl4.TargetControl = this;
+            hDragControl4.GetControl = flowLayoutPanel1;
+            hDragControl4.TargetControl = this;
             // 
             // hDropShadowForm1
             // 
-            this.hDropShadowForm1.AlphaColor = 150;
-            this.hDropShadowForm1.HideResizeShadow = false;
-            this.hDropShadowForm1.ShadowBlur = 10;
-            this.hDropShadowForm1.ShadowColor = System.Drawing.Color.Black;
-            this.hDropShadowForm1.ShadowSpread = 0;
-            this.hDropShadowForm1.ShadowVisible = true;
-            this.hDropShadowForm1.TargetForm = this;
+            hDropShadowForm1.AlphaColor = 150;
+            hDropShadowForm1.HideResizeShadow = false;
+            hDropShadowForm1.ShadowBlur = 10;
+            hDropShadowForm1.ShadowColor = System.Drawing.Color.Black;
+            hDropShadowForm1.ShadowSpread = 0;
+            hDropShadowForm1.ShadowVisible = true;
+            hDropShadowForm1.TargetForm = this;
             // 
             // HMessageBox
             // 
-            this.AllowDrop = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(320, 131);
-            this.ControlBox = false;
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "HMessageBox";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AllowDrop = true;
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            BackColor = System.Drawing.SystemColors.ControlLightLight;
+            ClientSize = new System.Drawing.Size(320, 131);
+            ControlBox = false;
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Name = "HMessageBox";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Form1";
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            panel3.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 
@@ -648,8 +647,8 @@ namespace HeCopUI_Framework.Forms
                 _buttonResult = DialogResult.Cancel;
                 _MsgBox.Dispose();
             };
-            this._buttonCollection.Add(btnCancel);
-            this._buttonCollection.Add(btnRetry);
+            _buttonCollection.Add(btnCancel);
+            _buttonCollection.Add(btnRetry);
         }
 
         private static void InitYesNoButtons()
@@ -769,8 +768,8 @@ namespace HeCopUI_Framework.Forms
         public HMessageBox.AnimateStyle Style;
         public AnimateMsgBox(Size formSize, HMessageBox.AnimateStyle style)
         {
-            this.FormSize = formSize;
-            this.Style = style;
+            FormSize = formSize;
+            Style = style;
         }
     }
 }

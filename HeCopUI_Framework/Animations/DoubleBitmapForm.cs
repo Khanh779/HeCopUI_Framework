@@ -33,8 +33,8 @@ namespace HeCopUI_Framework.AnimatorNS
                 }
                 ;// (int)Flags.WindowStyles.WS_CHILD;
                 cp.ExStyle |= (int)Flags.WindowStyles.WS_EX_NOACTIVATE | (int)Flags.WindowStyles.WS_EX_TOOLWINDOW;
-                cp.X = this.Location.X;
-                cp.Y = this.Location.Y;
+                cp.X = Location.X;
+                cp.Y = Location.Y;
                 return cp;
             }
         }

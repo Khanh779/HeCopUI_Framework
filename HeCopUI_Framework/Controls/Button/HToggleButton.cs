@@ -50,16 +50,16 @@ namespace HeCopUI_Framework.Controls.Button
         }
         public void MyRectangle(float width, float height, float radius, float x = 0f, float y = 0f)
         {
-            this.location = new Point(0, 0);
+            location = new Point(0, 0);
             this.radius = radius;
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
-            this.grPath = new GraphicsPath();
+            grPath = new GraphicsPath();
             if (radius <= 0f)
             {
-                this.grPath.AddRectangle(new RectangleF(x, y, width, height));
+                grPath.AddRectangle(new RectangleF(x, y, width, height));
             }
             else
             {
@@ -69,27 +69,27 @@ namespace HeCopUI_Framework.Controls.Button
                 RectangleF ef4 = new RectangleF((width - (2f * radius)) - 1f,
                     (height - (2f * radius)) - 1f, 2f * radius, 2f * radius);
 
-                this.grPath.AddArc(ef, 180f, 90f);
-                this.grPath.AddArc(ef2, 270f, 90f);
-                this.grPath.AddArc(ef4, 0f, 90f);
-                this.grPath.AddArc(ef3, 90f, 90f);
-                this.grPath.CloseAllFigures();
+                grPath.AddArc(ef, 180f, 90f);
+                grPath.AddArc(ef2, 270f, 90f);
+                grPath.AddArc(ef4, 0f, 90f);
+                grPath.AddArc(ef3, 90f, 90f);
+                grPath.CloseAllFigures();
             }
         }
 
         public GraphicsPath Path =>
-            this.grPath;
+            grPath;
 
         public RectangleF Rect =>
-            new RectangleF(this.x, this.y, this.width, this.height);
+            new RectangleF(x, y, width, height);
 
         public float Radius
         {
             get =>
-                this.radius;
+                radius;
             set
             {
-                this.radius = value; Invalidate();
+                radius = value; Invalidate();
             }
         }
 
@@ -97,21 +97,21 @@ namespace HeCopUI_Framework.Controls.Button
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
 
-            this.artis = 4f;
+            artis = 4f;
 
 
-            this.diameter = 30f;
+            diameter = 30f;
 
-            this.DoubleBuffered = true;
+            DoubleBuffered = true;
 
 
 
-            MyRectangle(2f * this.diameter, this.diameter + 2f, this.diameter / 2f, 1f, 1f);
-            this.circle = new RectangleF(1f, 1f, this.diameter, this.diameter);
+            MyRectangle(2f * diameter, diameter + 2f, diameter / 2f, 1f, 1f);
+            circle = new RectangleF(1f, 1f, diameter, diameter);
 
             painTicker = new Timer();
-            this.painTicker.Tick += new EventHandler(this.paintTicker_Tick);
-            this.painTicker.Interval = 10;
+            painTicker.Tick += new EventHandler(paintTicker_Tick);
+            painTicker.Interval = 10;
 
 
 
@@ -119,7 +119,7 @@ namespace HeCopUI_Framework.Controls.Button
 
         protected override void OnInvalidated(InvalidateEventArgs e)
         {
-            this.painTicker.Start();
+            painTicker.Start();
             base.OnInvalidated(e);
         }
 
@@ -127,7 +127,7 @@ namespace HeCopUI_Framework.Controls.Button
 
         protected override void OnCreateControl()
         {
-            this.painTicker.Start();
+            painTicker.Start();
             base.OnCreateControl();
         }
 
@@ -175,44 +175,44 @@ namespace HeCopUI_Framework.Controls.Button
             GetAppResources.GetControlGraphicsEffect(e.Graphics);
             e.Graphics.TextRenderingHint = TextRenderHint;
             Pen pen;
-            using (SolidBrush brush = new SolidBrush(this.isON ? this.OnCol : this.OffCol))
+            using (SolidBrush brush = new SolidBrush(isON ? OnCol : OffCol))
             {
-                e.Graphics.FillPath((Brush)brush, Path);
+                e.Graphics.FillPath(brush, Path);
             }
-            using (pen = new Pen(this.borderColor, 2f))
+            using (pen = new Pen(borderColor, 2f))
             {
-                e.Graphics.DrawPath(pen, this.Path);
+                e.Graphics.DrawPath(pen, Path);
             }
-            if (this.textEnabled)
+            if (textEnabled)
             {
-                using (Font font = new Font(Font.Name, (8.2f * this.diameter) / 30f))
+                using (Font font = new Font(Font.Name, (8.2f * diameter) / 30f))
                 {
                     SolidBrush b = new SolidBrush(statusColor);
-                    int height = TextRenderer.MeasureText(this.OnTex, font).Height;
-                    float num2 = (this.diameter - height) / 2f;
-                    e.Graphics.DrawString(this.OnTex, font, b, 5f, num2 + 1f);
-                    height = TextRenderer.MeasureText(this.OffTex, font).Height;
-                    num2 = (this.diameter - height) / 2f;
-                    e.Graphics.DrawString(this.OffTex, font, b, this.diameter + 2f, num2 + 1f);
+                    int height = TextRenderer.MeasureText(OnTex, font).Height;
+                    float num2 = (diameter - height) / 2f;
+                    e.Graphics.DrawString(OnTex, font, b, 5f, num2 + 1f);
+                    height = TextRenderer.MeasureText(OffTex, font).Height;
+                    num2 = (diameter - height) / 2f;
+                    e.Graphics.DrawString(OffTex, font, b, diameter + 2f, num2 + 1f);
                 }
                 using (SolidBrush brush2 = new SolidBrush(LC))
                 {
-                    e.Graphics.FillEllipse((Brush)brush2, this.circle);
+                    e.Graphics.FillEllipse(brush2, circle);
                 }
                 using (pen = new Pen(Color.LightGray, 1.2f))
                 {
-                    e.Graphics.DrawEllipse(pen, this.circle);
+                    e.Graphics.DrawEllipse(pen, circle);
                 }
             }
             else
             {
-                using (SolidBrush brush3 = new SolidBrush(this.isON ? this.OnCol : this.OffCol))
+                using (SolidBrush brush3 = new SolidBrush(isON ? OnCol : OffCol))
                 {
                     using (SolidBrush brush4 = new SolidBrush(LC))
                     {
-                        e.Graphics.FillPath((Brush)brush3, Path);
-                        e.Graphics.FillEllipse((Brush)brush4, this.circle);
-                        e.Graphics.DrawEllipse(Pens.DarkGray, this.circle);
+                        e.Graphics.FillPath(brush3, Path);
+                        e.Graphics.FillEllipse(brush4, circle);
+                        e.Graphics.DrawEllipse(Pens.DarkGray, circle);
                     }
                 }
             }
@@ -242,44 +242,44 @@ namespace HeCopUI_Framework.Controls.Button
         protected override void OnResize(EventArgs e)
         {
             base.Width = (base.Height - 2) * 2;
-            this.diameter = base.Width / 2;
-            this.artis = (4f * this.diameter) * 30f;
-            MyRectangle(2f * this.diameter, this.diameter + 2f, this.diameter / 2f, 1f, 1f);
-            this.circle = new RectangleF(!this.isON ? 1f : ((base.Width - this.diameter) - 1f), 1f, this.diameter, this.diameter);
+            diameter = base.Width / 2;
+            artis = (4f * diameter) * 30f;
+            MyRectangle(2f * diameter, diameter + 2f, diameter / 2f, 1f, 1f);
+            circle = new RectangleF(!isON ? 1f : ((base.Width - diameter) - 1f), 1f, diameter, diameter);
             Invalidate();
             base.OnResize(e);
         }
 
         private void paintTicker_Tick(object sender, EventArgs e)
         {
-            float x = this.circle.X;
-            if (this.isON)
+            float x = circle.X;
+            if (isON)
             {
-                if ((x + this.artis) <= ((base.Width - this.diameter) - 1f))
+                if ((x + artis) <= ((base.Width - diameter) - 1f))
                 {
-                    x += this.artis;
-                    this.circle = new RectangleF(x, 1f, this.diameter, this.diameter);
+                    x += artis;
+                    circle = new RectangleF(x, 1f, diameter, diameter);
                     Invalidate();
                 }
                 else
                 {
-                    x = (base.Width - this.diameter) - 1f;
-                    this.circle = new RectangleF(x, 1f, this.diameter, this.diameter);
+                    x = (base.Width - diameter) - 1f;
+                    circle = new RectangleF(x, 1f, diameter, diameter);
                     Invalidate();
-                    this.painTicker.Stop();
+                    painTicker.Stop();
                 }
             }
-            else if ((x - this.artis) >= 1f)
+            else if ((x - artis) >= 1f)
             {
-                x -= this.artis;
-                this.circle = new RectangleF(x, 1f, this.diameter, this.diameter); Invalidate();
+                x -= artis;
+                circle = new RectangleF(x, 1f, diameter, diameter); Invalidate();
             }
             else
             {
                 x = 1f;
-                this.circle = new RectangleF(x, 1f, this.diameter, this.diameter);
+                circle = new RectangleF(x, 1f, diameter, diameter);
                 Invalidate();
-                this.painTicker.Stop();
+                painTicker.Stop();
             }
             Invalidate();
         }
@@ -287,10 +287,10 @@ namespace HeCopUI_Framework.Controls.Button
         public bool TextEnabled
         {
             get =>
-                this.textEnabled;
+                textEnabled;
             set
             {
-                this.textEnabled = value;
+                textEnabled = value;
                 base.Invalidate();
             }
         }
@@ -298,15 +298,15 @@ namespace HeCopUI_Framework.Controls.Button
         public bool IsOn
         {
             get =>
-                this.isON;
+                isON;
             set
             {
-                this.painTicker.Stop();
-                this.isON = value;
-                this.painTicker.Start();
-                if (this.SliderValueChanged != null)
+                painTicker.Stop();
+                isON = value;
+                painTicker.Start();
+                if (SliderValueChanged != null)
                 {
-                    this.SliderValueChanged(this, EventArgs.Empty);
+                    SliderValueChanged(this, EventArgs.Empty);
                 }
 
                 Invalidate();
@@ -316,10 +316,10 @@ namespace HeCopUI_Framework.Controls.Button
         public Color BorderColor
         {
             get =>
-                this.borderColor;
+                borderColor;
             set
             {
-                this.borderColor = value;
+                borderColor = value;
                 base.Invalidate();
             }
         }
@@ -332,20 +332,20 @@ namespace HeCopUI_Framework.Controls.Button
         public string OnText
         {
             get =>
-                this.OnTex;
+                OnTex;
             set
             {
-                this.OnTex = value;
+                OnTex = value;
                 base.Invalidate();
             }
         }
         public string OffText
         {
             get =>
-                this.OffTex;
+                OffTex;
             set
             {
-                this.OffTex = value;
+                OffTex = value;
                 base.Invalidate();
             }
         }
@@ -353,10 +353,10 @@ namespace HeCopUI_Framework.Controls.Button
         public Color OnColor
         {
             get =>
-                this.OnCol;
+                OnCol;
             set
             {
-                this.OnCol = value;
+                OnCol = value;
                 base.Invalidate();
             }
         }
@@ -364,10 +364,10 @@ namespace HeCopUI_Framework.Controls.Button
         public Color OffColor
         {
             get =>
-                this.OffCol;
+                OffCol;
             set
             {
-                this.OffCol = value;
+                OffCol = value;
                 base.Invalidate();
             }
         }

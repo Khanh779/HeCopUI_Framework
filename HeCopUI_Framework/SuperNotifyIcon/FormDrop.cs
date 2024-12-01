@@ -155,7 +155,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             Timer dropPlaceTimer = new Timer();
             dropPlaceTimer.Tick += (sender, e) =>
             {
-                if (!NotifyArea.GetRectangle().Contains(new Point(this.Location.X + 2, this.Location.Y + 2)))
+                if (!NotifyArea.GetRectangle().Contains(new Point(Location.X + 2, Location.Y + 2)))
                 {
                     ShowDrop();
                     unsuccessfulRefreshes++;

@@ -88,9 +88,11 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms
             SetStyle(ControlStyles.ResizeRedraw, true);
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
-            _htmlContainer = new HtmlContainer();
-            _htmlContainer.AvoidImagesLateLoading = true;
-            _htmlContainer.MaxSize = MaximumSize;
+            _htmlContainer = new HtmlContainer
+            {
+                AvoidImagesLateLoading = true,
+                MaxSize = MaximumSize
+            };
             _htmlContainer.LoadComplete += OnLoadComplete;
             _htmlContainer.LinkClicked += OnLinkClicked;
             _htmlContainer.RenderError += OnRenderError;

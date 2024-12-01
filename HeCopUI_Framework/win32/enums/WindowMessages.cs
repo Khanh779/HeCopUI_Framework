@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeCopUI_Framework.Win32.Enums
+﻿namespace HeCopUI_Framework.Win32.Enums
 {
     public enum WindowMessages
     {
@@ -26,7 +20,7 @@ namespace HeCopUI_Framework.Win32.Enums
 
         WM_NCLBUTTONCLICK = WM_NCLBUTTONDOWN | WM_NCLBUTTONUP,
 
-      
+
         WM_NCMBUTTONDOWN = 0xa7,
         WM_NCMBUTTONUP = 0xa8,
         WM_NCMBUTTONDBLCLK = 0xa9,
@@ -127,7 +121,7 @@ namespace HeCopUI_Framework.Win32.Enums
         WM_GETDLGCODE = 0x87,
         WM_SYNCPAINT = 0x88,
 
-     
+
         WM_INPUT = 0xff,
         WM_KEYFIRST = 0x100,
         WM_KEYDOWN = 0x100,

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeCopUI_Framework.Win32.Enums
+﻿namespace HeCopUI_Framework.Win32.Enums
 {
 #pragma warning disable CS3009 // Base type is not CLS-compliant
     public enum ABEs : uint

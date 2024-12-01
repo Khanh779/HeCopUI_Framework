@@ -1,9 +1,6 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Child;
 using HeCopUI_Framework.Enums;
-using Microsoft.VisualBasic;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
@@ -33,7 +30,7 @@ namespace HeCopUI_Framework.Controls.Container
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.SupportsTransparentBackColor, true);
 
-         
+
             _animationManager = new AnimationManager(true)
             {
                 AnimationType = AnimationType.Linear,
@@ -44,10 +41,10 @@ namespace HeCopUI_Framework.Controls.Container
                 if (IsHandleCreated) Invalidate();
             };
 
-            _oldIndex = SelectedIndex==-1 ? 0 :SelectedIndex;
+            _oldIndex = SelectedIndex == -1 ? 0 : SelectedIndex;
         }
 
-   
+
         private readonly AnimationManager _animationManager;
 
         #endregion Constructors
@@ -109,7 +106,7 @@ namespace HeCopUI_Framework.Controls.Container
             }
         }
 
-      
+
         /// <summary>
         /// Gets or sets whether the tab control use animation or not.
         /// </summary>
@@ -151,7 +148,7 @@ namespace HeCopUI_Framework.Controls.Container
                 Invalidate();
             }
         }
-      
+
 
         /// <summary>
         /// Gets or sets the foreground color.
@@ -214,7 +211,7 @@ namespace HeCopUI_Framework.Controls.Container
         protected override void OnCreateControl()
         {
             _oldIndex = SelectedIndex == -1 ? 0 : SelectedIndex;
-            
+
             base.OnCreateControl();
         }
 
@@ -248,7 +245,7 @@ namespace HeCopUI_Framework.Controls.Container
             get { return cursors; }
             set
             {
-                cursors= value;
+                cursors = value;
                 foreach (TabPage tp in TabPages)
                     tp.Cursor = cursors;
                 Invalidate();
@@ -261,7 +258,7 @@ namespace HeCopUI_Framework.Controls.Container
             get { return TR; }
             set
             {
-          
+
                 TR = value; Invalidate();
             }
         }
@@ -295,7 +292,7 @@ namespace HeCopUI_Framework.Controls.Container
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 _animationManager.StartNewAnimation(AnimationDirection.InOutIn, e.Location);
             }
@@ -311,17 +308,17 @@ namespace HeCopUI_Framework.Controls.Container
 
         protected override void OnSelected(TabControlEventArgs e)
         {
-          
+
             base.OnSelected(e);
         }
 
         protected override void OnDeselected(TabControlEventArgs e)
         {
-         
+
             base.OnDeselected(e);
         }
 
-        int _oldIndex=0;
+        int _oldIndex = 0;
 
         Color _tabsColor = Color.White;
         public Color TabsColor
@@ -370,8 +367,8 @@ namespace HeCopUI_Framework.Controls.Container
 
                 if (BackgroundColor == Color.Transparent)
                 {
-                    this.InvokePaintBackground(Parent, e);
-                }    
+                    InvokePaintBackground(Parent, e);
+                }
                 if (BackgroundColor != Color.Transparent)
                     g.FillRectangle(BrBac, ClientRectangle);
                 g.TextRenderingHint = textRen;
@@ -381,7 +378,7 @@ namespace HeCopUI_Framework.Controls.Container
                 switch (TabStyle)
                 {
                     case TabStyle.Style1:
-                        for (var i = 0; i <= TabCount-1; i++)
+                        for (var i = 0; i <= TabCount - 1; i++)
                         {
                             var r = GetTabRect(i);
                             using (var sb = new SolidBrush(i == SelectedIndex ? SelectedTabColor : UnSelectedTabColor))
@@ -392,7 +389,7 @@ namespace HeCopUI_Framework.Controls.Container
                                 var img = ImageList.Images[TabPages[i].ImageIndex];
                                 var imgRect = new RectangleF(r.X + 6, r.Y + ImageList.ImageSize.Height / 2 - (Alignment == TabAlignment.Top ? 3 : 0), ImageList.ImageSize.Width, ImageList.ImageSize.Height);
                                 g.DrawImage(img, imgRect);
-                            }    
+                            }
 
                             using (var tb = new SolidBrush(i == SelectedIndex ? SelectedTextColor : UnselectedTextColor))
                                 g.DrawString(TabPages[i].Text, Font, tb, new RectangleF(3 + GetTabRect(i).X + tpa.Left + (ImageList != null ? ImageList.ImageSize.Width + 6 : 0),
@@ -400,7 +397,7 @@ namespace HeCopUI_Framework.Controls.Container
                                     , GetTabRect(i).Height - tpa.Bottom - (Alignment == TabAlignment.Bottom ? 3 : 0)), SF);
                         }
 
-                   
+
                         using (var sb = new Pen(SelectedTabColor, 2))
                             DrawSelectedTabLine(g, h, sb);
 
@@ -414,7 +411,7 @@ namespace HeCopUI_Framework.Controls.Container
 
                         if (SelectedIndex >= 0 && SelectedIndex < TabPages.Count)
                             tabRect = GetTabRect(SelectedIndex);
-                    
+
 
                         if (UseAnimation == false)
                         {
@@ -426,28 +423,28 @@ namespace HeCopUI_Framework.Controls.Container
                             float _navBarOffset = tabRect.X;
 
                             // Hiệu ứng thanh điều hướng
-                            var animationProgress = 1- (float)(_animationManager.IsAnimating()? _animationManager.GetProgress():  0);
-                            var animatedWidth = (Alignment== TabAlignment.Top|| Alignment== TabAlignment.Bottom? (float)(_navBarWidth * animationProgress):3);
-                            var animatedOffset = (Alignment== TabAlignment.Bottom|| Alignment== TabAlignment.Top? (float)(_navBarOffset + (_navBarWidth - animatedWidth) / 2):
-                                (Alignment== TabAlignment.Left? ItemSize.Height: GetTabRect(SelectedIndex).X));
-                            g.FillRectangle(selTab, animatedOffset, Alignment== TabAlignment. Top? tabRect.Height + 1: ((Alignment== TabAlignment.Bottom|| Alignment== TabAlignment.Top)? tabRect.Top
-                                : tabRect.Top + (GetTabRect(SelectedIndex).Height - (GetTabRect(SelectedIndex).Height*animationProgress)) /2), animatedWidth,
-                               (Alignment== TabAlignment.Top|| Alignment== TabAlignment.Bottom)? 3: GetTabRect(SelectedIndex).Height* animationProgress);
+                            var animationProgress = 1 - (float)(_animationManager.IsAnimating() ? _animationManager.GetProgress() : 0);
+                            var animatedWidth = (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom ? (float)(_navBarWidth * animationProgress) : 3);
+                            var animatedOffset = (Alignment == TabAlignment.Bottom || Alignment == TabAlignment.Top ? (float)(_navBarOffset + (_navBarWidth - animatedWidth) / 2) :
+                                (Alignment == TabAlignment.Left ? ItemSize.Height : GetTabRect(SelectedIndex).X));
+                            g.FillRectangle(selTab, animatedOffset, Alignment == TabAlignment.Top ? tabRect.Height + 1 : ((Alignment == TabAlignment.Bottom || Alignment == TabAlignment.Top) ? tabRect.Top
+                                : tabRect.Top + (GetTabRect(SelectedIndex).Height - (GetTabRect(SelectedIndex).Height * animationProgress)) / 2), animatedWidth,
+                               (Alignment == TabAlignment.Top || Alignment == TabAlignment.Bottom) ? 3 : GetTabRect(SelectedIndex).Height * animationProgress);
                         }
 
-                        for (var i = 0; i <= TabCount-1; i++)
-                            using (var tb = new SolidBrush(SelectedTab== TabPages[i]?SelectedTextColor:  UnselectedTextColor))
+                        for (var i = 0; i <= TabCount - 1; i++)
+                            using (var tb = new SolidBrush(SelectedTab == TabPages[i] ? SelectedTextColor : UnselectedTextColor))
                             {
-                                if (ImageList != null && TabPages[i].ImageIndex!=-1)
+                                if (ImageList != null && TabPages[i].ImageIndex != -1)
                                 {
                                     var r = GetTabRect(i);
                                     var img = ImageList.Images[TabPages[i].ImageIndex];
-                                    var imgRect = new RectangleF(r.X + 6, r.Y + ImageList.ImageSize.Height / 2-(Alignment== TabAlignment.Top? 3:0), ImageList.ImageSize.Width, ImageList.ImageSize.Height);
+                                    var imgRect = new RectangleF(r.X + 6, r.Y + ImageList.ImageSize.Height / 2 - (Alignment == TabAlignment.Top ? 3 : 0), ImageList.ImageSize.Width, ImageList.ImageSize.Height);
                                     g.DrawImage(img, imgRect);
                                 }
-                                g.DrawString(TabPages[i].Text, Font, tb, new RectangleF(3+GetTabRect(i).X + tpa.Left+ (ImageList != null ? ImageList.ImageSize.Width+6 : 0),
-                                    GetTabRect(i).Y + tpa.Top + (Alignment== TabAlignment.Bottom? 3:0) , GetTabRect(i).Width - tpa.Right-2 - (ImageList != null ? ImageList.ImageSize.Width + 6 : 0)
-                                    , GetTabRect(i).Height - tpa.Bottom - (Alignment== TabAlignment.Bottom?3:0 ) ), SF);
+                                g.DrawString(TabPages[i].Text, Font, tb, new RectangleF(3 + GetTabRect(i).X + tpa.Left + (ImageList != null ? ImageList.ImageSize.Width + 6 : 0),
+                                    GetTabRect(i).Y + tpa.Top + (Alignment == TabAlignment.Bottom ? 3 : 0), GetTabRect(i).Width - tpa.Right - 2 - (ImageList != null ? ImageList.ImageSize.Width + 6 : 0)
+                                    , GetTabRect(i).Height - tpa.Bottom - (Alignment == TabAlignment.Bottom ? 3 : 0)), SF);
                             }
 
                         break;

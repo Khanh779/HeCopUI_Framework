@@ -29,8 +29,8 @@ namespace HeCopUI_Framework.Native
             // and the Math.Min improvement from http://stackoverflow.com/questions/6501797/resize-image-proportionally-with-maxheight-and-maxwidth-constraints
 
             // Figure out the ratio
-            double ratioX = (double)canvasSize.Width / (double)imageSize.Width;
-            double ratioY = (double)canvasSize.Height / (double)imageSize.Height;
+            double ratioX = canvasSize.Width / (double)imageSize.Width;
+            double ratioY = canvasSize.Height / (double)imageSize.Height;
 
             // use whichever multiplier is smaller
             double ratio = Math.Min(ratioX, ratioY);

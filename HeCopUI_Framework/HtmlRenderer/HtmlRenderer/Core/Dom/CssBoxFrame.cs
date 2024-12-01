@@ -148,8 +148,10 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
                 {
                     var apiUri = new Uri(string.Format("http://gdata.youtube.com/feeds/api/videos/{0}?v=2&alt=json", uri.Segments[2]));
 
-                    var client = new WebClient();
-                    client.Encoding = Encoding.UTF8;
+                    var client = new WebClient
+                    {
+                        Encoding = Encoding.UTF8
+                    };
                     client.DownloadStringCompleted += OnDownloadYoutubeApiCompleted;
                     client.DownloadStringAsync(apiUri);
                 }
@@ -284,8 +286,10 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
                 {
                     var apiUri = new Uri(string.Format("http://vimeo.com/api/v2/video/{0}.json", uri.Segments[2]));
 
-                    var client = new WebClient();
-                    client.Encoding = Encoding.UTF8;
+                    var client = new WebClient
+                    {
+                        Encoding = Encoding.UTF8
+                    };
                     client.DownloadStringCompleted += OnDownloadVimeoApiCompleted;
                     client.DownloadStringAsync(apiUri);
                 }

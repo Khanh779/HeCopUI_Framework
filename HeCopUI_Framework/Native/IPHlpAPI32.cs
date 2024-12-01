@@ -213,22 +213,22 @@ namespace HeCopUI_Framework.Native
             FORMAT_MESSAGE_IGNORE_INSERTS;
 
         [DllImport("iphlpapi.dll", SetLastError = true)]
-        public extern static int GetUdpStatistics(ref MIB_UDPSTATS pStats);
+        public static extern int GetUdpStatistics(ref MIB_UDPSTATS pStats);
 
         [DllImport("iphlpapi.dll", SetLastError = true)]
         public static extern int GetUdpTable(byte[] UcpTable, out int pdwSize, bool bOrder);
 
         [DllImport("iphlpapi.dll", SetLastError = true)]
-        public extern static int GetTcpStatistics(ref MIB_TCPSTATS pStats);
+        public static extern int GetTcpStatistics(ref MIB_TCPSTATS pStats);
 
         [DllImport("iphlpapi.dll", SetLastError = true)]
         public static extern int GetTcpTable(byte[] pTcpTable, out int pdwSize, bool bOrder);
 
         [DllImport("iphlpapi.dll", SetLastError = true)]
-        public extern static int AllocateAndGetTcpExTableFromStack(ref IntPtr pTable, bool bOrder, IntPtr heap, int zero, int flags);
+        public static extern int AllocateAndGetTcpExTableFromStack(ref IntPtr pTable, bool bOrder, IntPtr heap, int zero, int flags);
 
         [DllImport("iphlpapi.dll", SetLastError = true)]
-        public extern static int AllocateAndGetUdpExTableFromStack(ref IntPtr pTable, bool bOrder, IntPtr heap, int zero, int flags);
+        public static extern int AllocateAndGetUdpExTableFromStack(ref IntPtr pTable, bool bOrder, IntPtr heap, int zero, int flags);
 
         [DllImport("kernel32", SetLastError = true)]
         public static extern IntPtr GetProcessHeap();

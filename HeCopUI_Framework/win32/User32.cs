@@ -1,3 +1,5 @@
+using HeCopUI_Framework.Win32.Enums;
+using HeCopUI_Framework.Win32.Struct;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -5,9 +7,6 @@ using System.Security;
 using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
-using HeCopUI_Framework.Enums;
-using HeCopUI_Framework.Win32.Enums;
-using HeCopUI_Framework.Win32.Struct;
 
 namespace HeCopUI_Framework.Win32
 {
@@ -25,7 +24,7 @@ namespace HeCopUI_Framework.Win32
 
         private static HandleRef HWND_TOPMOST = new HandleRef(null, new IntPtr(-1));
 
-     
+
 
         public AnimateWindowFlags AW_HIDE { get; set; }
 
@@ -292,7 +291,7 @@ namespace HeCopUI_Framework.Win32
             try
             {
                 GetDpiForMonitor(hMonitor, MonitorDpiType.MDT_EFFECTIVE_DPI, out var dpiX, out var _);
-                return (float)dpiX / 96f;
+                return dpiX / 96f;
             }
             catch
             {

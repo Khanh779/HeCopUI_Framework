@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls .Button
+namespace HeCopUI_Framework.Controls.Button
 {
     public class HRadioButton : Control
     {
@@ -225,7 +225,7 @@ namespace HeCopUI_Framework.Controls .Button
             g.TextRenderingHint = TextRenderHint;
             Rectangle BGEllipse = new Rectangle(6, 6, 16, 16);
             using (SolidBrush BG = new SolidBrush(Enabled ? Checked ? EnabledCheckedColor : EnabledUnCheckedColor : DisabledColor))
-            using (var pen= new Pen(new SolidBrush(BG.Color), 2))
+            using (var pen = new Pen(new SolidBrush(BG.Color), 2))
             {
                 g.DrawEllipse(pen, BGEllipse);
                 StringFormat SF = new StringFormat();
@@ -242,7 +242,7 @@ namespace HeCopUI_Framework.Controls .Button
                 //RadioButton Text
                 g.DrawString(Text, Font, new SolidBrush(Enabled ? EnabledTextColor : DisabledTextColor),
                     new RectangleF(28, 30 / 2 - g.MeasureString(Text, Font).Height / 2, Width - 28, Height - 6), SF);
-                if (DesignMode == false && foc==true)
+                if (DesignMode == false && foc == true)
                 {
                     g.SmoothingMode = SmoothingMode.None; g.PixelOffsetMode = PixelOffsetMode.Default;
                     var a = new Pen(new SolidBrush(fbc), 1f) { Alignment = PenAlignment.Inset, DashStyle = dashStyle };
@@ -311,13 +311,13 @@ namespace HeCopUI_Framework.Controls .Button
                 if (Alpha < 250)
                 {
                     Alpha += 25;
-                    this.Invalidate();
+                    Invalidate();
                 }
             }
             else if (Alpha > 0)
             {
                 Alpha -= 25;
-                this.Invalidate();
+                Invalidate();
             }
         }
         private void SizeAnimationTick(object sender, EventArgs e)
@@ -327,24 +327,24 @@ namespace HeCopUI_Framework.Controls .Button
                 if (SizeAnimationNum < 8)
                 {
                     SizeAnimationNum += 2;
-                    this.Invalidate();
+                    Invalidate();
 
                     if (PointAnimationNum > 5)
                     {
                         PointAnimationNum -= 1;
-                        this.Invalidate();
+                        Invalidate();
                     }
                 }
             }
             else if (SizeAnimationNum > 0)
             {
                 SizeAnimationNum -= 2;
-                this.Invalidate();
+                Invalidate();
 
                 if (PointAnimationNum < 9)
                 {
                     PointAnimationNum += 1;
-                    this.Invalidate();
+                    Invalidate();
                 }
             }
         }

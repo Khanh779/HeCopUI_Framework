@@ -101,7 +101,7 @@ namespace HeCopUI_Framework.Controls
         {
             SetStyle(ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.Opaque, false);
-       
+
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -112,7 +112,7 @@ namespace HeCopUI_Framework.Controls
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if(!DesignMode)
+            if (!DesignMode)
             {
                 if (IsPointInStartHandle(e.Location)) isDraggingStart = true;
                 else if (IsPointInEndHandle(e.Location)) isDraggingEnd = true;
@@ -123,7 +123,7 @@ namespace HeCopUI_Framework.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            if(!DesignMode)
+            if (!DesignMode)
             {
                 if (isDraggingStart)
                 {
@@ -263,7 +263,7 @@ namespace HeCopUI_Framework.Controls
         int barThick = 2;
         public int BarThickness
         {
-            get { return (int)barThick; }
+            get { return barThick; }
             set
             {
                 barThick = value; Invalidate();
@@ -275,7 +275,7 @@ namespace HeCopUI_Framework.Controls
         {
             get
             {
-                return (int)slideThic;
+                return slideThic;
             }
             set
             {
@@ -311,7 +311,7 @@ namespace HeCopUI_Framework.Controls
             get { return textColor; }
             set
             {
-                textColor= value; Invalidate();
+                textColor = value; Invalidate();
             }
         }
 
@@ -324,16 +324,16 @@ namespace HeCopUI_Framework.Controls
             float radius = ((Math.Min(Width, Height) - 10) * arcSize / 100) / 2;
             float centerX = (Width) / 2;
             float centerY = (Height) / 2;
-      
-       
+
+
             // Draw the range
             using (var pen = new Pen(new LinearGradientBrush(ClientRectangle, slide1, slide2, linearGradientMode), slideThic))
             {
 
-                g.DrawArc(new Pen(new LinearGradientBrush(ClientRectangle, bar1,bar2, linearGradientMode), barThick), centerX- radius, centerY -radius, 
+                g.DrawArc(new Pen(new LinearGradientBrush(ClientRectangle, bar1, bar2, linearGradientMode), barThick), centerX - radius, centerY - radius,
                     radius * 2, radius * 2, StartAngle, endAngle);
 
-                g.DrawArc(pen, centerX -radius, centerY -radius, radius * 2, radius * 2, StartAngle + (Value1 * EndAngle / MaxValue),
+                g.DrawArc(pen, centerX - radius, centerY - radius, radius * 2, radius * 2, StartAngle + (Value1 * EndAngle / MaxValue),
                   (Value2 * EndAngle / MaxValue) - (Value1 * EndAngle / MaxValue));
 
             }
@@ -342,30 +342,32 @@ namespace HeCopUI_Framework.Controls
             using (var brush = new SolidBrush(thumbStart))
             {
                 PointF startHandlePos = CalculateHandlePosition(Value1);
-                g.FillEllipse(brush, startHandlePos.X  - 5, startHandlePos.Y  - 5, 10, 10);
+                g.FillEllipse(brush, startHandlePos.X - 5, startHandlePos.Y - 5, 10, 10);
             }
 
             using (var brush = new SolidBrush(thumbEnd))
             {
                 PointF endHandlePos = CalculateHandlePosition(Value2);
-                g.FillEllipse(brush, endHandlePos.X  - 5, endHandlePos.Y  - 5, 10, 10);
+                g.FillEllipse(brush, endHandlePos.X - 5, endHandlePos.Y - 5, 10, 10);
             }
 
-            StringFormat s = new StringFormat();
-            s.Alignment = StringAlignment.Center;
-            s.LineAlignment = StringAlignment.Center;
+            StringFormat s = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
             string te = "";
-            switch(textMode)
+            switch (textMode)
             {
                 case TextMode.Value1_Value2:
                     te = Value1 + " - " + Value2;
                     break;
                 case TextMode.FromValue1ToValue2:
-                    te="From: "+Value1+"\nTo: " + Value2;
+                    te = "From: " + Value1 + "\nTo: " + Value2;
                     break;
             }
-            if(textMode!= TextMode.None)
-            g.DrawString(te, Font, new SolidBrush(textColor), new RectangleF(0,0, Width, Height), s);
+            if (textMode != TextMode.None)
+                g.DrawString(te, Font, new SolidBrush(textColor), new RectangleF(0, 0, Width, Height), s);
         }
     }
 }

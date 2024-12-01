@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls.Calendar
@@ -19,18 +17,20 @@ namespace HeCopUI_Framework.Controls.Calendar
 
         public CalendarControl()
         {
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
                           ControlStyles.ResizeRedraw |
                           ControlStyles.UserPaint, true);
 
-            this.UpdateStyles();
+            UpdateStyles();
             currentMonth = DateTime.Today;
             selectedDate = DateTime.Today;
 
-            timer = new Timer();
-            timer.Interval = 500;
+            timer = new Timer
+            {
+                Interval = 500
+            };
             timer.Tick += (sender, e) => Invalidate();
-         
+
         }
 
 
@@ -157,7 +157,7 @@ namespace HeCopUI_Framework.Controls.Calendar
         public Color SelectedDateColor
         {
             get { return selectedDateColor; }
-            set {selectedDateColor = value; Invalidate(); }
+            set { selectedDateColor = value; Invalidate(); }
         }
 
         public Color SelectDayColor
@@ -239,7 +239,7 @@ namespace HeCopUI_Framework.Controls.Calendar
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e); 
+            base.OnPaint(e);
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 
             DrawCalendar(e.Graphics);
@@ -366,7 +366,7 @@ namespace HeCopUI_Framework.Controls.Calendar
 
         private void DrawNumberDay(Graphics g, RectangleF dayCalendarBound)
         {
-          
+
             // Adjust bounds
             dayCalendarBound = new RectangleF(dayCalendarBound.X, dayCalendarBound.Y + titleHeight, dayCalendarBound.Width, dayCalendarBound.Height - titleHeight - calendarPadding.Top - calendarPadding.Bottom);
 

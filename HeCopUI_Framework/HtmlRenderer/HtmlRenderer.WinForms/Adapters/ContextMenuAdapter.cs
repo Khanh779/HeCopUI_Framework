@@ -39,8 +39,10 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms.Adapters
         /// </summary>
         public ContextMenuAdapter()
         {
-            _contextMenu = new ContextMenuStrip();
-            _contextMenu.ShowImageMargin = false;
+            _contextMenu = new ContextMenuStrip
+            {
+                ShowImageMargin = false
+            };
         }
 
         public override int ItemsCount

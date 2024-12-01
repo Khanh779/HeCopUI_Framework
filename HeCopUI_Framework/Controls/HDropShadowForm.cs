@@ -51,12 +51,14 @@ namespace HeCopUI_Framework.Controls
         {
             try
             {
-                DS = new Dropshadow(_targetform);
-                DS.ShadowColor = Color.FromArgb(alphaColor, ShadowColor.R, ShadowColor.G, ShadowColor.B);
-                DS.ShadowSpread = ShadowSpread;
-                DS.ShadowBlur = ShadowBlur;
-                DS.ShadowVisible = ShadowVisible;
-                DS.HideResizeShadow = HideResizeShadow;
+                DS = new Dropshadow(_targetform)
+                {
+                    ShadowColor = Color.FromArgb(alphaColor, ShadowColor.R, ShadowColor.G, ShadowColor.B),
+                    ShadowSpread = ShadowSpread,
+                    ShadowBlur = ShadowBlur,
+                    ShadowVisible = ShadowVisible,
+                    HideResizeShadow = HideResizeShadow
+                };
                 DS.RefreshShadow();
             }
             catch { }
@@ -285,10 +287,12 @@ namespace HeCopUI_Framework.Controls
                         gp.AddEllipse(0, 0, blur * 2, blur * 2);
 
 
-                        var pgb = new PathGradientBrush(gp);
-                        pgb.CenterColor = color;
-                        pgb.SurroundColors = new[] { Color.Transparent };
-                        pgb.CenterPoint = new Point(blur, blur);
+                        var pgb = new PathGradientBrush(gp)
+                        {
+                            CenterColor = color,
+                            SurroundColors = new[] { Color.Transparent },
+                            CenterPoint = new Point(blur, blur)
+                        };
 
                         // lt
                         g.FillPie(pgb, 0, 0, blur * 2, blur * 2, 180, 90);
@@ -378,11 +382,13 @@ namespace HeCopUI_Framework.Controls
                     var size = new Win32.Size(bitmap.Width, bitmap.Height);
                     var pointSource = new Win32.Point(0, 0);
                     var topPos = new Win32.Point(Left, Top);
-                    var blend = new Win32.BLENDFUNCTION();
-                    blend.BlendOp = Win32.AC_SRC_OVER;
-                    blend.BlendFlags = 0;
-                    blend.SourceConstantAlpha = opacity;
-                    blend.AlphaFormat = Win32.AC_SRC_ALPHA;
+                    var blend = new Win32.BLENDFUNCTION
+                    {
+                        BlendOp = Win32.AC_SRC_OVER,
+                        BlendFlags = 0,
+                        SourceConstantAlpha = opacity,
+                        AlphaFormat = Win32.AC_SRC_ALPHA
+                    };
 
                     Win32.UpdateLayeredWindow(Handle, screenDc, ref topPos, ref size, memDc, ref pointSource, 0, ref blend,
                         Win32.ULW_ALPHA);

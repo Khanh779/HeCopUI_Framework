@@ -29,7 +29,7 @@ namespace HeCopUI_Framework.Controls.Gauge
             GraphicsPath gp = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, rad);
             g.FillPath(new SolidBrush(_GaugeColor), gp);
             g.DrawPath(new Pen(new SolidBrush(borC), Borw) { Alignment = PenAlignment.Inset }, HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, rad, BorderThickness));
-            DisplayNumber(g, (float)_value, new RectangleF(Width / 2 - recw / 2 - 2, Height / 2 - NumberHeigh / 2, recw - 4, NumberHeigh));
+            DisplayNumber(g, _value, new RectangleF(Width / 2 - recw / 2 - 2, Height / 2 - NumberHeigh / 2, recw - 4, NumberHeigh));
 
         }
 

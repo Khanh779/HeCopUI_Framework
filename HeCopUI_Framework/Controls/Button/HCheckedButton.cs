@@ -1,5 +1,4 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Helper;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls .Button
+namespace HeCopUI_Framework.Controls.Button
 {
     [ToolboxBitmap(typeof(System.Windows.Forms.Button), "Bitmaps.Button.bmp")]
     public partial class HCheckedButton : Control
@@ -120,7 +119,7 @@ namespace HeCopUI_Framework.Controls .Button
             set
             {
                 BTC = value;
-               
+
                 Invalidate();
 
             }
@@ -271,9 +270,11 @@ namespace HeCopUI_Framework.Controls .Button
             GetAppResources.GetStringAlign(SF, CA);
             SF.Trimming = STA;
             RectangleF RF = new RectangleF(shadowPadding.Left + 2 + textPadding.Left, shadowPadding.Top + 2 + textPadding.Top, Width - 2 - textPadding.Right - textPadding.Left - shadowPadding.Left - shadowPadding.Right, Height - 2 - textPadding.Bottom - textPadding.Top - shadowPadding.Top - shadowPadding.Bottom);
-            Pen pen = new Pen(ButDo ? BorderDownColor : ButHo ? BorderHoverColor : BC, BT);
-            pen.Alignment = PenAlignment.Inset;
-            if (AnimationMode ==  Enums.AnimationMode.ColorTransition)
+            Pen pen = new Pen(ButDo ? BorderDownColor : ButHo ? BorderHoverColor : BC, BT)
+            {
+                Alignment = PenAlignment.Inset
+            };
+            if (AnimationMode == Enums.AnimationMode.ColorTransition)
             {
                 AHB = new LinearGradientBrush(ClientRectangle, Checked ? ButtonCheckedColor1 : ButDo ? BackPressColor1 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor1, BackHoverColor1, _animationManager.GetProgress()), Checked ? ButtonCheckedColor2 : ButDo ? BackPressColor2 : ButHo ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, _animationManager.GetProgress()) : HeCopUI_Framework.Helper.DrawHelper.BlendColor(ButtonColor2, BackHoverColor2, _animationManager.GetProgress()), LB);
             }
@@ -356,7 +357,7 @@ namespace HeCopUI_Framework.Controls .Button
                         break;
                 }
             }
-            if (_animationManager.IsAnimating() && AnimationMode== Enums.AnimationMode.Ripple)
+            if (_animationManager.IsAnimating() && AnimationMode == Enums.AnimationMode.Ripple)
             {
 
                 for (var i = 0; i < _animationManager.GetAnimationCount(); i++)
@@ -465,7 +466,7 @@ namespace HeCopUI_Framework.Controls .Button
         private void OnFrameChanged(object o, EventArgs e)
         {
 
-            this.Invalidate();
+            Invalidate();
         }
         private void AnimateImage()
         {
@@ -474,7 +475,7 @@ namespace HeCopUI_Framework.Controls .Button
             {
 
                 //Begin the animation only once.
-                ImageAnimator.Animate(image, new EventHandler(this.OnFrameChanged));
+                ImageAnimator.Animate(image, new EventHandler(OnFrameChanged));
                 currentlyAnimating = true;
             }
         }
@@ -540,7 +541,7 @@ namespace HeCopUI_Framework.Controls .Button
             set
             {
                 buttonColor2 = value;
-            
+
                 Invalidate();
             }
         }
@@ -607,7 +608,7 @@ namespace HeCopUI_Framework.Controls .Button
             if (IsAutoSize == true)
             {
                 SizeF n = TextRenderer.MeasureText(Text, Font);
-                Size = new Size((int)n.Width + (int)Padding.All, (int)n.Height + Padding.All);
+                Size = new Size((int)n.Width + Padding.All, (int)n.Height + Padding.All);
             }
 
             //timer1.Stop();time2.Stop();
@@ -621,15 +622,15 @@ namespace HeCopUI_Framework.Controls .Button
                 //}
                 switch (AnimationMode)
                 {
-                
-                    case  Enums.AnimationMode.ColorTransition:
+
+                    case Enums.AnimationMode.ColorTransition:
                         _animationManager.StartNewAnimation(AnimationDirection.In);
                         break;
                 }
 
                 Invalidate();
             };
-         
+
             _animationManager.OnAnimationProgress += sender => Invalidate();
             MouseLeave += (sender, e) =>
             {
@@ -648,7 +649,7 @@ namespace HeCopUI_Framework.Controls .Button
                 ButDo = false;
                 Invalidate();
             };
-         
+
         }
 
         bool foc = false;
@@ -667,8 +668,8 @@ namespace HeCopUI_Framework.Controls .Button
         }
 
 
-        public Enums.AnimationMode AnimationMode { get; set; } = Enums.AnimationMode.None; 
-   
+        public Enums.AnimationMode AnimationMode { get; set; } = Enums.AnimationMode.None;
+
 
         //PointF[] GetHovPoi=null;
         private Animations.AnimationManager _animationManager;
@@ -699,7 +700,7 @@ namespace HeCopUI_Framework.Controls .Button
             }
         }
 
-    
+
         public Color RippleColor { get; set; } = Color.Black;
 
 
@@ -717,7 +718,7 @@ namespace HeCopUI_Framework.Controls .Button
         }
 
 
-     
+
 
         private StringTrimming STA = StringTrimming.EllipsisCharacter;
         public StringTrimming TextTrim

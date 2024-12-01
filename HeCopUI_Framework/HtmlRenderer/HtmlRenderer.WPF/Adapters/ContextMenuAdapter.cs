@@ -58,9 +58,11 @@ namespace HeCopUI_Framework.HtmlRenderer.WPF.Adapters
             ArgChecker.AssertArgNotNullOrEmpty(text, "text");
             ArgChecker.AssertArgNotNull(onClick, "onClick");
 
-            var item = new MenuItem();
-            item.Header = text;
-            item.IsEnabled = enabled;
+            var item = new MenuItem
+            {
+                Header = text,
+                IsEnabled = enabled
+            };
             item.Click += new RoutedEventHandler(onClick);
             _contextMenu.Items.Add(item);
         }

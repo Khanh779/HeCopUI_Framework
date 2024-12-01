@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.Windows.Media.Animation;
 using Brush = System.Drawing.Brush;
 using Color = System.Drawing.Color;
 using DashStyle = System.Drawing.Drawing2D.DashStyle;
@@ -272,7 +271,7 @@ namespace HeCopUI_Framework.Controls.Button
         private void OnFrameChanged(object o, EventArgs e)
         {
 
-            this.Invalidate();
+            Invalidate();
         }
         public void AnimateImage()
         {
@@ -281,7 +280,7 @@ namespace HeCopUI_Framework.Controls.Button
             {
 
                 //Begin the animation only once.
-                ImageAnimator.Animate(BI, new EventHandler(this.OnFrameChanged));
+                ImageAnimator.Animate(BI, new EventHandler(OnFrameChanged));
                 currentlyAnimating = true;
             }
         }
@@ -396,11 +395,15 @@ namespace HeCopUI_Framework.Controls.Button
 
                 }
                 catch { }
-                StringFormat SF = new StringFormat();
-                SF.Trimming = ST;
+                StringFormat SF = new StringFormat
+                {
+                    Trimming = ST
+                };
                 GetAppResources.GetStringAlign(SF, TCA);
-                StringFormat SAF = new StringFormat();
-                SAF.Trimming = ST;
+                StringFormat SAF = new StringFormat
+                {
+                    Trimming = ST
+                };
                 GetAppResources.GetStringAlign(SAF, ITCA);
                 SizeF sd = g.MeasureString(Text, Font);
                 g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(2 + TPadd.Left, Font.Height + (IS + ISi.Height + TOY) + TPadd.Top, Width - 2 - TPadd.Right, TeY + Font.Height - TPadd.Bottom), SF);

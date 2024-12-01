@@ -124,7 +124,7 @@ namespace HeCopUI_Framework.Controls
         public HCircleAnglePicker()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
-          
+
         }
 
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed.")]
@@ -774,7 +774,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-      
+
 
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed.")]
         protected override void OnKeyDown(KeyEventArgs e)
@@ -804,7 +804,7 @@ namespace HeCopUI_Framework.Controls
             base.OnKeyDown(e);
         }
 
-      
+
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed.")]
         protected override void OnMouseClick(MouseEventArgs e)
         {

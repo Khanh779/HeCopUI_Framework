@@ -37,7 +37,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             GC.SuppressFinalize(this); // The finalise process no longer needs to be run for this
         }
 
-        protected virtual new void Dispose(bool disposeManagedResources)
+        protected new virtual void Dispose(bool disposeManagedResources)
         {
             if (!disposed)
             {

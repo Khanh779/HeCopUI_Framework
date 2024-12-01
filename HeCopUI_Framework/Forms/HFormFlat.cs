@@ -1,24 +1,13 @@
-﻿using HeCopUI_Framework.Structs;
-using HeCopUI_Framework.Win32;
-using HeCopUI_Framework.Win32.Enums;
+﻿using HeCopUI_Framework.Win32.Enums;
 using HeCopUI_Framework.Win32.Struct;
-using Microsoft.Win32;
 using System;
-using System.CodeDom;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
-using System.Security.AccessControl;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
-using static HeCopUI_Framework.GetAppResources;
-using static System.Net.WebRequestMethods;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
 
@@ -264,9 +253,11 @@ namespace HeCopUI_Framework.Forms
                     // Draw icon
                     e.Graphics.DrawImage(Icon.ToBitmap(), 5, TitleBarHeight / 2 - IconSize.Height / 2, iconSize.Width, iconSize.Height);
                     // Draw title
-                    StringFormat sf = new StringFormat();
-                    sf.LineAlignment = StringAlignment.Center;
-                    sf.Trimming = StringTrimming.EllipsisCharacter;
+                    StringFormat sf = new StringFormat
+                    {
+                        LineAlignment = StringAlignment.Center,
+                        Trimming = StringTrimming.EllipsisCharacter
+                    };
                     switch (textAlignment)
                     {
                         case TextAlignment.Left:
@@ -384,8 +375,8 @@ namespace HeCopUI_Framework.Forms
                 //g.DrawRectangle(pen, (float)maximize.X + maximize.Width / 2 - halfSize + 3,
                 //    maximize.Y + maximize.Height / 2 - halfSize, size - 4, size - 4);
 
-                g.DrawLine(pen, (int)(maximize.X + maximize.Width / 2 - 1), (int)(maximize.Y + maximize.Height / 2 - halfSize - pen.Width),
-                    (int)(maximize.X + maximize.Width / 2 - 1), maximize.Y + maximize.Height / 2 - halfSize + 3);
+                g.DrawLine(pen, maximize.X + maximize.Width / 2 - 1, (int)(maximize.Y + maximize.Height / 2 - halfSize - pen.Width),
+                    maximize.X + maximize.Width / 2 - 1, maximize.Y + maximize.Height / 2 - halfSize + 3);
 
                 g.DrawLine(pen, maximize.X + maximize.Width / 2 - 1, maximize.Y + maximize.Height / 2 - halfSize - pen.Width,
                    maximize.X + maximize.Width / 2 + halfSize + 2, maximize.Y + maximize.Height / 2 - halfSize - pen.Width);
@@ -393,7 +384,7 @@ namespace HeCopUI_Framework.Forms
                 g.DrawLine(pen, maximize.X + maximize.Width / 2 + halfSize + 2, maximize.Y + maximize.Height / 2 - halfSize - pen.Width,
                     maximize.X + maximize.Width / 2 + halfSize + 2, maximize.Y + maximize.Height / 2 + halfSize - 3);
 
-            
+
 
             }
             else if (WindowState == FormWindowState.Minimized || WindowState == FormWindowState.Normal)
@@ -614,7 +605,7 @@ namespace HeCopUI_Framework.Forms
                 case HeCopUI_Framework.Win32.Enums.WindowMessages.WM_NCRBUTTONDOWN:
                     if (mouseInTitleBar)
                     {
-                        IntPtr hMenu = HeCopUI_Framework.Win32.User32.GetSystemMenu(this.Handle, false);
+                        IntPtr hMenu = HeCopUI_Framework.Win32.User32.GetSystemMenu(Handle, false);
                         HeCopUI_Framework.Win32.User32.TrackPopupMenu(hMenu, (int)HeCopUI_Framework.Win32.Enums.TrackPopupMenuFlags.TPM_RETURNCMD,
                             MousePosition.X, MousePosition.Y, 0, m.HWnd, IntPtr.Zero);
                     }
@@ -631,19 +622,19 @@ namespace HeCopUI_Framework.Forms
 
                         case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_CLOSE:
 
-                            this.Close();
+                            Close();
                             break;
                         case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_MINIMIZE:
 
-                            this.WindowState = FormWindowState.Minimized;
+                            WindowState = FormWindowState.Minimized;
                             break;
                         case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_MAXIMIZE:
 
-                            this.WindowState = FormWindowState.Maximized;
+                            WindowState = FormWindowState.Maximized;
                             break;
                         case HeCopUI_Framework.Win32.Enums.SystemCommands.SC_RESTORE:
 
-                            this.WindowState = FormWindowState.Normal;
+                            WindowState = FormWindowState.Normal;
                             break;
                     }
 

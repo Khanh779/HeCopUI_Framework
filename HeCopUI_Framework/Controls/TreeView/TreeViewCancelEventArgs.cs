@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls.TreeView
@@ -14,10 +9,10 @@ namespace HeCopUI_Framework.Controls.TreeView
 
         private TreeViewAction action;
 
-       
+
         public TreeNode Node => node;
 
-      
+
         public TreeViewAction Action => action;
 
         public TreeViewCancelEventArgs(TreeNode node)

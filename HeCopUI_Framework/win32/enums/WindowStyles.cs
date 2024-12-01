@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeCopUI_Framework.Win32.Enums
+﻿namespace HeCopUI_Framework.Win32.Enums
 {
     public enum WindowStyles
     {
@@ -26,7 +20,7 @@ namespace HeCopUI_Framework.Win32.Enums
         WS_THICKFRAME = 0x00040000,
         WS_GROUP = 0x00020000,
         WS_TABSTOP = 0x00010000,
-        WS_RESIZE_FORM_BORDERLESS= 0xC00000,
+        WS_RESIZE_FORM_BORDERLESS = 0xC00000,
 
         WS_MINIMIZEBOX = 0x00020000,
         WS_MAXIMIZEBOX = 0x00010000,
@@ -71,11 +65,11 @@ namespace HeCopUI_Framework.Win32.Enums
         WS_EX_NOACTIVATE1 = 0x8000000,
         WS_EX_COMPOSITED = 0x02000000,   // WS_EX_COMPOSITED
 
-   
+
         WS_EX_LEFT = 0x00000000,
         WS_EX_LTRREADING = 0x00000000,
         WS_EX_RIGHTSCROLLBAR = 0x00000000,
-        WS_EX_CONTROLPARENT =0x00010000,
+        WS_EX_CONTROLPARENT = 0x00010000,
         WS_EX_STATICEDGE = 0x00020000,
         WS_EX_APPWINDOW = 0x00040000,
         WS_EX_NOINHERITLAYOUT = 0x00100000, // Disable inheritence of mirroring by children
@@ -87,6 +81,6 @@ namespace HeCopUI_Framework.Win32.Enums
         WS_EX_OVERLAPPEDWINDOW = WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE,
 
         WS_EX_PALETTEWINDOW = WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST,
-       
+
     }
 }

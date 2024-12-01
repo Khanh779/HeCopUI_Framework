@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Controls.Progress
 {
@@ -17,7 +14,7 @@ namespace HeCopUI_Framework.Controls.Progress
         public LinearParticleAnimation()
         {
             //DoubleBuffered = true;
-            SetStyle(ControlStyles.OptimizedDoubleBuffer| ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
             Size = new Size(400, 400);
             animationTimer = new Timer { Interval = 50 };
             animationTimer.Tick += AnimationTimer_Tick;
@@ -35,7 +32,7 @@ namespace HeCopUI_Framework.Controls.Progress
                 particle.Update();
             }
             var fi = particles.First();
-            if (fi.x== -fi.size)
+            if (fi.x == -fi.size)
             {
                 fi.speed = rand.Next(2, 6);
                 fi.size = rand.Next(10, 30);
@@ -49,7 +46,7 @@ namespace HeCopUI_Framework.Controls.Progress
         private void InitializeParticles()
         {
             particles = new List<Particle>();
-            
+
             for (int i = 0; i < 10; i++)
             {
                 int size = rand.Next(10, 30);
@@ -69,7 +66,7 @@ namespace HeCopUI_Framework.Controls.Progress
             {
                 particle.Draw(e.Graphics);
             }
-           
+
         }
 
         private class Particle

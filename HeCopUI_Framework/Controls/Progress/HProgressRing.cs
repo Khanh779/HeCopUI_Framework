@@ -1,9 +1,7 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Controls.Progress
 {
@@ -26,8 +24,10 @@ namespace HeCopUI_Framework.Controls.Progress
             SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
 
             // Initialize Timer for animation
-            animationTimer = new Timer();
-            animationTimer.Interval = 50; // Set the time between animation frames
+            animationTimer = new Timer
+            {
+                Interval = 50 // Set the time between animation frames
+            };
             animationTimer.Tick += UpdateAnimation;
             startAngle = sweepAngle = angle;
             animationTimer.Start();
@@ -78,7 +78,7 @@ namespace HeCopUI_Framework.Controls.Progress
                 if (value <= 0) duration = 1;
                 else if (value >= 100) duration = 100;
                 else duration = value;
-                if(animationTimer != null)
+                if (animationTimer != null)
                 {
                     animationTimer.Interval = duration;
                 }
@@ -118,8 +118,8 @@ namespace HeCopUI_Framework.Controls.Progress
                 sweepAngle -= (int)(StepIncrement * speed);
                 if (startAngle >= 360 && sweepAngle <= 0)
                 {
-                    startAngle =0;
-                    sweepAngle=0;
+                    startAngle = 0;
+                    sweepAngle = 0;
                     isLeap = false;
                 }
             }
@@ -199,14 +199,14 @@ namespace HeCopUI_Framework.Controls.Progress
             var fixSca = ((diameterCircular - thickness) * scale) / 100;
             DrawProgressRing(e.Graphics, (Width - fixSca) / 2, (Height - fixSca) / 2, fixSca);
 
-          
+
 
         }
 
         private void DrawProgressRing(Graphics g, float x, float y, float diameter)
         {
             using (LinearGradientBrush brush = new LinearGradientBrush(ClientRectangle, foregroundColor1, ForegroundColor2, linearGradientMode))
-            using (var pen = new Pen(brush, Thickness) { Alignment= PenAlignment.Inset, StartCap = StartCap, EndCap = EndCap })
+            using (var pen = new Pen(brush, Thickness) { Alignment = PenAlignment.Inset, StartCap = StartCap, EndCap = EndCap })
             {
                 g.DrawArc(pen,
                     x, y, diameter, diameter, startAngle + angle, sweepAngle);

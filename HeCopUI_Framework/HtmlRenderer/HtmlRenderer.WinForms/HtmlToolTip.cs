@@ -89,11 +89,13 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms
         {
             OwnerDraw = true;
 
-            _htmlContainer = new HtmlContainer();
-            _htmlContainer.IsSelectionEnabled = false;
-            _htmlContainer.IsContextMenuEnabled = false;
-            _htmlContainer.AvoidGeometryAntialias = true;
-            _htmlContainer.AvoidImagesLateLoading = true;
+            _htmlContainer = new HtmlContainer
+            {
+                IsSelectionEnabled = false,
+                IsContextMenuEnabled = false,
+                AvoidGeometryAntialias = true,
+                AvoidImagesLateLoading = true
+            };
             _htmlContainer.RenderError += OnRenderError;
             _htmlContainer.StylesheetLoad += OnStylesheetLoad;
             _htmlContainer.ImageLoad += OnImageLoad;

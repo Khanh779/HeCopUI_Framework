@@ -112,7 +112,7 @@ namespace HeCopUI_Framework.Helper
             float tmp = max_alpha / pen_width; float actualAlpha = tmp;
             for (int tmp_width = pen_width; tmp_width > 0; tmp_width--)
             {
-                Pen blurredPen = new Pen(Color.FromArgb((int)actualAlpha, color), tmp_width) {StartCap = LineCap.Round, EndCap = LineCap.Round};
+                Pen blurredPen = new Pen(Color.FromArgb((int)actualAlpha, color), tmp_width) { StartCap = LineCap.Round, EndCap = LineCap.Round };
                 actualAlpha += tmp;
                 graphics.DrawPath(blurredPen, graphicsPath);
             }
@@ -159,13 +159,13 @@ namespace HeCopUI_Framework.Helper
         /// <param name="color2">The surrounding color of the brush.</param>
         /// <param name="InOut">Indicates whether the center color should be applied inward or outward. Default is true.</param>
         /// <returns>A path gradient brush.</returns>
-        public static PathGradientBrush PathBrush(GraphicsPath path, RectangleF bound, Color color1, Color color2, bool InOut=true)
+        public static PathGradientBrush PathBrush(GraphicsPath path, RectangleF bound, Color color1, Color color2, bool InOut = true)
         {
             using (PathGradientBrush brush = new PathGradientBrush(path))
-            {  
+            {
 
-                brush.CenterColor = InOut? color1:color2;
-                brush.SurroundColors = new Color[] { InOut? color2:color1 };
+                brush.CenterColor = InOut ? color1 : color2;
+                brush.SurroundColors = new Color[] { InOut ? color2 : color1 };
                 return brush;
             }
         }
@@ -274,7 +274,7 @@ namespace HeCopUI_Framework.Helper
             }
         }
 
-    
+
 
     }
 

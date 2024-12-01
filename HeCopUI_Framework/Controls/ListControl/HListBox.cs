@@ -227,7 +227,7 @@ namespace HeCopUI_Framework.Controls.ListControl
                 Maximum = _items.Count * _itemHeight,
                 SmallChange = _itemHeight,
                 LargeChange = _itemHeight,
-         
+
 
             };
             _scrollBar.Scroll += HandleScroll;

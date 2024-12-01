@@ -87,8 +87,10 @@ namespace HeCopUI_Framework.HtmlRenderer.WinForms.Adapters
         /// </summary>
         static GraphicsAdapter()
         {
-            _stringFormat = new StringFormat(StringFormat.GenericTypographic);
-            _stringFormat.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.MeasureTrailingSpaces;
+            _stringFormat = new StringFormat(StringFormat.GenericTypographic)
+            {
+                FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.MeasureTrailingSpaces
+            };
 
             _stringFormat2 = new StringFormat(StringFormat.GenericTypographic);
         }

@@ -50,7 +50,7 @@ namespace HeCopUI_Framework.AnimatorNS
                     int i = y * s + x * bytesPerPixel;
                     var d = x * kx + y * ky - a;
                     if (d >= 0)
-                        pixels[i + 3] = (byte)0;
+                        pixels[i + 3] = 0;
                 }
         }
 
@@ -153,7 +153,7 @@ namespace HeCopUI_Framework.AnimatorNS
                                     pixels[newI + 2] = (byte)Math.Min(255, d + 250 + pixels[i + 2] / 10);
                                     pixels[newI + 3] = 230;
                                 }
-                        pixels[i + 3] = (byte)(0);
+                        pixels[i + 3] = 0;
                     }
                 }
         }
@@ -236,7 +236,7 @@ namespace HeCopUI_Framework.AnimatorNS
             for (int x = beginX; x < endX; x++)
                 for (int y = beginY; y < sy; y++)
                 {
-                    var sourceY = (int)(beginY - 1 - dy - (y - beginY));
+                    var sourceY = beginY - 1 - dy - (y - beginY);
                     if (sourceY < 0)
                         break;
                     var sourceX = x;

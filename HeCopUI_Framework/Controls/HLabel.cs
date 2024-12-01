@@ -16,7 +16,7 @@ namespace HeCopUI_Framework.Controls
             get { return base.Text; }
             set
             {
-                base.Text = value;Invalidate();
+                base.Text = value; Invalidate();
             }
         }
 
@@ -48,13 +48,15 @@ namespace HeCopUI_Framework.Controls
         {
             Graphics g = e.Graphics;
             GetAppResources.GetControlGraphicsEffect(g);
-            StringFormat SF = new StringFormat();
-            SF.Trimming = ST;
+            StringFormat SF = new StringFormat
+            {
+                Trimming = ST
+            };
             g.TextRenderingHint = textRen;
             GetAppResources.GetStringAlign(SF, CA);
-            if((_symbol != String.Empty || _symbol != null | _symbol != "") && symbolVisible)
+            if ((_symbol != String.Empty || _symbol != null | _symbol != "") && symbolVisible)
                 g.DrawString(_symbol, _symbolFont, new SolidBrush(_symbolColor), new RectangleF(0 + Padding.Left, 0 + Padding.Top, Width - Padding.Right, Height - Padding.Bottom));
-            g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(((_symbol!=String.Empty|| _symbol!=null | _symbol!="")? g.MeasureString(_symbol, _symbolFont).Width+2 :  0) + Padding.Left, 
+            g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(((_symbol != String.Empty || _symbol != null | _symbol != "") ? g.MeasureString(_symbol, _symbolFont).Width + 2 : 0) + Padding.Left,
                 0 + Padding.Top, Width - Padding.Right - ((_symbol != String.Empty || _symbol != null | _symbol != "") ? g.MeasureString(_symbol, _symbolFont).Width + 2 : 0), Height - Padding.Bottom), SF);
             base.OnPaint(e);
         }
@@ -97,7 +99,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        Font _symbolFont=new Font("Segoe UI Emoji", 10);
+        Font _symbolFont = new Font("Segoe UI Emoji", 10);
         public Font SymbolFont
         {
             get { return _symbolFont; }

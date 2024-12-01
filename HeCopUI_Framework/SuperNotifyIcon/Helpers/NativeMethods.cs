@@ -993,10 +993,10 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             {
                 return new RECT()
                 {
-                    left = (int)rect.Left,
-                    top = (int)rect.Top,
-                    right = (int)rect.Right,
-                    bottom = (int)rect.Bottom
+                    left = rect.Left,
+                    top = rect.Top,
+                    right = rect.Right,
+                    bottom = rect.Bottom
                 };
             }
         }
@@ -1068,9 +1068,9 @@ namespace HeCopUI_Framework.SuperNotifyIcon
                 get
                 {
                     if (IntPtr.Size == 8)
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt64())[0];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt64())[0];
                     else
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt32())[0];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt32())[0];
                 }
             }
 
@@ -1082,9 +1082,9 @@ namespace HeCopUI_Framework.SuperNotifyIcon
                 get
                 {
                     if (IntPtr.Size == 8)
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt64())[1];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt64())[1];
                     else
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt32())[1];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt32())[1];
                 }
             }
         }

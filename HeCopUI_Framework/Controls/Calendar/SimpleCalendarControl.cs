@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls.Calendar
@@ -182,7 +181,7 @@ namespace HeCopUI_Framework.Controls.Calendar
 
         public SimpleCalendarControl()
         {
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
                           ControlStyles.ResizeRedraw |
                           ControlStyles.UserPaint, true);
 
@@ -345,7 +344,7 @@ namespace HeCopUI_Framework.Controls.Calendar
         {
             base.OnPaint(e);
             Graphics g = e.Graphics;
-      
+
             if (showYearChange == false)
             {
                 DrawNavigationButtons(g);
@@ -357,7 +356,7 @@ namespace HeCopUI_Framework.Controls.Calendar
             }
 
             using (var pen = new Pen(new SolidBrush(Color.Black), 1) { Alignment = System.Drawing.Drawing2D.PenAlignment.Inset })
-            g.DrawRectangle(pen, 1, 1, Width - 1, Height - 1);
+                g.DrawRectangle(pen, 1, 1, Width - 1, Height - 1);
         }
 
         void DrawNavigationButtons(Graphics g)

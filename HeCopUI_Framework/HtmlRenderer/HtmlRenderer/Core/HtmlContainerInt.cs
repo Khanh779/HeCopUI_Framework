@@ -966,8 +966,10 @@ namespace HeCopUI_Framework.HtmlRenderer.Core
                 }
                 else
                 {
-                    var nfo = new ProcessStartInfo(link.HrefLink);
-                    nfo.UseShellExecute = true;
+                    var nfo = new ProcessStartInfo(link.HrefLink)
+                    {
+                        UseShellExecute = true
+                    };
                     Process.Start(nfo);
                 }
             }

@@ -1,10 +1,8 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Helper;
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 using Brush = System.Drawing.Brush;
 using Color = System.Drawing.Color;
@@ -279,7 +277,7 @@ namespace HeCopUI_Framework.Controls.Button
         private void OnFrameChanged(object o, EventArgs e)
         {
 
-            this.Invalidate();
+            Invalidate();
         }
         public void AnimateImage()
         {
@@ -288,7 +286,7 @@ namespace HeCopUI_Framework.Controls.Button
             {
 
                 //Begin the animation only once.
-                ImageAnimator.Animate(BI, new EventHandler(this.OnFrameChanged));
+                ImageAnimator.Animate(BI, new EventHandler(OnFrameChanged));
                 currentlyAnimating = true;
             }
         }
@@ -414,8 +412,10 @@ namespace HeCopUI_Framework.Controls.Button
                 SF.Trimming = ST;
                 SF.Alignment = StringAlignment.Center;
                 SF.LineAlignment = StringAlignment.Near;
-                pen = new Pen(new SolidBrush(butDo ? BorderDownColor : butHo ? BorderHoverColor : BDC), BT);
-                pen.Alignment = PenAlignment.Inset;
+                pen = new Pen(new SolidBrush(butDo ? BorderDownColor : butHo ? BorderHoverColor : BDC), BT)
+                {
+                    Alignment = PenAlignment.Inset
+                };
 
                 g.FillPath(LB1, GP);
 
@@ -429,7 +429,7 @@ namespace HeCopUI_Framework.Controls.Button
                 }
                 catch { }
                 if (Text != String.Empty)
-                    g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(2 + textPadding.Left, textPadding.Top + (IS + ISi.Height + TOY), Width - 2 - textPadding.Right - textPadding.Left, (this.Height) - (IS + ISi.Height + TOY) - textPadding.Bottom - textPadding.Top), SF);
+                    g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(2 + textPadding.Left, textPadding.Top + (IS + ISi.Height + TOY), Width - 2 - textPadding.Right - textPadding.Left, (Height) - (IS + ISi.Height + TOY) - textPadding.Bottom - textPadding.Top), SF);
 
                 if (_animationManager.IsAnimating() && animationMode == Enums.AnimationMode.Ripple)
                 {

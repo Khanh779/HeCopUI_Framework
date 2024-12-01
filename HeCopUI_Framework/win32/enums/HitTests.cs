@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeCopUI_Framework.Win32.Enums
+﻿namespace HeCopUI_Framework.Win32.Enums
 {
     public enum HitTests : int
     {
@@ -37,7 +31,7 @@ namespace HeCopUI_Framework.Win32.Enums
         HTHSCROLL = 6,
         HTZOOM = 9,
         HTREDUCE = 8,
-        HTRESIZESTARTNUMBER= 10,
+        HTRESIZESTARTNUMBER = 10,
         HTRESIZEENDNUMBER = 17,
 
 

@@ -143,8 +143,8 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
                 {
                     _imageLoadHandler = new ImageLoadHandler(HtmlContainer, OnLoadImageComplete);
 
-                    if (this.Content != null && this.Content != CssConstants.Normal)
-                        _imageLoadHandler.LoadImage(this.Content, HtmlTag != null ? HtmlTag.Attributes : null);
+                    if (Content != null && Content != CssConstants.Normal)
+                        _imageLoadHandler.LoadImage(Content, HtmlTag != null ? HtmlTag.Attributes : null);
                     else
                         _imageLoadHandler.LoadImage(GetAttribute("src"), HtmlTag != null ? HtmlTag.Attributes : null);
                 }

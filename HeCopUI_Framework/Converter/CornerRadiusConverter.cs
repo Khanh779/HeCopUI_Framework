@@ -1,10 +1,9 @@
-﻿using System.ComponentModel.Design.Serialization;
-using System.ComponentModel;
-using System.Globalization;
+﻿using HeCopUI_Framework.Structs;
 using System;
-using HeCopUI_Framework.Structs;
-using System.Windows.Forms;
 using System.Collections;
+using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
+using System.Globalization;
 
 namespace HeCopUI_Framework.Converter
 {

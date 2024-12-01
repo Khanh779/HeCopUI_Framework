@@ -37,9 +37,9 @@ namespace HeCopUI_Framework.Controls.Progress
             {
                 case Enums.ProgressAnimationMode.Indeterminate:
                     int a = ((Or == Orientation.Horizontal) ? Width - 1 : Height - 1);
-                    if (locx >= a) locx = 0 - (int)(((PV - MV) * a) / MAV);
-                    else  locx += 2;
-                   
+                    if (locx >= a) locx = 0 - ((PV - MV) * a) / MAV;
+                    else locx += 2;
+
                     break;
                 case Enums.ProgressAnimationMode.Value:
                     if (AnV != PV)
@@ -108,8 +108,8 @@ namespace HeCopUI_Framework.Controls.Progress
                 switch (AnimationMode)
                 {
                     case Enums.ProgressAnimationMode.None:
-                        if(Or== Orientation.Horizontal)
-                        recPro.Width = (float)(((PV - MV) * recf.Width) / MAV);
+                        if (Or == Orientation.Horizontal)
+                            recPro.Width = (float)(((PV - MV) * recf.Width) / MAV);
                         else recPro.Height = (float)(((PV - MV) * recf.Height) / MAV);
                         break;
                     case Enums.ProgressAnimationMode.Value:
@@ -125,7 +125,7 @@ namespace HeCopUI_Framework.Controls.Progress
                     0.5f + (Or == Orientation.Horizontal ? locx : 0),
                     0.5f + (Or == Orientation.Vertical ? locx : 0),
                     (Or == Orientation.Horizontal ? 30 + locx : Width - 1),
-                    (Or == Orientation.Vertical ? 30 + locx : Height - 1)), Radius, 0):
+                    (Or == Orientation.Vertical ? 30 + locx : Height - 1)), Radius, 0) :
                     HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(recPro, Ra, 0))
                 {
                     GetAppResources.GetControlGraphicsEffect(g);
@@ -152,7 +152,7 @@ namespace HeCopUI_Framework.Controls.Progress
             get { return Or; }
             set
             {
-             
+
                 Or = value; Invalidate();
             }
         }
@@ -182,7 +182,7 @@ namespace HeCopUI_Framework.Controls.Progress
                     PV = MV;
                 }
                 if (value >= MV || value <= MAV) PV = value;
-                if(AnimationMode== Enums.ProgressAnimationMode.Value && IsHandleCreated) tmrIndi.Start();
+                if (AnimationMode == Enums.ProgressAnimationMode.Value && IsHandleCreated) tmrIndi.Start();
                 Invalidate();
             }
         }

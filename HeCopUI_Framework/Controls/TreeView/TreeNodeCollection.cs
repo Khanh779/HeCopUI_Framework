@@ -19,7 +19,7 @@ namespace HeCopUI_Framework.Controls.TreeView
         public TreeNodeCollection(TreeNode parentNode) : this()
         {
             this.parentNode = parentNode;
-            this.owner = parentNode?.Owner;
+            owner = parentNode?.Owner;
         }
 
         public TreeNodeCollection()

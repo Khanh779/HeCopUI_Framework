@@ -5,13 +5,10 @@
 */
 
 using HeCopUI_Framework.Enums;
-using HeCopUI_Framework.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
@@ -230,7 +227,7 @@ namespace HeCopUI_Framework.Components
                             avgR += pixel.R;
                             avgG += pixel.G;
                             avgB += pixel.B;
-                            avgA+= pixel.A;
+                            avgA += pixel.A;
                             blurPixelCount++;
                         }
                     }
@@ -243,7 +240,7 @@ namespace HeCopUI_Framework.Components
                     // now that we know the average for the surrounding pixels, set the pixel in the blurred image
                     for (var x = xx; x < xx + blurSize && x < image.Width && x < blurred.Width; x++)
                         for (var y = yy; y < yy + blurSize && y < image.Height && y < blurred.Height; y++)
-                            blurred.SetPixel(x, y, Color.FromArgb((int)avgA,(int)avgR, (int)avgG, (int)avgB));
+                            blurred.SetPixel(x, y, Color.FromArgb(avgA, avgR, avgG, avgB));
 
                 }
             }
@@ -366,7 +363,7 @@ namespace HeCopUI_Framework.Components
                 {
                     for (int x = 0; x < nWidth; ++x)
                     {
-                        nVal = (int)(p[0] + nBrightness);
+                        nVal = p[0] + nBrightness;
 
                         if (nVal < 0) nVal = 0;
                         if (nVal > 255) nVal = 255;
@@ -976,7 +973,7 @@ namespace HeCopUI_Framework.Components
                 pixelFormat = sourceBmp.PixelFormat;
 
                 // Create exBitmap, associating it with our pinned array so we can access the bitmap bits directly:
-                bytesPerPixel = System.Drawing. Image.GetPixelFormatSize(pixelFormat) / 8;
+                bytesPerPixel = System.Drawing.Image.GetPixelFormatSize(pixelFormat) / 8;
                 stride = Width * bytesPerPixel;
                 pinnedArray = new PinnedByteArray(stride * Height);
                 exBitmap = new Bitmap(Width, Height, stride, pixelFormat, pinnedArray.ptr);
@@ -1011,7 +1008,7 @@ namespace HeCopUI_Framework.Components
                 for (int yy = rectangle.Y; yy < rectangle.Y + rectangle.Height; yy++)
                 {
                     //byte red, green, blue;
-                    double avgA=0, avgR = 0, avgG = 0, avgB = 0;
+                    double avgA = 0, avgR = 0, avgG = 0, avgB = 0;
                     int blurPixelCount = 0;
                     int horizontalLocation;
                     int verticalLocation;
@@ -1039,7 +1036,7 @@ namespace HeCopUI_Framework.Components
                     double bavgr = (avgR / blurPixelCount);
                     double bavgg = (avgG / blurPixelCount);
                     double bavgb = (avgB / blurPixelCount);
-                    double bavga= (avgA / blurPixelCount);
+                    double bavga = (avgA / blurPixelCount);
 
                     // Now that we know the average for the blur size, set each pixel to that color
                     for (int x = xx; x < xx + blurSize && x < width && x < rectangle.Width; x++)
@@ -1070,13 +1067,13 @@ namespace HeCopUI_Framework.Components
 
         public KernelMode Kernel { get; set; } = KernelMode.BoxBlur;
 
-    
+
         public static Bitmap ApplyImageBlur(Bitmap sourceImage, int blurIntensity, KernelMode kernelMode)
         {
-            return ApplyConvolution(sourceImage, kernelMode== KernelMode.BoxBlur? GenerateBoxBlurKernel(blurIntensity) : GenerateGaussianKernel(blurIntensity) );
+            return ApplyConvolution(sourceImage, kernelMode == KernelMode.BoxBlur ? GenerateBoxBlurKernel(blurIntensity) : GenerateGaussianKernel(blurIntensity));
         }
 
-        static ParallelOptions po = new ParallelOptions() { MaxDegreeOfParallelism = Environment.ProcessorCount};
+        static ParallelOptions po = new ParallelOptions() { MaxDegreeOfParallelism = Environment.ProcessorCount };
 
         private static Bitmap ApplyConvolution(Bitmap sourceImage, double[,] kernel)
         {
@@ -1086,8 +1083,8 @@ namespace HeCopUI_Framework.Components
             result.MakeTransparent();
             int kernelSize = kernel.GetLength(0);
             int kernelRadius = kernelSize / 2;
-          
-            for(int y = 0; y < height; y++)
+
+            for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
@@ -1116,7 +1113,7 @@ namespace HeCopUI_Framework.Components
                 }
             };
 
-           
+
             return result;
         }
 
@@ -1128,10 +1125,10 @@ namespace HeCopUI_Framework.Components
             result.MakeTransparent();
             int kernelSize = kernel.GetLength(0);
             int kernelRadius = kernelSize / 2;
-            
+
             Parallel.For(0, height, po, y =>
             {
-                for(int x=0; x<width; x++)
+                for (int x = 0; x < width; x++)
                 {
                     double r = 0, g = 0, b = 0, a = 0;
                     for (int ky = -kernelRadius; ky <= kernelRadius; ky++)

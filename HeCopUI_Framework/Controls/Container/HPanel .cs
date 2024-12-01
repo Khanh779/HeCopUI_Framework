@@ -12,7 +12,7 @@ namespace HeCopUI_Framework.Controls.Container
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
             BackColor = Color.Transparent;
-          
+
         }
 
         private Color panelColor1 = Color.LightGray;
@@ -162,8 +162,8 @@ namespace HeCopUI_Framework.Controls.Container
                     GetAppResources.GetControlGraphicsEffect(e.Graphics);
                     // Vẽ shadow
                     shadowGraphics.FillPath(LB, gp);
-                    if(BorderThickness>0)
-                    shadowGraphics.DrawPath(new Pen(borderColor, bordw) { Alignment = PenAlignment.Inset }, gp);
+                    if (BorderThickness > 0)
+                        shadowGraphics.DrawPath(new Pen(borderColor, bordw) { Alignment = PenAlignment.Inset }, gp);
                 }
 
                 // Vẽ shadow lên đối tượng Graphics chính

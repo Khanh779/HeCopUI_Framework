@@ -213,17 +213,17 @@ namespace HeCopUI_Framework.Controls.Chart.FunnelChart
         /// </summary>
         public UCFunnelChart()
         {
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            this.SetStyle(ControlStyles.DoubleBuffer, true);
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            this.SetStyle(ControlStyles.Selectable, true);
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            this.SetStyle(ControlStyles.UserPaint, true);
-            this.FontChanged += UCFunnelChart_FontChanged;
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.Selectable, true);
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.UserPaint, true);
+            FontChanged += UCFunnelChart_FontChanged;
             Font = new Font("微软雅黑", 8);
 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.SizeChanged += UCFunnelChart_SizeChanged;
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            SizeChanged += UCFunnelChart_SizeChanged;
             Size = new System.Drawing.Size(150, 150);
             items = new FunelChartItem[0];
             if (!DesignMode)
@@ -267,31 +267,31 @@ namespace HeCopUI_Framework.Controls.Chart.FunnelChart
         {
             if (itemTextAlign == FunelChartAlignment.Center)
             {
-                m_rectWorking = new RectangleF(0, m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10), this.Width, this.Height - (m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10)));
+                m_rectWorking = new RectangleF(0, m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10), Width, Height - (m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10)));
             }
             else if (itemTextAlign == FunelChartAlignment.Left)
             {
                 float fltMax = 0;
                 if (items != null && items.Length > 0)
                 {
-                    using (Graphics g = this.CreateGraphics())
+                    using (Graphics g = CreateGraphics())
                     {
                         fltMax = items.Max(p => g.MeasureString(p.Text, Font).Width);
                     }
                 }
-                m_rectWorking = new RectangleF(fltMax, m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10), this.Width - fltMax, this.Height - (m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10)));
+                m_rectWorking = new RectangleF(fltMax, m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10), Width - fltMax, Height - (m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10)));
             }
             else
             {
                 float fltMax = 0;
                 if (items != null && items.Length > 0)
                 {
-                    using (Graphics g = this.CreateGraphics())
+                    using (Graphics g = CreateGraphics())
                     {
                         fltMax = items.Max(p => g.MeasureString(p.Text, Font).Width);
                     }
                 }
-                m_rectWorking = new RectangleF(0, m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10), this.Width - fltMax, this.Height - (m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10)));
+                m_rectWorking = new RectangleF(0, m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10), Width - fltMax, Height - (m_titleSize.Height == 0 ? 0 : (m_titleSize.Height + 10)));
             }
         }
 
@@ -301,59 +301,60 @@ namespace HeCopUI_Framework.Controls.Chart.FunnelChart
             #region Danh sách màu
             get
             {
-                List<Color> list = new List<Color>();
-                list.Add(Color.FromArgb(55, 162, 218));
-                list.Add(Color.FromArgb(50, 197, 233));
-                list.Add(Color.FromArgb(103, 224, 227));
-                list.Add(Color.FromArgb(159, 230, 184));
-                list.Add(Color.FromArgb(255, 219, 92));
-                list.Add(Color.FromArgb(255, 159, 127));
-                list.Add(Color.FromArgb(251, 114, 147));
-                list.Add(Color.FromArgb(224, 98, 174));
-                list.Add(Color.FromArgb(230, 144, 209));
-                list.Add(Color.FromArgb(231, 188, 243));
-                list.Add(Color.FromArgb(157, 150, 245));
-                list.Add(Color.FromArgb(131, 120, 234));
-                list.Add(Color.FromArgb(150, 191, 255));
-
-                list.Add(Color.FromArgb(243, 67, 54));
-                list.Add(Color.FromArgb(156, 39, 176));
-                list.Add(Color.FromArgb(103, 58, 183));
-                list.Add(Color.FromArgb(63, 81, 181));
-                list.Add(Color.FromArgb(33, 150, 243));
-                list.Add(Color.FromArgb(0, 188, 211));
-                list.Add(Color.FromArgb(3, 169, 244));
-                list.Add(Color.FromArgb(0, 150, 136));
-                list.Add(Color.FromArgb(139, 195, 74));
-                list.Add(Color.FromArgb(76, 175, 80));
-                list.Add(Color.FromArgb(204, 219, 57));
-                list.Add(Color.FromArgb(233, 30, 99));
-                list.Add(Color.FromArgb(254, 234, 59));
-                list.Add(Color.FromArgb(254, 192, 7));
-                list.Add(Color.FromArgb(254, 152, 0));
-                list.Add(Color.FromArgb(255, 87, 34));
-                list.Add(Color.FromArgb(121, 85, 72));
-                list.Add(Color.FromArgb(158, 158, 158));
-                list.Add(Color.FromArgb(96, 125, 139));
-                list.Add(Color.FromArgb(252, 117, 85));
-                list.Add(Color.FromArgb(172, 113, 191));
-                list.Add(Color.FromArgb(115, 131, 253));
-                list.Add(Color.FromArgb(78, 206, 255));
-                list.Add(Color.FromArgb(121, 195, 82));
-                list.Add(Color.FromArgb(255, 163, 28));
-                list.Add(Color.FromArgb(255, 185, 15));
-                list.Add(Color.FromArgb(255, 181, 197));
-                list.Add(Color.FromArgb(255, 110, 180));
-                list.Add(Color.FromArgb(255, 69, 0));
-                list.Add(Color.FromArgb(255, 48, 48));
-                list.Add(Color.FromArgb(154, 205, 50));
-                list.Add(Color.FromArgb(155, 205, 155));
-                list.Add(Color.FromArgb(154, 50, 205));
-                list.Add(Color.FromArgb(131, 111, 255));
-                list.Add(Color.FromArgb(124, 205, 124));
-                list.Add(Color.FromArgb(0, 206, 209));
-                list.Add(Color.FromArgb(0, 178, 238));
-                list.Add(Color.FromArgb(56, 142, 142));
+                List<Color> list = new List<Color>
+                {
+                    Color.FromArgb(55, 162, 218),
+                    Color.FromArgb(50, 197, 233),
+                    Color.FromArgb(103, 224, 227),
+                    Color.FromArgb(159, 230, 184),
+                    Color.FromArgb(255, 219, 92),
+                    Color.FromArgb(255, 159, 127),
+                    Color.FromArgb(251, 114, 147),
+                    Color.FromArgb(224, 98, 174),
+                    Color.FromArgb(230, 144, 209),
+                    Color.FromArgb(231, 188, 243),
+                    Color.FromArgb(157, 150, 245),
+                    Color.FromArgb(131, 120, 234),
+                    Color.FromArgb(150, 191, 255),
+                    Color.FromArgb(243, 67, 54),
+                    Color.FromArgb(156, 39, 176),
+                    Color.FromArgb(103, 58, 183),
+                    Color.FromArgb(63, 81, 181),
+                    Color.FromArgb(33, 150, 243),
+                    Color.FromArgb(0, 188, 211),
+                    Color.FromArgb(3, 169, 244),
+                    Color.FromArgb(0, 150, 136),
+                    Color.FromArgb(139, 195, 74),
+                    Color.FromArgb(76, 175, 80),
+                    Color.FromArgb(204, 219, 57),
+                    Color.FromArgb(233, 30, 99),
+                    Color.FromArgb(254, 234, 59),
+                    Color.FromArgb(254, 192, 7),
+                    Color.FromArgb(254, 152, 0),
+                    Color.FromArgb(255, 87, 34),
+                    Color.FromArgb(121, 85, 72),
+                    Color.FromArgb(158, 158, 158),
+                    Color.FromArgb(96, 125, 139),
+                    Color.FromArgb(252, 117, 85),
+                    Color.FromArgb(172, 113, 191),
+                    Color.FromArgb(115, 131, 253),
+                    Color.FromArgb(78, 206, 255),
+                    Color.FromArgb(121, 195, 82),
+                    Color.FromArgb(255, 163, 28),
+                    Color.FromArgb(255, 185, 15),
+                    Color.FromArgb(255, 181, 197),
+                    Color.FromArgb(255, 110, 180),
+                    Color.FromArgb(255, 69, 0),
+                    Color.FromArgb(255, 48, 48),
+                    Color.FromArgb(154, 205, 50),
+                    Color.FromArgb(155, 205, 155),
+                    Color.FromArgb(154, 50, 205),
+                    Color.FromArgb(131, 111, 255),
+                    Color.FromArgb(124, 205, 124),
+                    Color.FromArgb(0, 206, 209),
+                    Color.FromArgb(0, 178, 238),
+                    Color.FromArgb(56, 142, 142)
+                };
                 return list.ToArray();
             }
             #endregion
@@ -370,7 +371,7 @@ namespace HeCopUI_Framework.Controls.Chart.FunnelChart
             }
             else
             {
-                using (Graphics g = this.CreateGraphics())
+                using (Graphics g = CreateGraphics())
                 {
                     m_titleSize = g.MeasureString(title, titleFont);
                     m_titleSize.Height += 20;
@@ -391,12 +392,12 @@ namespace HeCopUI_Framework.Controls.Chart.FunnelChart
 
             if (!string.IsNullOrEmpty(title))
             {
-                g.DrawString(title, titleFont, new SolidBrush(titleForeColor), new RectangleF(0, 0, this.Width, m_titleSize.Height), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                g.DrawString(title, titleFont, new SolidBrush(titleForeColor), new RectangleF(0, 0, Width, m_titleSize.Height), new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             }
 
             if (items == null || items.Length <= 0)
             {
-                g.DrawString("没有数据", Font, new SolidBrush(Color.Black), this.m_rectWorking, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                g.DrawString("没有数据", Font, new SolidBrush(Color.Black), m_rectWorking, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
                 return;
             }
 
@@ -534,7 +535,7 @@ namespace HeCopUI_Framework.Controls.Chart.FunnelChart
                 }
                 else
                 {
-                    g.DrawString(lstItems[i].Text + (ShowValue ? lstItems[i].Value.ToString("\n" + valueFormat) : ""), Font, new SolidBrush((lstItems[i].TextForeColor == null || lstItems[i].TextForeColor == Color.Empty || lstItems[i].TextForeColor == Color.Transparent) ? lstItems[i].ValueColor.Value : lstItems[i].TextForeColor.Value), new RectangleF(rect.Right, rect.Top, this.Width - rect.Right, rect.Height), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
+                    g.DrawString(lstItems[i].Text + (ShowValue ? lstItems[i].Value.ToString("\n" + valueFormat) : ""), Font, new SolidBrush((lstItems[i].TextForeColor == null || lstItems[i].TextForeColor == Color.Empty || lstItems[i].TextForeColor == Color.Transparent) ? lstItems[i].ValueColor.Value : lstItems[i].TextForeColor.Value), new RectangleF(rect.Right, rect.Top, Width - rect.Right, rect.Height), new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
                     g.DrawLine(new Pen(new SolidBrush((lstItems[i].TextForeColor == null || lstItems[i].TextForeColor == Color.Empty || lstItems[i].TextForeColor == Color.Transparent) ? lstItems[i].ValueColor.Value : lstItems[i].TextForeColor.Value)), rect.Left + rect.Width / 2, rect.Top + rect.Height / 2, rect.Right, rect.Top + rect.Height / 2);
                 }
             }

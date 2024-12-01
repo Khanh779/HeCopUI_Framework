@@ -1,5 +1,4 @@
 ﻿using HeCopUI_Framework.Animations;
-using HeCopUI_Framework.Enums;
 using HeCopUI_Framework.Helper;
 using System;
 using System.ComponentModel;
@@ -926,8 +925,10 @@ namespace HeCopUI_Framework.Controls.TextControls
 
                     g.TextRenderingHint = trd;
 
-                    StringFormat sf = new StringFormat();
-                    sf.LineAlignment = StringAlignment.Center;
+                    StringFormat sf = new StringFormat
+                    {
+                        LineAlignment = StringAlignment.Center
+                    };
                     switch (_textAlign)
                     {
                         case HorizontalAlignment.Left:

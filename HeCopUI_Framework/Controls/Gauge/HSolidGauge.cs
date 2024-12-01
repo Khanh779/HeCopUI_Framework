@@ -17,8 +17,10 @@ namespace HeCopUI_Framework.Controls.Gauge
             DoubleBuffered = true;
             //ForeColor = Color.FromArgb(64, 64, 64);
             Size = new Size(91, 54);
-            timerAni = new Timer();
-            timerAni.Interval = Interval;
+            timerAni = new Timer
+            {
+                Interval = Interval
+            };
             timerAni.Tick += TimerAni_Tick;
 
             BackColor = Color.Transparent;
@@ -132,9 +134,9 @@ namespace HeCopUI_Framework.Controls.Gauge
                     }
                     else AniVa = value; timerAni.Start();
                 }
-                if (this.ValueChanged != null)
+                if (ValueChanged != null)
                 {
-                    this.ValueChanged(this, EventArgs.Empty);
+                    ValueChanged(this, EventArgs.Empty);
                 }
                 Invalidate();
             }
@@ -264,7 +266,7 @@ namespace HeCopUI_Framework.Controls.Gauge
         {
             GetAppResources.GetControlGraphicsEffect(e.Graphics);
             e.Graphics.TextRenderingHint = TextRenderHint;
-            using (Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format64bppPArgb))
+            using (Bitmap bitmap = new Bitmap(Width, Height, System.Drawing.Imaging.PixelFormat.Format64bppPArgb))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
@@ -272,22 +274,22 @@ namespace HeCopUI_Framework.Controls.Gauge
                     graphics.TextRenderingHint = TextRenderHint;
                     Brush brush = null;
                     if (gaugeMode == GaugeType.Gradient)
-                        brush = new LinearGradientBrush(this.ClientRectangle, this._GaugeColor1, this._GaugeColor2, LBV);
+                        brush = new LinearGradientBrush(ClientRectangle, _GaugeColor1, _GaugeColor2, LBV);
                     if (gaugeMode == GaugeType.Transition)
                     {
-                        double blend = (int)(255 * _Value / MaximumValue);
+                        double blend = 255 * _Value / MaximumValue;
                         brush = new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(GaugeColor1, GaugeColor2, blend));
                     }
-                    using (Pen pen = new Pen(brush, (int)BT))
-                    using (Pen BasePen = new Pen(new SolidBrush(BG), (int)BT - 1.5f))
+                    using (Pen pen = new Pen(brush, BT))
+                    using (Pen BasePen = new Pen(new SolidBrush(BG), BT - 1.5f))
                     {
                         BasePen.StartCap = BasePen.EndCap = LC;
-                        graphics.DrawArc(BasePen, 10, 10, (this.Width - 20) - 2, (this.Height - 20) - 2, 135, 270);
+                        graphics.DrawArc(BasePen, 10, 10, (Width - 20) - 2, (Height - 20) - 2, 135, 270);
                         pen.StartCap = pen.EndCap = LC;
-                        graphics.DrawArc(pen, 10, 10, (this.Width - 20) - 2, (this.Height - 20) - 2, 135, this._Value * 270 / m_MaxValue);
+                        graphics.DrawArc(pen, 10, 10, (Width - 20) - 2, (Height - 20) - 2, 135, _Value * 270 / m_MaxValue);
                     }
 
-                    Single brushAngle = (int)(m_BaseArcStart + (_Value - m_MinValue) * m_BaseArcSweep / (m_MaxValue - m_MinValue)) % 360;
+                    Single brushAngle = (m_BaseArcStart + (_Value - m_MinValue) * m_BaseArcSweep / (m_MaxValue - m_MinValue)) % 360;
                     if (brushAngle < 0) brushAngle += 360;
                     Double needleAngle = brushAngle * Math.PI / 180;
                     #region Needle
@@ -295,7 +297,7 @@ namespace HeCopUI_Framework.Controls.Gauge
                     switch (NeedleHeight)
                     {
                         case NeedleLongType.Custom:
-                            needleRadius = (int)(needleLong);
+                            needleRadius = needleLong;
                             break;
                         case NeedleLongType.Auto:
                             needleRadius = Width / 2 - SolidGaugeWidth;
@@ -342,22 +344,22 @@ namespace HeCopUI_Framework.Controls.Gauge
 
 
                     #region MajorLocation
-                 
+
                     // Vẽ các chỉ số trên đường tròn, dựa trên numberOfDivisions theo đường vòng cung
                     for (int i = 0; i <= numberOfDivisions; i++)
                     {
-                        Single minAngle = (int)(m_BaseArcStart + (i * 10) * m_BaseArcSweep / (100 - 0)) % 360;
+                        Single minAngle = (m_BaseArcStart + (i * 10) * m_BaseArcSweep / (100 - 0)) % 360;
                         if (minAngle < 0) minAngle += 360;
                         Double aneedleAngle = minAngle * Math.PI / 180;
 
                         // Giảm bán kính với hệ số chung
-                        int smallerRadius = Width / 2- SolidGaugeWidth -16;
+                        int smallerRadius = Width / 2 - SolidGaugeWidth - 16;
                         PointF minPoint = new PointF((float)(Width / 2 + smallerRadius * Math.Cos(aneedleAngle)), (float)(Height / 2 + smallerRadius * Math.Sin(aneedleAngle)));
 
                         if (ShowMajor == true)
                         {
                             //SizeF minRe = graphics.MeasureString(m_MinValue.ToString(), Font);
-                            e.Graphics.DrawString((i * 10).ToString(), new Font(Font.Name, 8), new SolidBrush(ForeColor), minPoint.X- SolidGaugeWidth/2-2, minPoint.Y +SolidGaugeWidth/2- 14);
+                            e.Graphics.DrawString((i * 10).ToString(), new Font(Font.Name, 8), new SolidBrush(ForeColor), minPoint.X - SolidGaugeWidth / 2 - 2, minPoint.Y + SolidGaugeWidth / 2 - 14);
                         }
                     }
 

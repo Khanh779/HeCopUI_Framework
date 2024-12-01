@@ -1,16 +1,13 @@
 ﻿using HeCopUI_Framework.Animations;
 using HeCopUI_Framework.Enums;
-using HeCopUI_Framework.Helper;
 using HeCopUI_Framework.Structs;
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Windows.Media;
 using Brush = System.Drawing.Brush;
 using Color = System.Drawing.Color;
 using DashStyle = System.Drawing.Drawing2D.DashStyle;
@@ -75,7 +72,7 @@ namespace HeCopUI_Framework.Controls.Button
         /// <summary>
         /// Gets or sets the color of the button when the mouse is over the button.
         /// </summary>
-        [Description("Gets or sets the color of the button when the mouse is over the button.")]                     
+        [Description("Gets or sets the color of the button when the mouse is over the button.")]
         public Color BackHoverColor1 { get; set; } = Global.PrimaryColors.BackHoverColor1;
 
         //Global.PrimaryColors.BackHoverColor1
@@ -308,13 +305,13 @@ namespace HeCopUI_Framework.Controls.Button
         /// Gets or sets radius of HButton.
         /// </summary>
         [Description("Gets or sets radius of HButton.")]
-    
+
         public CornerRadius Radius
         {
             get { return radius; }
             set
             {
-               
+
                 radius = value; Invalidate();
             }
         }
@@ -428,8 +425,10 @@ namespace HeCopUI_Framework.Controls.Button
                 }
 
                 g.DrawString(Text, Font, sbText, RF, SF);
-                Pen pen = new Pen(new SolidBrush(ButDo ? BorderDownColor : ButHo ? BorderHoverColor : BorderColor), BT);
-                pen.Alignment = PenAlignment.Inset;
+                Pen pen = new Pen(new SolidBrush(ButDo ? BorderDownColor : ButHo ? BorderHoverColor : BorderColor), BT)
+                {
+                    Alignment = PenAlignment.Inset
+                };
                 if (Radius.All == 0) g.SmoothingMode = SmoothingMode.Default;
                 if (BT != 0) g.DrawPath(pen, GP);
                 g.SmoothingMode = SmoothingMode.HighQuality;
@@ -539,14 +538,14 @@ namespace HeCopUI_Framework.Controls.Button
         bool currentlyAnimating = false;
         private void OnFrameChanged(object o, EventArgs e)
         {
-            this.Invalidate();
+            Invalidate();
         }
 
         private void AnimateImage()
         {
             if (!currentlyAnimating)
             {
-                ImageAnimator.Animate(image, new EventHandler(this.OnFrameChanged));
+                ImageAnimator.Animate(image, new EventHandler(OnFrameChanged));
                 currentlyAnimating = true;
             }
         }
@@ -646,7 +645,7 @@ namespace HeCopUI_Framework.Controls.Button
             if (IsAutoSize == true)
             {
                 SizeF n = TextRenderer.MeasureText(Text, Font);
-                Size = new Size((int)n.Width + (int)Padding.All, (int)n.Height + Padding.All);
+                Size = new Size((int)n.Width + Padding.All, (int)n.Height + Padding.All);
             }
 
             _animationManager.OnAnimationProgress += _animationManager_OnAnimationProgress;

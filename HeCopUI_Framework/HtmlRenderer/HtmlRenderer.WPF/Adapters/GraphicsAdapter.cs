@@ -81,10 +81,12 @@ namespace HeCopUI_Framework.HtmlRenderer.WPF.Adapters
 
         public override void PushClipExclude(RRect rect)
         {
-            var geometry = new CombinedGeometry();
-            geometry.Geometry1 = new RectangleGeometry(Utils.Convert(_clipStack.Peek()));
-            geometry.Geometry2 = new RectangleGeometry(Utils.Convert(rect));
-            geometry.GeometryCombineMode = GeometryCombineMode.Exclude;
+            var geometry = new CombinedGeometry
+            {
+                Geometry1 = new RectangleGeometry(Utils.Convert(_clipStack.Peek())),
+                Geometry2 = new RectangleGeometry(Utils.Convert(rect)),
+                GeometryCombineMode = GeometryCombineMode.Exclude
+            };
 
             _clipStack.Push(_clipStack.Peek());
             _g.PushClip(geometry);
@@ -224,12 +226,14 @@ namespace HeCopUI_Framework.HtmlRenderer.WPF.Adapters
 
         public override RBrush GetTextureBrush(RImage image, RRect dstRect, RPoint translateTransformLocation)
         {
-            var brush = new ImageBrush(((ImageAdapter)image).Image);
-            brush.Stretch = Stretch.None;
-            brush.TileMode = TileMode.Tile;
-            brush.Viewport = Utils.Convert(dstRect);
-            brush.ViewportUnits = BrushMappingMode.Absolute;
-            brush.Transform = new TranslateTransform(translateTransformLocation.X, translateTransformLocation.Y);
+            var brush = new ImageBrush(((ImageAdapter)image).Image)
+            {
+                Stretch = Stretch.None,
+                TileMode = TileMode.Tile,
+                Viewport = Utils.Convert(dstRect),
+                ViewportUnits = BrushMappingMode.Absolute,
+                Transform = new TranslateTransform(translateTransformLocation.X, translateTransformLocation.Y)
+            };
             brush.Freeze();
             return new BrushAdapter(brush);
         }

@@ -1,5 +1,4 @@
-﻿using HeCopUI_Framework.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -142,11 +141,13 @@ namespace HeCopUI_Framework
                 Point topPos = new
                     Point(control.Left, control.Top);
 
-                HeCopUI_Framework.Win32.Struct.BLENDFUNCTION blend = new HeCopUI_Framework.Win32.Struct.BLENDFUNCTION();
-                blend.BlendOp = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_OVER;
-                blend.BlendFlags = 0;
-                blend.SourceConstantAlpha = 255;
-                blend.AlphaFormat = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_ALPHA;
+                HeCopUI_Framework.Win32.Struct.BLENDFUNCTION blend = new HeCopUI_Framework.Win32.Struct.BLENDFUNCTION
+                {
+                    BlendOp = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_OVER,
+                    BlendFlags = 0,
+                    SourceConstantAlpha = 255,
+                    AlphaFormat = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_ALPHA
+                };
                 HeCopUI_Framework.Win32.User32.UpdateLayeredWindow(control.Handle, screenDC, ref topPos, ref size, memDC, ref pointSource, 0, ref blend, (int)HeCopUI_Framework.Win32.Enums.UpdateLayeredWindows.ULW_ALPHA);
             }
             catch
@@ -199,7 +200,7 @@ namespace HeCopUI_Framework
                 }
                 if (bitmap != null)
                 {
-                    g.DrawImage((Image)bitmap, control.ClientRectangle, rectangle, (GraphicsUnit)GraphicsUnit.Pixel);
+                    g.DrawImage(bitmap, control.ClientRectangle, rectangle, GraphicsUnit.Pixel);
                     bitmap.Dispose();
                 }
             }
@@ -515,7 +516,7 @@ namespace HeCopUI_Framework
         /// http://wyupdate.googlecode.com/svn-history/r401/trunk/frmFilesInUse.cs (no copyright in code at time of viewing)
         /// 
         /// </remarks>
-        static public List<Process> WhoIsLocking(string path)
+        public static List<Process> WhoIsLocking(string path)
         {
             uint handle;
             string key = Guid.NewGuid().ToString();

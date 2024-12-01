@@ -135,9 +135,11 @@ namespace HeCopUI_Framework.AnimatorNS
         private void Start()
         {
             //main working thread
-            thread = new Thread(Work);
-            thread.IsBackground = true;
-            thread.Name = "Animator thread";
+            thread = new Thread(Work)
+            {
+                IsBackground = true,
+                Name = "Animator thread"
+            };
             thread.Start();
         }
         class a : Control
@@ -154,8 +156,10 @@ namespace HeCopUI_Framework.AnimatorNS
         {
             timer.Stop();
             //create invoker in main UI therad
-            invokerControl = new a();
-            invokerControl.BackColor = Color.Transparent;
+            invokerControl = new a
+            {
+                BackColor = Color.Transparent
+            };
             invokerControl.CreateControl();
             //
             Start();

@@ -167,10 +167,12 @@ namespace HeCopUI_Framework.HtmlRenderer.WPF.Adapters
 
         protected override void SaveToFileInt(RImage image, string name, string extension, RControl control = null)
         {
-            var saveDialog = new SaveFileDialog();
-            saveDialog.Filter = "Images|*.png;*.bmp;*.jpg;*.tif;*.gif;*.wmp;";
-            saveDialog.FileName = name;
-            saveDialog.DefaultExt = extension;
+            var saveDialog = new SaveFileDialog
+            {
+                Filter = "Images|*.png;*.bmp;*.jpg;*.tif;*.gif;*.wmp;",
+                FileName = name,
+                DefaultExt = extension
+            };
 
             var dialogResult = saveDialog.ShowDialog();
             if (dialogResult.GetValueOrDefault())

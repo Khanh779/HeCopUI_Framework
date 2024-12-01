@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualBasic.Logging;
-using HeCopUI_Framework.Components;
 
 namespace HeCopUI_Framework.Effects
 {
@@ -39,8 +32,10 @@ namespace HeCopUI_Framework.Effects
             //};
 
             // Áp dụng độ mờ cho shadow
-            ColorMatrix colorMatrix = new ColorMatrix();
-            colorMatrix.Matrix33 = opacity;
+            ColorMatrix colorMatrix = new ColorMatrix
+            {
+                Matrix33 = opacity
+            };
 
             ImageAttributes imageAttributes = new ImageAttributes();
             imageAttributes.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
@@ -53,7 +48,7 @@ namespace HeCopUI_Framework.Effects
             return bitmap;
         }
 
-       
+
 
     }
 }

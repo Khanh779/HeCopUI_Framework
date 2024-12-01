@@ -48,16 +48,16 @@ namespace HeCopUI_Framework.Controls.Progress
         public HCircularProgressBar2()
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
-            this.BackColor = SystemColors.Control;
-            this.ForeColor = Color.DimGray;
+            BackColor = SystemColors.Control;
+            ForeColor = Color.DimGray;
 
-            this.Size = new Size(130, 130);
-            this.Font = new Font("Segoe UI", 15);
-            this.MinimumSize = new Size(100, 100);
-            this.DoubleBuffered = true;
+            Size = new Size(130, 130);
+            Font = new Font("Segoe UI", 15);
+            MinimumSize = new Size(100, 100);
+            DoubleBuffered = true;
 
-            this.LineWidth = 1;
-            this.LineColor = Color.DimGray;
+            LineWidth = 1;
+            LineColor = Color.DimGray;
 
             Value = 57;
             ProgressShape = ProgressShapeType.Flat;
@@ -216,13 +216,13 @@ namespace HeCopUI_Framework.Controls.Progress
 
         public void Increment(int Val)
         {
-            this._Value += Val;
+            _Value += Val;
             Invalidate();
         }
 
         public void Decrement(int Val)
         {
-            this._Value -= Val;
+            _Value -= Val;
             Invalidate();
         }
         #endregion
@@ -232,7 +232,7 @@ namespace HeCopUI_Framework.Controls.Progress
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            using (Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format64bppPArgb))
+            using (Bitmap bitmap = new Bitmap(Width, Height, System.Drawing.Imaging.PixelFormat.Format64bppPArgb))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
@@ -246,29 +246,29 @@ namespace HeCopUI_Framework.Controls.Progress
                     PaintTransparentBackground(this, e);
 
                     //Dibuja el circulo blanco interior:
-                    using (Brush mBackColor = new SolidBrush(this.BackColor))
+                    using (Brush mBackColor = new SolidBrush(BackColor))
                     {
                         graphics.FillEllipse(mBackColor,
                                 18, 18,
-                                (this.Width - 0x30) + 12,
-                                (this.Height - 0x30) + 12);
+                                (Width - 0x30) + 12,
+                                (Height - 0x30) + 12);
                     }
                     // Dibuja la delgada Linea gris del medio:
-                    using (Pen pen2 = new Pen(LineColor, this.LineWidth))
+                    using (Pen pen2 = new Pen(LineColor, LineWidth))
                     {
                         graphics.DrawEllipse(pen2,
                             18, 18,
-                          (this.Width - 0x30) + 12,
-                          (this.Height - 0x30) + 12);
+                          (Width - 0x30) + 12,
+                          (Height - 0x30) + 12);
                     }
 
                     //Dibuja la Barra de Progreso
-                    using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
-                        this._ProgressColor1, this._ProgressColor2, this.GradientMode))
+                    using (LinearGradientBrush brush = new LinearGradientBrush(ClientRectangle,
+                        _ProgressColor1, _ProgressColor2, GradientMode))
                     {
-                        using (Pen pen = new Pen(brush, this.BarWidth))
+                        using (Pen pen = new Pen(brush, BarWidth))
                         {
-                            switch (this.ProgressShapeVal)
+                            switch (ProgressShapeVal)
                             {
                                 case ProgressShapeType.Round:
                                     pen.StartCap = LineCap.Round;
@@ -284,42 +284,42 @@ namespace HeCopUI_Framework.Controls.Progress
                             //Aqui se dibuja realmente la Barra de Progreso
                             graphics.DrawArc(pen,
                                 0x12, 0x12,
-                                (this.Width - 0x23) - 2,
-                                (this.Height - 0x23) - 2,
+                                (Width - 0x23) - 2,
+                                (Height - 0x23) - 2,
                                 -90,
-                                (int)Math.Round((double)((360.0 / ((double)this._Maximum)) * this._Value)));
+                                (int)Math.Round((double)((360.0 / _Maximum) * _Value)));
                         }
                     }
 
                     #region Dibuja el Texto de Progreso
 
-                    switch (this.TextMode)
+                    switch (TextMode)
                     {
                         case TextModeVisible.None:
-                            this.Text = string.Empty;
+                            Text = string.Empty;
                             break;
 
                         case TextModeVisible.Value:
-                            this.Text = _Value.ToString();
+                            Text = _Value.ToString();
                             break;
 
                         case TextModeVisible.Percentage:
-                            this.Text = Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)) + "%";
+                            Text = Convert.ToString(Convert.ToInt32((100 / _Maximum) * _Value)) + "%";
                             break;
 
                         default:
                             break;
                     }
 
-                    if (this.Text != string.Empty)
+                    if (Text != string.Empty)
                     {
-                        using (Brush FontColor = new SolidBrush(this.ForeColor))
+                        using (Brush FontColor = new SolidBrush(ForeColor))
                         {
-                            SizeF MS = graphics.MeasureString(this.Text, this.Font);
+                            SizeF MS = graphics.MeasureString(Text, Font);
 
 
                             //Texto del Control:
-                            graphics.DrawString(this.Text, this.Font, FontColor,
+                            graphics.DrawString(Text, Font, FontColor,
                                 Convert.ToInt32(Width / 2 - MS.Width / 2),
                                 Convert.ToInt32(Height / 2 - MS.Height / 2));
                         }

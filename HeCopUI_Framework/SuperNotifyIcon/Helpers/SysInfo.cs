@@ -22,7 +22,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
 {
     internal static class SysInfo
     {
-        private readonly static bool _isWindowsNT = Environment.OSVersion.Platform == PlatformID.Win32NT;
+        private static readonly bool _isWindowsNT = Environment.OSVersion.Platform == PlatformID.Win32NT;
 
         public static bool IsWindowsVistaOrLater
         {

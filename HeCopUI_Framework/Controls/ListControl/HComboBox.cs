@@ -84,10 +84,12 @@ namespace HeCopUI_Framework.Controls.ListControl
                 return;
             }
 
-            var sf = new StringFormat();
-            sf.Alignment = StringAlignment.Near;
-            sf.LineAlignment = StringAlignment.Center;
-            sf.Trimming = st;
+            var sf = new StringFormat
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center,
+                Trimming = st
+            };
 
             var itemState = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
             using (var bg = new SolidBrush(itemState ? SelectedItemBackColor : BackgroundColor))
@@ -211,9 +213,11 @@ namespace HeCopUI_Framework.Controls.ListControl
             var g = e.Graphics;
             var rect = new Rectangle(0, 0, Width - 1, Height - 1);
             var downArrow = '▼';
-            var sf = new StringFormat();
-            sf.Alignment = StringAlignment.Near;
-            sf.LineAlignment = StringAlignment.Center;
+            var sf = new StringFormat
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center
+            };
             g.TextRenderingHint = textRendering;
             sf.Trimming = st;
 

@@ -2,14 +2,12 @@
 using System;
 using System.ComponentModel;
 using System.Globalization;
-using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 
 namespace HeCopUI_Framework.Structs
 {
     [Serializable]
     [TypeConverter(typeof(CornerRadiusConverter))]
-    public struct CornerRadius : IEquatable<CornerRadius>
+    public struct CornerRadius
     {
         private bool _all;
 
@@ -121,7 +119,7 @@ namespace HeCopUI_Framework.Structs
             return obj is CornerRadius other && this == other;
         }
 
-     
+
 
         public override int GetHashCode()
         {

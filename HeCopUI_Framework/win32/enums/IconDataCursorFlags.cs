@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeCopUI_Framework.Win32.Enums
+﻿namespace HeCopUI_Framework.Win32.Enums
 {
     public enum IconDataCursorFlags
     {
-        IDC_HAND= 0x7F89,
+        IDC_HAND = 0x7F89,
         IDC_APPSTARTING = 0x7F8A,
         IDC_ARROW = 0x7F00,
         IDC_CROSS = 0x7F03,

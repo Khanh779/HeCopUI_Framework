@@ -52,8 +52,8 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             mouseDownTimer.Stop();
 
             // TODO: detect scroll wheel clicks (last param of MouseEventArgs)
-            if (this.MouseHoldTimeout != null)
-                this.MouseHoldTimeout(this, new MouseEventArgs(mouseHoldWhich, 1, Cursor.Position.X, Cursor.Position.Y, 0));
+            if (MouseHoldTimeout != null)
+                MouseHoldTimeout(this, new MouseEventArgs(mouseHoldWhich, 1, Cursor.Position.X, Cursor.Position.Y, 0));
         }
 
         void MouseHook_MouseDown(object sender, MouseEventArgs e)
@@ -61,8 +61,8 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             mouseHoldWhich = e.Button;
             mouseDownTimer.Start();
 
-            if (this.MouseDown != null)
-                this.MouseDown(this, e);
+            if (MouseDown != null)
+                MouseDown(this, e);
         }
 
         void MouseHook_MouseUp(object sender, MouseEventArgs e)
@@ -70,8 +70,8 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             mouseHoldWhich = MouseButtons.None;
             mouseDownTimer.Stop();
 
-            if (this.MouseUp != null)
-                this.MouseUp(this, e);
+            if (MouseUp != null)
+                MouseUp(this, e);
         }
     }
 }

@@ -127,13 +127,13 @@ namespace HeCopUI_Framework.Controls.Progress
 
         public void Increment(int Val)
         {
-            this._Value += Val;
+            _Value += Val;
             Invalidate();
         }
 
         public void Decrement(int Val)
         {
-            this._Value -= Val;
+            _Value -= Val;
             Invalidate();
         }
 
@@ -179,7 +179,7 @@ namespace HeCopUI_Framework.Controls.Progress
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            using (Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format64bppPArgb))
+            using (Bitmap bitmap = new Bitmap(Width, Height, System.Drawing.Imaging.PixelFormat.Format64bppPArgb))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
@@ -187,12 +187,12 @@ namespace HeCopUI_Framework.Controls.Progress
                     GetAppResources.GetControlGraphicsEffect(graphics);
                     graphics.TextRenderingHint = TextRenderHint;
                     graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    graphics.Clear(this.BackColor);
-                    using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, this._ProgressColor1, this._ProgressColor2, LinearGradientMode.ForwardDiagonal))
+                    graphics.Clear(BackColor);
+                    using (LinearGradientBrush brush = new LinearGradientBrush(ClientRectangle, _ProgressColor1, _ProgressColor2, LinearGradientMode.ForwardDiagonal))
                     {
                         using (Pen pen = new Pen(brush, bordw))
                         {
-                            switch (this.ProgressShapeVal)
+                            switch (ProgressShapeVal)
                             {
                                 case _ProgressShape.Round:
                                     pen.StartCap = LineCap.Round;
@@ -204,12 +204,12 @@ namespace HeCopUI_Framework.Controls.Progress
                                     pen.EndCap = LineCap.Flat;
                                     break;
                             }
-                            graphics.DrawArc(pen, 0x12, 0x12, (this.Width - 0x23) - 2, (this.Height - 0x23) - 2, -90, (int)Math.Round((double)((360.0 / ((double)this._Maximum)) * this._Value)));
+                            graphics.DrawArc(pen, 0x12, 0x12, (Width - 0x23) - 2, (Height - 0x23) - 2, -90, (int)Math.Round((double)((360.0 / _Maximum) * _Value)));
                         }
                     }
-                    using (LinearGradientBrush brush2 = new LinearGradientBrush(this.ClientRectangle, CenteC1, CenteC2, LinearGradientMode.Vertical))
+                    using (LinearGradientBrush brush2 = new LinearGradientBrush(ClientRectangle, CenteC1, CenteC2, LinearGradientMode.Vertical))
                     {
-                        graphics.FillEllipse(brush2, 0x18, 0x18, (this.Width - 0x30) - 1, (this.Height - 0x30) - 1);
+                        graphics.FillEllipse(brush2, 0x18, 0x18, (Width - 0x30) - 1, (Height - 0x30) - 1);
                     }
 
                     StringFormat SF = new StringFormat();

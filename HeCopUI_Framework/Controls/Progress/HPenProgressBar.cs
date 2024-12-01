@@ -120,14 +120,18 @@ namespace HeCopUI_Framework.Controls.Progress
             //g.FillRectangle(new SolidBrush(trackColor), new RectangleF(Width / 2 - _TS / 2, 2, _TS, Height - 6));
             LinearGradientBrush B1 = new LinearGradientBrush(ClientRectangle, trackColor1, trackColor2, LB);
             LinearGradientBrush B2 = new LinearGradientBrush(ClientRectangle, trackcolor1, trackcolor2, LB1);
-            Pen pen = new Pen(B1, Pri);
-            pen.StartCap = startpen;
-            pen.EndCap = endpen;
-            pen.DashStyle = TDS;
-            Pen pent = new Pen((B2), Pri);
-            pent.StartCap = startpenv;
-            pent.EndCap = endpenv;
-            pent.DashStyle = TDS;
+            Pen pen = new Pen(B1, Pri)
+            {
+                StartCap = startpen,
+                EndCap = endpen,
+                DashStyle = TDS
+            };
+            Pen pent = new Pen((B2), Pri)
+            {
+                StartCap = startpenv,
+                EndCap = endpenv,
+                DashStyle = TDS
+            };
 
             g.DrawLine(pen, new PointF(6, Height / 2), new PointF(Width - 6, Height / 2));
             g.DrawLine(pent, new PointF(6, Height / 2), new PointF(6 + _Value * (Width - 6) / MaximumValue, Height / 2));

@@ -22,8 +22,8 @@ namespace HeCopUI_Framework.AnimatorNS
 
         public DecorationControl(DecorationType type, Control decoratedControl)
         {
-            this.DecorationType = type;
-            this.DecoratedControl = decoratedControl;
+            DecorationType = type;
+            DecoratedControl = decoratedControl;
 
             decoratedControl.VisibleChanged += new EventHandler(control_VisibleChanged);
             decoratedControl.ParentChanged += new EventHandler(control_VisibleChanged);
@@ -37,8 +37,10 @@ namespace HeCopUI_Framework.AnimatorNS
             //BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             InitPadding();
 
-            tm = new Timer();
-            tm.Interval = 100;
+            tm = new Timer
+            {
+                Interval = 100
+            };
             tm.Tick += new EventHandler(tm_Tick);
             tm.Enabled = true;
         }
@@ -104,9 +106,9 @@ namespace HeCopUI_Framework.AnimatorNS
 
         private void Init()
         {
-            this.Parent = DecoratedControl.Parent;
-            this.Visible = DecoratedControl.Visible;
-            this.Location = new Point(DecoratedControl.Left - Padding.Left, DecoratedControl.Top - Padding.Top);
+            Parent = DecoratedControl.Parent;
+            Visible = DecoratedControl.Visible;
+            Location = new Point(DecoratedControl.Left - Padding.Left, DecoratedControl.Top - Padding.Top);
 
 
             if (Parent != null)
@@ -118,7 +120,7 @@ namespace HeCopUI_Framework.AnimatorNS
             var newSize = new Size(DecoratedControl.Width + Padding.Left + Padding.Right, DecoratedControl.Height + Padding.Top + Padding.Bottom);
             if (newSize != Size)
             {
-                this.Size = newSize;
+                Size = newSize;
             }
         }
 
@@ -126,7 +128,7 @@ namespace HeCopUI_Framework.AnimatorNS
 
         protected virtual Bitmap GetForeground(Control ctrl)
         {
-            Bitmap bmp = new Bitmap(this.Width, this.Height);
+            Bitmap bmp = new Bitmap(Width, Height);
 
             if (!ctrl.IsDisposed)
             {

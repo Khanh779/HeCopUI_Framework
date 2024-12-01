@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls.Effect
 {
-    public partial class HEffectImage:Control
+    public partial class HEffectImage : Control
     {
         public HEffectImage()
         {
-            SetStyle(ControlStyles.SupportsTransparentBackColor| ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
         }
 
         int _intensity = 100;
@@ -29,14 +24,14 @@ namespace HeCopUI_Framework.Controls.Effect
             set { _targetColor = value; Invalidate(); }
         }
 
-        Image _image=null;
+        Image _image = null;
         public Image Image
         {
             get { return _image; }
             set { _image = value; Invalidate(); }
         }
 
-        Size _size= new Size(100, 100);
+        Size _size = new Size(100, 100);
         public Size ImageSize
         {
             get { return _size; }
@@ -59,7 +54,7 @@ namespace HeCopUI_Framework.Controls.Effect
             base.OnPaint(e);
         }
 
-        private  void ApplyLightEffect(Graphics g, int centerX, int centerY, int lightRadius, int lightIntensity)
+        private void ApplyLightEffect(Graphics g, int centerX, int centerY, int lightRadius, int lightIntensity)
         {
             using (Bitmap lightBitmap = new Bitmap(2 * lightRadius, 2 * lightRadius))
             {

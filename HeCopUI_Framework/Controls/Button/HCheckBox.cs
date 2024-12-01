@@ -17,7 +17,7 @@ namespace HeCopUI_Framework.Controls.Button
         Color enabledTextColor = ColorTranslator.FromHtml("#999999");
         Color disabledTextColor = ColorTranslator.FromHtml("#babbbd");
 
-        Color checkedBoxColor1= Color.FromArgb(0, 168, 148);
+        Color checkedBoxColor1 = Color.FromArgb(0, 168, 148);
         Color checkedBoxColor2 = Color.DodgerBlue;
         Color unCheckedBoxColor = Color.DimGray;
 
@@ -36,7 +36,7 @@ namespace HeCopUI_Framework.Controls.Button
             get { return unCheckedBoxColor; }
             set
             {
-                unCheckedBoxColor = value;Invalidate();
+                unCheckedBoxColor = value; Invalidate();
             }
         }
 
@@ -96,7 +96,7 @@ namespace HeCopUI_Framework.Controls.Button
 
         #endregion
 
-      
+
         public HCheckBox()
         {
             SetStyle(HeCopUI_Framework.GetAppResources.SetControlStyles(), true);
@@ -344,18 +344,18 @@ namespace HeCopUI_Framework.Controls.Button
                 if (Alpha < 250)
                 {
                     Alpha += 25;
-                    this.Invalidate();
+                    Invalidate();
 
                     if (SizeAnimationNum > 0)
                     {
                         SizeAnimationNum -= 2;
-                        this.Invalidate();
+                        Invalidate();
                     }
 
                     if (PointAnimationNum < 10)
                     {
                         PointAnimationNum += 1;
-                        this.Invalidate();
+                        Invalidate();
                     }
                 }
                 else if (Alpha > 250) AnimationTimer.Stop();
@@ -363,19 +363,19 @@ namespace HeCopUI_Framework.Controls.Button
             else if (Alpha > 0)
             {
                 Alpha -= 25;
-                this.Invalidate();
+                Invalidate();
 
                 if (SizeAnimationNum < 14)
                 {
                     SizeAnimationNum += 2;
-                    this.Invalidate();
+                    Invalidate();
                 }
 
 
                 if (PointAnimationNum > 3)
                 {
                     PointAnimationNum -= 1;
-                    this.Invalidate();
+                    Invalidate();
                 }
             }
             else if (Alpha < -250) AnimationTimer.Stop();

@@ -116,7 +116,7 @@ namespace HeCopUI_Framework.Controls.Button
         private void OnFrameChanged(object o, EventArgs e)
         {
 
-            this.Invalidate();
+            Invalidate();
         }
         public void AnimateImage()
         {
@@ -125,7 +125,7 @@ namespace HeCopUI_Framework.Controls.Button
             {
 
                 //Begin the animation only once.
-                ImageAnimator.Animate(BI, new EventHandler(this.OnFrameChanged));
+                ImageAnimator.Animate(BI, new EventHandler(OnFrameChanged));
                 currentlyAnimating = true;
             }
         }

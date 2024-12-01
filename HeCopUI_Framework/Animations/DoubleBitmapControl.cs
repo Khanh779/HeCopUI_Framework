@@ -9,8 +9,8 @@ namespace HeCopUI_Framework.AnimatorNS
         Bitmap bgBmp;
         Bitmap frame;
 
-        Bitmap IFakeControl.BgBmp { get { return this.bgBmp; } set { this.bgBmp = value; } }
-        Bitmap IFakeControl.Frame { get { return this.frame; } set { this.frame = value; } }
+        Bitmap IFakeControl.BgBmp { get { return bgBmp; } set { bgBmp = value; } }
+        Bitmap IFakeControl.Frame { get { return frame; } set { frame = value; } }
         public event EventHandler<TransfromNeededEventArg> TransfromNeeded;
         public event EventHandler<PaintEventArgs> FramePainted;
         public event EventHandler<PaintEventArgs> FramePainting;
@@ -35,7 +35,7 @@ namespace HeCopUI_Framework.AnimatorNS
                 gr.DrawImage(bgBmp, 0, 0);
                 if (frame != null)
                 {
-                    var ea = new TransfromNeededEventArg() { ClientRectangle = new Rectangle(0, 0, this.Width, this.Height) };
+                    var ea = new TransfromNeededEventArg() { ClientRectangle = new Rectangle(0, 0, Width, Height) };
                     ea.ClipRectangle = ea.ClientRectangle;
                     OnTransfromNeeded(ea);
                     gr.SetClip(ea.ClipRectangle);

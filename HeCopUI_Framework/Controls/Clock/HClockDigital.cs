@@ -11,8 +11,10 @@ namespace HeCopUI_Framework.Controls.Clock
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
             BackColor = Color.Transparent;
-            timer1 = new Timer();
-            timer1.Interval = 1000;
+            timer1 = new Timer
+            {
+                Interval = 1000
+            };
             Font = new Font("Segoe UI", 25f);
             ForeColor = Color.DodgerBlue;
             Paint += HClockDigital_Paint;

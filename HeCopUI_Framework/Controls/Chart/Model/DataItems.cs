@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace HeCopUI_Framework.Controls.Chart.Model
 {
@@ -15,7 +10,7 @@ namespace HeCopUI_Framework.Controls.Chart.Model
         public DataItems()
         {
             Items = new List<Items>();
-         
+
         }
 
         public bool isExists(object key, int index)
@@ -59,5 +54,5 @@ namespace HeCopUI_Framework.Controls.Chart.Model
         public Color Color { get; set; }
 
     }
-    
+
 }

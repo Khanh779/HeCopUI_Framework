@@ -134,8 +134,10 @@ namespace HeCopUI_Framework.SuperNotifyIcon
         /// <returns></returns>
         private static NativeMethods.APPBARDATA CreateAppBarData()
         {
-            var appBar = new NativeMethods.APPBARDATA();
-            appBar.hWnd = NativeMethods.FindWindow("Shell_TrayWnd", "");
+            var appBar = new NativeMethods.APPBARDATA
+            {
+                hWnd = NativeMethods.FindWindow("Shell_TrayWnd", "")
+            };
             appBar.cbSize = (uint)Marshal.SizeOf(appBar);
             return appBar;
         }

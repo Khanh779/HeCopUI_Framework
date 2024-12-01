@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls.ScrollBar
 {
@@ -173,12 +173,12 @@ namespace HeCopUI_Framework.Controls.ScrollBar
             // get the size of the track the thumb can occupy
             float trackSize = Height - upArrowBound.Height * 2;
 
-            if (this._max == 0 || this.maxChange == 0)
+            if (_max == 0 || maxChange == 0)
             {
                 return trackSize;
             }
 
-            float newThumbSize = ((float)this.maxChange * (float)trackSize) / (float)this._max;
+            float newThumbSize = (maxChange * (float)trackSize) / _max;
 
             return Convert.ToInt32(Math.Min((float)trackSize, Math.Max(newThumbSize, 10f)));
         }

@@ -47,9 +47,11 @@ namespace HeCopUI_Framework.Forms
             // Tạo một đối tượng PathGradientBrush để tạo bóng đổ gradient
             Color c1 = Color.FromArgb(255, Color.Black);
             Color c2 = Color.FromArgb(20, Color.Black);
-            PathGradientBrush brush = new PathGradientBrush(path);
-            brush.CenterColor = c1;
-            brush.SurroundColors = new Color[] { c2 };
+            PathGradientBrush brush = new PathGradientBrush(path)
+            {
+                CenterColor = c1,
+                SurroundColors = new Color[] { c2 }
+            };
 
             // Vẽ bóng đổ
             g.FillPath(brush, path);

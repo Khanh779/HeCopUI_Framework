@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace HeCopUI_Framework.Controls .Progress
+namespace HeCopUI_Framework.Controls.Progress
 {
     public class WaveProgressLoading : Control
     {
@@ -27,9 +27,9 @@ namespace HeCopUI_Framework.Controls .Progress
             set
             {
                 animationStyle = value;
-                switch(value)
+                switch (value)
                 {
-                       case AnimationStyle.Ascending:
+                    case AnimationStyle.Ascending:
                         progress.Clear();
                         for (int i = 0; i < waveCount; i++)
                         {
@@ -50,7 +50,7 @@ namespace HeCopUI_Framework.Controls .Progress
                             progress.Add(0);
                         }
                         break;
-                }    
+                }
                 Invalidate();
             }
         }
@@ -63,14 +63,16 @@ namespace HeCopUI_Framework.Controls .Progress
             SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, value: true);
             progress = new List<double>();
             DoubleBuffered = true;
-            timer = new Timer();
-            timer.Interval = 40;
-            timer.Tick += Timer_Tick; 
+            timer = new Timer
+            {
+                Interval = 40
+            };
+            timer.Tick += Timer_Tick;
             timer.Start();
-          
+
         }
 
-      
+
         double valAn = 0.03;
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -80,11 +82,11 @@ namespace HeCopUI_Framework.Controls .Progress
                 // Tăng giá trị của các hình chữ nhật theo thứ tự
                 for (int i = 0; i < progress.Count; i++)
                 {
-                  
-                   switch(WaveAnimationStyle)
+
+                    switch (WaveAnimationStyle)
                     {
                         case AnimationStyle.Ascending:
-                            progress[i] = progress[i>0? i-1:i]+= valAn;
+                            progress[i] = progress[i > 0 ? i - 1 : i] += valAn;
                             if (progress[i] > 1)
                                 progress[i] = 0;
                             break;
@@ -94,15 +96,15 @@ namespace HeCopUI_Framework.Controls .Progress
                                 progress[i] = 1;
                             break;
                         case AnimationStyle.Synchronized:
-                            progress[i]+= valAn;
+                            progress[i] += valAn;
                             if (progress[i] > 1)
                                 progress[i] = 0;
                             break;
                     }
-                   
-                  
+
+
                 }
-              
+
             }
 
             Invalidate();
@@ -116,7 +118,7 @@ namespace HeCopUI_Framework.Controls .Progress
                 if (value > 0)
                 {
                     waveCount = value;
-                 
+
                     Invalidate();
                 }
             }
@@ -135,7 +137,7 @@ namespace HeCopUI_Framework.Controls .Progress
             }
         }
 
-     
+
         public int MaxHeight
         {
             get { return maxHeight; }

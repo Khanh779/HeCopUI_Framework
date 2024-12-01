@@ -55,14 +55,15 @@ namespace HeCopUI_Framework.Forms
         {
             //Size = formSize;
             //formSize = this.ClientSize;
-            hDropShadowForm = new HDropShadowForm();
-
-            hDropShadowForm.ShadowSpread = ShadowSpread;
-            hDropShadowForm.HideResizeShadow = HideResizeShadow;
-            hDropShadowForm.ShadowBlur = ShadowBlur;
-            hDropShadowForm.ShadowColor = ShadowColor;
-            hDropShadowForm.AlphaColor = AlphaShadowColor;
-            hDropShadowForm.ShadowVisible = ShadowVisible;
+            hDropShadowForm = new HDropShadowForm
+            {
+                ShadowSpread = ShadowSpread,
+                HideResizeShadow = HideResizeShadow,
+                ShadowBlur = ShadowBlur,
+                ShadowColor = ShadowColor,
+                AlphaColor = AlphaShadowColor,
+                ShadowVisible = ShadowVisible
+            };
             if (!DesignMode)
             {
                 hDropShadowForm.TargetForm = this;
@@ -200,7 +201,7 @@ namespace HeCopUI_Framework.Forms
             if (e.Location.Y <= 37 && e.X < Width - 36 * 3)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, 0x112, 0xf012, 0);
+                SendMessage(Handle, 0x112, 0xf012, 0);
             }
             Invalidate();
             base.OnMouseDown(e);
@@ -333,28 +334,28 @@ namespace HeCopUI_Framework.Forms
                     if (Resizable && (int)m.Result == HTCLIENT && WindowState == FormWindowState.Normal)
                     {
                         Point screenPoint = new Point(m.LParam.ToInt32()); //Gets screen point coordinates(X and Y coordinate of the pointer)                           
-                        Point clientPoint = this.PointToClient(screenPoint); //Computes the location of the screen point into client coordinates                          
+                        Point clientPoint = PointToClient(screenPoint); //Computes the location of the screen point into client coordinates                          
                         if (clientPoint.Y <= resizeAreaSize)//If the pointer is at the top of the form (within the resize area- X coordinate)
                         {
                             if (clientPoint.X <= resizeAreaSize) //If the pointer is at the coordinate X=0 or less than the resizing area(X=10) in 
                                 m.Result = (IntPtr)HTTOPLEFT; //Resize diagonally to the left
-                            else if (clientPoint.X < (this.Size.Width - resizeAreaSize))//If the pointer is at the coordinate X=11 or less than the width of the form(X=Form.Width-resizeArea)
+                            else if (clientPoint.X < (Size.Width - resizeAreaSize))//If the pointer is at the coordinate X=11 or less than the width of the form(X=Form.Width-resizeArea)
                                 m.Result = (IntPtr)HTTOP; //Resize vertically up
                             else //Resize diagonally to the right
                                 m.Result = (IntPtr)HTTOPRIGHT;
                         }
-                        else if (clientPoint.Y <= (this.Size.Height - resizeAreaSize)) //If the pointer is inside the form at the Y coordinate(discounting the resize area size)
+                        else if (clientPoint.Y <= (Size.Height - resizeAreaSize)) //If the pointer is inside the form at the Y coordinate(discounting the resize area size)
                         {
                             if (clientPoint.X <= resizeAreaSize)//Resize horizontally to the left
                                 m.Result = (IntPtr)HTLEFT;
-                            else if (clientPoint.X > (this.Width - resizeAreaSize))//Resize horizontally to the right
+                            else if (clientPoint.X > (Width - resizeAreaSize))//Resize horizontally to the right
                                 m.Result = (IntPtr)HTRIGHT;
                         }
                         else
                         {
                             if (clientPoint.X <= resizeAreaSize)//Resize diagonally to the left
                                 m.Result = (IntPtr)HTBOTTOMLEFT;
-                            else if (clientPoint.X < (this.Size.Width - resizeAreaSize)) //Resize vertically down
+                            else if (clientPoint.X < (Size.Width - resizeAreaSize)) //Resize vertically down
                                 m.Result = (IntPtr)HTBOTTOM;
                             else //Resize diagonally to the right
                                 m.Result = (IntPtr)HTBOTTOMRIGHT;
@@ -370,7 +371,7 @@ namespace HeCopUI_Framework.Forms
 
         private void AdjustForm()
         {
-            switch (this.WindowState)
+            switch (WindowState)
             {
                 case FormWindowState.Maximized: //Maximized form (After)
                     //this.Padding = new Padding(8, 8, 8, 0);

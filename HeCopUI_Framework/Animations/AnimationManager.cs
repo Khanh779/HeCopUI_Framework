@@ -23,7 +23,7 @@
         /// <summary>
         /// Gets or sets the SecondaryIncrement
         /// </summary>
-        public double SecondaryIncrement { get; set; } 
+        public double SecondaryIncrement { get; set; }
 
         /// <summary>
         /// Gets or sets the AnimationType
@@ -149,14 +149,14 @@
                         (_animationDirections[i] == AnimationDirection.Out && _animationProgresses[i] == MIN_VALUE) ||
                         (_animationDirections[i] == AnimationDirection.InOutOut && _animationProgresses[i] == MIN_VALUE))
                     {
-                    
+
                         _animationProgresses.RemoveAt(i);
                         _animationSources.RemoveAt(i);
                         _animationDirections.RemoveAt(i);
                         _animationDatas.RemoveAt(i);
 
                         //_animationTimer.Dispose();
-                        
+
                     }
                 }
                 else
@@ -189,7 +189,7 @@
         //   disposing:
         //     true to release both managed and unmanaged resources; false to release only unmanaged
         //     resources.
-        
+
         public void Dispose()
         {
             _animationTimer.Dispose();
@@ -339,7 +339,7 @@
                         return;
                     }
                 }
-            
+
                 _animationTimer.Stop();
                 //_animationTimer.Dispose();
                 OnAnimationFinished?.Invoke(this);
@@ -384,7 +384,7 @@
                         return;
                     }
                 }
-           
+
                 _animationTimer.Stop();
                 //_animationTimer.Dispose();
                 OnAnimationFinished?.Invoke(this);

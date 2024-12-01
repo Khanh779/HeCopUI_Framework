@@ -250,9 +250,6 @@
     <Compile Include="Controls\Chart\FunnelChart\UCFunnelChart.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\HWTreeView.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\Picker\HMontCalendar.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -272,25 +269,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Global\PrimaryColors.cs" />
-    <Compile Include="HDialog\FileExplorer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HDialog\FileExplorer.Designer.cs">
-      <DependentUpon>FileExplorer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HDialog\HBrowserFileFolder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HDialog\HBrowserFileFolder.designer.cs">
-      <DependentUpon>HBrowserFileFolder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HDialog\HFolderBrowserDialogEx.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="HDialog\HMessageDialog.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HDialog\ShellIcon.cs" />
     <Compile Include="Helper\DPIHelper.cs" />
     <Compile Include="Helper\DrawHelper.cs" />
     <Compile Include="Controls\Progress\HPenProgressBar.cs">
@@ -309,6 +287,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GetAppResources.cs" />
+    <Compile Include="Helper\GraphicsHelper.cs" />
+    <Compile Include="Helper\TextHelper.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\BrushAdapter.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\ContextMenuAdapter.cs" />
     <Compile Include="HtmlRenderer\HtmlRenderer.WinForms\Adapters\ControlAdapter.cs" />
@@ -516,7 +496,6 @@
     <Compile Include="Win32\Struct\TCHITTESTINFO.cs" />
     <Compile Include="Win32\User32.cs" />
     <Compile Include="Win32\Enums\WindowMessages.cs" />
-    <Compile Include="WindowComposition.cs" />
     <Compile Include="Win32\Enums\WindowStyles.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -629,15 +608,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HForm.resx">
       <DependentUpon>HForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HDialog\FileExplorer.resx">
-      <DependentUpon>FileExplorer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HDialog\HBrowserFileFolder.resx">
-      <DependentUpon>HBrowserFileFolder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HDialog\HMessageDialog.resx">
-      <DependentUpon>HMessageDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HMessageBox.resx">
       <DependentUpon>HMessageBox.cs</DependentUpon>
@@ -804,9 +774,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Shapes\Circular\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>::mkdir C:\Lib\$(ProjectName)

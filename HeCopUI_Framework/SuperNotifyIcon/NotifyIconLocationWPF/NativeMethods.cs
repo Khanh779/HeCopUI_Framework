@@ -1082,9 +1082,9 @@
                 get
                 {
                     if (IntPtr.Size == 8)
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt64())[0];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt64())[0];
                     else
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt32())[0];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt32())[0];
                 }
             }
 
@@ -1096,9 +1096,9 @@
                 get
                 {
                     if (IntPtr.Size == 8)
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt64())[1];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt64())[1];
                     else
-                        return BitConverter.GetBytes(this.fsStateStylePadding.ToInt32())[1];
+                        return BitConverter.GetBytes(fsStateStylePadding.ToInt32())[1];
                 }
             }
         }

@@ -91,7 +91,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
                 }
             }
             else
-                niposition = (Rectangle)nipositiontemp;
+                niposition = nipositiontemp;
 
             // check if notify icon is in the fly-out
             bool inflyout = NotifyIconHelpers.IsRectangleInFlyOut(niposition);
@@ -99,7 +99,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
             // if the window is pinned open and in the fly-out (Windows 7 only),
             // we should position the window above the 'show hidden icons' button
             if (inflyout && pinned)
-                niposition = (Rectangle)NotifyArea.GetButtonRectangle();
+                niposition = NotifyArea.GetButtonRectangle();
 
             // determine centre of notify icon
             System.Windows.Point nicentre = new System.Windows.Point(niposition.Left + (niposition.Width / 2), niposition.Top + (niposition.Height / 2));

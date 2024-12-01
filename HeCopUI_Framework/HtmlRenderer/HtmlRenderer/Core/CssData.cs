@@ -123,8 +123,10 @@ namespace HeCopUI_Framework.HtmlRenderer.Core
 
             if (!mid.ContainsKey(cssBlock.Class))
             {
-                var list = new List<CssBlock>();
-                list.Add(cssBlock);
+                var list = new List<CssBlock>
+                {
+                    cssBlock
+                };
                 mid[cssBlock.Class] = list;
             }
             else

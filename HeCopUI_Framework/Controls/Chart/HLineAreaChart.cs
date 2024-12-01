@@ -6,15 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Ink;
-using System.Windows.Media;
-using static System.Windows.Forms.AxHost;
 using Color = System.Drawing.Color;
 using Pen = System.Drawing.Pen;
 
@@ -29,7 +21,7 @@ namespace HeCopUI_Framework.Controls.Chart
         bool hover = false;
 #pragma warning restore CS0414 // The field 'HLineAreaChart.hover' is assigned but its value is never used
 #pragma warning restore IDE0052 // Remove unread private members
-                               // Tạo các hàm, biến để hỗ trợ cho việc tạo các thuộc tính cho LineAreaChart
+        // Tạo các hàm, biến để hỗ trợ cho việc tạo các thuộc tính cho LineAreaChart
         int numberVisible = 10;
         public int NumberOfOyVisible
         {
@@ -38,7 +30,7 @@ namespace HeCopUI_Framework.Controls.Chart
         }
 
         int max = 100;
-       
+
         Color gridColor = Color.Gainsboro;
         public Color GridColor
         {
@@ -108,7 +100,7 @@ namespace HeCopUI_Framework.Controls.Chart
             dataItem = new Model.DataItems();
             animationManager = new AnimationManager();
             animationManager.OnAnimationProgress += sender => Invalidate();
-           
+
         }
 
         protected override void OnCreateControl()
@@ -117,18 +109,22 @@ namespace HeCopUI_Framework.Controls.Chart
             if (DesignMode)
             {
                 // Thêm dữ liệu mẫu cho design mode
-                Dictionary<object, int> item1 = new Dictionary<object, int>();
-                item1.Add("A", 10);
-                item1.Add("B", 20);
-                item1.Add("C", 30);
-                item1.Add("D", 40);
+                Dictionary<object, int> item1 = new Dictionary<object, int>
+                {
+                    { "A", 10 },
+                    { "B", 20 },
+                    { "C", 30 },
+                    { "D", 40 }
+                };
                 dataItem.Add("Example 1", item1, Color.Red);
 
-                Dictionary<object, int> item2 = new Dictionary<object, int>();
-                item2.Add("A", 50);
-                item2.Add("B", 60);
-                item2.Add("C", 70);
-                item2.Add("E", 20);
+                Dictionary<object, int> item2 = new Dictionary<object, int>
+                {
+                    { "A", 50 },
+                    { "B", 60 },
+                    { "C", 70 },
+                    { "E", 20 }
+                };
                 dataItem.Add("Example 2", item2, Color.Blue);
             }
             base.OnCreateControl();
@@ -160,7 +156,7 @@ namespace HeCopUI_Framework.Controls.Chart
         {
             dataItem.Add(legendText, items, color);
 
-          
+
         }
 
 
@@ -223,19 +219,19 @@ namespace HeCopUI_Framework.Controls.Chart
             }
 
             // Làm tròn lên đến số chia hết cho 10
-            maxValue = (float)Math.Ceiling(maxValue / 10) * 10+10;
+            maxValue = (float)Math.Ceiling(maxValue / 10) * 10 + 10;
 
             return maxValue;
         }
 
-        Color numbericOfOxy= Color.Black;
+        Color numbericOfOxy = Color.Black;
         public Color NumbericOfOxy
         {
             get { return numbericOfOxy; }
             set { numbericOfOxy = value; Invalidate(); }
         }
 
-        Color chartColor= Color.Black;
+        Color chartColor = Color.Black;
         public Color ChartColor
         {
             get { return chartColor; }
@@ -248,7 +244,7 @@ namespace HeCopUI_Framework.Controls.Chart
             Graphics g = e.Graphics;
             try
             {
-                if(dataItem.Items.Count>0)
+                if (dataItem.Items.Count > 0)
                 {
                     if (!DesignMode)
                         max = (int)CalculateRoundedMaxValue();

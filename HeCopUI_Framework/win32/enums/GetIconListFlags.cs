@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeCopUI_Framework.Win32.Enums
+﻿namespace HeCopUI_Framework.Win32.Enums
 {
-    public enum GetIconListFlags 
+    public enum GetIconListFlags
     {
         /// <summary>
         /// The hIcon member of the structure pointed to by the pData parameter is valid and contains an icon handle.
@@ -47,6 +41,6 @@ namespace HeCopUI_Framework.Win32.Enums
         /// <summary>
         /// The iImage member of the structure pointed to by the pData parameter is valid and contains the index of an image in the system image list.
         /// </summary>
-        
+
     }
 }

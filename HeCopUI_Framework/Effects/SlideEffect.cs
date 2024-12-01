@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace HeCopUI_Framework.Effects
@@ -31,8 +27,10 @@ namespace HeCopUI_Framework.Effects
             }
 
             // Tạo Timer để thực hiện hiệu ứng slide
-            Timer timer = new Timer();
-            timer.Interval = 10;
+            Timer timer = new Timer
+            {
+                Interval = 10
+            };
             timer.Tick += (sender, e) =>
             {
                 bool allControlsReachedDestination = true;

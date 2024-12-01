@@ -1,13 +1,9 @@
 ﻿using HeCopUI_Framework.Components;
-using HeCopUI_Framework.Effects;
 using HeCopUI_Framework.Enums;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Effects;
 
 namespace HeCopUI_Framework.Controls
 {
@@ -22,7 +18,7 @@ namespace HeCopUI_Framework.Controls
             Size = new Size(100, 100);
         }
 
-     
+
         public enum ImageSizeMode
         {
             Custom, Zoom, Fill
@@ -44,9 +40,12 @@ namespace HeCopUI_Framework.Controls
         public Size ImageSize
         {
             get { return IS; }
-            set { IS = value;
+            set
+            {
+                IS = value;
                 //ProcessImg();
-                Invalidate(); }
+                Invalidate();
+            }
         }
 
 
@@ -58,7 +57,7 @@ namespace HeCopUI_Framework.Controls
             set
             {
                 ShapeType = value;
-               // ProcessImg();
+                // ProcessImg();
                 Invalidate();
             }
         }
@@ -87,12 +86,12 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-      
+
 
         Bitmap blurBitmap = null;
         int SWi = 1; int SHi = 1;
 
-      
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -156,17 +155,17 @@ namespace HeCopUI_Framework.Controls
                 GraphicsPath path = new GraphicsPath();
 
                 ProcessImg();
-                
 
-                if (BI!=null && blurBitmap!=null)
-                g.DrawImage(CropCircle(blurBitmap, path), new Rectangle(SStart, SEnd, SWi, SHi));
+
+                if (BI != null && blurBitmap != null)
+                    g.DrawImage(CropCircle(blurBitmap, path), new Rectangle(SStart, SEnd, SWi, SHi));
                 blurBitmap?.Dispose();
                 path?.Dispose();
 
             }
 
             catch { }
-          
+
         }
 
         void ProcessImg()
@@ -189,11 +188,13 @@ namespace HeCopUI_Framework.Controls
         public KernelMode KernelMode
         {
             get { return kernelMode; }
-            set { kernelMode = value;
+            set
+            {
+                kernelMode = value;
                 Invalidate();
             }
         }
-      
+
         private Bitmap CropCircle(Image img, GraphicsPath gp)
         {
             var roundedImage = new Bitmap(SWi, SHi);
@@ -202,8 +203,8 @@ namespace HeCopUI_Framework.Controls
             {
                 GetAppResources.GetControlGraphicsEffect(g);
                 g.DrawImage(img, new Rectangle(0, 0, SWi, SHi));
-             
-                using (Brush brush = new TextureBrush((Bitmap)roundedImage, new Rectangle(0,0, SWi, SHi)))
+
+                using (Brush brush = new TextureBrush(roundedImage, new Rectangle(0, 0, SWi, SHi)))
                 {
                     g.Clear(Color.Transparent);
                     switch (HShapeType)
@@ -222,24 +223,24 @@ namespace HeCopUI_Framework.Controls
 
 
             }
-            return roundedImage; 
+            return roundedImage;
         }
 
 
         private void OnFrameChanged(object o, EventArgs e)
         {
 
-            this.Invalidate();
+            Invalidate();
         }
 
-     
+
 
         public void AnimateImage()
         {
 
             if (ImageAnimator.CanAnimate(BI) && !DesignMode)
             {
-                ImageAnimator.Animate(BI, new EventHandler(this.OnFrameChanged));
+                ImageAnimator.Animate(BI, new EventHandler(OnFrameChanged));
             }
         }
     }

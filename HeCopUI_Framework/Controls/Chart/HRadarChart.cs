@@ -1,16 +1,10 @@
 ﻿using HeCopUI_Framework.Animations;
 using HeCopUI_Framework.Enums;
-using HeCopUI_Framework.HtmlRenderer.Adapters;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static HeCopUI_Framework.Controls.Chart.HPieChart;
 
 namespace HeCopUI_Framework.Controls.Chart
 {
@@ -88,8 +82,10 @@ namespace HeCopUI_Framework.Controls.Chart
 
         void addNew()
         {
-            var list = new List<Series>();
-            list.Add(new Series() { Color = Color.OrangeRed, Text = "serieName1", Values = new float[] { 90, 50, 70, 40, 60 } });
+            var list = new List<Series>
+            {
+                new Series() { Color = Color.OrangeRed, Text = "serieName1", Values = new float[] { 90, 50, 70, 40, 60 } }
+            };
             //list.Add(new Series() { Color = Color.LimeGreen, Text = "serieName2", Values = new float[] { 80, 70,30, 60 } });
             //list.Add(new Series() { Color = Color.DodgerBlue, Text = "serieName3", Values = new float[] { 70,20, 60, 50 } });
             Series = list.ToArray();
@@ -266,7 +262,7 @@ namespace HeCopUI_Framework.Controls.Chart
             try
             {
                 // Vẽ các thành phần để tạo ra radar chart
-                radius = (Math.Min((Width / (legendType == LegendType.Right ? 2.5f : 1)), Height) / 2) - (legendType == LegendType.None ? (showTitle ? TitleFont.Height : 0) : 0)  ;
+                radius = (Math.Min((Width / (legendType == LegendType.Right ? 2.5f : 1)), Height) / 2) - (legendType == LegendType.None ? (showTitle ? TitleFont.Height : 0) : 0);
                 step = radius / (_maxValue - _minValue) * _step;
                 float locy = Height / 2 - ((Series.Length + 1) * legendFont.Size);
                 float currentRadius = 0;

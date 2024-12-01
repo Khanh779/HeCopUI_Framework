@@ -96,7 +96,7 @@ namespace HeCopUI_Framework.Controls.Button
                     sliderPoint.X = controlBounds.Right - 15;
                 if (sliderPoint.X < controlBounds.Left)
                     sliderPoint.X = controlBounds.Left;
-                rect = new Rectangle(sliderPoint.X, controlBounds.Y, 15, this.Height);
+                rect = new Rectangle(sliderPoint.X, controlBounds.Y, 15, Height);
                 return rect;
             }
         }
@@ -108,31 +108,32 @@ namespace HeCopUI_Framework.Controls.Button
         /// <param name="e"></param>
         private void DrawWindowsStyle(PaintEventArgs e)
         {
-            contentRectangle = new Rectangle(e.ClipRectangle.X, e.ClipRectangle.Y, this.Width - 1, this.Height - 1);
+            contentRectangle = new Rectangle(e.ClipRectangle.X, e.ClipRectangle.Y, Width - 1, Height - 1);
             if (!isMouseMoved)
             {
-                if (this.ToggleState == ToggleButtonState.ON)
+                if (ToggleState == ToggleButtonState.ON)
                     sliderPoint = new Point(controlBounds.Right - 15, sliderPoint.Y);
                 else
                     sliderPoint = new Point(controlBounds.Left, sliderPoint.Y);
             }
-            Pen p = new Pen(Color.FromArgb(159, 159, 159));
-
-            p.Width = 1.9f;
+            Pen p = new Pen(Color.FromArgb(159, 159, 159))
+            {
+                Width = 1.9f
+            };
             //e.Graphics.DrawRectangle(p, contentRectangle);
             e.Graphics.DrawRectangle(p, Rectangle.Inflate(contentRectangle, -2, -2));
             Rectangle r1 = new Rectangle(Rectangle.Inflate(contentRectangle, -2, -2).Left, Rectangle.Inflate(contentRectangle, -2, -2).Y, WindowSliderBounds.Left - Rectangle.Inflate(contentRectangle, -2, -2).Left, Rectangle.Inflate(contentRectangle, -2, -2).Height);
             Rectangle r2 = new Rectangle(WindowSliderBounds.Right, r1.Y, Rectangle.Inflate(contentRectangle, -2, -2).Right - WindowSliderBounds.Right, r1.Height);
 
-            using (SolidBrush sb = new SolidBrush(this.ActiveColor))
+            using (SolidBrush sb = new SolidBrush(ActiveColor))
             {
                 e.Graphics.FillRectangle(sb, r1);
             }
-            using (SolidBrush sb = new SolidBrush(this.SliderColor))
+            using (SolidBrush sb = new SolidBrush(SliderColor))
             {
                 e.Graphics.FillRectangle(sb, WindowSliderBounds);
             }
-            using (SolidBrush sb = new SolidBrush(this.InActiveColor))
+            using (SolidBrush sb = new SolidBrush(InActiveColor))
             {
                 e.Graphics.FillRectangle(sb, r2);
             }
@@ -174,8 +175,8 @@ namespace HeCopUI_Framework.Controls.Button
 
         protected void RaiseButtonStateChanged()
         {
-            if (this.ButtonStateChanged != null)
-                ButtonStateChanged(this, new ToggleButtonStateEventArgs(this.ToggleState));
+            if (ButtonStateChanged != null)
+                ButtonStateChanged(this, new ToggleButtonStateEventArgs(ToggleState));
         }
 
 
@@ -195,7 +196,7 @@ namespace HeCopUI_Framework.Controls.Button
 
         private Rectangle GetRectangle()
         {
-            return new Rectangle(2, 2, this.Width - 5, this.Height - 5); ;
+            return new Rectangle(2, 2, Width - 5, Height - 5); ;
         }
 
 
@@ -205,7 +206,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
-                if (!this.DesignMode)
+                if (!DesignMode)
                 {
                     isMouseDown = true;
                     downpos = e.Location;
@@ -220,7 +221,7 @@ namespace HeCopUI_Framework.Controls.Button
                 }
 
             }
-            this.Invalidate();
+            Invalidate();
         }
 
         void Loc()
@@ -232,12 +233,12 @@ namespace HeCopUI_Framework.Controls.Button
                 if (WindowSliderBounds.X < (controlBounds.Width / 2))
                 {
                     sliderPoint = new Point(controlBounds.Left, sliderPoint.Y);
-                    this.ToggleState = ToggleButtonState.OFF;
+                    ToggleState = ToggleButtonState.OFF;
                 }
                 else
                 {
                     sliderPoint = new Point(controlBounds.Right - 15, sliderPoint.Y);
-                    this.ToggleState = ToggleButtonState.ON;
+                    ToggleState = ToggleButtonState.ON;
 
                 }
             }
@@ -247,7 +248,7 @@ namespace HeCopUI_Framework.Controls.Button
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (e.Button == MouseButtons.Left && !this.DesignMode)
+            if (e.Button == MouseButtons.Left && !DesignMode)
             {
                 sliderPoint = e.Location;
                 isMouseMoved = true;
@@ -258,13 +259,13 @@ namespace HeCopUI_Framework.Controls.Button
 
                     {
                         padx = contentRectangle.Left;
-                        this.ToggleState = ToggleButtonState.OFF;
+                        ToggleState = ToggleButtonState.OFF;
                     }
 
                     if (padx >= contentRectangle.Right - (contentRectangle.Width / 2))
                     {
                         padx = contentRectangle.Right - (contentRectangle.Width / 2);
-                        this.ToggleState = ToggleButtonState.ON;
+                        ToggleState = ToggleButtonState.ON;
                     }
                 }
 
@@ -275,9 +276,9 @@ namespace HeCopUI_Framework.Controls.Button
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            if (!this.DesignMode)
+            if (!DesignMode)
             {
-                this.Invalidate();
+                Invalidate();
                 if (isMouseMoved)
                 {
 
@@ -287,12 +288,12 @@ namespace HeCopUI_Framework.Controls.Button
                         if (WindowSliderBounds.X < (controlBounds.Width / 2))
                         {
                             sliderPoint = new Point(controlBounds.Left, sliderPoint.Y);
-                            this.ToggleState = ToggleButtonState.OFF;
+                            ToggleState = ToggleButtonState.OFF;
                         }
                         else
                         {
                             sliderPoint = new Point(controlBounds.Right - 15, sliderPoint.Y);
-                            this.ToggleState = ToggleButtonState.ON;
+                            ToggleState = ToggleButtonState.ON;
 
                         }
                     }
@@ -301,12 +302,12 @@ namespace HeCopUI_Framework.Controls.Button
                         if (padx < contentRectangle.Width / 4)
                         {
                             padx = contentRectangle.Left;
-                            this.ToggleState = ToggleButtonState.OFF;
+                            ToggleState = ToggleButtonState.OFF;
                         }
                         else
                         {
                             padx = contentRectangle.Right - (contentRectangle.Width / 2);
-                            this.ToggleState = ToggleButtonState.ON;
+                            ToggleState = ToggleButtonState.ON;
                         }
                     }
                     Invalidate();
@@ -368,7 +369,7 @@ namespace HeCopUI_Framework.Controls.Button
             set
             {
                 activeColor = value;
-                this.Refresh();
+                Refresh();
             }
         }
 
@@ -382,7 +383,7 @@ namespace HeCopUI_Framework.Controls.Button
             set
             {
                 sliderColor = value;
-                this.Refresh();
+                Refresh();
             }
         }
         private Color textColor = Color.White;
@@ -395,7 +396,7 @@ namespace HeCopUI_Framework.Controls.Button
             set
             {
                 textColor = value;
-                this.Refresh();
+                Refresh();
             }
         }
         private Color inActiveColor = Color.FromArgb(70, 70, 70);
@@ -408,7 +409,7 @@ namespace HeCopUI_Framework.Controls.Button
             set
             {
                 inActiveColor = value;
-                this.Refresh();
+                Refresh();
             }
         }
 
@@ -428,7 +429,7 @@ namespace HeCopUI_Framework.Controls.Button
                     RaiseButtonStateChanged();
                     toggleState = value;
                     Invalidate();
-                    this.Refresh();
+                    Refresh();
                 }
             }
 
@@ -436,7 +437,7 @@ namespace HeCopUI_Framework.Controls.Button
 
         private void RefreshToggleState(ToggleButtonState state)
         {
-            this.ToggleState = state;
+            ToggleState = state;
         }
         public enum ToggleButtonState
         {

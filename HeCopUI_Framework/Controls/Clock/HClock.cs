@@ -19,7 +19,7 @@ namespace HeCopUI_Framework.Controls.Clock
 
         public HClock()
         {
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
             timer = new Timer { Interval = 900 };
             timer.Tick += (s, e) => Invalidate();
             timer.Start();

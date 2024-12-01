@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HeCopUI_Framework.Effects
 {
@@ -68,11 +64,11 @@ namespace HeCopUI_Framework.Effects
                         int distanceToLight = (int)Math.Sqrt((x - lightX) * (x - lightX) + (y - lightY) * (y - lightY));
                         int alpha = intensity - distanceToLight; // Áp dụng độ sáng theo khoảng cách
                                                                  // Điều chỉnh giá trị của các kênh màu (RGBA) tùy thuộc vào độ sáng
-                      
+
                         // Giới hạn giá trị alpha trong khoảng 0-255
                         alpha = Math.Max(0, Math.Min(255, alpha));
                         // Áp dụng độ sáng cho mỗi kênh màu (RGB)
-                    
+
 
                         // Tính toán chỉ số của điểm ảnh trong mảng dữ liệu
                         int index = y * bitmapData.Stride + x * 4;
@@ -90,7 +86,7 @@ namespace HeCopUI_Framework.Effects
                         ptr[index + 2] = blue;  // Kênh màu Blue
                         ptr[index + 3] = (byte)alpha; // Kênh alpha
 
-                       
+
                     }
                 }
             }

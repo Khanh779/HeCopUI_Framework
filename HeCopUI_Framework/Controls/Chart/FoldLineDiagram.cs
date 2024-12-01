@@ -113,7 +113,7 @@ namespace HeCopUI_Framework.Controls.Chart
             if (mData != null)
             {
                 mImage = CreateImageS(mData);
-                this.BackgroundImage = new Bitmap(mImage);      // Background is a copied picture
+                BackgroundImage = new Bitmap(mImage);      // Background is a copied picture
             }
             Invalidate();
             base.OnResize(e);
@@ -148,11 +148,11 @@ namespace HeCopUI_Framework.Controls.Chart
         /// <param name="aData">polyline data object</param>
         public void ShowFoldLineDiagram(FoldLineData aData)
         {
-            this.mData = aData;
+            mData = aData;
             mImage = CreateImageS(aData);
 
-            this.BackgroundImage = new Bitmap(mImage);      // Background is a copied picture
-                                                            //this.BackgroundImageLayout = ImageLayout.Stretch; //Stretch display
+            BackgroundImage = new Bitmap(mImage);      // Background is a copied picture
+                                                       //this.BackgroundImageLayout = ImageLayout.Stretch; //Stretch display
         }
 
 
@@ -185,11 +185,11 @@ namespace HeCopUI_Framework.Controls.Chart
 
             #region function internal variable assignment
 
-            this.mSelectionArea.Clear();                            // Record data clear
+            mSelectionArea.Clear();                            // Record data clear
 
 
 
-            int height = this.Height, width = this.Width;                      // Set the image size
+            int height = Height, width = Width;                      // Set the image size
 
             // Set the left and right borders from the picture frame spacing
             int left = (int)(width * 0.1);
@@ -287,14 +287,16 @@ namespace HeCopUI_Framework.Controls.Chart
                     List<int> pointData = data.listFoldLineDataStyle[i].Data;                       // Take out the polyline data
 
                     xPosition = left;
-                    float yMultiple = (float)(height - top - bottom) / (float)yName.Max();            // Calculate the Y-axis scale factor
+                    float yMultiple = (height - top - bottom) / (float)yName.Max();            // Calculate the Y-axis scale factor
 
                     List<Point> linePoint = new List<Point>();                      // Define the polyline node coordinates
                     for (int j = 0; j < pointData.Count; j++)
                     {
-                        Point point = new Point();
-                        point.X = xPosition;
-                        point.Y = top + (int)((yName.Max() - pointData[j]) * yMultiple);
+                        Point point = new Point
+                        {
+                            X = xPosition,
+                            Y = top + (int)((yName.Max() - pointData[j]) * yMultiple)
+                        };
                         xPosition += xLineSpacing;
                         linePoint.Add(point);
                         g.FillEllipse(new SolidBrush(data.listFoldLineDataStyle[i].FoldLineColor), point.X - 5, point.Y - 5, 10, 10);           // draw the dot of the node
@@ -305,10 +307,12 @@ namespace HeCopUI_Framework.Controls.Chart
                     g.DrawLines(mypen2, linePoint.ToArray()); // draw a polyline
 
                     // Record the drawing area
-                    SelectionArea sa = new SelectionArea();
-                    sa.linePoint = linePoint;
+                    SelectionArea sa = new SelectionArea
+                    {
+                        linePoint = linePoint
+                    };
                     //sa.rect = new Rectangle();
-                    this.mSelectionArea.Add(sa);
+                    mSelectionArea.Add(sa);
 
                 }
 
@@ -357,9 +361,9 @@ namespace HeCopUI_Framework.Controls.Chart
 
                         // Record the drawing area of ​​the drawing area
                         Rectangle rect = new Rectangle(startX, startY, 30, 10);
-                        SelectionArea sa = this.mSelectionArea[i];
+                        SelectionArea sa = mSelectionArea[i];
                         sa.rect = rect;
-                        this.mSelectionArea[i] = sa;
+                        mSelectionArea[i] = sa;
                     }
                 }
 

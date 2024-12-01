@@ -47,8 +47,10 @@ namespace HeCopUI_Framework.HtmlRenderer.WPF
         /// </summary>
         public HtmlContainer()
         {
-            _htmlContainerInt = new HtmlContainerInt(WpfAdapter.Instance);
-            _htmlContainerInt.PageSize = new RSize(99999, 99999);
+            _htmlContainerInt = new HtmlContainerInt(WpfAdapter.Instance)
+            {
+                PageSize = new RSize(99999, 99999)
+            };
         }
 
         /// <summary>

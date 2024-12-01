@@ -213,7 +213,7 @@ namespace HeCopUI_Framework.SuperNotifyIcon
 
                         // read the notify icon id
                         uint niidnew;
-                        NativeMethods.ReadProcessMemory(naprocesshandle, (IntPtr)((int)niinfopointer + (int)Marshal.SizeOf(typeof(IntPtr))), out niidnew, Marshal.SizeOf(typeof(uint)), out bytesread);
+                        NativeMethods.ReadProcessMemory(naprocesshandle, (IntPtr)((int)niinfopointer + Marshal.SizeOf(typeof(IntPtr))), out niidnew, Marshal.SizeOf(typeof(uint)), out bytesread);
 
                         if (bytesread != Marshal.SizeOf(typeof(uint)))
                             return null;

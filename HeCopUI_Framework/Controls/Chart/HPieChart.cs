@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using Brush = System.Drawing.Brush;
 using Color = System.Drawing.Color;
 using LinearGradientBrush = System.Drawing.Drawing2D.LinearGradientBrush;
@@ -21,7 +20,7 @@ namespace HeCopUI_Framework.Controls.Chart
         public HPieChart()
         {
             SetStyle(GetAppResources.SetControlStyles(), true);
-            animationManager=new AnimationManager(true);
+            animationManager = new AnimationManager(true);
             animationManager.OnAnimationProgress += sender => Invalidate();
         }
 
@@ -50,31 +49,37 @@ namespace HeCopUI_Framework.Controls.Chart
 
         protected override void OnCreateControl()
         {
-            if(DesignMode)
+            if (DesignMode)
             {
                 // Ví dụ biểu đồ 
-                Dictionary<object, int> item1 = new Dictionary<object, int>();
-                item1.Add("A", 10);
-                item1.Add("B", 20);
-                item1.Add("C", 30);
-                item1.Add("D", 40);
+                Dictionary<object, int> item1 = new Dictionary<object, int>
+                {
+                    { "A", 10 },
+                    { "B", 20 },
+                    { "C", 30 },
+                    { "D", 40 }
+                };
                 AddItems("Example 1", item1, Color.MediumVioletRed);
-                 
-                Dictionary<object, int> item2 = new Dictionary<object, int>();
-                item2.Add("A", 50);
-                item2.Add("B", 60);
-                item2.Add("L", 70);
-                item2.Add("43", 80);
+
+                Dictionary<object, int> item2 = new Dictionary<object, int>
+                {
+                    { "A", 50 },
+                    { "B", 60 },
+                    { "L", 70 },
+                    { "43", 80 }
+                };
                 AddItems("Example 2", item2, Color.DodgerBlue);
 
-                Dictionary<object, int> item3 = new Dictionary<object, int>();
-                item3.Add("A", 90);
-                item3.Add("B", 105);
-                item3.Add("1", 80);
-                item3.Add("4", 12);
-                AddItems("Example 3", item3, Color.FromArgb(0,168,138));
+                Dictionary<object, int> item3 = new Dictionary<object, int>
+                {
+                    { "A", 90 },
+                    { "B", 105 },
+                    { "1", 80 },
+                    { "4", 12 }
+                };
+                AddItems("Example 3", item3, Color.FromArgb(0, 168, 138));
 
-            }    
+            }
             base.OnCreateControl();
         }
 
@@ -111,7 +116,7 @@ namespace HeCopUI_Framework.Controls.Chart
         public bool ShowValuesTip { get; set; } = true;
         bool hover = false;
 
-         Color valueColor = Color.White;
+        Color valueColor = Color.White;
         public Color ValueColor
         {
             get { return valueColor; }
@@ -212,7 +217,7 @@ namespace HeCopUI_Framework.Controls.Chart
                         {
                             case LegendType.None:
                                 recta = new RectangleF(Width / 2 - pieSize / 2, Height / 2 - pieSize / 2, pieSize, pieSize);
-                                g.FillPie(brush, rect, Convert.ToSingle(fDegSum * animationManager.GetProgress()), Convert.ToSingle(fDegValue* animationManager.GetProgress()));
+                                g.FillPie(brush, rect, Convert.ToSingle(fDegSum * animationManager.GetProgress()), Convert.ToSingle(fDegValue * animationManager.GetProgress()));
                                 g.FillEllipse(new SolidBrush(cirvuColo), new RectangleF(Width / 2 - innerRad / 2, Height / 2 - innerRad / 2, innerRad, innerRad));
                                 break;
                             case LegendType.Right:
@@ -359,6 +364,6 @@ namespace HeCopUI_Framework.Controls.Chart
 
     }
 
-   
+
 }
 

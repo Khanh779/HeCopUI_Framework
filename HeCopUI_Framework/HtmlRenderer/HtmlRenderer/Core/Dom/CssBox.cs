@@ -184,7 +184,7 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
                 if (Position == CssConstants.Fixed)
                     return true;
 
-                if (this.ParentBox == null)
+                if (ParentBox == null)
                     return false;
 
                 CssBox parent = this;
@@ -408,8 +408,10 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
         /// <returns>the new block box</returns>
         public static CssBox CreateBlock()
         {
-            var box = new CssBox(null, null);
-            box.Display = CssConstants.Block;
+            var box = new CssBox(null, null)
+            {
+                Display = CssConstants.Block
+            };
             return box;
         }
 
@@ -465,7 +467,7 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
                 if (Display != CssConstants.None && Visibility == CssConstants.Visible)
                 {
                     // use initial clip to draw blocks with Position = fixed. I.e. ignrore page margins
-                    if (this.Position == CssConstants.Fixed)
+                    if (Position == CssConstants.Fixed)
                     {
                         g.SuspendClipping();
                     }
@@ -493,7 +495,7 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
                         PaintImp(g);
 
                     // Restore clips
-                    if (this.Position == CssConstants.Fixed)
+                    if (Position == CssConstants.Fixed)
                     {
                         g.ResumeClipping();
                     }
@@ -737,7 +739,7 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
         /// Get the parent of this css properties instance.
         /// </summary>
         /// <returns></returns>
-        protected override sealed CssBoxProperties GetParent()
+        protected sealed override CssBoxProperties GetParent()
         {
             return _parentBox;
         }
@@ -1121,18 +1123,18 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
 
         public bool BreakPage()
         {
-            var container = this.HtmlContainer;
+            var container = HtmlContainer;
 
-            if (this.Size.Height >= container.PageSize.Height)
+            if (Size.Height >= container.PageSize.Height)
                 return false;
 
-            var remTop = (this.Location.Y - container.MarginTop) % container.PageSize.Height;
-            var remBottom = (this.ActualBottom - container.MarginTop) % container.PageSize.Height;
+            var remTop = (Location.Y - container.MarginTop) % container.PageSize.Height;
+            var remBottom = (ActualBottom - container.MarginTop) % container.PageSize.Height;
 
             if (remTop > remBottom)
             {
                 var diff = container.PageSize.Height - remTop;
-                this.Location = new RPoint(this.Location.X, this.Location.Y + diff + 1);
+                Location = new RPoint(Location.X, Location.Y + diff + 1);
                 return true;
             }
 
@@ -1528,8 +1530,8 @@ namespace HeCopUI_Framework.HtmlRenderer.Core.Dom
 
         protected override RPoint GetActualLocation(string X, string Y)
         {
-            var left = CssValueParser.ParseLength(X, this.HtmlContainer.PageSize.Width, this, null);
-            var top = CssValueParser.ParseLength(Y, this.HtmlContainer.PageSize.Height, this, null);
+            var left = CssValueParser.ParseLength(X, HtmlContainer.PageSize.Width, this, null);
+            var top = CssValueParser.ParseLength(Y, HtmlContainer.PageSize.Height, this, null);
             return new RPoint(left, top);
         }
 

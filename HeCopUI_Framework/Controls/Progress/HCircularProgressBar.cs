@@ -263,9 +263,9 @@ namespace HeCopUI_Framework.Controls.Progress
             set
             {
                 progressColor = value;
-                if (this.SliderValueChanged != null)
+                if (SliderValueChanged != null)
                 {
-                    this.SliderValueChanged(this, EventArgs.Empty);
+                    SliderValueChanged(this, EventArgs.Empty);
                 };
                 Invalidate();
             }

@@ -50,14 +50,14 @@ namespace HeCopUI_Framework.Controls.Button
 
         private void HToggleButton2_Paint(object sender, PaintEventArgs e)
         {
-            this.OnPaintBackground(e);
+            OnPaintBackground(e);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             using (var path = new GraphicsPath())
             {
                 var d = Padding.All;
-                var r = this.Height - 2 * d;
+                var r = Height - 2 * d;
                 path.AddArc(d, d, r, r, 90, 180);
-                path.AddArc(this.Width - r - d, d, r, r, -90, 180);
+                path.AddArc(Width - r - d, d, r, r, -90, 180);
                 path.CloseFigure();
                 e.Graphics.FillPath(Checked ? new SolidBrush(onColor) : new SolidBrush(offColor), path);
                 Pen pens = new Pen(new SolidBrush(LeverCo), SlBor);

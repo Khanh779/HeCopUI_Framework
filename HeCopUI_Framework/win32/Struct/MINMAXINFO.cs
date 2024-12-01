@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace HeCopUI_Framework.Win32.Struct
 {
@@ -20,6 +15,6 @@ namespace HeCopUI_Framework.Win32.Struct
 
         public Size maxTrackSize;
 
-       
+
     }
 }

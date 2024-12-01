@@ -1,14 +1,11 @@
 ﻿
-using static HeCopUI_Framework.Win32.User32;
-using HeCopUI_Framework.Components;
-using HeCopUI_Framework.Win32;
-using HeCopUI_Framework.Win32.Enums;
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Windows.Forms;
+using static HeCopUI_Framework.Win32.User32;
 
 namespace HeCopUI_Framework.Components
 {
@@ -154,8 +151,10 @@ namespace HeCopUI_Framework.Components
             BackColor = Color.Transparent;
             AllowTransparency = true;
             ResizeRedraw = true;
-            _host = new ToolStripControlHost(content);
-            _host.BackColor = Color.Transparent;
+            _host = new ToolStripControlHost(content)
+            {
+                BackColor = Color.Transparent
+            };
             Padding = Margin = _host.Padding = _host.Margin = Padding.Empty;
             if (IsRunningOnMono) content.Margin = Padding.Empty;
             MinimumSize = content.MinimumSize;
@@ -189,7 +188,7 @@ namespace HeCopUI_Framework.Components
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-          
+
             if ((Visible && ShowingAnimation == PopupAnimations.None) || (!Visible && HidingAnimation == PopupAnimations.None))
             {
                 return;
@@ -240,9 +239,9 @@ namespace HeCopUI_Framework.Components
                     _flags = (_flags & ~PopupAnimations.LeftToRight) | PopupAnimations.RightToLeft;
                 }
             }
-            flags = flags | (HeCopUI_Framework.Win32.Enums  .AnimationFlags.Mask & (HeCopUI_Framework.Win32.Enums.AnimationFlags)(int)_flags);
-            SetForegroundWindow(this.Handle);
-            Win32.User32.AnimateWindow(this.Handle, AnimationDuration, (int)flags);
+            flags = flags | (HeCopUI_Framework.Win32.Enums.AnimationFlags.Mask & (HeCopUI_Framework.Win32.Enums.AnimationFlags)(int)_flags);
+            SetForegroundWindow(Handle);
+            Win32.User32.AnimateWindow(Handle, AnimationDuration, (int)flags);
         }
 
         /// <summary>

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace HeCopUI_Framework.Controls.TreeView
@@ -159,7 +156,7 @@ namespace HeCopUI_Framework.Controls.TreeView
             set
             {
                 renderingHint = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
 
@@ -171,7 +168,7 @@ namespace HeCopUI_Framework.Controls.TreeView
             set
             {
                 plusMinusBoxColor = value;
-                this.Invalidate();
+                Invalidate();
             }
         }
 
@@ -182,11 +179,13 @@ namespace HeCopUI_Framework.Controls.TreeView
             SetStyle(GetAppResources.SetControlStyles(), true);
             nodes = new TreeNodeCollection(this);
 
-            vScroll = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar();
-            vScroll.ThumbPadding = new Padding(2);
-            vScroll.Dock = DockStyle.Right;
-            vScroll.Width = 15;
-            vScroll.Visible = false;
+            vScroll = new HeCopUI_Framework.Controls.ScrollBar.VScrollBar
+            {
+                ThumbPadding = new Padding(2),
+                Dock = DockStyle.Right,
+                Width = 15,
+                Visible = false
+            };
 
             Controls.Add(vScroll);
             vScroll.Scroll += VScroll_Scroll;
@@ -280,7 +279,7 @@ namespace HeCopUI_Framework.Controls.TreeView
 
                 int offsetCheckBox = CheckBoxVisible ? 20 : 0;
                 Rectangle nodeBounds = new Rectangle(x + 15 + Indent / 2, y, Width - node.Bounds.X - 28 - (ImageList != null && node.Image != null ? ImageList.ImageSize.Width : 0) -
-                    (vScroll.Visible ? vScroll.Width : 0) - Indent / 2, NodeHeight+1);
+                    (vScroll.Visible ? vScroll.Width : 0) - Indent / 2, NodeHeight + 1);
                 node.Bounds = nodeBounds;
 
                 bool isHover = node.Bounds.Contains(mp);
@@ -564,8 +563,8 @@ namespace HeCopUI_Framework.Controls.TreeView
 
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
             {
-                if(!DesignMode)
-                e.IsInputKey = true;
+                if (!DesignMode)
+                    e.IsInputKey = true;
             }
         }
 
@@ -575,7 +574,7 @@ namespace HeCopUI_Framework.Controls.TreeView
             base.OnKeyDown(e);
             Debug.WriteLine("Key pressed: " + e.KeyCode); // Debug statement
 
-            if(!DesignMode)
+            if (!DesignMode)
             {
                 TreeNode focusedNode = GetNodeFocused(nodes);
                 if (focusedNode == null)
@@ -670,7 +669,7 @@ namespace HeCopUI_Framework.Controls.TreeView
                     focusedNode.IsFocused = true;
                     Invalidate(); // Redraw the control
                 }
-            }    
+            }
         }
 
 
@@ -731,14 +730,14 @@ namespace HeCopUI_Framework.Controls.TreeView
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            if(!DesignMode)
+            if (!DesignMode)
             {
                 UpdateScroll();
                 if (vScroll.Visible)
                 {
                     vScroll.Value -= e.Delta / 120 * SystemInformation.MouseWheelScrollLines;
                 }
-            }    
+            }
 
             Refresh();
         }
