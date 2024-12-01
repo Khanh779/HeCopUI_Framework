@@ -7,12 +7,12 @@ namespace HeCopUI_Framework.Native
     public static class ImageHelper
     {
         private static float[][] _colorMatrixElements = {
-                                            new float[] {(float)0.299, (float)0.299, (float)0.299, 0, 0},
-                                            new float[] {(float)0.587, (float)0.587, (float)0.587, 0, 0},
-                                            new float[] {(float)0.114, (float)0.114, (float)0.114, 0, 0},
-                                            new float[] {0,  0,  0,  1, 0},
-                                            new float[] {0, 0, 0, 0, 1}
-                                        };
+                                                            new float[] {(float)0.299, (float)0.299, (float)0.299, 0, 0},
+                                                            new float[] {(float)0.587, (float)0.587, (float)0.587, 0, 0},
+                                                            new float[] {(float)0.114, (float)0.114, (float)0.114, 0, 0},
+                                                            new float[] {0,  0,  0,  1, 0},
+                                                            new float[] {0, 0, 0, 0, 1}
+                                                        };
 
         private static ColorMatrix _grayscaleColorMatrix = new ColorMatrix(_colorMatrixElements);
 

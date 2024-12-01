@@ -147,6 +147,9 @@
     <Compile Include="Controls\Calendar\SimpleCalendarControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\Chart\cuiChartLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Clock\HClock.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -166,6 +169,8 @@
     <Compile Include="Controls\TreeView\TreeNodeCollection.cs" />
     <Compile Include="Controls\TreeView\TreeViewCancelEventArgs.cs" />
     <Compile Include="Controls\TreeView\TreeViewEventArgs.cs" />
+    <Compile Include="Effects\Blurs.cs" />
+    <Compile Include="Effects\BlursEffect.cs" />
     <Compile Include="Enums\ProgressValueType.cs" />
     <Compile Include="Forms\HFormFlat.cs">
       <SubType>Form</SubType>
@@ -567,9 +572,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Button\HToggleButton1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Button\HToggleButton2.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enums\TabStyle.cs" />

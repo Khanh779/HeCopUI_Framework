@@ -66,7 +66,7 @@ namespace HecopUI_Test
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode46 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode47 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
             HeCopUI_Framework.Controls.TreeView.TreeNode treeNode48 = new HeCopUI_Framework.Controls.TreeView.TreeNode();
-            HeCopUI_Framework.Controls.Chart.Series series2 = new HeCopUI_Framework.Controls.Chart.Series();
+            HeCopUI_Framework.Controls.Chart.Series series4 = new HeCopUI_Framework.Controls.Chart.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -77,11 +77,6 @@ namespace HecopUI_Test
             this.hLabel9 = new HeCopUI_Framework.Controls.HLabel();
             this.hLabel8 = new HeCopUI_Framework.Controls.HLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.hLabel7 = new HeCopUI_Framework.Controls.HLabel();
-            this.hLabel6 = new HeCopUI_Framework.Controls.HLabel();
-            this.hLabel5 = new HeCopUI_Framework.Controls.HLabel();
-            this.hLabel4 = new HeCopUI_Framework.Controls.HLabel();
-            this.hLabel3 = new HeCopUI_Framework.Controls.HLabel();
             this.hLabel2 = new HeCopUI_Framework.Controls.HLabel();
             this.hLabel1 = new HeCopUI_Framework.Controls.HLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -122,7 +117,6 @@ namespace HecopUI_Test
             this.hCheckBox3 = new HeCopUI_Framework.Controls.Button.HCheckBox();
             this.hCheckBox2 = new HeCopUI_Framework.Controls.Button.HCheckBox();
             this.hRadioButton1 = new HeCopUI_Framework.Controls.Button.HRadioButton();
-            this.hToggleButton21 = new HeCopUI_Framework.Controls.Button.HToggleButton2();
             this.hToggleButton11 = new HeCopUI_Framework.Controls.Button.HToggleButton1();
             this.hToggleButton1 = new HeCopUI_Framework.Controls.Button.HToggleButton();
             this.hCheckBox1 = new HeCopUI_Framework.Controls.Button.HCheckBox();
@@ -210,6 +204,13 @@ namespace HecopUI_Test
             this.simpleCalendarControl1 = new HeCopUI_Framework.Controls.Calendar.SimpleCalendarControl();
             this.hMontCalendar1 = new HeCopUI_Framework.Controls.HMontCalendar();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.cuiChartLine1 = new QuanLy_ThuVienB.cuiChartLine();
+            this.hLabel7 = new HeCopUI_Framework.Controls.HLabel();
+            this.hLabel6 = new HeCopUI_Framework.Controls.HLabel();
+            this.hLabel5 = new HeCopUI_Framework.Controls.HLabel();
+            this.hLabel4 = new HeCopUI_Framework.Controls.HLabel();
+            this.hLabel3 = new HeCopUI_Framework.Controls.HLabel();
             this.hTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -250,6 +251,7 @@ namespace HecopUI_Test
             this.hTabControl7.SuspendLayout();
             this.tabPage30.SuspendLayout();
             this.tabPage31.SuspendLayout();
+            this.tabPage14.SuspendLayout();
             this.SuspendLayout();
             // 
             // hTabControl1
@@ -397,111 +399,9 @@ namespace HecopUI_Test
             this.panel1.Location = new System.Drawing.Point(22, 155);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(2, 10, 2, 10);
-            this.panel1.Size = new System.Drawing.Size(469, 334);
+            this.panel1.Padding = new System.Windows.Forms.Padding(5, 12, 5, 10);
+            this.panel1.Size = new System.Drawing.Size(469, 308);
             this.panel1.TabIndex = 6;
-            // 
-            // hLabel7
-            // 
-            this.hLabel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.hLabel7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.hLabel7.ForeColor = System.Drawing.Color.DarkGray;
-            this.hLabel7.Location = new System.Drawing.Point(2, 243);
-            this.hLabel7.Name = "hLabel7";
-            this.hLabel7.Size = new System.Drawing.Size(465, 53);
-            this.hLabel7.Symbol = "✨";
-            this.hLabel7.SymbolColor = System.Drawing.Color.Gray;
-            this.hLabel7.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this.hLabel7.SymbolVisible = true;
-            this.hLabel7.TabIndex = 10;
-            this.hLabel7.Text = "Explore now - Hecop UI Framework, where power meets flexibility! :D";
-            this.hLabel7.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.hLabel7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hLabel7.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
-            // 
-            // hLabel6
-            // 
-            this.hLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.hLabel6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.hLabel6.ForeColor = System.Drawing.Color.DarkGray;
-            this.hLabel6.Location = new System.Drawing.Point(2, 190);
-            this.hLabel6.Name = "hLabel6";
-            this.hLabel6.Size = new System.Drawing.Size(465, 53);
-            this.hLabel6.Symbol = "📱 ";
-            this.hLabel6.SymbolColor = System.Drawing.Color.Gray;
-            this.hLabel6.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this.hLabel6.SymbolVisible = true;
-            this.hLabel6.TabIndex = 9;
-            this.hLabel6.Text = "Cross-Platform Support: Develop for both web and mobile effortlessly.";
-            this.hLabel6.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.hLabel6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hLabel6.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
-            // 
-            // hLabel5
-            // 
-            this.hLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.hLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.hLabel5.ForeColor = System.Drawing.Color.DarkGray;
-            this.hLabel5.Location = new System.Drawing.Point(2, 137);
-            this.hLabel5.Name = "hLabel5";
-            this.hLabel5.Size = new System.Drawing.Size(465, 53);
-            this.hLabel5.Symbol = "⚡ ";
-            this.hLabel5.SymbolColor = System.Drawing.Color.Gray;
-            this.hLabel5.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this.hLabel5.SymbolVisible = true;
-            this.hLabel5.TabIndex = 8;
-            this.hLabel5.Text = "Smooth Performance: A fluid and fast user experience across all devices.";
-            this.hLabel5.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.hLabel5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hLabel5.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
-            // 
-            // hLabel4
-            // 
-            this.hLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.hLabel4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.hLabel4.ForeColor = System.Drawing.Color.DarkGray;
-            this.hLabel4.Location = new System.Drawing.Point(2, 83);
-            this.hLabel4.Name = "hLabel4";
-            this.hLabel4.Size = new System.Drawing.Size(465, 54);
-            this.hLabel4.Symbol = "🎨 ";
-            this.hLabel4.SymbolColor = System.Drawing.Color.Gray;
-            this.hLabel4.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this.hLabel4.SymbolVisible = true;
-            this.hLabel4.TabIndex = 7;
-            this.hLabel4.Text = "Flexible Customization: Fine-tune with progress bars, tab controls, and versatile" +
-    " features.";
-            this.hLabel4.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.hLabel4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hLabel4.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
-            // 
-            // hLabel3
-            // 
-            this.hLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.hLabel3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.hLabel3.ForeColor = System.Drawing.Color.DarkGray;
-            this.hLabel3.Location = new System.Drawing.Point(2, 10);
-            this.hLabel3.Name = "hLabel3";
-            this.hLabel3.Size = new System.Drawing.Size(465, 73);
-            this.hLabel3.Symbol = "🚀 ";
-            this.hLabel3.SymbolColor = System.Drawing.Color.Gray;
-            this.hLabel3.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this.hLabel3.SymbolVisible = true;
-            this.hLabel3.TabIndex = 6;
-            this.hLabel3.Text = "Diverse UI Components: Charts, buttons, checkboxes, textboxes, and more, helping " +
-    "you build interfaces swiftly.";
-            this.hLabel3.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.hLabel3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.hLabel3.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
             // 
             // hLabel2
             // 
@@ -1778,7 +1678,6 @@ namespace HecopUI_Test
             this.tabPage27.Controls.Add(this.hCheckBox3);
             this.tabPage27.Controls.Add(this.hCheckBox2);
             this.tabPage27.Controls.Add(this.hRadioButton1);
-            this.tabPage27.Controls.Add(this.hToggleButton21);
             this.tabPage27.Controls.Add(this.hToggleButton11);
             this.tabPage27.Controls.Add(this.hToggleButton1);
             this.tabPage27.Controls.Add(this.hCheckBox1);
@@ -1904,25 +1803,6 @@ namespace HecopUI_Test
             this.hRadioButton1.Text = "hRadioButton1";
             this.hRadioButton1.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.hRadioButton1.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
-            // 
-            // hToggleButton21
-            // 
-            this.hToggleButton21.BackColor = System.Drawing.Color.Transparent;
-            this.hToggleButton21.BorderColor = System.Drawing.Color.Gray;
-            this.hToggleButton21.BorderWidth = 1F;
-            this.hToggleButton21.Location = new System.Drawing.Point(513, 328);
-            this.hToggleButton21.MinimumSize = new System.Drawing.Size(47, 22);
-            this.hToggleButton21.Name = "hToggleButton21";
-            this.hToggleButton21.OffColor = System.Drawing.Color.DimGray;
-            this.hToggleButton21.OffLeverColor = System.Drawing.Color.LightGray;
-            this.hToggleButton21.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(138)))), ((int)(((byte)(118)))));
-            this.hToggleButton21.OnLeverColor = System.Drawing.Color.LightGray;
-            this.hToggleButton21.Padding = new System.Windows.Forms.Padding(5);
-            this.hToggleButton21.Size = new System.Drawing.Size(47, 23);
-            this.hToggleButton21.SliderWidth = 1F;
-            this.hToggleButton21.TabIndex = 30;
-            this.hToggleButton21.Text = "hToggleButton21";
-            this.hToggleButton21.ValueChecked = true;
             // 
             // hToggleButton11
             // 
@@ -2422,6 +2302,7 @@ namespace HecopUI_Test
             this.hTabControl4.Controls.Add(this.tabPage16);
             this.hTabControl4.Controls.Add(this.tabPage17);
             this.hTabControl4.Controls.Add(this.tabPage18);
+            this.hTabControl4.Controls.Add(this.tabPage14);
             this.hTabControl4.CursorTabPages = System.Windows.Forms.Cursors.Default;
             this.hTabControl4.ItemSize = new System.Drawing.Size(54, 28);
             this.hTabControl4.Location = new System.Drawing.Point(27, 21);
@@ -2567,16 +2448,16 @@ namespace HecopUI_Test
             this.hRadarChart1.NumberVisible = true;
             this.hRadarChart1.PointSize = 8;
             this.hRadarChart1.RadarColor = System.Drawing.Color.Gray;
-            series2.Color = System.Drawing.Color.OrangeRed;
-            series2.Text = "serieName1";
-            series2.Values = new float[] {
+            series4.Color = System.Drawing.Color.OrangeRed;
+            series4.Text = "serieName1";
+            series4.Values = new float[] {
         90F,
         50F,
         70F,
         40F,
         60F};
             this.hRadarChart1.Series = new HeCopUI_Framework.Controls.Chart.Series[] {
-        series2};
+        series4};
             this.hRadarChart1.ShowTitle = true;
             this.hRadarChart1.ShowValuesTip = false;
             this.hRadarChart1.Size = new System.Drawing.Size(599, 371);
@@ -2612,8 +2493,8 @@ namespace HecopUI_Test
             this.hTextBox2.BorderWidth = 1;
             this.hTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.hTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.hTextBox2.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(169)))), ((int)(((byte)(128)))));
-            this.hTextBox2.ForeColor = System.Drawing.Color.DimGray;
+            this.hTextBox2.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTextBox2.ForeColor = System.Drawing.Color.Gray;
             this.hTextBox2.HideSelection = true;
             this.hTextBox2.Image = null;
             this.hTextBox2.ImageAlignRight = false;
@@ -2632,7 +2513,7 @@ namespace HecopUI_Test
             this.hTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.hTextBox2.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.hTextBox2.UnderlineStyle = false;
-            this.hTextBox2.UseAnimation = false;
+            this.hTextBox2.UseAnimation = true;
             this.hTextBox2.WartermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hTextBox2.Watermark = "Type watermark text here.";
             this.hTextBox2.WatermarkForeColor = System.Drawing.Color.Gray;
@@ -2646,8 +2527,8 @@ namespace HecopUI_Test
             this.hTextBox1.BorderWidth = 1;
             this.hTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.hTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.hTextBox1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(169)))), ((int)(((byte)(128)))));
-            this.hTextBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.hTextBox1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hTextBox1.ForeColor = System.Drawing.Color.Gray;
             this.hTextBox1.HideSelection = true;
             this.hTextBox1.Image = null;
             this.hTextBox1.ImageAlignRight = false;
@@ -2666,7 +2547,7 @@ namespace HecopUI_Test
             this.hTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.hTextBox1.TextRenderHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.hTextBox1.UnderlineStyle = true;
-            this.hTextBox1.UseAnimation = false;
+            this.hTextBox1.UseAnimation = true;
             this.hTextBox1.WartermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hTextBox1.Watermark = "Type watermark text here.";
             this.hTextBox1.WatermarkForeColor = System.Drawing.Color.Gray;
@@ -2676,7 +2557,7 @@ namespace HecopUI_Test
             // 
             this.hRichTextBox2.AcceptsTab = false;
             this.hRichTextBox2.AutoWordSelection = false;
-            this.hRichTextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hRichTextBox2.BorderColor = System.Drawing.Color.Gray;
             this.hRichTextBox2.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.hRichTextBox2.BorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(162)))));
             this.hRichTextBox2.BorderThickness = 1;
@@ -2709,7 +2590,7 @@ namespace HecopUI_Test
             // 
             this.hRichTextBox1.AcceptsTab = false;
             this.hRichTextBox1.AutoWordSelection = false;
-            this.hRichTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
+            this.hRichTextBox1.BorderColor = System.Drawing.Color.Gray;
             this.hRichTextBox1.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.hRichTextBox1.BorderHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(162)))));
             this.hRichTextBox1.BorderThickness = 1;
@@ -3917,6 +3798,143 @@ namespace HecopUI_Test
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "tabPage7";
             // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.cuiChartLine1);
+            this.tabPage14.Location = new System.Drawing.Point(4, 32);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(781, 445);
+            this.tabPage14.TabIndex = 4;
+            this.tabPage14.Text = "Chart cui";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // cuiChartLine1
+            // 
+            this.cuiChartLine1.AutoMaxValue = true;
+            this.cuiChartLine1.AxisColor = System.Drawing.Color.Gray;
+            this.cuiChartLine1.ChartLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiChartLine1.ChartPadding = 40;
+            this.cuiChartLine1.CustomXAxis = new string[0];
+            this.cuiChartLine1.DataPoints = new float[] {
+        100F,
+        90F,
+        80F,
+        75F,
+        70F,
+        65F,
+        60F};
+            this.cuiChartLine1.DayColor = System.Drawing.Color.DarkGray;
+            this.cuiChartLine1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F);
+            this.cuiChartLine1.GradientBackground = true;
+            this.cuiChartLine1.Location = new System.Drawing.Point(73, 24);
+            this.cuiChartLine1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cuiChartLine1.MaxValue = 100F;
+            this.cuiChartLine1.Name = "cuiChartLine1";
+            this.cuiChartLine1.PointColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiChartLine1.ShortDates = true;
+            this.cuiChartLine1.Size = new System.Drawing.Size(578, 363);
+            this.cuiChartLine1.TabIndex = 0;
+            this.cuiChartLine1.UseBezier = false;
+            this.cuiChartLine1.UsePercent = true;
+            // 
+            // hLabel7
+            // 
+            this.hLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.hLabel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hLabel7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.hLabel7.ForeColor = System.Drawing.Color.DarkGray;
+            this.hLabel7.Location = new System.Drawing.Point(5, 220);
+            this.hLabel7.Name = "hLabel7";
+            this.hLabel7.Size = new System.Drawing.Size(459, 52);
+            this.hLabel7.Symbol = "✨";
+            this.hLabel7.SymbolColor = System.Drawing.Color.Gray;
+            this.hLabel7.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            this.hLabel7.SymbolVisible = true;
+            this.hLabel7.TabIndex = 15;
+            this.hLabel7.Text = "Explore now - Hecop UI Framework, where power meets flexibility! :D";
+            this.hLabel7.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.hLabel7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hLabel7.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            // 
+            // hLabel6
+            // 
+            this.hLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.hLabel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hLabel6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.hLabel6.ForeColor = System.Drawing.Color.DarkGray;
+            this.hLabel6.Location = new System.Drawing.Point(5, 168);
+            this.hLabel6.Name = "hLabel6";
+            this.hLabel6.Size = new System.Drawing.Size(459, 52);
+            this.hLabel6.Symbol = "📱 ";
+            this.hLabel6.SymbolColor = System.Drawing.Color.Gray;
+            this.hLabel6.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            this.hLabel6.SymbolVisible = true;
+            this.hLabel6.TabIndex = 14;
+            this.hLabel6.Text = "Cross-Platform Support: Develop for both web and mobile effortlessly.";
+            this.hLabel6.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.hLabel6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hLabel6.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            // 
+            // hLabel5
+            // 
+            this.hLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.hLabel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.hLabel5.ForeColor = System.Drawing.Color.DarkGray;
+            this.hLabel5.Location = new System.Drawing.Point(5, 116);
+            this.hLabel5.Name = "hLabel5";
+            this.hLabel5.Size = new System.Drawing.Size(459, 52);
+            this.hLabel5.Symbol = "⚡ ";
+            this.hLabel5.SymbolColor = System.Drawing.Color.Gray;
+            this.hLabel5.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            this.hLabel5.SymbolVisible = true;
+            this.hLabel5.TabIndex = 13;
+            this.hLabel5.Text = "Smooth Performance: A fluid and fast user experience across all devices.";
+            this.hLabel5.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.hLabel5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hLabel5.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            // 
+            // hLabel4
+            // 
+            this.hLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.hLabel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hLabel4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.hLabel4.ForeColor = System.Drawing.Color.DarkGray;
+            this.hLabel4.Location = new System.Drawing.Point(5, 64);
+            this.hLabel4.Name = "hLabel4";
+            this.hLabel4.Size = new System.Drawing.Size(459, 52);
+            this.hLabel4.Symbol = "🎨 ";
+            this.hLabel4.SymbolColor = System.Drawing.Color.Gray;
+            this.hLabel4.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            this.hLabel4.SymbolVisible = true;
+            this.hLabel4.TabIndex = 12;
+            this.hLabel4.Text = "Flexible Customization: Fine-tune with progress bars, tab controls, and versatile" +
+    " features.";
+            this.hLabel4.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.hLabel4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hLabel4.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            // 
+            // hLabel3
+            // 
+            this.hLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.hLabel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.hLabel3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.hLabel3.ForeColor = System.Drawing.Color.DarkGray;
+            this.hLabel3.Location = new System.Drawing.Point(5, 12);
+            this.hLabel3.Name = "hLabel3";
+            this.hLabel3.Size = new System.Drawing.Size(459, 52);
+            this.hLabel3.Symbol = "🚀 ";
+            this.hLabel3.SymbolColor = System.Drawing.Color.Gray;
+            this.hLabel3.SymbolFont = new System.Drawing.Font("Segoe UI Emoji", 11F);
+            this.hLabel3.SymbolVisible = true;
+            this.hLabel3.TabIndex = 11;
+            this.hLabel3.Text = "Diverse UI Components: Charts, buttons, checkboxes, textboxes, and more, helping " +
+    "you build interfaces swiftly.";
+            this.hLabel3.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.hLabel3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.hLabel3.TextTrim = System.Drawing.StringTrimming.EllipsisCharacter;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -3985,6 +4003,7 @@ namespace HecopUI_Test
             this.hTabControl7.ResumeLayout(false);
             this.tabPage30.ResumeLayout(false);
             this.tabPage31.ResumeLayout(false);
+            this.tabPage14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4009,11 +4028,6 @@ namespace HecopUI_Test
         private HLabel hLabel1;
         private HLabel hLabel2;
         private System.Windows.Forms.Panel panel1;
-        private HLabel hLabel6;
-        private HLabel hLabel5;
-        private HLabel hLabel4;
-        private HLabel hLabel3;
-        private HLabel hLabel7;
         private HLabel hLabel8;
         private HLabel hLabel9;
         private System.Windows.Forms.LinkLabel linkLabel1;
@@ -4053,7 +4067,6 @@ namespace HecopUI_Test
         private HCheckBox hCheckBox3;
         private HCheckBox hCheckBox2;
         private HRadioButton hRadioButton1;
-        private HToggleButton2 hToggleButton21;
         private HToggleButton1 hToggleButton11;
         private HToggleButton hToggleButton1;
         private HCheckBox hCheckBox1;
@@ -4142,5 +4155,12 @@ namespace HecopUI_Test
         private HeCopUI_Framework.Controls.TextControls.HTextBox hTextBox1;
         private HeCopUI_Framework.Controls.TextControls.HTextBox hTextBox2;
         private TabPage tabPage7;
+        private TabPage tabPage14;
+        private QuanLy_ThuVienB.cuiChartLine cuiChartLine1;
+        private HLabel hLabel7;
+        private HLabel hLabel6;
+        private HLabel hLabel5;
+        private HLabel hLabel4;
+        private HLabel hLabel3;
     }
 }
