@@ -161,7 +161,7 @@ namespace HeCopUI_Framework.Controls.Chart
                     DrawAxes(g, pen, offX, offY, offyh, chartWidth);
                     var strOX = GetSortedKeys();
                     DrawOYLabels(g, penOY, brushOy, oyFont, offX, offY, offyh);
-                    DrawOXLabels(g, strOX, offX +5, offY, chartWidth / strOX.Count, brush, oyFont);
+                    DrawOXLabels(g, strOX, offX + 5, offY, chartWidth / strOX.Count, brush, oyFont);
                     DrawBars(g, strOX, offX + 5, offY, offyh, chartWidth, brush, oyFont);
                     DrawTitle(g, brush, chartWidth);
                     DrawLegend(g, brush, chartWidth);

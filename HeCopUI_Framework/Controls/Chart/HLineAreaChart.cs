@@ -4,6 +4,7 @@ using HeCopUI_Framework.Enums;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace HeCopUI_Framework.Controls.Chart
     {
         private AnimationManager animationManager;
 
-        private Color _titleColor = Color.Black;
+        private Color _titleColor = Color.FromArgb(0, 168, 148);
         private Font _titleFont = new Font("Arial", 12, FontStyle.Bold);
         private TitleChartAlign _titleChartAlign = TitleChartAlign.TopLeft;
         private LegendType _legendType = LegendType.Right;
@@ -108,6 +109,19 @@ namespace HeCopUI_Framework.Controls.Chart
             return (float)Math.Ceiling(maxValue / 10) * 10 + 10;
         }
 
+        LineChartType lineChartType = LineChartType.Line;
+        public LineChartType LineChartType { get => lineChartType; set { lineChartType = value; Invalidate(); } }
+
+
+        bool useGradientBackground = false;
+        public bool UseGradientBackground { get => useGradientBackground; set { useGradientBackground = value; Invalidate(); } }
+
+        public void RefreshData()
+        {
+            animationManager.ResetAll();
+            animationManager.StartNewAnimation(AnimationDirection.In);
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -134,19 +148,20 @@ namespace HeCopUI_Framework.Controls.Chart
                 //else if (sortMode == SortMode.Descending)
                 //    strOX.Sort((x, y) => y.ToString().CompareTo(x.ToString()));
 
-                float pointSpacing = chartWidth / (xAxisLabels.Count);
+                float pointSpacing = (chartWidth - offsetX) / (xAxisLabels.Count - 1);
 
                 // Vẽ trục tọa độ
                 using (Pen axisPen = new Pen(AxisColor, 1))
                 {
+                    // Vẽ trục Oy và Ox
                     g.DrawLine(axisPen, offsetX, offsetY, offsetX, chartHeight); // Oy
                     g.DrawLine(axisPen, offsetX, chartHeight, chartWidth, chartHeight); // Ox
 
-                    // Hiển thị chỉ số trên Oy
+                    // Hiển thị các nhãn trên Oy
                     using (Brush textBrush = new SolidBrush(_numbericChartColor))
                     {
-                        DrawOYLabels(g, axisPen, textBrush, _numbericChartFont, offsetX, offsetY, 30);
-                        DrawOXLabels(g, xAxisLabels, offsetX, offsetY, pointSpacing, textBrush, _numbericChartFont);
+                        DrawOYLabels(g, axisPen, textBrush, new Font(_titleFont.Name, 10f), offsetX, offsetY, 30);
+                        DrawOXLabels(g, xAxisLabels, offsetX, offsetY, pointSpacing, textBrush, new Font(_titleFont.Name, 10f));
                     }
                 }
 
@@ -156,15 +171,17 @@ namespace HeCopUI_Framework.Controls.Chart
                 foreach (var dataset in dataItems.Items)
                 {
                     List<PointF> points = new List<PointF>();
+                    List<PointF> gradientPoints = new List<PointF>();
+
                     foreach (var label in xAxisLabels)
                     {
                         int index = xAxisLabels.IndexOf(label);
-                        float x = index * pointSpacing + offsetX;
+                        float x = offsetX + index * pointSpacing;
                         float y = chartHeight;
 
                         if (dataset.Data.TryGetValue(label, out float value))
                         {
-                            y -= (value / _maximumValue) * chartHeight;
+                            y -= (value / _maximumValue) * (chartHeight - offsetY) * (float)animationManager.GetProgress();
                         }
 
                         using (Brush pointBrush = new SolidBrush(dataset.Color))
@@ -173,11 +190,59 @@ namespace HeCopUI_Framework.Controls.Chart
                         }
 
                         points.Add(new PointF(x, y));
+
                     }
 
                     using (Pen linePen = new Pen(dataset.Color, 1))
                     {
-                        g.DrawLines(linePen, points.ToArray());
+                        switch (lineChartType)
+                        {
+                            case LineChartType.Line:
+                                g.DrawLines(linePen, points.ToArray());
+
+                                if (useGradientBackground)
+                                {
+                                    using (GraphicsPath path = new GraphicsPath())
+                                    {
+                                        // Kết hợp các điểm với gradientPoints để tạo thành vùng nền
+                                        gradientPoints.AddRange(points);
+                                        path.AddLines(gradientPoints.ToArray());
+
+                                        // Tạo gradient màu xanh lá cây mờ dần
+                                        using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
+                                            new PointF(offsetX, chartHeight), new PointF(offsetX, points[0].Y),
+                                            Color.FromArgb(100, dataset.Color), Color.Transparent)) // Màu xanh lá mờ
+                                        {
+                                            g.FillPath(gradientBrush, path); // Fill gradient dưới đường cong
+                                        }
+                                    }
+                                }
+
+                                break;
+                            case LineChartType.Curve:
+                                g.DrawCurve(linePen, points.ToArray());
+
+
+
+                                break;
+                            case LineChartType.Bezier:
+                                if (points.Count > 3)
+                                {
+                                    for (int i = 0; i < points.Count - 3; i++)
+                                    {
+                                        PointF[] bezierPoints = new PointF[]
+                                        {
+                                            points[i],
+                                            points[i + 1],
+                                            points[i + 2],
+                                            points[i + 3]
+                                        };
+                                        g.DrawBeziers(linePen, bezierPoints); // Vẽ đường Bezier
+                                    }
+                                }
+                                break;
+                        }
+
                     }
                 }
 

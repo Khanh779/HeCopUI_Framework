@@ -11,17 +11,3 @@ D:\Data\Tailieu\Projects\C#\HeCop_UI\HecopUI_Test\obj\Debug\HecopUI_Test.csproj.
 D:\Data\Tailieu\Projects\C#\HeCop_UI\HecopUI_Test\obj\Debug\HecopUI_.9411D683.Up2Date
 D:\Data\Tailieu\Projects\C#\HeCop_UI\HecopUI_Test\obj\Debug\HecopUI_Test.exe
 D:\Data\Tailieu\Projects\C#\HeCop_UI\HecopUI_Test\obj\Debug\HecopUI_Test.pdb
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.csproj.AssemblyReference.cache
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.Form1.resources
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.Form2.resources
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.Properties.Resources.resources
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.csproj.GenerateResource.cache
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.csproj.CoreCompileInputs.cache
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Debug\HecopUI_Test.exe.config
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Debug\HecopUI_Test.exe
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Debug\HecopUI_Test.pdb
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Debug\HeCopUI_Framework.dll
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_.9411D683.Up2Date
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.exe
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\obj\Debug\HecopUI_Test.pdb
-D:\Data\Tailieu\Projects\C#\HeCopUI_Framework\HecopUI_Test\bin\Debug\HeCopUI_Framework.pdb

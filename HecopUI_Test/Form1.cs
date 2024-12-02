@@ -184,6 +184,7 @@ namespace HecopUI_Test
         private void hButton11_Click_1(object sender, EventArgs e)
         {
             hBarChart1.RefreshData();
+            hLineAreaChart1.RefreshData();
         }
     }
 }

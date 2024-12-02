@@ -178,6 +178,7 @@
     <Compile Include="Controls\TreeView\TreeViewEventArgs.cs" />
     <Compile Include="Effects\Blurs.cs" />
     <Compile Include="Effects\BlursEffect.cs" />
+    <Compile Include="Enums\LineChartType.cs" />
     <Compile Include="Enums\ProgressValueType.cs" />
     <Compile Include="Forms\HFormFlat.cs">
       <SubType>Form</SubType>
