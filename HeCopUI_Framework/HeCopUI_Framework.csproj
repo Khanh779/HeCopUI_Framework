@@ -150,6 +150,9 @@
     <Compile Include="Controls\Chart\cuiChartLine.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\Chart\HLineAreaChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Clock\HClock.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -189,9 +192,6 @@
       <DependentUpon>ChartTip.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Chart\HBarChart.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Chart\HLineAreaChart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Chart\HRadarChart.cs">

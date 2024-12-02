@@ -52,7 +52,7 @@ namespace HeCopUI_Framework.Controls.Chart
             if (DesignMode)
             {
                 // Ví dụ biểu đồ 
-                Dictionary<object, int> item1 = new Dictionary<object, int>
+                Dictionary<object, float> item1 = new Dictionary<object, float>
                 {
                     { "A", 10 },
                     { "B", 20 },
@@ -61,7 +61,7 @@ namespace HeCopUI_Framework.Controls.Chart
                 };
                 AddItems("Example 1", item1, Color.MediumVioletRed);
 
-                Dictionary<object, int> item2 = new Dictionary<object, int>
+                Dictionary<object, float> item2 = new Dictionary<object, float>
                 {
                     { "A", 50 },
                     { "B", 60 },
@@ -70,7 +70,7 @@ namespace HeCopUI_Framework.Controls.Chart
                 };
                 AddItems("Example 2", item2, Color.DodgerBlue);
 
-                Dictionary<object, int> item3 = new Dictionary<object, int>
+                Dictionary<object, float> item3 = new Dictionary<object, float>
                 {
                     { "A", 90 },
                     { "B", 105 },
@@ -180,7 +180,7 @@ namespace HeCopUI_Framework.Controls.Chart
 
         HeCopUI_Framework.Controls.Chart.Model.DataItems dataItem = new DataItems();
 
-        public void AddItems(string legendText, Dictionary<object, int> items, System.Drawing.Color color)
+        public void AddItems(string legendText, Dictionary<object, float> items, System.Drawing.Color color)
         {
             animationManager.StartNewAnimation(AnimationDirection.In);
             dataItem.Add(legendText, items, color);

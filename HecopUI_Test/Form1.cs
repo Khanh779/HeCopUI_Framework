@@ -44,7 +44,7 @@ namespace HecopUI_Test
         {
             #region Bar Chart
             // Ví dụ mẫu đi
-            Dictionary<object, int> item1 = new Dictionary<object, int>
+            Dictionary<object, float> item1 = new Dictionary<object, float>
             {
                 { "A", 10 },
                 { "B", 20 },
@@ -53,7 +53,7 @@ namespace HecopUI_Test
 
             hBarChart1.AddItems("Example 1", item1, Color.MediumVioletRed);
 
-            Dictionary<object, int> item2 = new Dictionary<object, int>
+            Dictionary<object, float> item2 = new Dictionary<object, float>
             {
                 { "A", 30 },
                 { "B", 70 },
@@ -61,7 +61,7 @@ namespace HecopUI_Test
             };
             hBarChart1.AddItems("Example 2", item2, Color.DodgerBlue);
 
-            Dictionary<object, int> item3 = new Dictionary<object, int>
+            Dictionary<object, float> item3 = new Dictionary<object, float>
             {
                 { "A", 50 },
                 { "B", 20 },
@@ -71,7 +71,7 @@ namespace HecopUI_Test
             #endregion
 
             #region Pie Chart
-            Dictionary<object, int> item4 = new Dictionary<object, int>
+            Dictionary<object, float> item4 = new Dictionary<object, float>
             {
                 { "A", 10 },
                 { "B", 20 },
@@ -80,7 +80,7 @@ namespace HecopUI_Test
 
             hPieChart1.AddItems("Example 1", item4, Color.MediumVioletRed);
 
-            Dictionary<object, int> item5 = new Dictionary<object, int>
+            Dictionary<object, float> item5 = new Dictionary<object, float>
             {
                 { "A", 30 },
                 { "B", 70 },
@@ -88,7 +88,7 @@ namespace HecopUI_Test
             };
             hPieChart1.AddItems("Example 2", item5, Color.DodgerBlue);
 
-            Dictionary<object, int> item6 = new Dictionary<object, int>
+            Dictionary<object, float> item6 = new Dictionary<object, float>
             {
                 { "A", 50 },
                 { "B", 20 },
@@ -98,7 +98,7 @@ namespace HecopUI_Test
             #endregion
 
             #region Line Chart
-            Dictionary<object, int> item7 = new Dictionary<object, int>
+            Dictionary<object, float> item7 = new Dictionary<object, float>
             {
                 { "A", 10 },
                 { "B", 20 },
@@ -106,7 +106,7 @@ namespace HecopUI_Test
             };
             hLineAreaChart1.AddItems("Example 1", item7, Color.MediumVioletRed);
 
-            Dictionary<object, int> item8 = new Dictionary<object, int>
+            Dictionary<object, float> item8 = new Dictionary<object, float>
             {
                 { "A", 30 },
                 { "B", 70 },
@@ -114,7 +114,7 @@ namespace HecopUI_Test
             };
             hLineAreaChart1.AddItems("Example 2", item8, Color.DodgerBlue);
 
-            Dictionary<object, int> item9 = new Dictionary<object, int>
+            Dictionary<object, float> item9 = new Dictionary<object, float>
             {
                 { "A", 50 },
                 { "B", 20 },

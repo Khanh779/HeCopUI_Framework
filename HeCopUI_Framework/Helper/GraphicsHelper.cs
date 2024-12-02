@@ -134,7 +134,7 @@ namespace HeCopUI_Framework.Helper
         }
 
 
-     
+
         public static Bitmap DrawBitmapShadow(RectangleF rectf, Color color, float radius, float size = 8)
         {
             if (rectf == null) return null;

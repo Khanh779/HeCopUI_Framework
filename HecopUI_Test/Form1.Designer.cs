@@ -2414,17 +2414,18 @@ namespace HecopUI_Test
             // 
             // hBarChart1
             // 
-            this.hBarChart1.BorderItems = true;
+            this.hBarChart1.BorderItems = false;
+            this.hBarChart1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hBarChart1.ItemsTextColor = System.Drawing.Color.DarkGray;
             this.hBarChart1.LegendColor = System.Drawing.Color.DarkGray;
             this.hBarChart1.LegendFont = new System.Drawing.Font("Arial", 10F);
-            this.hBarChart1.LegendType = HeCopUI_Framework.Enums.LegendType.Right;
+            this.hBarChart1.LegendType = HeCopUI_Framework.Enums.LegendType.None;
             this.hBarChart1.LineChart = System.Drawing.Color.Gray;
             this.hBarChart1.Location = new System.Drawing.Point(32, 33);
             this.hBarChart1.Name = "hBarChart1";
             this.hBarChart1.NumbericChartColor = System.Drawing.Color.DarkGray;
             this.hBarChart1.ShowTitle = true;
-            this.hBarChart1.Size = new System.Drawing.Size(599, 371);
+            this.hBarChart1.Size = new System.Drawing.Size(614, 371);
             this.hBarChart1.SortMode = HeCopUI_Framework.Enums.SortMode.None;
             this.hBarChart1.SpaceBetweenItems = 50;
             this.hBarChart1.TabIndex = 0;
@@ -2450,23 +2451,23 @@ namespace HecopUI_Test
             // 
             // hLineAreaChart1
             // 
-            this.hLineAreaChart1.ChartColor = System.Drawing.Color.Gray;
-            this.hLineAreaChart1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(122)))));
-            this.hLineAreaChart1.GraphStyle = HeCopUI_Framework.Controls.Chart.HLineAreaChart.Style.Flat;
-            this.hLineAreaChart1.GridColor = System.Drawing.Color.DimGray;
+            this.hLineAreaChart1.AxisColor = System.Drawing.Color.Gray;
+            this.hLineAreaChart1.LegendFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hLineAreaChart1.LegendType = HeCopUI_Framework.Enums.LegendType.Right;
             this.hLineAreaChart1.Location = new System.Drawing.Point(32, 33);
             this.hLineAreaChart1.Name = "hLineAreaChart1";
-            this.hLineAreaChart1.NumbericOfOxy = System.Drawing.Color.DarkGray;
-            this.hLineAreaChart1.NumberOfOyVisible = 10;
-            this.hLineAreaChart1.PointSize = 8;
-            this.hLineAreaChart1.ShowAreas = true;
-            this.hLineAreaChart1.ShowPoints = true;
-            this.hLineAreaChart1.Size = new System.Drawing.Size(599, 371);
-            this.hLineAreaChart1.SortMode = HeCopUI_Framework.Enums.SortMode.None;
+            this.hLineAreaChart1.NumbericChartColor = System.Drawing.Color.DimGray;
+            this.hLineAreaChart1.NumbericChartFont = new System.Drawing.Font("Arial", 8F);
+            this.hLineAreaChart1.ShowTitle = true;
+            this.hLineAreaChart1.Size = new System.Drawing.Size(614, 371);
+            this.hLineAreaChart1.SpaceBetweenPoints = 10;
             this.hLineAreaChart1.TabIndex = 0;
             this.hLineAreaChart1.Text = "hLineAreaChart1";
-            this.hLineAreaChart1.TitleAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
-            this.hLineAreaChart1.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.hLineAreaChart1.TitleChartAlign = HeCopUI_Framework.Enums.TitleChartAlign.TopLeft;
+            this.hLineAreaChart1.TitleColor = System.Drawing.Color.Black;
+            this.hLineAreaChart1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.hLineAreaChart1.TitleText = "Line Chart";
+            this.hLineAreaChart1.VisibleNumberOy = 10;
             // 
             // tabPage17
             // 
@@ -2560,10 +2561,17 @@ namespace HecopUI_Test
             // cuiChartLine1
             // 
             this.cuiChartLine1.AutoMaxValue = false;
-            this.cuiChartLine1.AxisColor = System.Drawing.Color.Gray;
-            this.cuiChartLine1.ChartLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiChartLine1.AxisColor = System.Drawing.Color.RosyBrown;
+            this.cuiChartLine1.ChartLineColor = System.Drawing.Color.Lime;
             this.cuiChartLine1.ChartPadding = 40;
-            this.cuiChartLine1.CustomXAxis = new string[0];
+            this.cuiChartLine1.CustomXAxis = new string[] {
+        "Avast",
+        "Avira",
+        "Baidu",
+        "Bkav",
+        "Bitdefender",
+        "Comodo",
+        "CMC"};
             this.cuiChartLine1.DataPoints = new float[] {
         100F,
         90F,
@@ -2572,7 +2580,7 @@ namespace HecopUI_Test
         70F,
         65F,
         60F};
-            this.cuiChartLine1.DayColor = System.Drawing.Color.DarkGray;
+            this.cuiChartLine1.DayColor = System.Drawing.Color.IndianRed;
             this.cuiChartLine1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F);
             this.cuiChartLine1.GradientBackground = true;
             this.cuiChartLine1.Location = new System.Drawing.Point(73, 24);
@@ -2580,11 +2588,11 @@ namespace HecopUI_Test
             this.cuiChartLine1.MaxValue = 100F;
             this.cuiChartLine1.Name = "cuiChartLine1";
             this.cuiChartLine1.PointColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.cuiChartLine1.ShortDates = true;
-            this.cuiChartLine1.Size = new System.Drawing.Size(578, 363);
+            this.cuiChartLine1.ShortDates = false;
+            this.cuiChartLine1.Size = new System.Drawing.Size(559, 363);
             this.cuiChartLine1.TabIndex = 0;
             this.cuiChartLine1.UseBezier = false;
-            this.cuiChartLine1.UsePercent = true;
+            this.cuiChartLine1.UsePercent = false;
             // 
             // tabPage21
             // 
@@ -4123,7 +4131,6 @@ namespace HecopUI_Test
         private TabPage tabPage15;
         private HeCopUI_Framework.Controls.Chart.HBarChart hBarChart1;
         private TabPage tabPage16;
-        private HeCopUI_Framework.Controls.Chart.HLineAreaChart hLineAreaChart1;
         private TabPage tabPage17;
         private HeCopUI_Framework.Controls.Chart.HPieChart hPieChart1;
         private TabPage tabPage18;
@@ -4140,5 +4147,6 @@ namespace HecopUI_Test
         private HLabel hLabel5;
         private HLabel hLabel4;
         private HLabel hLabel3;
+        private HeCopUI_Framework.Controls.Chart.HLineAreaChart hLineAreaChart1;
     }
 }

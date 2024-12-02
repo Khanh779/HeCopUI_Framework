@@ -38,7 +38,7 @@ namespace HeCopUI_Framework.Controls.Chart.Model
         }
 
         // Tạo một hàm thêm dữ liệu cho biểu đồ có Dictionary, List<int, double> và Color
-        public void Add(string legendText, Dictionary<object, int> items, Color color)
+        public void Add(string legendText, Dictionary<object, float> items, Color color)
         {
             Items itema = new Items() { LegendText = legendText, Data = items, Color = color };
             Items.Add(itema);
@@ -50,7 +50,7 @@ namespace HeCopUI_Framework.Controls.Chart.Model
     public class Items
     {
         public string LegendText { get; set; }
-        public Dictionary<object, int> Data { get; set; }
+        public Dictionary<object, float> Data { get; set; }
         public Color Color { get; set; }
 
     }
