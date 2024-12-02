@@ -45,7 +45,7 @@ namespace HeCopUI_Framework.Controls.Clock
             }
         }
 
-        private System.Drawing.Text.TextRenderingHint textRenderingHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderingHint = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderingHint
         {
             get { return textRenderingHint; }
@@ -61,7 +61,7 @@ namespace HeCopUI_Framework.Controls.Clock
         private void HClockDigital_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             g.TextRenderingHint = textRenderingHint;
             StringFormat SF = new StringFormat(); SF.LineAlignment = SF.Alignment = StringAlignment.Center;
             if (ShowMillisecond)

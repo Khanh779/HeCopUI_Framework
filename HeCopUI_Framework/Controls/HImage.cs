@@ -96,7 +96,7 @@ namespace HeCopUI_Framework.Controls
         {
             base.OnPaint(e);
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             try
             {
                 AnimateImage();
@@ -201,7 +201,7 @@ namespace HeCopUI_Framework.Controls
             roundedImage.MakeTransparent();
             using (var g = Graphics.FromImage(roundedImage))
             {
-                GetAppResources.GetControlGraphicsEffect(g);
+                Helper.GraphicsHelper.SetHightGraphics(g);
                 g.DrawImage(img, new Rectangle(0, 0, SWi, SHi));
 
                 using (Brush brush = new TextureBrush(roundedImage, new Rectangle(0, 0, SWi, SHi)))

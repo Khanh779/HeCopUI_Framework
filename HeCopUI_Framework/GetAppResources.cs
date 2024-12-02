@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Management;
@@ -89,82 +87,9 @@ namespace HeCopUI_Framework
 
         #endregion
 
-        #region Order
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="num1">Number 1 is Padding 1 of controls.</param>
-        /// <param name="num2">Number 2 is Padding 2 of controls.</param>
-        /// <param name="num3">Number 3 is Padding 3 of controls.</param>
-        /// <param name="num4">Number 4 is Padding 4 of controls.</param>
-        /// <returns></returns>
-        public int SizeGetMaxPad(int num1, int num2, int num3, int num4)
-        {
-            //int re = 0;
-            //if (Math.Max(num1, num2) > num2) re = num1;
-            //else if (Math.Max(num1, num2) < num2) re = num2;
-            //else if (Math.Max(num1, num3) > num3) re = num1;
-            //else if (Math.Max(num1, num3) < num3) re = num3;
-            //else if (Math.Max(num1, num4) > num4) re = num1;
-            //else if (Math.Max(num1, num4) < num4) re = num4;
 
-            //if (Math.Max(num2, num3) > num3) re = num2;
-            //else if (Math.Max(num2, num3) < num3) re = num3;
-            //if (Math.Max(num2, num4) > num4) re = num2;
-            //else if (Math.Max(num2, num4) < num4) re = num4;
-            //if (Math.Max(num3, num4) > num4) re = num3;
-            //else if (Math.Max(num3, num4) < num4) re = num4;
-            //return re;
-            return new int[] { num1, num2, num3, num4 }.Max();
 
-        }
-        #endregion
 
-        public static Bitmap SetBitmapTransparentDesktop(Control control)
-        {
-            Bitmap aBmp = null;
-            IntPtr screenDC = HeCopUI_Framework.Win32.User32.GetDC(IntPtr.Zero);
-            IntPtr memDC = HeCopUI_Framework.Win32.Gdi32.CreateCompatibleDC(screenDC);
-            IntPtr hBitmap = IntPtr.Zero;
-            IntPtr oldBitmap = IntPtr.Zero;
-            try
-            {
-                hBitmap = aBmp.GetHbitmap(Color.FromArgb(0));
-                oldBitmap = HeCopUI_Framework.Win32.Gdi32.SelectObject(memDC, hBitmap);
-
-                Size size = new
-                     Size(aBmp.Width, aBmp.Height);
-
-                Point pointSource = new
-                    Point(0, 0);
-
-                Point topPos = new
-                    Point(control.Left, control.Top);
-
-                HeCopUI_Framework.Win32.Struct.BLENDFUNCTION blend = new HeCopUI_Framework.Win32.Struct.BLENDFUNCTION
-                {
-                    BlendOp = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_OVER,
-                    BlendFlags = 0,
-                    SourceConstantAlpha = 255,
-                    AlphaFormat = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_ALPHA
-                };
-                HeCopUI_Framework.Win32.User32.UpdateLayeredWindow(control.Handle, screenDC, ref topPos, ref size, memDC, ref pointSource, 0, ref blend, (int)HeCopUI_Framework.Win32.Enums.UpdateLayeredWindows.ULW_ALPHA);
-            }
-            catch
-            {
-            }
-            finally
-            {
-                HeCopUI_Framework.Win32.User32.ReleaseDC(IntPtr.Zero, screenDC);
-                if (hBitmap != IntPtr.Zero)
-                {
-                    HeCopUI_Framework.Win32.Gdi32.SelectObject(memDC, oldBitmap);
-                    HeCopUI_Framework.Win32.Gdi32.DeleteObject(hBitmap);
-                }
-                HeCopUI_Framework.Win32.Gdi32.DeleteDC(memDC);
-            }
-            return aBmp;
-        }
 
         #region Effect Control
 
@@ -177,103 +102,6 @@ namespace HeCopUI_Framework
         }
 
 
-        public static void MakeTransparent(Control control, Graphics g)
-        {
-            Control parent = control.Parent;
-            if (parent != null)
-            {
-                Rectangle rectangle = control.Bounds;
-                Control.ControlCollection controls = parent.Controls;
-                int index = controls.IndexOf(control);
-                Bitmap bitmap = null;
-                for (int i = controls.Count - 1; i > index; i--)
-                {
-                    Control control3 = controls[i];
-                    if (control3.Bounds.IntersectsWith(rectangle))
-                    {
-                        if (bitmap == null)
-                        {
-                            bitmap = new Bitmap(control.Parent.ClientSize.Width, control.Parent.ClientSize.Height);
-                        }
-                        control3.DrawToBitmap(bitmap, control3.Bounds);
-                    }
-                }
-                if (bitmap != null)
-                {
-                    g.DrawImage(bitmap, control.ClientRectangle, rectangle, GraphicsUnit.Pixel);
-                    bitmap.Dispose();
-                }
-            }
-        }
-
-
-        public static Graphics GetControlGraphicsEffect(Graphics g)
-        {
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-            return g;
-        }
-
-        public static System.Drawing.Text.TextRenderingHint SetTextRender()
-        {
-            return System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-        }
-
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        public static extern IntPtr CreateRoundRectRgn
-        (
-        int nLeftRect, // x-coordinate of upper-left corner
-        int nTopRect, // y-coordinate of upper-left corner
-        int nRightRect, // x-coordinate of lower-right corner
-        int nBottomRect, // y-coordinate of lower-right corner
-        int nWidthEllipse, // height of ellipse
-        int nHeightEllipse // width of ellipse
-        );
-
-        public static void GetStringAlign(StringFormat stringFormat, ContentAlignment contentAlignment)
-        {
-            switch (contentAlignment)
-            {
-                case ContentAlignment.TopLeft:
-                    stringFormat.Alignment = StringAlignment.Near;
-                    stringFormat.LineAlignment = StringAlignment.Near;
-                    break;
-                case ContentAlignment.TopCenter:
-                    stringFormat.Alignment = StringAlignment.Center;
-                    stringFormat.LineAlignment = StringAlignment.Near;
-                    break;
-                case ContentAlignment.TopRight:
-                    stringFormat.Alignment = StringAlignment.Far;
-                    stringFormat.LineAlignment = StringAlignment.Near;
-                    break;
-                case ContentAlignment.MiddleLeft:
-                    stringFormat.Alignment = StringAlignment.Near;
-                    stringFormat.LineAlignment = StringAlignment.Center;
-                    break;
-                case ContentAlignment.MiddleCenter:
-                    stringFormat.Alignment = StringAlignment.Center;
-                    stringFormat.LineAlignment = StringAlignment.Center;
-                    break;
-                case ContentAlignment.MiddleRight:
-                    stringFormat.Alignment = StringAlignment.Far;
-                    stringFormat.LineAlignment = StringAlignment.Center;
-                    break;
-                case ContentAlignment.BottomLeft:
-                    stringFormat.Alignment = StringAlignment.Near;
-                    stringFormat.LineAlignment = StringAlignment.Far;
-                    break;
-                case ContentAlignment.BottomCenter:
-                    stringFormat.Alignment = StringAlignment.Center;
-                    stringFormat.LineAlignment = StringAlignment.Far;
-                    break;
-                case ContentAlignment.BottomRight:
-                    stringFormat.Alignment = StringAlignment.Far;
-                    stringFormat.LineAlignment = StringAlignment.Far;
-                    break;
-            }
-        }
 
 
         #endregion

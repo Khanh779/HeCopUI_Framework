@@ -338,7 +338,7 @@ namespace HeCopUI_Framework.Controls
             base.OnPaint(e);
 
             var graphics = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(graphics);
+            Helper.GraphicsHelper.SetHightGraphics(graphics);
             graphics.TextRenderingHint = TextRendering;
 
 
@@ -348,7 +348,7 @@ namespace HeCopUI_Framework.Controls
             //graphics.DrawPath(new Pen(borderColor, borderThickness) { Alignment= PenAlignment.Inset }, bg);
 
             var SF = new StringFormat();
-            GetAppResources.GetStringAlign(SF, ContentAlignment.MiddleCenter);
+            Helper.TextHelper.SetStringAlign(SF, ContentAlignment.MiddleCenter);
 
             TitleTime(graphics, SF);
             graphics.DrawString("7", new Font("webdings", 12f), new SolidBrush(previousYearHovered ? previousButtonHover : PlaceholderText), PreviousYearRect, SF);

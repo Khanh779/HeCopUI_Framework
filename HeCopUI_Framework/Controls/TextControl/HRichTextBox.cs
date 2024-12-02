@@ -16,7 +16,7 @@ namespace HeCopUI_Framework.Controls.TextControl
     {
         RichTextBox richTextBox;
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderHint
         {
             get { return textRenderHint; }
@@ -187,7 +187,7 @@ namespace HeCopUI_Framework.Controls.TextControl
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             g.FillPath(new SolidBrush(Hover ? RichTextBoxHoverColor : richTextBox.BackColor),
                 HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, Radius, BorderThickness));
             if (BorderThickness != 0)

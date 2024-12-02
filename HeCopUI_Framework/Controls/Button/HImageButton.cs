@@ -56,7 +56,7 @@ namespace HeCopUI_Framework.Controls.Button
         {
 
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             GraphicsPath path = new GraphicsPath();
             float sizex = dow ? BS.Width : hov ? BSH.Width : BS.Width;
             float sizey = dow ? BS.Height : hov ? BSH.Height : BS.Height;
@@ -95,7 +95,7 @@ namespace HeCopUI_Framework.Controls.Button
             ImageAnimator.UpdateFrames();
             using (var g = Graphics.FromImage(roundedImage))
             {
-                GetAppResources.GetControlGraphicsEffect(g);
+                Helper.GraphicsHelper.SetHightGraphics(g);
                 Brush brush = new TextureBrush(img);
                 switch (HShapeType)
                 {

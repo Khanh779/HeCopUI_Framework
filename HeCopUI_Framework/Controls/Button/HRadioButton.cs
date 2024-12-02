@@ -208,7 +208,7 @@ namespace HeCopUI_Framework.Controls.Button
         }
 
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderHint
         {
             get { return textRenderHint; }
@@ -221,7 +221,7 @@ namespace HeCopUI_Framework.Controls.Button
         protected override void OnPaint(PaintEventArgs pevent)
         {
             var g = pevent.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             g.TextRenderingHint = TextRenderHint;
             Rectangle BGEllipse = new Rectangle(6, 6, 16, 16);
             using (SolidBrush BG = new SolidBrush(Enabled ? Checked ? EnabledCheckedColor : EnabledUnCheckedColor : DisabledColor))

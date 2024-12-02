@@ -25,7 +25,7 @@ namespace HeCopUI_Framework.Controls.Gauge
         {
             base.OnPaint(e);
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             GraphicsPath gp = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, rad);
             g.FillPath(new SolidBrush(_GaugeColor), gp);
             g.DrawPath(new Pen(new SolidBrush(borC), Borw) { Alignment = PenAlignment.Inset }, HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, rad, BorderThickness));

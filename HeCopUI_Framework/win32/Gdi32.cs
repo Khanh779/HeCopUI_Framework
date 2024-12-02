@@ -21,8 +21,20 @@ namespace HeCopUI_Framework.Win32
 
         public const int RGN_COPY = 5;
 
-        [DllImport("Gdi32.dll")]
-        public static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+        //[DllImport("Gdi32.dll")]
+        //public static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        public static extern IntPtr CreateRoundRectRgn
+        (
+        int nLeftRect, // x-coordinate of upper-left corner
+        int nTopRect, // y-coordinate of upper-left corner
+        int nRightRect, // x-coordinate of lower-right corner
+        int nBottomRect, // y-coordinate of lower-right corner
+        int nWidthEllipse, // height of ellipse
+        int nHeightEllipse // width of ellipse
+        );
 
         [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
         [return: MarshalAs(UnmanagedType.Bool)]

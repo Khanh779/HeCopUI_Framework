@@ -91,7 +91,7 @@ namespace HeCopUI_Framework.Controls.Progress
         {
             if (supprtra)
             {
-                GetAppResources.MakeTransparent(this, e.Graphics);
+                Helper.GraphicsHelper.MakeTransparent(this, e.Graphics);
             }
             {
                 e.Graphics.SmoothingMode = SmoothingMode.HighQuality;

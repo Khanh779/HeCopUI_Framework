@@ -321,7 +321,7 @@ namespace HeCopUI_Framework.Controls.Button
             float b = 0f;
             base.OnPaint(e);
             RectangleF RF = new RectangleF(shadowPadding.Left + 2 + textPadding.Left, shadowPadding.Top + 2 + textPadding.Top, Width - 2 - textPadding.Right - textPadding.Left - shadowPadding.Left - shadowPadding.Right, Height - 2 - textPadding.Bottom - textPadding.Top - shadowPadding.Top - shadowPadding.Bottom);
-            GetAppResources.MakeTransparent(this, e.Graphics);
+            Helper.GraphicsHelper.MakeTransparent(this, e.Graphics);
             using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
             using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
 
@@ -340,14 +340,14 @@ namespace HeCopUI_Framework.Controls.Button
                 g.TextRenderingHint = textRenderHint;
                 if (ST == ShapeType.Circular)
                 {
-                    GetAppResources.GetControlGraphicsEffect(g); GetAppResources.GetControlGraphicsEffect(e.Graphics);
+                    Helper.GraphicsHelper.SetHightGraphics(g); Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
                 }
                 if (ST == ShapeType.Rectangle)
                 {
                     if (Radius.All != 0)
                     {
-                        GetAppResources.GetControlGraphicsEffect(g);
-                        GetAppResources.GetControlGraphicsEffect(e.Graphics);
+                        Helper.GraphicsHelper.SetHightGraphics(g);
+                        Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
                     }
                     else
                     {
@@ -356,7 +356,7 @@ namespace HeCopUI_Framework.Controls.Button
                     }
                 }
                 if (Radius.All == 0) g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                GetAppResources.GetStringAlign(SF, CA);
+                Helper.TextHelper.SetStringAlign(SF, CA);
                 SF.Trimming = STA;
                 if (ClipRegion == true && DesignMode == false)
                 {
@@ -709,7 +709,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnMouseClick(e);
         }
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         /// <summary>
         /// Gets or sets TextRenderingHint for text button.
         /// </summary>

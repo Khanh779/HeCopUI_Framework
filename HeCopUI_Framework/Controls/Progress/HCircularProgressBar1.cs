@@ -184,7 +184,7 @@ namespace HeCopUI_Framework.Controls.Progress
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
                     e.Graphics.TextRenderingHint = TextRenderHint;
-                    GetAppResources.GetControlGraphicsEffect(graphics);
+                    Helper.GraphicsHelper.SetHightGraphics(graphics);
                     graphics.TextRenderingHint = TextRenderHint;
                     graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     graphics.Clear(BackColor);

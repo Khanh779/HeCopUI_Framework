@@ -194,7 +194,7 @@ namespace HeCopUI_Framework.Controls.Gauge
 
         }
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderHint
         {
             get { return textRenderHint; }
@@ -264,13 +264,13 @@ namespace HeCopUI_Framework.Controls.Gauge
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            GetAppResources.GetControlGraphicsEffect(e.Graphics);
+            Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
             e.Graphics.TextRenderingHint = TextRenderHint;
             using (Bitmap bitmap = new Bitmap(Width, Height, System.Drawing.Imaging.PixelFormat.Format64bppPArgb))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    GetAppResources.GetControlGraphicsEffect(graphics);
+                    Helper.GraphicsHelper.SetHightGraphics(graphics);
                     graphics.TextRenderingHint = TextRenderHint;
                     Brush brush = null;
                     if (gaugeMode == GaugeType.Gradient)

@@ -403,7 +403,7 @@ namespace HeCopUI_Framework.Forms
             base.OnLocationChanged(e);
         }
 
-        private System.Drawing.Text.TextRenderingHint texg = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint texg = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRendering
         {
             get { return texg; }
@@ -567,7 +567,7 @@ namespace HeCopUI_Framework.Forms
             System.Drawing.Graphics g = e.Graphics;
             using (SolidBrush sb = new SolidBrush(DeAct ? DeactivateBorderColor : borderColor))
             {
-                HeCopUI_Framework.GetAppResources.GetControlGraphicsEffect(g);
+                HeCopUI_Framework.Helper.GraphicsHelper.SetHightGraphics(g);
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 g.TextRenderingHint = texg;
                 using (SolidBrush fillBrush = new SolidBrush(tc))

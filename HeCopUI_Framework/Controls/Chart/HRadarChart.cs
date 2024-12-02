@@ -249,13 +249,13 @@ namespace HeCopUI_Framework.Controls.Chart
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            GetAppResources.GetControlGraphicsEffect(e.Graphics);
+            Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
             Bitmap bitmap = new Bitmap(Width, Height);
             bitmap.MakeTransparent();
             Graphics g = Graphics.FromImage(bitmap);
             float startAngle = -90;
             float offsetw = (legendType == LegendType.Right ? 4f : 2);
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             GraphicsPath path = new GraphicsPath();
             g.TextRenderingHint = textRenderingHint;
             PointF[] points = new PointF[0];

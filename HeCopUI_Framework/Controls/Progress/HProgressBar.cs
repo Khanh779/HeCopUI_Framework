@@ -97,7 +97,7 @@ namespace HeCopUI_Framework.Controls.Progress
                 recf = new RectangleF(0, 0, Width, Height - 0.5f);
             }
 
-            GetAppResources.GetControlGraphicsEffect(e.Graphics);
+            Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
 
             using (Bitmap bitm = new Bitmap(Width, Height))
             using (Graphics g = Graphics.FromImage(bitm))
@@ -128,7 +128,7 @@ namespace HeCopUI_Framework.Controls.Progress
                     (Or == Orientation.Vertical ? 30 + locx : Height - 1)), Radius, 0) :
                     HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(recPro, Ra, 0))
                 {
-                    GetAppResources.GetControlGraphicsEffect(g);
+                    Helper.GraphicsHelper.SetHightGraphics(g);
                     g.FillPath(LB, GP);
                     if (PV != 0) g.FillPath(LB1, GPV);
                     if (BT != 0)

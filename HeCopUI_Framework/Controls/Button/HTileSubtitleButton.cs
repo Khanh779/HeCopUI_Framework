@@ -338,7 +338,7 @@ namespace HeCopUI_Framework.Controls.Button
             }
         }
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderHint
         {
             get { return textRenderHint; }
@@ -367,14 +367,14 @@ namespace HeCopUI_Framework.Controls.Button
                 bitmap.MakeTransparent();
                 if (ClipRegion == true && DesignMode == false && Ra.All != 0)
                 {
-                    GetAppResources.MakeTransparent(this, g);
+                    Helper.GraphicsHelper.MakeTransparent(this, g);
                     Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(Radius.TopLeft, Radius.TopRight, Radius.BottomLeft, Radius.BottomRight, 2.5f)));
                 }
                 g.TextRenderingHint = TextRenderHint;
                 if (Ra.All != 0)
                 {
-                    GetAppResources.GetControlGraphicsEffect(g);
-                    GetAppResources.GetControlGraphicsEffect(e.Graphics);
+                    Helper.GraphicsHelper.SetHightGraphics(g);
+                    Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
                 }
                 if (Ra.All == 0)
                 {
@@ -399,12 +399,12 @@ namespace HeCopUI_Framework.Controls.Button
                 {
                     Trimming = ST
                 };
-                GetAppResources.GetStringAlign(SF, TCA);
+                Helper.TextHelper.SetStringAlign(SF, TCA);
                 StringFormat SAF = new StringFormat
                 {
                     Trimming = ST
                 };
-                GetAppResources.GetStringAlign(SAF, ITCA);
+                Helper.TextHelper.SetStringAlign(SAF, ITCA);
                 SizeF sd = g.MeasureString(Text, Font);
                 g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(2 + TPadd.Left, Font.Height + (IS + ISi.Height + TOY) + TPadd.Top, Width - 2 - TPadd.Right, TeY + Font.Height - TPadd.Bottom), SF);
                 g.DrawString(SubText, TeIF, new SolidBrush(textColor), new RectangleF(2 + ITPadd.Left, TeY + Font.Height * 2 + ITPadd.Top + 4 + (IS + ISi.Height + TOY) + TexInffoOffsetY, Width - 2 - ITPadd.Right, (Height - TexInffoOffsetY - TeIF.Height - IS - ISi.Height - TOY - TeY) - ITPadd.Bottom), SAF);

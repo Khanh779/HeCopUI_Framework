@@ -34,7 +34,7 @@ namespace HeCopUI_Framework.Helper
                 var bottomLeft = (int)Math.Max(Math.Min(radius.BottomLeft, Math.Min(rectf.Width, rectf.Height)) - offset, 1) * 2;
                 var bottomRight = (int)Math.Max(Math.Min(radius.BottomRight, Math.Min(rectf.Width, rectf.Height)) - offset, 1) * 2;
 
-                if (offset > 0) offset /= 2; // Chia offset chỉ nếu nó lớn hơn 0
+                if (offset > 0) offset /= 2;
 
                 // Top-Left Arc
                 path.AddArc(new RectangleF(x + offset, y + offset, topLeft, topLeft), 180, 90);
@@ -62,10 +62,10 @@ namespace HeCopUI_Framework.Helper
         {
             GraphicsPath path = new GraphicsPath();
 
-            // Điều chỉnh hình chữ nhật theo offset
+            // Fix the offset
             rectangle = new RectangleF(rectangle.X + offset, rectangle.Y + offset, rectangle.Width - offset, rectangle.Height - offset);
 
-            // Tính toán đường kính cho từng góc
+            // Calculate the diameter for each corner
             float diameterTopLeft = borderRadius.Left * 2;
             float diameterTopRight = borderRadius.Top * 2;
             float diameterBottomRight = borderRadius.Right * 2;
@@ -77,11 +77,11 @@ namespace HeCopUI_Framework.Helper
             AddArc(rectangle.Right - diameterBottomRight, rectangle.Bottom - diameterBottomRight, diameterBottomRight, 0f, 90f); // Bottom-Right Arc
             AddArc(rectangle.X, rectangle.Bottom - diameterBottomLeft, diameterBottomLeft, 90f, 90f); // Bottom-Left Arc
 
-            // Đóng hình
+            // Close the path
             path.CloseFigure();
             return path;
 
-            // Hàm phụ để thêm arc vào path
+            // 
             void AddArc(float x, float y, float diameter, float startAngle, float sweepAngle)
             {
                 if (diameter > 0f)

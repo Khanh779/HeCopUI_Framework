@@ -172,7 +172,7 @@ namespace HeCopUI_Framework.Controls.Button
         }
         protected override void OnPaint(PaintEventArgs e)
         {
-            GetAppResources.GetControlGraphicsEffect(e.Graphics);
+            Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
             e.Graphics.TextRenderingHint = TextRenderHint;
             Pen pen;
             using (SolidBrush brush = new SolidBrush(isON ? OnCol : OffCol))

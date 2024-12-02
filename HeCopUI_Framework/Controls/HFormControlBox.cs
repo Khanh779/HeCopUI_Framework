@@ -143,7 +143,7 @@ namespace HeCopUI_Framework.Controls
         {
             Graphics g = e.Graphics;
 
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             SolidBrush SB = new SolidBrush(hovered ? HeCopUI_Framework.Helper.DrawHelper.BlendColor(ControlBoxColor, ControlBoxHoverColor, step) : ControlBoxColor);
             switch (HoverColorType)
             {

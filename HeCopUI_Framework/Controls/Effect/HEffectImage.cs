@@ -41,7 +41,7 @@ namespace HeCopUI_Framework.Controls.Effect
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             if (_image != null)
             {
                 Bitmap bitmap = new Bitmap((Bitmap)_image.Clone(), _size);
@@ -60,7 +60,7 @@ namespace HeCopUI_Framework.Controls.Effect
             {
                 using (Graphics lightGraphics = Graphics.FromImage(lightBitmap))
                 {
-                    GetAppResources.GetControlGraphicsEffect(lightGraphics);
+                    Helper.GraphicsHelper.SetHightGraphics(lightGraphics);
                     // Vẽ ánh sáng lên Bitmap riêng
                     using (Brush brush = new SolidBrush(Color.FromArgb(lightIntensity, Color.White)))
                     {

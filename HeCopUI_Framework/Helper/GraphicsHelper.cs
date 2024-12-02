@@ -7,6 +7,52 @@ namespace HeCopUI_Framework.Helper
 {
     public class GraphicsHelper
     {
+        public static Bitmap SetBitmapTransparentDesktop(Control control)
+        {
+            Bitmap aBmp = null;
+            IntPtr screenDC = HeCopUI_Framework.Win32.User32.GetDC(IntPtr.Zero);
+            IntPtr memDC = HeCopUI_Framework.Win32.Gdi32.CreateCompatibleDC(screenDC);
+            IntPtr hBitmap = IntPtr.Zero;
+            IntPtr oldBitmap = IntPtr.Zero;
+            try
+            {
+                hBitmap = aBmp.GetHbitmap(Color.FromArgb(0));
+                oldBitmap = HeCopUI_Framework.Win32.Gdi32.SelectObject(memDC, hBitmap);
+
+                Size size = new
+                     Size(aBmp.Width, aBmp.Height);
+
+                Point pointSource = new
+                    Point(0, 0);
+
+                Point topPos = new
+                    Point(control.Left, control.Top);
+
+                HeCopUI_Framework.Win32.Struct.BLENDFUNCTION blend = new HeCopUI_Framework.Win32.Struct.BLENDFUNCTION
+                {
+                    BlendOp = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_OVER,
+                    BlendFlags = 0,
+                    SourceConstantAlpha = 255,
+                    AlphaFormat = (byte)HeCopUI_Framework.Win32.Bitmap.Enums.AlphaBlend.AC_SRC_ALPHA
+                };
+                HeCopUI_Framework.Win32.User32.UpdateLayeredWindow(control.Handle, screenDC, ref topPos, ref size, memDC, ref pointSource, 0, ref blend, (int)HeCopUI_Framework.Win32.Enums.UpdateLayeredWindows.ULW_ALPHA);
+            }
+            catch
+            {
+            }
+            finally
+            {
+                HeCopUI_Framework.Win32.User32.ReleaseDC(IntPtr.Zero, screenDC);
+                if (hBitmap != IntPtr.Zero)
+                {
+                    HeCopUI_Framework.Win32.Gdi32.SelectObject(memDC, oldBitmap);
+                    HeCopUI_Framework.Win32.Gdi32.DeleteObject(hBitmap);
+                }
+                HeCopUI_Framework.Win32.Gdi32.DeleteDC(memDC);
+            }
+            return aBmp;
+        }
+
 
         public static void SetHightGraphics(Graphics g)
         {
@@ -46,6 +92,9 @@ namespace HeCopUI_Framework.Helper
             }
         }
 
+
+
+
         public static GraphicsPath GetRoundPath(RectangleF Rect, float radius, float width = 0)
         {
             //Fix radius to rect size
@@ -59,22 +108,22 @@ namespace HeCopUI_Framework.Helper
 
             if (radius != 0)
             {
-                //Top-Left Arc  là vòng cung trên trái
+                //Top-Left Arc  
                 GraphPath.AddArc(Rect.X + w2, Rect.Y + w2, radius, radius, 180, 90);
 
-                //Top-Right Arc  là vòng cung trên phải
+                //Top-Right Arc 
                 GraphPath.AddArc(Rect.X + Rect.Width - radius - w2, Rect.Y + w2, radius,
                                  radius, 270, 90);
 
-                //Bottom-Right Arc  là vòng cung dưới phải
+                //Bottom-Right Arc 
                 GraphPath.AddArc(Rect.X + Rect.Width - w2 - radius,
                             Rect.Y + Rect.Height - w2 - radius, radius, radius, 0, 90);
 
-                //Bottom-Left Arc   là còng cung dưới trái
+                //Bottom-Left Arc
                 GraphPath.AddArc(Rect.X + w2, Rect.Y - w2 + Rect.Height - radius, radius,
                                  radius, 90, 90);
 
-                //Close line ( Left)            // Đóng đường 
+                //Close line ( Left)  
                 GraphPath.AddLine(Rect.X + w2, Rect.Y + Rect.Height - r2 - w2, Rect.X +
                 w2, Rect.Y + r2 + w2);
 
@@ -85,10 +134,7 @@ namespace HeCopUI_Framework.Helper
         }
 
 
-        // Cái này vẽ bóng đổ thôi
-        // Thật ra ông muốn bóng đổ đẹp thì bên wpf nó có sẵn á, bên winform ko có sẵn nên phải vẽ bằng tay
-        // wpf nó mới mà nó đẹp hơn nó xài phần cứng để render nên đẹp và mượt hơn
-
+     
         public static Bitmap DrawBitmapShadow(RectangleF rectf, Color color, float radius, float size = 8)
         {
             if (rectf == null) return null;
@@ -112,8 +158,8 @@ namespace HeCopUI_Framework.Helper
                 };
                 pathGradientBrush.InterpolationColors = colorBlend;
 
-                //pathGradientBrush.CenterColor = color; // Màu nằm ở trung tâm
-                //pathGradientBrush.SurroundColors = new Color[] { Color.Transparent }; // Màu nằm ở ngoài
+                //pathGradientBrush.CenterColor = color;
+                //pathGradientBrush.SurroundColors = new Color[] { Color.Transparent };
 
                 g.FillPath(pathGradientBrush, gp);
                 //using (Pen pen = new Pen(pathGradientBrush, radius+ size))

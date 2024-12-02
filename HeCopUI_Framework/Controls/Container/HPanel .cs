@@ -158,8 +158,8 @@ namespace HeCopUI_Framework.Controls.Container
                 // Tạo một đối tượng Graphics từ Bitmap để vẽ shadow
                 using (Graphics shadowGraphics = Graphics.FromImage(Shado))
                 {
-                    GetAppResources.GetControlGraphicsEffect(shadowGraphics);
-                    GetAppResources.GetControlGraphicsEffect(e.Graphics);
+                    Helper.GraphicsHelper.SetHightGraphics(shadowGraphics);
+                    Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
                     // Vẽ shadow
                     shadowGraphics.FillPath(LB, gp);
                     if (BorderThickness > 0)

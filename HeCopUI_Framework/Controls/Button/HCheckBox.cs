@@ -200,7 +200,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnMouseClick(e);
         }
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderHint
         {
             get { return textRenderHint; }
@@ -258,7 +258,7 @@ namespace HeCopUI_Framework.Controls.Button
             {
                 var g = pevent.Graphics;
                 StringFormat SF = new StringFormat();
-                GetAppResources.GetControlGraphicsEffect(g);
+                Helper.GraphicsHelper.SetHightGraphics(g);
                 g.TextRenderingHint = TextRenderHint;
                 g.FillPath(BG, checkmarkPath);
                 g.DrawPath(Pen, checkmarkPath);

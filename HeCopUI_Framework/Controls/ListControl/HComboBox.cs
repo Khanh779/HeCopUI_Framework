@@ -111,7 +111,7 @@ namespace HeCopUI_Framework.Controls.ListControl
 
         /*protected override void OnMeasureItem(MeasureItemEventArgs e)
         {
-            HeCopUI_Framework.GetAppResources.GetControlGraphicsEffect(e.Graphics);
+            HeCopUI_Framework.Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
             e.Graphics.TextRenderingHint = textRendering;
 
             for (int i = 0; i < e.Index - 1;i++)

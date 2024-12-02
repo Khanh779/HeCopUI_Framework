@@ -46,7 +46,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnForeColorChanged(e);
         }
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderHint
         {
             get { return textRenderHint; }
@@ -395,14 +395,14 @@ namespace HeCopUI_Framework.Controls.Button
                 bitmap.MakeTransparent();
                 if (ClipRegion == true && DesignMode == false && Ra.All != 0)
                 {
-                    GetAppResources.MakeTransparent(this, g);
+                    Helper.GraphicsHelper.MakeTransparent(this, g);
                     Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new Structs.CornerRadius(Ra.TopLeft, Ra.TopRight, Ra.BottomLeft, Ra.BottomRight, 2.5f)));
                 }
                 g.TextRenderingHint = TextRenderHint;
                 if (Radius.All != 0)
                 {
-                    GetAppResources.GetControlGraphicsEffect(g);
-                    GetAppResources.GetControlGraphicsEffect(e.Graphics);
+                    Helper.GraphicsHelper.SetHightGraphics(g);
+                    Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
                 }
                 if (Ra.All == 0)
                 {

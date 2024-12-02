@@ -34,7 +34,7 @@ namespace HeCopUI_Framework.Forms
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             g.CompositingMode = CompositingMode.SourceOver;
             Rectangle rect = ClientRectangle;
             //g.CompositingMode = CompositingMode.SourceCopy;

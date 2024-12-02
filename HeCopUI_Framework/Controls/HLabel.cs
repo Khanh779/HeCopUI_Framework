@@ -47,13 +47,13 @@ namespace HeCopUI_Framework.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             StringFormat SF = new StringFormat
             {
                 Trimming = ST
             };
             g.TextRenderingHint = textRen;
-            GetAppResources.GetStringAlign(SF, CA);
+            Helper.TextHelper.SetStringAlign(SF, CA);
             if ((_symbol != String.Empty || _symbol != null | _symbol != "") && symbolVisible)
                 g.DrawString(_symbol, _symbolFont, new SolidBrush(_symbolColor), new RectangleF(0 + Padding.Left, 0 + Padding.Top, Width - Padding.Right, Height - Padding.Bottom));
             g.DrawString(Text, Font, new SolidBrush(ForeColor), new RectangleF(((_symbol != String.Empty || _symbol != null | _symbol != "") ? g.MeasureString(_symbol, _symbolFont).Width + 2 : 0) + Padding.Left,
@@ -89,7 +89,7 @@ namespace HeCopUI_Framework.Controls
             }
         }
 
-        private System.Drawing.Text.TextRenderingHint textRen = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRen = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderingHint
         {
             get { return textRen; }

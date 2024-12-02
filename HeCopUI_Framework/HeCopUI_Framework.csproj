@@ -571,9 +571,6 @@
     <Compile Include="Controls\Button\HToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Button\HToggleButton1.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Enums\TabStyle.cs" />
     <Compile Include="Extensions\Global_Font.cs" />
     <Compile Include="Extensions\GraphicsQuality.cs" />

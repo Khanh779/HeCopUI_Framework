@@ -234,7 +234,7 @@ namespace HeCopUI_Framework.Controls.Button
             Graphics g = e.Graphics;
             if (ClipRegion == true) if (DesignMode == false)
                 {
-                    GetAppResources.MakeTransparent(this, g);
+                    Helper.GraphicsHelper.MakeTransparent(this, g);
                     if (ST == ShapeType.RoundRectangle)
                         Region = new Region(HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(0, 0, Width, Height), Rad - 2.5f));
 
@@ -245,12 +245,12 @@ namespace HeCopUI_Framework.Controls.Button
                     }
                 }
             if (ST == ShapeType.Circular)
-                GetAppResources.GetControlGraphicsEffect(g);
+                Helper.GraphicsHelper.SetHightGraphics(g);
             if (ST == ShapeType.RoundRectangle)
             {
                 if (Rad != 0)
                 {
-                    GetAppResources.GetControlGraphicsEffect(g);
+                    Helper.GraphicsHelper.SetHightGraphics(g);
                 }
                 else
                 {
@@ -267,7 +267,7 @@ namespace HeCopUI_Framework.Controls.Button
             GraphicsPath Gp = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - b - shadowPadding.Left) - (shadowPadding.Right), (Height - b - shadowPadding.Top) - (shadowPadding.Bottom)), Rad, BorderThickness);
             GraphicsPath SGP = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(b, b, Width - b, Height - b), Rad);
             GraphicsPath FillPa = HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - b - shadowPadding.Left) - (shadowPadding.Right), (Height - b - shadowPadding.Top) - (shadowPadding.Bottom)), Rad);
-            GetAppResources.GetStringAlign(SF, CA);
+            Helper.TextHelper.SetStringAlign(SF, CA);
             SF.Trimming = STA;
             RectangleF RF = new RectangleF(shadowPadding.Left + 2 + textPadding.Left, shadowPadding.Top + 2 + textPadding.Top, Width - 2 - textPadding.Right - textPadding.Left - shadowPadding.Left - shadowPadding.Right, Height - 2 - textPadding.Bottom - textPadding.Top - shadowPadding.Top - shadowPadding.Bottom);
             Pen pen = new Pen(ButDo ? BorderDownColor : ButHo ? BorderHoverColor : BC, BT)
@@ -704,7 +704,7 @@ namespace HeCopUI_Framework.Controls.Button
         public Color RippleColor { get; set; } = Color.Black;
 
 
-        private System.Drawing.Text.TextRenderingHint textRenderHint = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRenderHint = Helper.TextHelper.SetTextRender();
         /// <summary>
         /// Gets or sets TextRenderingHint for text button.
         /// </summary>

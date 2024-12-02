@@ -295,7 +295,7 @@ namespace HeCopUI_Framework.Forms
         private void HMessageBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             Rectangle RF = new Rectangle(0, 0, Width - 1, Height - 1);
             g.DrawRectangle(new Pen(new SolidBrush(BorderColor), BorderThickness), RF);

@@ -342,7 +342,7 @@ namespace HeCopUI_Framework.Controls.Container
                 }
         }
 
-        private System.Drawing.Text.TextRenderingHint textRen = GetAppResources.SetTextRender();
+        private System.Drawing.Text.TextRenderingHint textRen = Helper.TextHelper.SetTextRender();
         public System.Drawing.Text.TextRenderingHint TextRenderingHint
         {
             get { return textRen; }
@@ -373,7 +373,7 @@ namespace HeCopUI_Framework.Controls.Container
                     g.FillRectangle(BrBac, ClientRectangle);
                 g.TextRenderingHint = textRen;
                 SF.Trimming = ST;
-                GetAppResources.GetStringAlign(SF, CA);
+                Helper.TextHelper.SetStringAlign(SF, CA);
 
                 switch (TabStyle)
                 {

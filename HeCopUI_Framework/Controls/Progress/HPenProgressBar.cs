@@ -116,7 +116,7 @@ namespace HeCopUI_Framework.Controls.Progress
         private void HHAdvancedProgressBar_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
             //g.FillRectangle(new SolidBrush(trackColor), new RectangleF(Width / 2 - _TS / 2, 2, _TS, Height - 6));
             LinearGradientBrush B1 = new LinearGradientBrush(ClientRectangle, trackColor1, trackColor2, LB);
             LinearGradientBrush B2 = new LinearGradientBrush(ClientRectangle, trackcolor1, trackcolor2, LB1);

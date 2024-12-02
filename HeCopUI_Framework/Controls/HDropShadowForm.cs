@@ -248,7 +248,7 @@ namespace HeCopUI_Framework.Controls
 
                 var bitmap = new Bitmap(w, h);
                 Graphics g = Graphics.FromImage(bitmap);
-                GetAppResources.GetControlGraphicsEffect(g);
+                Helper.GraphicsHelper.SetHightGraphics(g);
                 // fill background
                 //+1
                 //int add = 1;

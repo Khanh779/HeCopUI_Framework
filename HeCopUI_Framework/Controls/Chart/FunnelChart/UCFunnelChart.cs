@@ -388,7 +388,7 @@ namespace HeCopUI_Framework.Controls.Chart.FunnelChart
         {
             base.OnPaint(e);
             var g = e.Graphics;
-            GetAppResources.GetControlGraphicsEffect(g);
+            Helper.GraphicsHelper.SetHightGraphics(g);
 
             if (!string.IsNullOrEmpty(title))
             {
