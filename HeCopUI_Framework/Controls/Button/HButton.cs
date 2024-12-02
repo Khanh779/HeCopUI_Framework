@@ -16,7 +16,7 @@ using Pen = System.Drawing.Pen;
 
 namespace HeCopUI_Framework.Controls.Button
 {
-    [ToolboxBitmap(typeof(HButton), "Bitmaps/Button.bmp")]
+    [ToolboxBitmap(typeof(System.Windows.Forms.Button))]
     public partial class HButton : Control
     {
         #region Thành phần tối thiết
@@ -53,15 +53,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnForeColorChanged(e);
         }
 
-        private bool autosize = false;
-        public bool IsAutoSize
-        {
-            get { return autosize; }
-            set
-            {
-                autosize = value; Invalidate();
-            }
-        }
+
         #endregion
 
         private int BT { get; set; } = 0;
@@ -212,6 +204,7 @@ namespace HeCopUI_Framework.Controls.Button
             }
         }
 
+        bool autosize = false;
         /// <summary>
         /// Sets or gets a value that indicates whether the control resizes based on its contents.
         /// </summary>
@@ -322,7 +315,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnPaint(e);
             RectangleF RF = new RectangleF(shadowPadding.Left + 2 + textPadding.Left, shadowPadding.Top + 2 + textPadding.Top, Width - 2 - textPadding.Right - textPadding.Left - shadowPadding.Left - shadowPadding.Right, Height - 2 - textPadding.Bottom - textPadding.Top - shadowPadding.Top - shadowPadding.Bottom);
             Helper.GraphicsHelper.MakeTransparent(this, e.Graphics);
-            using (GraphicsPath SGP = (ST == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
+            using (GraphicsPath SGP = (ST == ShapeType.RoundedRectangle) ? HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b, b, Width - b, Height - b), new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight, 0.5f)) : CircularGraphicsPath(new RectangleF(b, b, Width - b, Height - b)))
             using (GraphicsPath GP = HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(b + (shadowPadding.Left), b + (shadowPadding.Top), (Width - shadowPadding.Left) - (shadowPadding.Right), (Height - shadowPadding.Top) - (shadowPadding.Bottom)), Radius, BorderThickness))
 
             using (LinearGradientBrush AHB =
@@ -342,7 +335,7 @@ namespace HeCopUI_Framework.Controls.Button
                 {
                     Helper.GraphicsHelper.SetHightGraphics(g); Helper.GraphicsHelper.SetHightGraphics(e.Graphics);
                 }
-                if (ST == ShapeType.Rectangle)
+                if (ST == ShapeType.RoundedRectangle)
                 {
                     if (Radius.All != 0)
                     {
@@ -360,7 +353,7 @@ namespace HeCopUI_Framework.Controls.Button
                 SF.Trimming = STA;
                 if (ClipRegion == true && DesignMode == false)
                 {
-                    if (ST == ShapeType.Rectangle) Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight, 2.5f)));
+                    if (ST == ShapeType.RoundedRectangle) Region = new Region(HeCopUI_Framework.Helper.DrawHelper.SetRoundedCornerRectangle(new RectangleF(0, 0, Width, Height), new CornerRadius(radius.TopLeft, radius.TopRight, radius.BottomLeft, radius.BottomRight, 2.5f)));
                     if (ST == ShapeType.Circular)
                     {
                         GraphicsPath a = new GraphicsPath(); a.AddEllipse(0, 0, Width, Height);
@@ -642,7 +635,7 @@ namespace HeCopUI_Framework.Controls.Button
 
 
             ForeColor = Color.White;
-            if (IsAutoSize == true)
+            if (AutoSize == true)
             {
                 SizeF n = TextRenderer.MeasureText(Text, Font);
                 Size = new Size((int)n.Width + Padding.All, (int)n.Height + Padding.All);
@@ -743,7 +736,7 @@ namespace HeCopUI_Framework.Controls.Button
             }
         }
 
-        private ShapeType ST = ShapeType.Rectangle;
+        private ShapeType ST = ShapeType.RoundedRectangle;
 
         public ShapeType ShapeButtonType
         {

@@ -93,6 +93,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.ServiceModel" />
@@ -141,6 +142,9 @@
     <Compile Include="Animations\Flags.cs" />
     <Compile Include="Animations\PointFConverter.cs" />
     <Compile Include="Animations\TransfromHelper.cs" />
+    <Compile Include="Controls\Button\DKButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Calendar\CalendarControl.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -127,7 +127,7 @@ namespace HeCopUI_Framework.Controls
             base.OnSizeChanged(e);
         }
 
-        public ShapeType HoverColorType { get; set; } = ShapeType.Rectangle;
+        public ShapeType HoverColorType { get; set; } = ShapeType.RoundedRectangle;
 
         private int rad = 5;
         public int Radius
@@ -151,7 +151,7 @@ namespace HeCopUI_Framework.Controls
                 case ShapeType.Circular:
                     g.FillEllipse(SB, new Rectangle(0, 0, Width, Height));
                     break;
-                case ShapeType.Rectangle:
+                case ShapeType.RoundedRectangle:
                     g.FillPath(SB, HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ClientRectangle, rad));
                     break;
             }

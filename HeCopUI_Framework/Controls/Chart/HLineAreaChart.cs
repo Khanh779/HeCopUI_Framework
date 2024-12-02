@@ -119,7 +119,8 @@ namespace HeCopUI_Framework.Controls.Chart
             try
             {
                 float offsetY = _titleFont.Height + 20;
-                float chartHeight = Height - offsetY - 20;
+                float offsetX = 40;
+                float chartHeight = Height - 30;
                 float chartWidth = Width - Width / 3; // Dành khoảng trống cho legend
 
                 List<object> xAxisLabels = dataItems.Items
@@ -133,25 +134,19 @@ namespace HeCopUI_Framework.Controls.Chart
                 //else if (sortMode == SortMode.Descending)
                 //    strOX.Sort((x, y) => y.ToString().CompareTo(x.ToString()));
 
-                float pointSpacing = chartWidth / (xAxisLabels.Count - 1);
+                float pointSpacing = chartWidth / (xAxisLabels.Count);
 
                 // Vẽ trục tọa độ
                 using (Pen axisPen = new Pen(AxisColor, 1))
                 {
-                    g.DrawLine(axisPen, 40, offsetY, 40, Height - 20); // Oy
-                    g.DrawLine(axisPen, 40, Height - 20, chartWidth, Height - 20); // Ox
+                    g.DrawLine(axisPen, offsetX, offsetY, offsetX, chartHeight); // Oy
+                    g.DrawLine(axisPen, offsetX, chartHeight, chartWidth, chartHeight); // Ox
 
                     // Hiển thị chỉ số trên Oy
                     using (Brush textBrush = new SolidBrush(_numbericChartColor))
                     {
-                        float step = _maximumValue / visibleNumberOy;
-                        for (int i = 0; i <= visibleNumberOy; i++)
-                        {
-                            float value = i * step;
-                            float y = Height - 20 - (value / _maximumValue * chartHeight);
-                            g.DrawString(value.ToString(), NumbericChartFont, textBrush, 10, y - 10 + NumbericChartFont.Size / 2);
-                            g.DrawLine(axisPen, 35, y, 40, y);
-                        }
+                        DrawOYLabels(g, axisPen, textBrush, _numbericChartFont, offsetX, offsetY, 30);
+                        DrawOXLabels(g, xAxisLabels, offsetX, offsetY, pointSpacing, textBrush, _numbericChartFont);
                     }
                 }
 
@@ -164,8 +159,8 @@ namespace HeCopUI_Framework.Controls.Chart
                     foreach (var label in xAxisLabels)
                     {
                         int index = xAxisLabels.IndexOf(label);
-                        float x = index * pointSpacing + (index == 0 ? 40 : 0);
-                        float y = Height - 20;
+                        float x = index * pointSpacing + offsetX;
+                        float y = chartHeight;
 
                         if (dataset.Data.TryGetValue(label, out float value))
                         {
@@ -201,12 +196,12 @@ namespace HeCopUI_Framework.Controls.Chart
                     float legendX = chartWidth + 20;
                     float legendY = 10;
                     float legendWidth = Width - legendX - 10;
-                    float legendHeight = Height - 20;
+                    float legendHeight = chartHeight;
                     float y = legendY + 10;
                     foreach (var dataset in dataItems.Items)
                     {
                         g.FillRectangle(new SolidBrush(dataset.Color), legendX + 10, y, 10, 10);
-                        g.DrawString(dataset.LegendText, LegendFont, new SolidBrush(NumbericChartColor), legendX + 40, y - LegendFont.Size / 2);
+                        g.DrawString(dataset.LegendText, LegendFont, new SolidBrush(NumbericChartColor), legendX + 20, y - LegendFont.Size / 2);
                         y += LegendFont.Height + 5;
                     }
                 }
@@ -218,5 +213,29 @@ namespace HeCopUI_Framework.Controls.Chart
 
             base.OnPaint(e);
         }
+
+
+        private void DrawOYLabels(Graphics g, Pen penOY, Brush brushOy, Font font, float offX, float offY, float offyh)
+        {
+            float tickSpacing = _maximumValue / visibleNumberOy;
+            for (int i = 0; i <= visibleNumberOy; i++)
+            {
+                float tickValue = i * tickSpacing;
+                float tickY = (Height - offyh) - ((tickValue / _maximumValue) * (Height - offY - offyh));
+                g.DrawString(tickValue.ToString(), font, brushOy, offX - g.MeasureString(tickValue.ToString(), font).Width - 10, tickY - font.Height / 2);
+                g.DrawLine(penOY, offX - 6, tickY, offX, tickY);
+            }
+        }
+
+        void DrawOXLabels(Graphics g, List<object> keys, float offX, float offY, float pointSpacing, Brush brush, Font font)
+        {
+            for (int i = 0; i < keys.Count; i++)
+            {
+                float x = offX + i * pointSpacing;
+                float y = Height - offY + 15;
+                g.DrawString(keys[i].ToString(), font, brush, x - g.MeasureString(keys[i].ToString(), font).Width / 2, y);
+            }
+        }
+
     }
 }

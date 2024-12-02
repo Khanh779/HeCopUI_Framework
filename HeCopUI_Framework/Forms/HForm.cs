@@ -602,19 +602,19 @@ namespace HeCopUI_Framework.Forms
                 {
                     int sc = 12;
                     using (SolidBrush closeBrush = new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.CloseBoxColor, CB.CloseBoxHoverColor, closestep)))
-                        g.FillPath(closeBrush, (CB.HoverColorShape == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ControlBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ControlBoxRect, sc));
+                        g.FillPath(closeBrush, (CB.HoverColorShape == ShapeType.RoundedRectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ControlBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(ControlBoxRect, sc));
 
                     if (MaximizeBox)
                         using (SolidBrush maximizeBrush = new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.MaximizeBoxColor, CB.MaximizeBoxHoverColor, maxstep)))
-                            g.FillPath(maximizeBrush, (CB.HoverColorShape == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MaximizeBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MaximizeBoxRect, sc));
+                            g.FillPath(maximizeBrush, (CB.HoverColorShape == ShapeType.RoundedRectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MaximizeBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MaximizeBoxRect, sc));
 
                     if (MinimizeBox)
                         using (SolidBrush minimizeBrush = new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.MinimizeBoxColor, CB.MinimizeBoxHoverColor, minstep)))
-                            g.FillPath(minimizeBrush, (CB.HoverColorShape == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, sc));
+                            g.FillPath(minimizeBrush, (CB.HoverColorShape == ShapeType.RoundedRectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, sc));
 
                     if (MaximizeBox == false)
                         using (SolidBrush minimizeBrush = new SolidBrush(HeCopUI_Framework.Helper.DrawHelper.BlendColor(CB.MinimizeBoxColor, CB.MinimizeBoxHoverColor, minstep)))
-                            g.FillPath(minimizeBrush, (CB.HoverColorShape == ShapeType.Rectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, sc));
+                            g.FillPath(minimizeBrush, (CB.HoverColorShape == ShapeType.RoundedRectangle) ? HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, 5) : HeCopUI_Framework.Helper.DrawHelper.GetRoundPath(MinimizeBoxRect, sc));
 
                     #region CB
                     g.PixelOffsetMode = PixelOffsetMode.Default;
@@ -705,7 +705,7 @@ namespace HeCopUI_Framework.Forms
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ControlsBox
     {
-        ShapeType sd = ShapeType.Rectangle;
+        ShapeType sd = ShapeType.RoundedRectangle;
         public ShapeType HoverColorShape
         {
             get { return sd; }

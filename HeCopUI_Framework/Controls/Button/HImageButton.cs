@@ -75,7 +75,7 @@ namespace HeCopUI_Framework.Controls.Button
             base.OnInvalidated(e);
         }
 
-        private ShapeType ShapeType = ShapeType.Rectangle;
+        private ShapeType ShapeType = ShapeType.RoundedRectangle;
         public ShapeType HShapeType
         {
             get { return ShapeType; }
@@ -99,7 +99,7 @@ namespace HeCopUI_Framework.Controls.Button
                 Brush brush = new TextureBrush(img);
                 switch (HShapeType)
                 {
-                    case ShapeType.Rectangle:
+                    case ShapeType.RoundedRectangle:
                         gp.AddRectangle(new RectangleF(0, 0, img.Width, img.Height));
                         break;
                     case ShapeType.Circular:

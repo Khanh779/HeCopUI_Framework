@@ -496,7 +496,7 @@ namespace HeCopUI_Framework.Forms
                 SizeF me = TextRenderer.MeasureText(btn.Text, btn.Font);
                 btn.Size = new Size((int)me.Width + 10, btn.Height);
                 btn.AutoSize = true;
-                btn.ShapeButtonType = ShapeType.Rectangle;
+                btn.ShapeButtonType = ShapeType.RoundedRectangle;
                 _MsgBox.flowLayoutPanel2.Controls.Add(btn);
             }
         }

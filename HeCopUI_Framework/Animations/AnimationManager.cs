@@ -1,10 +1,11 @@
-﻿namespace HeCopUI_Framework.Animations
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
+
+namespace HeCopUI_Framework.Animations
+{
     /// <summary>
     /// Defines the <see cref="AnimationManager" />
     /// </summary>
@@ -153,7 +154,8 @@
                         _animationProgresses.RemoveAt(i);
                         _animationSources.RemoveAt(i);
                         _animationDirections.RemoveAt(i);
-                        _animationDatas.RemoveAt(i);
+                        if (_animationDatas.Count > 0)
+                            _animationDatas.RemoveAt(i);
 
                         //_animationTimer.Dispose();
 
@@ -202,6 +204,17 @@
         public bool IsAnimating()
         {
             return _animationTimer.Enabled;
+        }
+
+        /// <summary>
+        /// Reset all animations
+        /// </summary>
+        public void ResetAll()
+        {
+            _animationProgresses.Clear();
+            _animationSources.Clear();
+            _animationDirections.Clear();
+            _animationDatas.Clear();
         }
 
         /// <summary>

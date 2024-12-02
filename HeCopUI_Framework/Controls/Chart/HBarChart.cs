@@ -4,6 +4,7 @@ using HeCopUI_Framework.Enums;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using Brush = System.Drawing.Brush;
@@ -59,7 +60,6 @@ namespace HeCopUI_Framework.Controls.Chart
 
         protected override void OnCreateControl()
         {
-            animationManager.StartNewAnimation(AnimationDirection.In);
             if (DesignMode)
             {
                 // Ví dụ mẫu đi
@@ -88,7 +88,7 @@ namespace HeCopUI_Framework.Controls.Chart
                 };
                 AddItems("Example 3", item3, Color.FromArgb(0, 168, 138));
             }
-
+            animationManager.StartNewAnimation(AnimationDirection.In);
             base.OnCreateControl();
         }
 
@@ -107,9 +107,8 @@ namespace HeCopUI_Framework.Controls.Chart
 
         public void AddItems(string legendText, Dictionary<object, float> items, System.Drawing.Color color)
         {
-            animationManager.StartNewAnimation(AnimationDirection.In);
             dataItem.Add(legendText, items, color);
-
+            animationManager.StartNewAnimation(AnimationDirection.In);
 
         }
 
@@ -134,7 +133,7 @@ namespace HeCopUI_Framework.Controls.Chart
                 if (a > maxValue)
                     maxValue = a;
             }
-            // Làm tròn lên đến số chia hết cho 10
+
             maxValue = Convert.ToSingle(Math.Ceiling(maxValue / 10) * 10 + 10);
 
             return maxValue;
@@ -142,161 +141,226 @@ namespace HeCopUI_Framework.Controls.Chart
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            // Tạo các biến để vẽ chart
             Graphics g = e.Graphics;
-            _maximumValue = (int)CalculateRoundedMaxValue();
-            //g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            _maximumValue = (int)CalculateRoundedMaxValue();
+
             try
             {
-                float locy = Height / 2 - ((dataItem.Items.Count + 1) * legendFont.Size);
-                string tooltipText = "";
-                int maxCount = 0;
-                int off_X_and_Y = 5;
                 float offY = _titleFont.Height + 20;
+                float offX = 40;
+                float offyh = 30;
+                float chartWidth = Width - (Width / 3);
+
                 using (Pen pen = new Pen(lineChart, 1))
-                using (Pen penOY = new Pen(new SolidBrush(LineChart), 1))
-                using (Brush brush = new SolidBrush(itemsColor))
-                using (Brush brushTitle = new SolidBrush(TitleColor))
-                using (Font oyf = new Font(_titleFont.Name, 10f))
+                using (Pen penOY = new Pen(LineChart, 1))
                 using (Brush brushOy = new SolidBrush(NumbericChartColor))
+                using (Brush brush = new SolidBrush(itemsColor))
+                using (Font oyFont = new Font(_titleFont.Name, 10f))
                 {
-                    float offyh = 20;
-                    float offx = 11 * _maximumValue.ToString().Length;
-                    float offcw = Width / 3;
-                    List<object> strOX = new List<object>();
-
-                    // Vẽ trục ngang Ox và trục dọc Oy của chart
-                    g.DrawLine(pen, offx, Height - offyh, Width - offcw, Height - offyh); //Ox
-                    g.DrawLine(pen, offx, Height - offyh, offx, offY);
-
-                    dataItem.Items.ForEach(x =>
-                    {
-                        for (int i = 0; i < x.Data.Keys.Count; i++)
-                            if (!strOX.Contains(x.Data.ElementAt(i).Key))
-                                strOX.Add(x.Data.ElementAt(i).Key.ToString());
-                    });
-
-                    if (sortMode == SortMode.Ascending)
-                        strOX.Sort();
-                    else if (sortMode == SortMode.Descending)
-                        strOX.Sort((x, y) => y.ToString().CompareTo(x.ToString()));
-                    //else if(sortMode == SortMode.None)
-
-
-                    maxCount = strOX.Count;
-
-                    // Hiển thị chỉ số trên trục OY
-                    float tickSpacing = _maximumValue / (visibleNumberOy);
-                    for (int i = 0; i <= visibleNumberOy; i++)
-                    {
-                        float tickValue = i * tickSpacing;
-                        float tickY = (Height - offyh) - ((tickValue / _maximumValue) * (Height - offY - offyh));
-                        PointF tickPos = new PointF(offx - e.Graphics.MeasureString(((tickValue)).ToString(), oyf).Width - 5, tickY - _titleFont.Height / 2);
-
-                        // Vẽ các chỉ số trên trục Oy
-                        g.DrawString(((float)(tickValue)).ToString(), oyf, brushOy, tickPos);
-                        g.DrawLine(penOY, offx - 6, tickY, offx, tickY);
-                    }
-
-
-                    PointF ttp = PointToClient(MousePosition);
-                    // Tính toán độ rộng của các cột dựa trên số lượng items và khoảng cách tùy chỉnh
-                    float totalSpacing = (dataItem.Items.Count - 1) * SpaceBetweenItems;
-                    float barWidth = (Width - offcw - offx - off_X_and_Y * 2 - 10 * 2 - totalSpacing) / maxCount;
-                    for (int i = 0; i < strOX.Count; i++)
-                    {
-                        //float tickX = (offx + 10) + ((i * (Width - Width / 3 - 2 - offx - 8*2 - off_X_and_Y*2)) / strOX.Count);
-                        float tickX = (offx + 5) + i * (barWidth + SpaceBetweenItems) + off_X_and_Y;
-                        PointF tickPos = new PointF(tickX - e.Graphics.MeasureString(strOX[i].ToString(), oyf).Width / 2, Height - offyh + 5);
-                        g.DrawString(strOX[i].ToString(), oyf, brushOy, tickPos);
-                    }
-                    for (int strX = 0; strX < strOX.Count; strX++)
-                    {
-                        float x = (offx) + strX * (barWidth + SpaceBetweenItems) + off_X_and_Y;
-                        float totalHeight = 0;
-                        float yt = 0;
-                        float dataValue = 0;
-                        for (int item = 0; item < dataItem.Items.Count; item++)
-                        {
-                            if (dataItem.Items.ElementAt(item).Data.ContainsKey(strOX[strX]))
-                            {
-                                dataValue += dataItem.Items[item].Data[strOX[strX]];
-                                float vl = dataItem.Items[item].Data[strOX[strX]];
-                                // Chỉnh sửa phần tính toán y và height tùy theo yêu cầu cụ thể của bạn
-                                float y = (float)((Height - offyh - totalHeight) - (vl / _maximumValue) * (Height - offyh - offY) * animationManager.GetProgress());
-                                float height = (float)((vl / _maximumValue) * (Height - offyh - offY) * animationManager.GetProgress());
-                                g.FillRectangle(new SolidBrush(dataItem.Items[item].Color), x, y, barWidth, height);
-                                g.DrawString(dataValue.ToString(), oyf, brush, x, y - oyf.Height);
-                                totalHeight += height;
-
-                            }
-                            yt = (float)((Height - offyh - totalHeight) * animationManager.GetProgress());
-                        }
-
-                        if (ttp.X >= x && ttp.X <= x + barWidth && ttp.Y >= yt && ttp.Y <= yt + totalHeight)
-                        {
-                            tooltipText = strOX[strX].ToString() + ": " + dataValue.ToString() + " (total)\n";
-                            for (int item = 0; item < dataItem.Items.Count; item++)
-                            {
-                                if (dataItem.Items.ElementAt(item).Data.ContainsKey(strOX[strX]))
-                                {
-                                    tooltipText += dataItem.Items[item].LegendText + ": " + dataItem.Items[item].Data[strOX[strX]].ToString() + "\n";
-                                }
-                            }
-                            continue;
-                        }
-
-                    }
-
-                    if (showTitle)
-                    {
-                        // Vẽ tiêu đề
-                        float tx = (TitleChartAlign == TitleChartAlign.TopLeft || TitleChartAlign == TitleChartAlign.BottomLeft) ? 0 : (TitleChartAlign == TitleChartAlign.TopCenter || TitleChartAlign == TitleChartAlign.BottomCenter) ? Width / 2 - g.MeasureString(title, _titleFont).Width / 2 :
-                                  (TitleChartAlign == TitleChartAlign.TopRight || TitleChartAlign == TitleChartAlign.BottomRight) ? Width - g.MeasureString(title, _titleFont).Width : 0;
-
-                        // Tạo float ty để vẽ tiêu đề theo chiều dọc, gồm 3 trường hợp: Top, Center, Bottom
-                        float ty = TitleChartAlign == TitleChartAlign.TopLeft ? 0 : TitleChartAlign == TitleChartAlign.TopCenter ? 0 : TitleChartAlign == TitleChartAlign.TopRight ? 0 :
-                                  (TitleChartAlign == TitleChartAlign.BottomLeft || TitleChartAlign == TitleChartAlign.BottomRight || TitleChartAlign == TitleChartAlign.BottomCenter) ? Height - g.MeasureString(title, _titleFont).Height : 0;
-
-                        g.DrawString(title, _titleFont, brushTitle, tx, ty);
-                    }
-
-                    g.DrawLine(new Pen(LineChart, 1), Width - offcw + 4, Height / 3f, Width - offcw + 4, Height - Height / 3f);
-
-                    for (int i = 0; i < dataItem.Items.Count; i++)
-                    {
-                        locy += legendFont.Height;
-                        g.FillRectangle(new SolidBrush(dataItem.Items[i].Color), new RectangleF(Width - offcw + 12, locy, 12, 12));
-                        g.DrawString(dataItem.Items[i].LegendText, legendFont, new SolidBrush(legenColor), new PointF(Width - offcw + 26, locy + 6 - legendFont.Height / 2));
-                    }
-
-                    if (hover && tooltipText != "")
-                    {
-                        var ttsi = g.MeasureString(tooltipText, toolTipFont);
-                        int offbh = 2;
-                        g.FillRectangle(new SolidBrush(Color.White), ttp.X - ttsi.Width / 2, ttp.Y - ttsi.Height - 5 - offbh, ttsi.Width + 4, ttsi.Height + 4);
-                        g.DrawRectangle(new Pen(Color.DimGray, 1), ttp.X - ttsi.Width / 2, ttp.Y - ttsi.Height - 5 - offbh, ttsi.Width + 4, ttsi.Height + 4);
-                        g.DrawString(tooltipText, toolTipFont, new SolidBrush(Color.DimGray), ttp.X - (ttsi.Width - 3) / 2, ttp.Y - (ttsi.Height + 3) - offbh);
-                    }
+                    DrawAxes(g, pen, offX, offY, offyh, chartWidth);
+                    var strOX = GetSortedKeys();
+                    DrawOYLabels(g, penOY, brushOy, oyFont, offX, offY, offyh);
+                    DrawOXLabels(g, strOX, offX +5, offY, chartWidth / strOX.Count, brush, oyFont);
+                    DrawBars(g, strOX, offX + 5, offY, offyh, chartWidth, brush, oyFont);
+                    DrawTitle(g, brush, chartWidth);
+                    DrawLegend(g, brush, chartWidth);
                 }
             }
             catch
             {
-                // Fill Rectangle màu Xám đậm và màu chữ trắng khi không có dữ liệu
                 g.FillRectangle(new SolidBrush(Color.FromArgb(50, 50, 50)), 0, 0, Width, Height);
-                g.DrawString("No Data", _titleFont, new SolidBrush(Color.White), Width / 2 - g.MeasureString("No Data", _titleFont).Width / 2, Height / 2 - g.MeasureString("No Data", _titleFont).Height / 2);
+                g.DrawString("No Data", _titleFont, new SolidBrush(Color.White), Width / 2, Height / 2);
             }
 
             base.OnPaint(e);
         }
 
-
-        bool isMouseHovered(float x, float y, float barWidth, float height)
+        private void DrawAxes(Graphics g, Pen pen, float offX, float offY, float offyh, float chartWidth)
         {
-            PointF ttp = PointToClient(MousePosition);
-            return ttp.X >= x && ttp.X <= x + barWidth && ttp.Y >= y && ttp.Y <= y + height;
+            g.DrawLine(pen, offX, Height - offyh, chartWidth, Height - offyh); // Ox
+            g.DrawLine(pen, offX, offY, offX, Height - offyh);                // Oy
         }
+
+        private List<object> GetSortedKeys()
+        {
+            var keys = new HashSet<object>();
+            dataItem.Items.ForEach(x => x.Data.Keys.ToList().ForEach(k => keys.Add(k)));
+            var sortedKeys = keys.ToList();
+            if (sortMode == SortMode.Ascending) sortedKeys.Sort();
+            else if (sortMode == SortMode.Descending) sortedKeys.Sort((x, y) => y.ToString().CompareTo(x.ToString()));
+            return sortedKeys;
+        }
+
+        void DrawOXLabels(Graphics g, List<object> keys, float offX, float offY, float pointSpacing, Brush brush, Font font)
+        {
+            for (int i = 0; i < keys.Count; i++)
+            {
+                float x = offX + i * pointSpacing;
+                float y = Height - offY + 15;
+                g.DrawString(keys[i].ToString(), font, brush, x - g.MeasureString(keys[i].ToString(), font).Width / 2, y);
+            }
+        }
+
+        private void DrawOYLabels(Graphics g, Pen penOY, Brush brushOy, Font font, float offX, float offY, float offyh)
+        {
+            float tickSpacing = _maximumValue / visibleNumberOy;
+            for (int i = 0; i <= visibleNumberOy; i++)
+            {
+                float tickValue = i * tickSpacing;
+                float tickY = (Height - offyh) - ((tickValue / _maximumValue) * (Height - offY - offyh));
+                g.DrawString(tickValue.ToString(), font, brushOy, offX - g.MeasureString(tickValue.ToString(), font).Width - 10, tickY - font.Height / 2);
+                g.DrawLine(penOY, offX - 6, tickY, offX, tickY);
+            }
+        }
+
+        private void DrawBars(Graphics g, List<object> keys, float offX, float offY, float offyh, float chartWidth, Brush brush, Font font)
+        {
+            PointF mousePos = PointToClient(MousePosition);
+            string tooltipText = string.Empty;
+
+            float barWidth = (chartWidth - offX) / keys.Count - SpaceBetweenItems;
+            float totalSpacing = keys.Count * SpaceBetweenItems;
+
+            for (int i = 0; i < keys.Count; i++)
+            {
+                float x = offX + i * (barWidth + SpaceBetweenItems);
+                float totalHeight = 0;
+                float dataValue = 0;
+
+                foreach (var item in dataItem.Items)
+                {
+                    if (!item.Data.ContainsKey(keys[i])) continue;
+
+                    float value = item.Data[keys[i]];
+                    dataValue += value;
+                    float height = (value / _maximumValue) * (Height - offyh - offY) * (float)animationManager.GetProgress();
+                    var abc = Height - offyh - height - totalHeight;
+                    g.FillRectangle(new SolidBrush(item.Color), x, abc, barWidth, height);
+                    totalHeight += height;
+                }
+
+                if (!DesignMode && mousePos.X >= x && mousePos.X <= x + barWidth && mousePos.Y >= Height - offyh - totalHeight && mousePos.Y <= Height - offyh)
+                {
+                    tooltipText = $"{keys[i]}: {dataValue} (total)\n";
+                    foreach (var item in dataItem.Items)
+                    {
+                        if (item.Data.ContainsKey(keys[i]))
+                        {
+                            tooltipText += $"{item.LegendText}: {item.Data[keys[i]]}\n";
+
+                        }
+                    }
+                    DrawTooltip(g, tooltipText);
+                }
+            }
+        }
+
+        public void RefreshData()
+        {
+            animationManager.ResetAll();
+            animationManager.StartNewAnimation(AnimationDirection.In);
+        }
+
+        private void DrawTitle(Graphics g, Brush brush, float chartWidth)
+        {
+            if (!showTitle) return;
+
+            float tx = (TitleChartAlign == TitleChartAlign.TopCenter) ? chartWidth / 2 - g.MeasureString(title, _titleFont).Width / 2 : 0;
+            g.DrawString(title, _titleFont, brush, tx, 0);
+        }
+
+        private void DrawLegend(Graphics g, Brush brush, float chartWidth)
+        {
+            float locy = Height / 2;
+            foreach (var item in dataItem.Items)
+            {
+                g.FillRectangle(new SolidBrush(item.Color), chartWidth + 12, locy, 12, 12);
+                g.DrawString(item.LegendText, legendFont, brush, chartWidth + 26, locy);
+                locy += legendFont.Height;
+            }
+        }
+
+
+
+        private void DrawTooltip(Graphics g, string tooltipText)
+        {
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            PointF mousePos = PointToClient(MousePosition);
+            SizeF textSize = g.MeasureString(tooltipText, toolTipFont);
+            int padding = 12;  // Padding lớn hơn
+            int cornerRadius = 12; // Góc bo tròn mượt mà
+            int shadowOffset = 6;  // Bóng đổ mạnh hơn
+            Color backgroundColor = Color.FromArgb(240, 255, 255, 255); // Nền trắng trong suốt nhẹ
+            Color borderColor = Color.FromArgb(100, 50, 50, 50); // Viền xám đậm
+
+            // Tính toán kích thước tooltip
+            RectangleF tooltipRect = new RectangleF(
+                mousePos.X - textSize.Width / 2 - padding,
+                mousePos.Y - textSize.Height - 30,
+                textSize.Width + padding * 2,
+                textSize.Height + padding * 2);
+
+            // Vẽ hiệu ứng bóng mờ Gaussian
+            RectangleF shadowRect = new RectangleF(
+                tooltipRect.X + shadowOffset,
+                tooltipRect.Y + shadowOffset,
+                tooltipRect.Width,
+                tooltipRect.Height);
+            using (GraphicsPath shadowPath = RoundedRect(shadowRect, cornerRadius))
+            using (PathGradientBrush shadowBrush = new PathGradientBrush(shadowPath))
+            {
+                shadowBrush.CenterColor = Color.FromArgb(60, 0, 0, 0); // Đậm ở giữa
+                shadowBrush.SurroundColors = new[] { Color.Transparent }; // Mờ dần ra ngoài
+                g.FillPath(shadowBrush, shadowPath);
+            }
+
+            // Vẽ nền tooltip với bo góc
+            using (GraphicsPath tooltipPath = RoundedRect(tooltipRect, cornerRadius))
+            using (Brush backgroundBrush = new SolidBrush(backgroundColor))
+            {
+                g.FillPath(backgroundBrush, tooltipPath);
+            }
+
+            // Vẽ viền cho tooltip
+            using (GraphicsPath tooltipPath = RoundedRect(tooltipRect, cornerRadius))
+            using (Pen borderPen = new Pen(borderColor, 1.8f))
+            {
+                g.DrawPath(borderPen, tooltipPath);
+            }
+
+            // Vẽ nội dung text (nổi bật với bóng)
+            using (Brush textBrush = new SolidBrush(Color.Black))
+            using (Brush shadowTextBrush = new SolidBrush(Color.FromArgb(100, 0, 0, 0)))
+            {
+                PointF textPos = new PointF(tooltipRect.X + padding, tooltipRect.Y + padding);
+
+                // Bóng chữ
+                g.DrawString(tooltipText, toolTipFont, shadowTextBrush, textPos.X + 1, textPos.Y + 1);
+
+                // Chữ chính
+                g.DrawString(tooltipText, toolTipFont, textBrush, textPos);
+            }
+            g.SmoothingMode = SmoothingMode.Default;
+        }
+
+        // Phương thức tạo hình chữ nhật bo góc
+        private GraphicsPath RoundedRect(RectangleF rect, int cornerRadius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            float arcSize = cornerRadius * 2;
+
+            // Vẽ các góc bo
+            path.AddArc(rect.X, rect.Y, arcSize, arcSize, 180, 90);
+            path.AddArc(rect.Right - arcSize, rect.Y, arcSize, arcSize, 270, 90);
+            path.AddArc(rect.Right - arcSize, rect.Bottom - arcSize, arcSize, arcSize, 0, 90);
+            path.AddArc(rect.X, rect.Bottom - arcSize, arcSize, arcSize, 90, 90);
+            path.CloseFigure();
+
+            return path;
+        }
+
+
 
 
         Font toolTipFont = DefaultFont;

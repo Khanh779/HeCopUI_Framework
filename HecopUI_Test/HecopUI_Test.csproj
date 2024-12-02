@@ -58,10 +58,6 @@
     <ApplicationIcon>icons8-star-50.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HeCopUI_Framework, Version=2.5.23.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Lib\HeCopUI_Framework\HeCopUI_Framework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -144,6 +140,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HeCopUI_Framework\HeCopUI_Framework.csproj">
+      <Project>{cc9c7e73-322f-4d73-b9f1-3cc19881432f}</Project>
+      <Name>HeCopUI_Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

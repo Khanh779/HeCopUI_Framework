@@ -2,7 +2,7 @@
 {
     public enum ShapeType
     {
-        Rectangle,
+        RoundedRectangle,
         Circular
     }
 }
