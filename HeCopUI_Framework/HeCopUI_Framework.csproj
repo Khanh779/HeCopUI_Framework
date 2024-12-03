@@ -151,9 +151,6 @@
     <Compile Include="Controls\Calendar\SimpleCalendarControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Chart\cuiChartLine.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Controls\Chart\HLineAreaChart.cs">
       <SubType>Component</SubType>
     </Compile>

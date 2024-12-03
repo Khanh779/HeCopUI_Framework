@@ -122,13 +122,14 @@ namespace HeCopUI_Framework.Controls.Chart
             animationManager.StartNewAnimation(AnimationDirection.In);
         }
 
+        SortMode sortMode = SortMode.None;
+        public SortMode SortMode { get => sortMode; set { sortMode = value; Invalidate(); } }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             _maximumValue = (int)CalculateRoundedMaxValue();
-
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-
 
             try
             {
@@ -137,20 +138,16 @@ namespace HeCopUI_Framework.Controls.Chart
                 float chartHeight = Height - 30;
                 float chartWidth = Width - Width / 3; // Dành khoảng trống cho legend
 
-                List<object> xAxisLabels = dataItems.Items
-                    .SelectMany(item => item.Data.Keys)
-                    .Distinct()
-                    .ToList();
+                List<object> xAxisLabels = dataItems.Items.SelectMany(item => item.Data.Keys).Distinct().ToList();
 
                 //xAxisLabels.Sort();
-                //if (sortMode == SortMode.Ascending)
-                //    strOX.Sort();
-                //else if (sortMode == SortMode.Descending)
-                //    strOX.Sort((x, y) => y.ToString().CompareTo(x.ToString()));
+                if (sortMode == SortMode.Ascending)
+                    xAxisLabels.Sort();
+                else if (sortMode == SortMode.Descending)
+                    xAxisLabels.Sort((x, y) => y.ToString().CompareTo(x.ToString()));
 
                 float pointSpacing = (chartWidth - offsetX) / (xAxisLabels.Count - 1);
 
-                // Vẽ trục tọa độ
                 using (Pen axisPen = new Pen(AxisColor, 1))
                 {
                     // Vẽ trục Oy và Ox
@@ -173,6 +170,8 @@ namespace HeCopUI_Framework.Controls.Chart
                     List<PointF> points = new List<PointF>();
                     List<PointF> gradientPoints = new List<PointF>();
 
+                    gradientPoints.Add(new PointF(offsetX, chartHeight));
+
                     foreach (var label in xAxisLabels)
                     {
                         int index = xAxisLabels.IndexOf(label);
@@ -180,14 +179,7 @@ namespace HeCopUI_Framework.Controls.Chart
                         float y = chartHeight;
 
                         if (dataset.Data.TryGetValue(label, out float value))
-                        {
                             y -= (value / _maximumValue) * (chartHeight - offsetY) * (float)animationManager.GetProgress();
-                        }
-
-                        using (Brush pointBrush = new SolidBrush(dataset.Color))
-                        {
-                            g.FillEllipse(pointBrush, x - 3, y - 3, 6, 6);
-                        }
 
                         points.Add(new PointF(x, y));
 
@@ -198,37 +190,44 @@ namespace HeCopUI_Framework.Controls.Chart
                         switch (lineChartType)
                         {
                             case LineChartType.Line:
-                                g.DrawLines(linePen, points.ToArray());
-
                                 if (useGradientBackground)
                                 {
-                                    using (GraphicsPath path = new GraphicsPath())
+                                    gradientPoints.AddRange(points);
+                                    gradientPoints.Add(new PointF(points[points.Count - 1].X, chartHeight));
+                                    using (LinearGradientBrush brush = new LinearGradientBrush(new PointF(offsetX, chartHeight), new PointF(offsetX, 0), Color.FromArgb(50, dataset.Color), Color.Transparent))
                                     {
-                                        // Kết hợp các điểm với gradientPoints để tạo thành vùng nền
-                                        gradientPoints.AddRange(points);
-                                        path.AddLines(gradientPoints.ToArray());
-
-                                        // Tạo gradient màu xanh lá cây mờ dần
-                                        using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
-                                            new PointF(offsetX, chartHeight), new PointF(offsetX, points[0].Y),
-                                            Color.FromArgb(100, dataset.Color), Color.Transparent)) // Màu xanh lá mờ
-                                        {
-                                            g.FillPath(gradientBrush, path); // Fill gradient dưới đường cong
-                                        }
+                                        g.FillPolygon(brush, gradientPoints.ToArray());
                                     }
                                 }
+                                g.DrawLines(linePen, points.ToArray());
+
 
                                 break;
                             case LineChartType.Curve:
+                                if (useGradientBackground)
+                                {
+                                    using (GraphicsPath gp = new GraphicsPath())
+                                    {
+                                        gp.AddLine(new PointF(offsetX, chartHeight), points[0]);
+                                        gp.AddCurve(points.ToArray());
+                                        gp.AddLine(points[points.Count - 1], new PointF(chartWidth, chartHeight));
+                                        using (LinearGradientBrush brush = new LinearGradientBrush(gp.GetBounds(), Color.FromArgb(50, dataset.Color), Color.Transparent, LinearGradientMode.Vertical))
+                                        {
+                                            g.FillPath(brush, gp);
+                                        }
+                                    }
+                                }
                                 g.DrawCurve(linePen, points.ToArray());
-
-
 
                                 break;
                             case LineChartType.Bezier:
+
                                 if (points.Count > 3)
                                 {
-                                    for (int i = 0; i < points.Count - 3; i++)
+                                    GraphicsPath path = new GraphicsPath(); // GraphicsPath tái sử dụng
+                                    LinearGradientBrush brush = null;
+
+                                    for (int i = 0; i <= points.Count - 4; i += 3) // Bước nhảy là 3
                                     {
                                         PointF[] bezierPoints = new PointF[]
                                         {
@@ -237,12 +236,38 @@ namespace HeCopUI_Framework.Controls.Chart
                                             points[i + 2],
                                             points[i + 3]
                                         };
-                                        g.DrawBeziers(linePen, bezierPoints); // Vẽ đường Bezier
+
+                                        path.Reset();
+                                        path.AddBeziers(bezierPoints);
+
+                                        if (useGradientBackground)
+                                        {
+                                            path.AddLine(bezierPoints[bezierPoints.Length - 1], new PointF(chartWidth, chartHeight));
+                                            path.AddLine(new PointF(offsetX, chartHeight), bezierPoints[0]);
+
+                                            brush = new LinearGradientBrush(path.GetBounds(), Color.FromArgb(50, dataset.Color), Color.Transparent, LinearGradientMode.Vertical);
+
+                                            g.FillPath(brush, path);
+                                        }
+
+                                        g.DrawCurve(linePen, bezierPoints);
+                                        g.DrawBeziers(linePen, bezierPoints);
+
                                     }
+
+                                    path.Dispose();
+                                    brush?.Dispose();
                                 }
+
                                 break;
                         }
-
+                        using (Brush pointBrush = new SolidBrush(dataset.Color))
+                        {
+                            foreach (var point in points)
+                            {
+                                g.FillEllipse(pointBrush, point.X - 3, point.Y - 3, 6, 6);
+                            }
+                        }
                     }
                 }
 
@@ -273,7 +298,8 @@ namespace HeCopUI_Framework.Controls.Chart
             }
             catch (Exception ex)
             {
-                g.DrawString($"Error: {ex.Message}", _titleFont, Brushes.Red, 10, 10);
+                g.FillRectangle(new SolidBrush(Color.FromArgb(50, 50, 50)), 0, 0, Width, Height);
+                g.DrawString("No Data", _titleFont, new SolidBrush(Color.White), Width / 2, Height / 2);
             }
 
             base.OnPaint(e);
