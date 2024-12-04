@@ -6,7 +6,6 @@ namespace HeCopUI_Framework.Controls.Chart.Model
 {
     public class DataItems
     {
-        // Tôi muốn bạn tạo các thuộc tính cho các loại biểu đồ khác nhau ở đây
         public DataItems()
         {
             Items = new List<Items>();
@@ -32,12 +31,10 @@ namespace HeCopUI_Framework.Controls.Chart.Model
 
         public bool IsItemExists(List<Items> items, string key)
         {
-            // Kiểm tra xem có Items nào có chứa key giống nhau hay không
             return items.Any(existingItem =>
                 existingItem.Data.Keys.Contains(key));
         }
 
-        // Tạo một hàm thêm dữ liệu cho biểu đồ có Dictionary, List<int, double> và Color
         public void Add(string legendText, Dictionary<object, float> items, Color color)
         {
             Items itema = new Items() { LegendText = legendText, Data = items, Color = color };

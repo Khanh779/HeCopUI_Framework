@@ -168,9 +168,10 @@ namespace HeCopUI_Framework.Controls.Chart
                 foreach (var dataset in dataItems.Items)
                 {
                     List<PointF> points = new List<PointF>();
-                    List<PointF> gradientPoints = new List<PointF>();
-
-                    gradientPoints.Add(new PointF(offsetX, chartHeight));
+                    List<PointF> gradientPoints = new List<PointF>
+                    {
+                        new PointF(offsetX, chartHeight)
+                    };
 
                     foreach (var label in xAxisLabels)
                     {
@@ -296,7 +297,7 @@ namespace HeCopUI_Framework.Controls.Chart
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 g.FillRectangle(new SolidBrush(Color.FromArgb(50, 50, 50)), 0, 0, Width, Height);
                 g.DrawString("No Data", _titleFont, new SolidBrush(Color.White), Width / 2, Height / 2);
