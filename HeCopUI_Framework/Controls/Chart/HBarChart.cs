@@ -276,7 +276,7 @@ namespace HeCopUI_Framework.Controls.Chart
             foreach (var item in dataItem.Items)
             {
                 g.FillRectangle(new SolidBrush(item.Color), chartWidth + 12, locy, 12, 12);
-                g.DrawString(item.LegendText, legendFont, brush, chartWidth + 26, locy);
+                g.DrawString(item.LegendText, legendFont, brush, chartWidth + 26, locy - 2);
                 locy += legendFont.Height;
             }
         }
