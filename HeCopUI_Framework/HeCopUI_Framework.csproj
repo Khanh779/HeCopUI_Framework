@@ -260,9 +260,6 @@
     <Compile Include="Controls\Picker\HMontCalendar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Chart\FoldLineDiagram.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\Button\HTileSubtitleButton.cs">
       <SubType>Component</SubType>
     </Compile>

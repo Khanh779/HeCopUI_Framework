@@ -294,14 +294,12 @@ namespace HeCopUI_Framework.Controls.Chart
             Color backgroundColor = Color.FromArgb(240, 255, 255, 255); // Nền trắng trong suốt nhẹ
             Color borderColor = Color.FromArgb(100, 50, 50, 50); // Viền xám đậm
 
-            // Tính toán kích thước tooltip
             RectangleF tooltipRect = new RectangleF(
                 mousePos.X - textSize.Width / 2 - padding,
                 mousePos.Y - textSize.Height - 30,
                 textSize.Width + padding * 2,
                 textSize.Height + padding * 2);
 
-            // Vẽ hiệu ứng bóng mờ Gaussian
             RectangleF shadowRect = new RectangleF(
                 tooltipRect.X + shadowOffset,
                 tooltipRect.Y + shadowOffset,
@@ -310,47 +308,39 @@ namespace HeCopUI_Framework.Controls.Chart
             using (GraphicsPath shadowPath = RoundedRect(shadowRect, cornerRadius))
             using (PathGradientBrush shadowBrush = new PathGradientBrush(shadowPath))
             {
-                shadowBrush.CenterColor = Color.FromArgb(60, 0, 0, 0); // Đậm ở giữa
-                shadowBrush.SurroundColors = new[] { Color.Transparent }; // Mờ dần ra ngoài
+                shadowBrush.CenterColor = Color.FromArgb(60, 0, 0, 0);
+                shadowBrush.SurroundColors = new[] { Color.Transparent };
                 g.FillPath(shadowBrush, shadowPath);
             }
 
-            // Vẽ nền tooltip với bo góc
             using (GraphicsPath tooltipPath = RoundedRect(tooltipRect, cornerRadius))
             using (Brush backgroundBrush = new SolidBrush(backgroundColor))
             {
                 g.FillPath(backgroundBrush, tooltipPath);
             }
 
-            // Vẽ viền cho tooltip
             using (GraphicsPath tooltipPath = RoundedRect(tooltipRect, cornerRadius))
             using (Pen borderPen = new Pen(borderColor, 1.8f))
             {
                 g.DrawPath(borderPen, tooltipPath);
             }
 
-            // Vẽ nội dung text (nổi bật với bóng)
             using (Brush textBrush = new SolidBrush(Color.Black))
             using (Brush shadowTextBrush = new SolidBrush(Color.FromArgb(100, 0, 0, 0)))
             {
                 PointF textPos = new PointF(tooltipRect.X + padding, tooltipRect.Y + padding);
-
-                // Bóng chữ
                 g.DrawString(tooltipText, toolTipFont, shadowTextBrush, textPos.X + 1, textPos.Y + 1);
 
-                // Chữ chính
                 g.DrawString(tooltipText, toolTipFont, textBrush, textPos);
             }
             g.SmoothingMode = SmoothingMode.Default;
         }
 
-        // Phương thức tạo hình chữ nhật bo góc
         private GraphicsPath RoundedRect(RectangleF rect, int cornerRadius)
         {
             GraphicsPath path = new GraphicsPath();
             float arcSize = cornerRadius * 2;
 
-            // Vẽ các góc bo
             path.AddArc(rect.X, rect.Y, arcSize, arcSize, 180, 90);
             path.AddArc(rect.Right - arcSize, rect.Y, arcSize, arcSize, 270, 90);
             path.AddArc(rect.Right - arcSize, rect.Bottom - arcSize, arcSize, arcSize, 0, 90);
@@ -366,20 +356,7 @@ namespace HeCopUI_Framework.Controls.Chart
         Font toolTipFont = DefaultFont;
         public Font ToolTipFont { get => toolTipFont; set { toolTipFont = value; Invalidate(); } }
 
-        bool hover = false;
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            hover = true;
-            Invalidate();
-            base.OnMouseEnter(e);
-        }
 
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            hover = false;
-            Invalidate();
-            base.OnMouseLeave(e);
-        }
 
         protected override void OnMouseMove(MouseEventArgs e)
         {

@@ -12,21 +12,6 @@ namespace HeCopUI_Framework.Controls.Chart.Model
 
         }
 
-        public bool isExists(object key, int index)
-        {
-            bool isExists = false;
-            foreach (var kvp in Items[index].Data)
-            {
-                if (kvp.Key == key)
-                {
-                    isExists = true;
-                    break;
-                }
-
-            }
-            return isExists;
-        }
-
         public List<Items> Items = new List<Items>();
 
         public bool IsItemExists(List<Items> items, string key)
