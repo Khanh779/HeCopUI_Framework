@@ -110,11 +110,25 @@ namespace HeCopUI_Framework.Controls.Chart
         }
 
         LineChartType lineChartType = LineChartType.Line;
-        public LineChartType LineChartType { get => lineChartType; set { lineChartType = value; Invalidate(); } }
+        public LineChartType LineChartType { get => lineChartType; 
+            set 
+            { 
+                lineChartType = value;
+                animationManager.ResetAll();
+                animationManager.StartNewAnimation(AnimationDirection.In);
+                Invalidate(); 
+            } 
+        }
 
 
         bool useGradientBackground = false;
-        public bool UseGradientBackground { get => useGradientBackground; set { useGradientBackground = value; Invalidate(); } }
+        public bool UseGradientBackground { get => useGradientBackground; 
+            set 
+            { 
+                useGradientBackground = value;
+                Invalidate(); 
+            } 
+        }
 
         public void RefreshData()
         {
